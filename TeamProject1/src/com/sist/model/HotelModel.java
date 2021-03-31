@@ -8,6 +8,7 @@ import javax.servlet.http.HttpServletResponse;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 import com.sist.dao.HotelDAO;
+import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelVO;
 
 
@@ -19,8 +20,8 @@ public class HotelModel {
 		String cno=request.getParameter("cno");
 		// DAO연결
 		HotelDAO dao=HotelDAO.newInstance(); // 오라클 연동
-		List<HotelVO> list=dao.HotelListData(Integer.parseInt(cno));
-		HotelVO vo=dao.HotelInfoData(Integer.parseInt(cno));
+		List<HotelVO> list=dao.HotelData(Integer.parseInt(cno));
+		HotelCategoryVO vo=dao.HotelInfoData(Integer.parseInt(cno));
 		request.setAttribute("list", list);
 		request.setAttribute("vo", vo);
 		request.setAttribute("main_jsp", "../hotel/list.jsp");

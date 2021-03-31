@@ -4,6 +4,7 @@ package com.sist.dao;
 import java.util.*;
 import javax.sql.*;
 
+import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelVO;
 
 import java.sql.*;
@@ -44,9 +45,9 @@ public class HotelDAO {
 		return dao;	
 	}
 	// Category 읽기
-	public List<HotelVO> HotelListData(int cno)
+	public List<HotelCategoryVO> HotelListData()
 	  {
-		  ArrayList<HotelVO> list=new ArrayList<HotelVO>();
+		  List<HotelCategoryVO> list=new ArrayList<HotelCategoryVO>();
 		  try
 		  {
 			  getConnection();
@@ -58,7 +59,7 @@ public class HotelDAO {
 			  ResultSet rs=ps.executeQuery();
 			  while(rs.next())
 			  {
-				  HotelVO vo=new HotelVO();
+				  HotelCategoryVO vo=new HotelCategoryVO();
 				  vo.setNo(rs.getInt(1));
 				  vo.setPoster(rs.getString(2));
 				  vo.setTitle(rs.getString(3));
@@ -81,15 +82,15 @@ public class HotelDAO {
 		  return list;
 	  }
 	// Category Data
-	/*
-	public List<HotelVO> HotelCategoryData(int cno)
+	
+	public List<HotelVO> HotelData(int cno)
 	{
 		List<HotelVO> list=new ArrayList<HotelVO>();
 		try
 		{
 			getConnection();
-			String sql="SELECT poster,title,address,no,score "
-					  +"FROM Hotel_house "
+			String sql="SELECT no,poster,title,star,grade,addr,category,price "
+					  +"FROM hotel_detail "
 					  +"WHERE cno=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, cno);
@@ -97,11 +98,14 @@ public class HotelDAO {
 			while(rs.next())
 			{
 				HotelVO vo=new HotelVO();
-				vo.setPoster(rs.getString(1));
-				vo.setTitle(rs.getString(2));
-				vo.setAddress(rs.getString(3));
-				vo.setNo(rs.getInt(4));
-				vo.setScore(rs.getInt(5));
+				  vo.setNo(rs.getInt(1));
+				  vo.setPoster(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
+				  vo.setStar(rs.getString(4));
+				  vo.setGrade(rs.getString(5));
+				  vo.setAddr(rs.getString(6));
+				  vo.setCategory(rs.getString(7));
+				  vo.setPrice(rs.getString(8));
 				list.add(vo);
 			}
 			rs.close();
@@ -115,15 +119,15 @@ public class HotelDAO {
 		}
 		return list;
 	}
-	*/
-	public HotelVO HotelInfoData(int cno)
+	
+	public HotelCategoryVO HotelInfoData(int cno)
 	{
-		HotelVO vo=new HotelVO();
+		HotelCategoryVO vo=new HotelCategoryVO();
 		try
 		{
 			getConnection();
 			String sql="SELECT category "
-					  +"FROM Hotel_detail "
+					  +"FROM hotel_detail "
 					  +"WHERE no=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, cno);

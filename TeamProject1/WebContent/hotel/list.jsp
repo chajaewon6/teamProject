@@ -1,7 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
-<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
+
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -97,7 +97,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <h2 style="color:#00D8FF">${vo.category }</h2>
+                            <h2 style="color:#00D8FF">강남</h2>
                         </div>
                     </div>
                 </div>
@@ -135,6 +135,7 @@
                         </div>
                         
                     </div>
+                    
                     	</c:forEach>
                    
                 </div>
