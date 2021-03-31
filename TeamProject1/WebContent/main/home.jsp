@@ -31,10 +31,6 @@
 	height:100%;
 	object-fit:cover;
 }
-
-.home-blog-single{
-
-}
 </style>
 </head>
 <body>

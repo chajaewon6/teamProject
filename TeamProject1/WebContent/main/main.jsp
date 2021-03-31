@@ -119,9 +119,10 @@
         <!-- Header End -->
     </header>
    <!-- 내용 들어가는 위치 -->
-    <jsp:include page="home.jsp"></jsp:include>
+    <jsp:include page="home.jsp"></jsp:include> 
+ 
+    <!-- Footer Start-->
      <footer>
-        <!-- Footer Start-->
         <div class="footer-area footer-padding footer-bg" data-background="../img/service/footer_bg.jpg">
             <div class="container">
                 <div class="row d-flex justify-content-between">
