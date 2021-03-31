@@ -19,7 +19,7 @@ public class tripModel {
 	 	String cno=request.getParameter("cno");
 	 	// DAO 연결
 	 	TripDetailDAO dao=TripDetailDAO.newInstance();
-	 	List<TripVO> list=dao.tripDetailData(Integer.parseInt(cno));
+	 	List<TripVO> list=dao.tripInfolData(Integer.parseInt(cno));
 	 	
 	 	request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../trip/trip_detail.jsp"); 

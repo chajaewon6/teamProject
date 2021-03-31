@@ -43,7 +43,7 @@ public class TripDetailDAO {
 			   
 	   }
 	   
-	   public List<TripVO> tripDetailData(int cno)
+	   public List<TripVO> tripInfolData(int cno)
 	   {
 		   List<TripVO> list=new ArrayList<TripVO>();
 		   try
