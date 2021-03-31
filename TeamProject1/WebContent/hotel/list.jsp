@@ -17,23 +17,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
-
-		<!-- CSS here -->
-            <link rel="stylesheet" href="../css/bootstrap.min.css">
-            <link rel="stylesheet" href="../css/owl.carousel.min.css">
-            <link rel="stylesheet" href="../css/flaticon.css">
-            <link rel="stylesheet" href="../css/slicknav.css">
-            <link rel="stylesheet" href="../css/animate.min.css">
-            <link rel="stylesheet" href="../css/magnific-popup.css">
-            <link rel="stylesheet" href="../css/fontawesome-all.min.css">
-            <link rel="stylesheet" href="../css/themify-icons.css">
-            <link rel="stylesheet" href="../css/slick.css">
-            <link rel="stylesheet" href="../css/nice-select.css">
-            <link rel="stylesheet" href="../css/style.css">
-            <!-- bootstrap -->
-         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
-		 
-            
+  
    </head>
 
    <body>
@@ -83,38 +67,7 @@
                                   <a href="index.html"><img src="../img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
-                            <div class="col-xl-10 col-lg-10 col-md-10">
-                                <!-- Main-menu -->
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>               
-                                        <ul id="navigation">                                                                                                                                     
-                                           <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">지역별관광지</a>
-                                            <ul class="submenu">
-                                                    <li><a href="blog.html">광화문</a></li>
-                                                    <li><a href="single-blog.html">명동</a></li>
-                                                    <li><a href="blog.html">동대문</a></li>
-                                                    <li><a href="single-blog.html">홍대</a></li>
-                                                    <li><a href="blog.html">여의도</a></li>
-                                                    <li><a href="single-blog.html">이태원</a></li>
-                                                    <li><a href="blog.html">강남</a></li>
-                                                    <li><a href="single-blog.html">잠실</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="packages.html">나의 일정 만들기</a></li>
-                                            <li><a href="blog.html">다른 일정 둘러보기</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">지역별</a></li>
-                                                    <li><a href="single-blog.html">장소별</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">숙박예약</a>
-                                            </li>
-                                            <li><a href="contact.html">마이페이지</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
+                            
         <!-- Header End -->
     </header>
 
@@ -130,86 +83,6 @@
                                 <h2>호텔 예약</h2>
                             </div>
                         </div>
-                            <!-- searchform -->
-                            <!--  
-                            <div class="row tm-banner-row" id="tm-section-search">
-
-                            <form action="index.html" method="get" class="tm-search-form tm-section-pad-2">
-                                <div class="form-row tm-search-form-row">                                
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="inputCity">호텔명</label>
-                                        <input name="destination" type="text" class="form-control" id="inputCity" placeholder="호텔명을 입력하세요...">
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-1">                                    
-                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-2">
-                                            <label for="inputRoom">방 개수</label>
-                                            <select name="room" class="form-control tm-select" id="inputRoom">
-                                                <option value="1" selected>1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>                                        
-                                        </div>
-                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">                                       
-                                            <label for="inputAdult">성인</label>     
-                                            <select name="adult" class="form-control tm-select" id="inputAdult">
-                                                <option value="1" selected>1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                                <option value="10">10</option>
-                                            </select>                                        
-                                        </div>
-                                        <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-
-                                            <label for="inputChildren">유아</label>                                            
-                                            <select name="children" class="form-control tm-select" id="inputChildren">
-                                            	<option value="0" selected>0</option>
-                                                <option value="1">1</option>
-                                                <option value="2">2</option>
-                                                <option value="3">3</option>
-                                                <option value="4">4</option>
-                                                <option value="5">5</option>
-                                                <option value="6">6</option>
-                                                <option value="7">7</option>
-                                                <option value="8">8</option>
-                                                <option value="9">9</option>
-                                            </select>                                        
-                                        </div>
-                                    </div>
-                                </div> 
-                                <div class="form-row tm-search-form-row">
-
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckIn">체크인 날짜</label>
-                                        <input name="check-in" type="text" class="form-control" id="inputCheckIn" placeholder="Check In">
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-3">
-                                        <label for="inputCheckOut">체크아웃 날짜</label>
-                                        <input name="check-out" type="text" class="form-control" id="inputCheckOut" placeholder="Check Out">
-                                    </div>
-                                    <div class="form-group tm-form-group tm-form-group-pad tm-form-group-1">
-                                        <label for="btnSubmit">&nbsp;</label>
-                                        <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">Search</button>
-                                    </div>
-                                </div>                              
-                            </form>                             
-
-                        </div>
-                        -->
-                        
                     </div>
                 </div>
             </div>
@@ -224,7 +97,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <h2 style="color:#00D8FF">#강남</h2>
+                            <h2 style="color:#00D8FF">${vo.category }</h2>
                         </div>
                     </div>
                 </div>
@@ -234,40 +107,35 @@
 										    <a href="#" class="btn btn btn-sm">높은 가격순</a>
 									 
                 <div class="row">
-                		<%
-						           for(HotelVO vo:list)
-						           {
-       							%>
+                	<c:forEach var="fvo" items="${list }">
        							
                     <div class="col-xl-4 col-lg-4 col-md-6">
                     
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="<%=vo.getPoster() %>" alt="">
+                                <img src="${fvo.poster }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
                                     <span><i class="fas fa-star"></i>
-                                    <span><%=vo.getStar() %></span> 
+                                    <span>${fvo.star }</span> 
                                     </span>
                                     </div>
-                                    <h3><a href="#"><%=vo.getTitle() %></a></h3>
-                                    <p class="dolor"><%=vo.getGrade() %> <span>/<%=vo.getPrice() %></span></p>
+                                    <h3><a href="#">${fvo.title }</a></h3>
+                                    <p class="dolor">${fvo.grade } <span>/${fvo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
-                                        <li><i class="fas fa-map-marker-alt"></i><%=vo.getAddr() %></li>
+                                        <li><i class="fas fa-map-marker-alt"></i>${fvo.addr }</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                         
                     </div>
-                    		<%
-						           			}
-                        %>
+                    	</c:forEach>
                    
                 </div>
             </div>
@@ -382,42 +250,5 @@
         <!-- Footer End-->
  
     </footer>
-
-	<!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="./../js/vendor/modernizr-3.5.0.min.js"></script>
-		
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="./../js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="./../js/popper.min.js"></script>
-        <script src="./../js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="./../js/jquery.slicknav.min.js"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="./../js/owl.carousel.min.js"></script>
-        <script src="./../js/slick.min.js"></script>
-		<!-- One Page, Animated-HeadLin -->
-        <script src="./../js/wow.min.js"></script>
-		<script src="./../js/animated.headline.js"></script>
-        <script src="./../js/jquery.magnific-popup.js"></script>
-
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="./../js/jquery.scrollUp.min.js"></script>
-        <script src="./../js/jquery.nice-select.min.js"></script>
-		<script src="./../js/jquery.sticky.js"></script>
-        
-        <!-- contact js -->
-        <script src="./../js/contact.js"></script>
-        <script src="./../js/jquery.form.js"></script>
-        <script src="./../js/jquery.validate.min.js"></script>
-        <script src="./../js/mail-script.js"></script>
-        <script src="./../js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="./../js/plugins.js"></script>
-        <script src="./../js/main.js"></script>
-        
     </body>
 </html>

@@ -23,7 +23,7 @@ public class HotelModel {
 		HotelVO vo=dao.HotelInfoData(Integer.parseInt(cno));
 		request.setAttribute("list", list);
 		request.setAttribute("vo", vo);
-		request.setAttribute("main_jsp", "../food/food_category.jsp");
+		request.setAttribute("main_jsp", "../hotel/list.jsp");
 		return "../main/main.jsp";
 	}
 }

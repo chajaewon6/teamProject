@@ -100,6 +100,17 @@
                                             </li>
                                              
                                             <li><a href="#">숙박예약</a>
+                                            <ul class="submenu">
+                                                    <li><a href="blog.html">강남/역삼/삼성/신사/청담</a></li>
+                                                    <li><a href="single-blog.html">서초/교대</a></li>
+                                                    <li><a href="blog.html">잠실/송파/왕십리/강동</a></li>
+                                                    <li><a href="single-blog.html">을지로/시청/명동</a></li>
+                                                    <li><a href="blog.html">종로/인사동/동대문/강북</a></li>
+                                                    <li><a href="single-blog.html">서울역/이태원/용산</a></li>
+                                                    <li><a href="blog.html">마포/홍대/신촌/서대문</a></li>
+                                                    <li><a href="single-blog.html">영등포/여의도/김포공항</a></li>
+                                                    <li><a href="single-blog.html">구로/금천/관악/동작</a></li>
+                                                </ul>
                                             </li>
                                         
                                             <li><a href="contact.html">마이페이지</a></li>
