@@ -23,6 +23,8 @@
             <link rel="stylesheet" href="../css/slick.css">
             <link rel="stylesheet" href="../css/nice-select.css">
             <link rel="stylesheet" href="../css/style.css">
+            <!-- bootstrap -->
+         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
    </head>
 
    <body>
