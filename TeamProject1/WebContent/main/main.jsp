@@ -119,7 +119,7 @@
         <!-- Header End -->
     </header>
    <!-- 내용 들어가는 위치 -->
-    <jsp:include page="home.jsp"></jsp:include> 
+    <jsp:include page="${main_jsp }"></jsp:include>
  
     <!-- Footer Start-->
      <footer>

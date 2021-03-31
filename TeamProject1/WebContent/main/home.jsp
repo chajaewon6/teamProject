@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -98,10 +99,12 @@
                     </div>
                 </div>
                 <div class="row">
+                
+                <c:forEach var="vo" items="${mList }">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRlZBU8vrpUp-0HpwHepK-swJP3_GK3lK4chQ&usqp=CAU" alt="">
+                                <img src="${vo.poster }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
@@ -116,9 +119,11 @@
                                     </ul>
                                 </div>
                             </div>
-                        </div>
+                        </div>      
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    </c:forEach>
+                    
+                    <!-- <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
                                 <img src="https://lh3.googleusercontent.com/proxy/v1lffWqc0CqZXM-l0VSAIgjJJfTQol6JliZGebLQC6xHhUlRSwfki_9HM5muiCepMASRWW_6bldEmcE8i09LyrqQKsuNPvwjmGHl5tKCf06lKQV_kWbQ" alt="">
@@ -277,7 +282,7 @@
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    </div> -->
                 </div>
             </div>
         </div>
