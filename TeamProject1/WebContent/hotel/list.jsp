@@ -1,19 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
-    pageEncoding="UTF-8" import="java.util.*,com.hotel.dao.*"%>
-<%
-    // 오라클로 부터 출력할 데이터를 읽어 온다 
-    HotelDAO dao=new HotelDAO();
-    ArrayList<HotelVO> list=dao.HotelListData();
-    /* for(HotelVO vo:list)
-    {
-    	String s=vo.getTitle();
-    	if(s.length()>20)
-    	{
-    		s=s.substring(0,20)+"...";
-    	}
-    	vo.setTitle(s);
-    } */
-%>
+    pageEncoding="UTF-8" import="java.util.*,com.sist.dao.*"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
