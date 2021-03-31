@@ -48,21 +48,30 @@ public class TripDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, cno, poster, title, addr "
-					+"FROM tripdetail ";
-			ps=conn.prepareStatement(sql);
-			ResultSet rs=ps.executeQuery();
-			while(rs.next())
+			for(int i=1; i<=9; i++)
 			{
-				TripVO vo=new TripVO();
-				vo.setNo(rs.getInt(1));
-				vo.setCno(rs.getInt(2));
-				vo.setPoster(rs.getString(3));
-				vo.setTitle(rs.getString(4));
-				vo.setAddr(rs.getString(5));
-				list.add(vo);
+				String sql="SELECT no, cno, poster, title, addr,rownum "
+						+"FROM (SELECT no, cno, poster, title, addr "
+						+"FROM tripdetail WHERE cno="+i+") "
+						+"WHERE rownum=1 "
+						+"ORDER BY no ASC";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					TripVO vo=new TripVO();
+					vo.setNo(rs.getInt(1));
+					vo.setCno(rs.getInt(2));
+					vo.setPoster(rs.getString(3));
+					vo.setTitle(rs.getString(4));
+					vo.setAddr(rs.getString(5));
+					list.add(vo);
+				}
+				rs.close();
+				ps.close();
 			}
-			rs.close();
+			
+			
 		}
 		catch (Exception ex)
 		{

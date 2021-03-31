@@ -100,7 +100,7 @@
                 </div>
                 <div class="row">
                 
-                <c:forEach var="vo" items="${mList }">
+                <c:forEach var="vo" items="${mList }" varStatus="s">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
