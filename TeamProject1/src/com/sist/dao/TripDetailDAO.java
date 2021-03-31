@@ -12,7 +12,7 @@ public class TripDetailDAO {
 	private Connection conn;
 	   private PreparedStatement ps;
 	
-	   private static TripDAO dao;
+	   private static TripDetailDAO dao;
 	   public void getConnection()
 	   {
 		   try
@@ -34,30 +34,34 @@ public class TripDetailDAO {
 		   }catch(Exception ex){}
 	   }
 	   // DAO  객체를 클라이언트당 1개씩만 사용 => 싱글턴 
-	   public static TripDAO newInstance()
+	   public static TripDetailDAO newInstance()
 	   {
 		   if(dao==null)
-			   dao=new TripDAO();
+			   dao=new TripDetailDAO();
 		   
 		   return dao;
 			   
 	   }
 	   
-	   public TripVO tripDetailData(int cno)
+	   public List<TripVO> tripDetailData(int cno)
 	   {
-		   TripVO vo=new TripVO();
+		   List<TripVO> list=new ArrayList<TripVO>();
 		   try
 		   {
 			   getConnection();
 			   String sql="SELECT title,content "
 					   +"FROM tripdetail "
-					   +"WHERE no=?";
+					   +"WHERE cno=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, cno);
 			   ResultSet rs=ps.executeQuery();
-			   rs.next();
-			   vo.setTitle(rs.getString(1));
-			   vo.setContent(rs.getString(2));
+			   while(rs.next())
+			   {
+				   TripVO vo=new TripVO();
+				   vo.setTitle(rs.getString(1));
+				   vo.setContent(rs.getString(2));
+				   list.add(vo);
+			   }
 			   rs.close();
 		   }catch(Exception ex)
 		   {
@@ -68,7 +72,7 @@ public class TripDetailDAO {
 			   disConnection();
 		   }
 		   
-		   return vo;
+		   return list;
 	   }
 	   
 }
