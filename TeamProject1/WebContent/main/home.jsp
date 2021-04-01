@@ -187,13 +187,13 @@
         </div>
         <!-- Blog Area End -->
         
-        <c:forEach var="cvo" items="${ckList }" varStatus="s">
+        <%-- <c:forEach var="cvo" items="${ckList }" varStatus="s">
          <c:if test="${s.index<9 }">
           <a href="../trip/trip_detail.do?no=${cvo.no }" style="width:100px;height:100px">
           <img src="${cvo.poster}" >
           </a>
          </c:if>
-        </c:forEach>
+        </c:forEach> --%>
 
     </main>
 </body>
