@@ -84,8 +84,38 @@ public class TripDAO {
 		return list;
 	}
 	
-	
-	
+	// 카테고리 DB
+	 public List<TripVO> TripCategoryData(int cno)
+	   {
+		   List<TripVO> list=new ArrayList<TripVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT poster,title,content "
+					     +"FROM tripdetail "
+					     +"WHERE cno=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, cno);
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   TripVO vo=new TripVO();
+				   vo.setPoster(rs.getString(1));
+				   vo.setTitle(rs.getString(2));
+				   vo.setContent(rs.getString(3));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return list;
+	   }
 	
 	// 상세보기 목록 출력 DB
 	public List<TripVO> tripListData(int page) 

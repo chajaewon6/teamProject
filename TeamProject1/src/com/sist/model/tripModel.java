@@ -20,8 +20,9 @@ public class tripModel {
 		   cno="1";
 	   TripDAO dao=TripDAO.newInstance();
 	   List<TripVO> tlist=dao.tripListData(Integer.parseInt(cno));
-	   
+	   List<TripVO> clist=dao.TripCategoryData(Integer.parseInt(cno));
 	   request.setAttribute("list", tlist);
+	   request.setAttribute("clist", clist);
 	   request.setAttribute("main_jsp", "../trip/trip_list.jsp");
 	   return "../main/main.jsp"; 
   }
