@@ -103,7 +103,7 @@ public class TripDAO {
 			   ps=conn.prepareStatement(sql);
 			   int rowSize=8;   
 			   int start=(rowSize*page)-(rowSize-1);
-			   int end=rowSize*page;  // 
+			   int end=rowSize*page; 
 			   ps.setInt(1, start);
 			   ps.setInt(2, end);
 			   ResultSet rs=ps.executeQuery();

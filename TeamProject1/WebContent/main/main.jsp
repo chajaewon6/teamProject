@@ -82,16 +82,16 @@
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">지역별관광지</a>
+                                            <li><a href="../trip/trip_list.do">지역별관광지</a>
                                             <ul class="submenu">
-                                                    <li><a href="trip/trip_list.do?cno=1">광화문</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=2">명동</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=3">동대문</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=4">홍대</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=5">여의도</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=6">이태원</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=7">강남</a></li>
-                                                    <li><a href="trip/trip_list.do?cno=8">잠실</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=1">광화문</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=2">명동</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=3">동대문</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=4">홍대</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=5">여의도</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=6">이태원</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=7">강남</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=8">잠실</a></li>
                                               
                                                 </ul>
                                             </li>
