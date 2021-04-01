@@ -125,7 +125,35 @@ public class TripDAO {
 		   return list;
 	   }
 	
-		
+		// 쿠키 출력
+	public TripVO tripCookieData(int no)
+	{
+			TripVO vo=new TripVO();
+		try
+		{
+			getConnection();
+			String sql="SELECT no, cno, poster "
+					+"FROM tripdetail "
+					+"WHERE no=?";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, no);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			vo.setNo(rs.getInt(1));
+			vo.setCno(rs.getInt(2));
+			vo.setPoster(rs.getString(3));
+			rs.close();
+		} 
+		catch (Exception ex) 
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return vo;
+	}
 }
 
 

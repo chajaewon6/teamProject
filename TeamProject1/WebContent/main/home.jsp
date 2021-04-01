@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -60,21 +61,7 @@
                                     <div class="input-form mb-30">
                                         <input type="text" placeholder="어디로 떠나볼까요?">
                                     </div>
-                                    <!-- <div class="select-form mb-30">
-                                        <div class="select-itms">
-                                            <select name="select" id="select1">
-                                                <option value="">장소</option>
-                                                <option value="">광화문</option>
-                                                <option value="">명동</option>
-                                                <option value="">동대문</option>
-                                                <option value="">홍대</option>
-                                                <option value="">여의도</option>
-                                                <option value="">이태원</option>
-                                                <option value="">강남</option>
-                                                <option value="">잠실</option>
-                                            </select>
-                                        </div>
-                                    </div> -->
+                                    
                                     <div class="search-form mb-30">
                                         <a href="#">찾기</a>
                                     </div>   
@@ -123,169 +110,7 @@
                     </div>
                     </c:forEach>
                     
-                    <!-- <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://lh3.googleusercontent.com/proxy/v1lffWqc0CqZXM-l0VSAIgjJJfTQol6JliZGebLQC6xHhUlRSwfki_9HM5muiCepMASRWW_6bldEmcE8i09LyrqQKsuNPvwjmGHl5tKCf06lKQV_kWbQ" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">명동</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://cdn.asiacenews.com/news/photo/201509/782_686_3331.jpg" width= alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">동대문</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="http://www.kbiznews.co.kr/news/photo/201808/47559_9641_4327.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">홍대</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://lh3.googleusercontent.com/proxy/Q12-wBy-x8QAKYuK8wDGcg029sUlehmjpc5TKBXXZz7dK3eAPUiStK6CrBb44M1HZIfNnrperRCIeb9Ou0uoZ066RE2yNoMLT965Hc4IxjcLkNB46GCkxQF9uDcxo96W3YZjCJVnkQlJWilbJDam" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">여의도</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSuUngUFpznn2h8CGCuv9ucPOT5bvUWYs8Mfg&usqp=CAU" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">이태원</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://post-phinf.pstatic.net/MjAxOTA2MDdfMjg1/MDAxNTU5OTAxNTI4OTI1.ksgdSBsru0xoE4gwdsiJDQs6CCk0Y6hxYPPRvs03TiUg.Ma8oLtZGxXU3krxr08K_QUOY4G5V27kHrM5YTYQM9yYg.JPEG/5b2be0be1ae6621e008b46a9-960-639.jpg?type=w1200" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">강남</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://www.lottehotel.com/content/dam/lotte-hotel/signiel/seoul/overview/local-guide/180708-7-2000-ove-seoul-signiel.jpg.thumb.768.768.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">잠실</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="https://lh3.googleusercontent.com/proxy/8JG14Pv8BIGGJHUI-hdSWMaUssLzOt-cYsTxG3do4a6KNIMB_G-7arpMu4IiUOd4TJ0bLPiFNp7wjnh8nmRMCdBuHxHIVbGCx2QKkoBDXvr03malqOU" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">그 외 서울 방방곳곳</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div> -->
-                </div>
-            </div>
-        </div>
+                    
         <!-- Favourite Places End -->
         <!-- Video Start Arera -->
         <div class="video-area video-bg pt-100 pb-100"  data-background="https://t1.daumcdn.net/cfile/tistory/252FA9345225669928">
@@ -307,109 +132,7 @@
                 </div>
             </div>
         </div> 
-        <!-- Video Start End -->
-        <!-- Support Company Start-->
-        <!-- <div class="support-company-area support-padding fix">
-            <div class="container">
-                <div class="row align-items-center">
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="support-location-img mb-50">
-                            <img src="../img/service/support-img.jpg" alt="">
-                            <div class="support-img-cap">
-                                <span>Since 1992</span>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-6 col-lg-6">
-                        <div class="right-caption">
-                            Section Tittle
-                            <div class="section-tittle section-tittle2">
-                                <span>About Our Company</span>
-                                <h2>We are Go Trip <br>Ravels Support Company</h2>
-                            </div>
-                            <div class="support-caption">
-                                <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud</p>
-                                <div class="select-suport-items">
-                                    <label class="single-items">Lorem ipsum dolor sit amet
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">Consectetur adipisicing sed do
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">Eiusmod tempor incididunt
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                    <label class="single-items">Ad minim veniam, quis nostrud.
-                                        <input type="checkbox" checked="checked active">
-                                        <span class="checkmark"></span>
-                                    </label>
-                                </div>
-                                <a href="#" class="btn border-btn">About us</a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Support Company End-->
-        <!-- Testimonial Start -->
-        <!-- Testimonial Start -->
-        <!-- <div class="testimonial-area testimonial-padding" data-background="../img/testmonial/testimonial_bg.jpg">
-            <div class="container ">
-                <div class="row d-flex justify-content-center">
-                    <div class="col-xl-11 col-lg-11 col-md-9">
-                        <div class="h1-testimonial-active">
-                            Single Testimonial
-                            <div class="single-testimonial text-center">
-                                Testimonial Content
-                                <div class="testimonial-caption ">
-                                    <div class="testimonial-top-cap">
-                                        <img src="../img/icon/testimonial.png" alt="">
-                                        <p>Logisti Group is a representative logistics operator providing full range of ser
-                                            of customs clearance and transportation worl.</p>
-                                    </div>
-                                    founder
-                                    <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                        <div class="founder-img">
-                                            <img src="../img/testmonial/Homepage_testi.png" alt="">
-                                        </div>
-                                        <div class="founder-text">
-                                            <span>Jessya Inn</span>
-                                            <p>Co Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div> -->
-                            <!-- Single Testimonial -->
-                            <!-- <div class="single-testimonial text-center"> -->
-                                <!-- Testimonial Content -->
-                                <!-- <div class="testimonial-caption ">
-                                    <div class="testimonial-top-cap">
-                                        <img src="../img/icon/testimonial.png" alt="">
-                                        <p>Logisti Group is a representative logistics operator providing full range of ser
-                                            of customs clearance and transportation worl.</p>
-                                    </div> -->
-                                    <!-- founder -->
-                                    <!-- <div class="testimonial-founder d-flex align-items-center justify-content-center">
-                                        <div class="founder-img">
-                                            <img src="../img/testmonial/Homepage_testi.png" alt="">
-                                        </div>
-                                        <div class="founder-text">
-                                            <span>Jessya Inn</span>
-                                            <p>Co Founder</p>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div> -->
-        <!-- Testimonial End -->
+    
         <!-- Blog Area Start -->
         <div class="home-blog-area section-padding2">
             <div class="container">
@@ -463,6 +186,14 @@
             </div>
         </div>
         <!-- Blog Area End -->
+        
+        <c:forEach var="cvo" items="${ckList }" varStatus="s">
+         <c:if test="${s.index<9 }">
+          <a href="../trip/trip_detail.do?no=${cvo.no }" style="width:100px;height:100px">
+          <img src="${cvo.poster}" >
+          </a>
+         </c:if>
+        </c:forEach>
 
     </main>
 </body>
