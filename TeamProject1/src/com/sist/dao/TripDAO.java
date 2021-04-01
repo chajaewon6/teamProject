@@ -88,23 +88,29 @@ public class TripDAO {
 	
 	
 	// 상세보기 목록 출력 DB
-	public List<TripVO> tripInfolData(int cno)
+	public List<TripVO> tripListData(int page) 
 	   {
 		   List<TripVO> list=new ArrayList<TripVO>();
+		 
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT title,content "
-					   +"FROM tripdetail "
-					   +"WHERE cno=?";
+			   String sql="SELECT no,poster,title,content,num "
+					   +"FROM (SELECT no,poster,title,content,rownum as num "
+					   +"FROM (SELECT no,poster,title,content "
+					   +"FROM tripdetail ORDER BY no ASC)) "
+					   +"WHERE num BETWEEN ? AND ? ";
 			   ps=conn.prepareStatement(sql);
-			   ps.setInt(1, cno);
+			   int rowSize=8;   
+			   int start=(rowSize*page)-(rowSize-1);
+			   int end=rowSize*page;  // 
+			   ps.setInt(1, start);
+			   ps.setInt(2, end);
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {
 				   TripVO vo=new TripVO();
-				   vo.setTitle(rs.getString(1));
-				   vo.setContent(rs.getString(2));
+				   
 				   list.add(vo);
 			   }
 			   rs.close();
@@ -116,7 +122,6 @@ public class TripDAO {
 		   {
 			   disConnection();
 		   }
-		   
 		   return list;
 	   }
 	
