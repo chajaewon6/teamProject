@@ -92,6 +92,7 @@
                                                     <li><a href="trip/trip_list.do?cno=6">이태원</a></li>
                                                     <li><a href="trip/trip_list.do?cno=7">강남</a></li>
                                                     <li><a href="trip/trip_list.do?cno=8">잠실</a></li>
+                                              
                                                 </ul>
                                             </li>
                                             <li><a href="#">커뮤니티</a>
