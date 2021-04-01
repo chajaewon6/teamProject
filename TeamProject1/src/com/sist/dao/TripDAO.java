@@ -125,6 +125,32 @@ public class TripDAO {
 		   return list;
 	   }
 	
+	
+	// 총갯수
+	   public int tripCount(int cno) 
+	   {
+		   int count=0;
+		   try
+		   {
+			   getConnection(); 
+			   String sql="SELECT COUNT(*) FROM tripdetail "
+			   		+ "WHERE cno=?";
+			   ps=conn.prepareStatement(sql); //SQL문 실행
+			   ps.setInt(1, cno);
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   count=rs.getInt(1);
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return count;
+	   }
 		
 }
 

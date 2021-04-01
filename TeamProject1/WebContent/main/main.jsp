@@ -84,7 +84,7 @@
                                             <li><a href="index.html">Home</a></li>
                                             <li><a href="about.html">지역별관광지</a>
                                             <ul class="submenu">
-                                                    <li><a href="blog.html">광화문</a></li>
+                                                    <li><a href="trip/trip_detail.do?cno=1">광화문</a></li>
                                                     <li><a href="single-blog.html">명동</a></li>
                                                     <li><a href="blog.html">동대문</a></li>
                                                     <li><a href="single-blog.html">홍대</a></li>
