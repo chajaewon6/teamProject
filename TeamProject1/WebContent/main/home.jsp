@@ -22,17 +22,17 @@
 	width:100%;
 	
 }
-.video-area{
+/* .video-area{
 	height:18%;
 	width:50%;
 	margin:0px auto;
 	
-}
+} */
 .place-img{
-	width:100%;
-	height:100%;
+	width:350px;
+	height:250px;
 	object-fit:cover;
-}
+} 
 </style>
 </head>
 <body>
@@ -91,12 +91,12 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="${vo.poster }" alt="">
+                                <img src="${vo.rink }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">서울의 중심 광화문</a></h3>
+                                    <h3><a href="#">${vo.img_name}</a></h3>
                                     <p class="dolor">$1870 <span>/ Per Person</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
