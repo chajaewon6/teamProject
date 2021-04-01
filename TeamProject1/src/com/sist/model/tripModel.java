@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServletResponse;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-import com.sist.dao.TripDetailDAO;
+import com.sist.dao.TripDAO;
 import com.sist.dao.*;
 import com.sist.vo.*;
 
@@ -18,7 +18,7 @@ public class tripModel {
 	{
 	 	String cno=request.getParameter("cno");
 	 	// DAO 연결
-	 	TripDetailDAO dao=TripDetailDAO.newInstance();
+	 	TripDAO dao=TripDAO.newInstance();
 	 	List<TripVO> list=dao.tripInfolData(Integer.parseInt(cno));
 	 	
 	 	request.setAttribute("list", list);

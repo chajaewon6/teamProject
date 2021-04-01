@@ -83,6 +83,43 @@ public class TripDAO {
 		}
 		return list;
 	}
+	
+	
+	
+	
+	// 상세보기 목록 출력 DB
+	public List<TripVO> tripInfolData(int cno)
+	   {
+		   List<TripVO> list=new ArrayList<TripVO>();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT title,content "
+					   +"FROM tripdetail "
+					   +"WHERE cno=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, cno);
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   TripVO vo=new TripVO();
+				   vo.setTitle(rs.getString(1));
+				   vo.setContent(rs.getString(2));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   
+		   return list;
+	   }
+	
 		
 }
 
