@@ -18,12 +18,14 @@ public class HotelModel {
 	public String hotel_list(HttpServletRequest request,HttpServletResponse response)
 	{
 		String cno=request.getParameter("cno");
+		if(cno==null)
+			cno="1";
 		// DAO연결
 		HotelDAO dao=HotelDAO.newInstance(); // 오라클 연동
-		List<HotelVO> list=dao.HotelData(Integer.parseInt(cno));
-		HotelCategoryVO vo=dao.HotelInfoData(Integer.parseInt(cno));
-		request.setAttribute("list", list);
-		request.setAttribute("vo", vo);
+		List<HotelVO> hList=dao.HotelData(Integer.parseInt(cno));
+		HotelCategoryVO hvo=dao.HotelInfoData(Integer.parseInt(cno));
+		request.setAttribute("hList", hList);
+		request.setAttribute("hvo", hvo);
 		request.setAttribute("main_jsp", "../hotel/list.jsp");
 		return "../main/main.jsp";
 	}

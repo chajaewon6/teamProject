@@ -101,7 +101,7 @@
                                                 </ul>
                                             </li>
                                              
-                                            <li><a href="../hotel/list.do?cno=1">숙박예약</a>
+                                            <li><a href="../hotel/list.do">호텔예약</a>
                                             <ul class="submenu">
                                                     <li><a href="../hotel/list.do?cno=1">강남/역삼/삼성/신사/청담</a></li>
                                                     <li><a href="../hotel/list.do?cno=2">서초/교대</a></li>

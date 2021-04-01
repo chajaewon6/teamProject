@@ -21,56 +21,6 @@
    </head>
 
    <body>
-    <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="../img/logo/logo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-       <div class="header-area">
-            <div class="main-header ">
-                <div class="header-top top-bg d-none d-lg-block">
-                   <div class="container">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-lg-8">
-                            <div class="header-info-left">
-                                
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="header-info-right f-right">
-                                <ul class="header-social">    
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                   <li> <a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                       </div>
-                   </div>
-                </div>
-               <div class="header-bottom  header-sticky">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2 col-md-1">
-                                <div class="logo">
-                                  <a href="index.html"><img src="../img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            
-        <!-- Header End -->
-    </header>
-
     <main>
         <!-- slider Area Start-->
         <div class="slider-area ">
@@ -97,7 +47,8 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
-                            <h2 style="color:#00D8FF">강남</h2>
+                            <span>${hvo.category }</span>
+                            <h2>서울지역별 호텔목록</h2>
                         </div>
                     </div>
                 </div>
@@ -107,7 +58,7 @@
 										    <a href="#" class="btn btn btn-sm">높은 가격순</a>
 									 
                 <div class="row">
-                	<c:forEach var="fvo" items="${list }">
+                	<c:forEach var="fvo" items="${hList }">
        							
                     <div class="col-xl-4 col-lg-4 col-md-6">
                     

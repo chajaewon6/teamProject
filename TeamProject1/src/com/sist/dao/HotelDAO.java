@@ -91,7 +91,8 @@ public class HotelDAO {
 			getConnection();
 			String sql="SELECT no,poster,title,star,grade,addr,category,price "
 					  +"FROM hotel_detail "
-					  +"WHERE cno=?";
+					  +"WHERE cno=? "
+					  +"ORDER BY no ASC";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, cno);
 			ResultSet rs=ps.executeQuery();
@@ -128,12 +129,12 @@ public class HotelDAO {
 			getConnection();
 			String sql="SELECT category "
 					  +"FROM hotel_detail "
-					  +"WHERE no=?";
+					  +"WHERE cno=?";
 			ps=conn.prepareStatement(sql);
 			ps.setInt(1, cno);
 			ResultSet rs=ps.executeQuery();
 			rs.next();
-			vo.setTitle(rs.getString(1));
+			vo.setCategory(rs.getString(1));
 			
 			rs.close();
 		}catch(Exception ex)
