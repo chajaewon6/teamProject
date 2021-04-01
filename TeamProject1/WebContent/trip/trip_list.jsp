@@ -4,7 +4,7 @@
 <html class="no-js" lang="zxx">
     <head>
  		<script language="javascript">
-  		function showPopup() { window.open("./html/08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
+  		//function showPopup() { window.open("./html/08_2_popup.html", "a", "width=400, height=300, left=100, top=50"); }
   		</script>
         <meta charset="utf-8">
         <meta http-equiv="x-ua-compatible" content="ie=edge">
@@ -38,7 +38,7 @@
 
    <body>
     <!-- Preloader Start -->
-    <div id="preloader-active">
+    <!-- <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -47,7 +47,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> -->
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->

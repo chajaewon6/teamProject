@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+    <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"  %>
+    <%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -29,7 +31,7 @@
 
    <body>
     <!-- Preloader Start -->
-    <div id="preloader-active">
+     <div id="preloader-active">
         <div class="preloader d-flex align-items-center justify-content-center">
             <div class="preloader-inner position-relative">
                 <div class="preloader-circle"></div>
@@ -38,7 +40,7 @@
                 </div>
             </div>
         </div>
-    </div>
+    </div> 
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
@@ -59,7 +61,7 @@
                         <div class="col-lg-4">
                             <div class="header-info-right f-right">
                                 <ul class="header-social">    
-                                    <li><a href="#"><input type=button value="로그인"></input></a></li>
+                                    <li><a href="${poster }"><input type=button value="로그인"></input></a></li>
                                     <li><a href="#"><input type=button value="회원가입"></input></a></li>
                                 </ul>
                             </div>
