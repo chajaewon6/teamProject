@@ -5,6 +5,7 @@
 <head>
   <meta charset="UTF-8">
   <title>CodePen - Sign Up</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/normalize/5.0.0/normalize.min.css">
 <link rel="stylesheet" href="../css/join_style.css">
 
@@ -21,15 +22,16 @@
     </head>
     <body>
 
-      <form action="index.html" method="post">
       
+      <form method=post action="../member/join_ok.do" name="join_frm">
         <h1>회원가입</h1>
         
         <fieldset>
           <legend><span class="number">1</span>기본사항</legend>
-          <label for="id">아이디</label>
+          <label for="id">아이디 &nbsp; &nbsp;<input type="button" value="중복체크" class="btn btn-sm btn-primary" id="checkBtn"></label>
+          <br>
          <input type=text name="id" id="id" class="input-sm" style="float:left" readonly>&nbsp;
-      <input type="button" value="중복체크" class="btn btn-sm btn-primary" style="float:left" id="checkBtn"><br>
+      
           
           <label for="name">이름</label>
           <input type=text name="name" id="name" class="input-sm">
@@ -43,12 +45,13 @@
           <input type=date size="20" name="birthday">
           
           <label>성별</label>
-          <input type="radio" id="sex" value="남자" name="sex" checked value="남자"><label for="under_13" class="light">남자</label>&nbsp;&nbsp;
-          <input type="radio" id="sex" value="여자" name="sex"><label for="over_13" class="light">여자</label>
+          <input type="radio" id="sex" value="여자" name="sex" checked value="여자"><label for="under_13" class="light">여자</label>&nbsp;&nbsp;
+          <input type="radio" id="sex" value="남자" name="sex"><label for="over_13" class="light">남자</label>
           <br><br>
-           <label for="mail">우편번호</label>
+           <label for="mail">우편번호 &nbsp; &nbsp; <input type=button value="우편번호검색" class="btn btn-sm btn-primary" id="postBtn" ></label>
+          
            <input type=text name="post" id="post" class="input-sm" size=10 readonly style="float: left">
-      <input type=button value="우편번호검색" class="btn btn-sm btn-danger" id="postBtn" style="float: left">
+      
           
            <label for="mail">주소</label>
           <input type=text name="addr1" id="addr1" class="input-sm" size=45 readonly>
@@ -57,7 +60,7 @@
            <input type=text name="addr2" id="addr2" class="input-sm" size=45>
           
            <label for="mail">전화번호</label>
-			<input type=text name="tel1" id="tel1" class="input-sm" size=5 value="-를 제외하고 입력하시오"
+			<input type=text name="tel" id="tel" class="input-sm" size=5 value="-를 제외하고 입력하시오"
       			style="float: left">
           
            <label for="mail">이메일</label>
@@ -72,6 +75,7 @@
         </fieldset>
      
         <button type="submit">회원가입</button>
+        <button type="submit" onclick="javascript:history.back()" class="btn btn-sm btn-warning">취소</button >
       </form>
       
     </body>
