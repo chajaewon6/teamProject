@@ -7,6 +7,7 @@ import javax.sql.*;
 import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelVO;
 
+
 import java.sql.*;
 import javax.naming.*;
 public class HotelDAO {
@@ -45,6 +46,7 @@ public class HotelDAO {
 		return dao;	
 	}
 	// Category 읽기
+	/*
 	public List<HotelCategoryVO> HotelListData()
 	  {
 		  List<HotelCategoryVO> list=new ArrayList<HotelCategoryVO>();
@@ -81,6 +83,7 @@ public class HotelDAO {
 		  }
 		  return list;
 	  }
+	  */
 	// Category Data
 	
 	public List<HotelVO> HotelData(int cno)
@@ -147,4 +150,67 @@ public class HotelDAO {
 		}
 		return vo;
 	}
+	
+	public List<HotelVO> HotelListData(int cno,int page){
+        List<HotelVO> list=new ArrayList<HotelVO>();
+        try {
+           getConnection();
+           String sql="SELECT no,poster,title,star,grade,addr,category,price,num "
+                   + "FROM(SELECT no,poster,title,star,grade,addr,category,price,rownum as num "
+                   + "FROM(SELECT no,poster,title,star,grade,addr,category,price "
+                   + "FROM hotel_detail WHERE cno=? ORDER BY no ASC)) "
+                   + "WHERE num BETWEEN ? AND ?";
+          /* String sql="SELECT no,poster,title,star,grade,addr,category,price,num "
+                 + "FROM(SELECT no,poster,title,star,grade,addr,category,price,rownum as num "
+                 + "FROM(SELECT no,poster,title,star,grade,addr,category,price "
+                 + "FROM hotel_detail WHERE cno=? ORDER BY no ASC)) "
+                 + "WHERE num BETWEEN ? AND ?";*/
+           ps=conn.prepareStatement(sql);
+           int rowSize=12;
+           int start=(rowSize*page)-(rowSize-1);
+           int end=rowSize*page;
+           ps.setInt(1, cno);
+           ps.setInt(2, start);
+           ps.setInt(3, end);
+           ResultSet rs=ps.executeQuery();
+           while(rs.next()) {
+        	   HotelVO vo=new HotelVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setPoster(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
+				  vo.setStar(rs.getString(4));
+				  vo.setGrade(rs.getString(5));
+				  vo.setAddr(rs.getString(6));
+				  vo.setCategory(rs.getString(7));
+				  vo.setPrice(rs.getString(8));
+				list.add(vo);
+           }
+           rs.close();
+        }catch(Exception ex) {
+           ex.printStackTrace();
+        }finally {
+           disConnection();
+        }
+        return list;
+     }
+	
+	public int HotelCount(int cno) {
+        int count=0;
+        try {
+           getConnection();
+           String sql="SELECT COUNT(*) FROM hotel_detail WHERE cno=?";
+        		     //+"WHERE cno=?";
+           ps=conn.prepareStatement(sql);
+           ps.setInt(1, cno);
+           ResultSet rs=ps.executeQuery();
+           rs.next();
+           count=rs.getInt(1);
+           rs.close();
+        }catch(Exception ex) {
+           ex.printStackTrace();
+        }finally {
+           disConnection();
+        }
+        return count;
+     }
 }

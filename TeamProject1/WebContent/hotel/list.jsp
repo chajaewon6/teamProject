@@ -58,28 +58,28 @@
 										    <a href="#" class="btn btn btn-sm">높은 가격순</a>
 									 
                 <div class="row">
-                	<c:forEach var="fvo" items="${hList }">
+                	<c:forEach var="hvo" items="${hList }">
        							
                     <div class="col-xl-4 col-lg-4 col-md-6">
                     
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="${fvo.poster }" alt="">
+                                <img src="${hvo.poster }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
                                     <span><i class="fas fa-star"></i>
-                                    <span>${fvo.star }</span> 
+                                    <span>${hvo.star }</span> 
                                     </span>
                                     </div>
-                                    <h3><a href="#">${fvo.title }</a></h3>
-                                    <p class="dolor">${fvo.grade } <span>/${fvo.price }</span></p>
+                                    <h3><a href="#">${hvo.title }</a></h3>
+                                    <p class="dolor">${hvo.grade } <span>/${hvo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
-                                        <li><i class="fas fa-map-marker-alt"></i>${fvo.addr }</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>${hvo.addr }</li>
                                     </ul>
                                 </div>
                             </div>
@@ -102,12 +102,22 @@
                         <div class="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-start">
-                                  <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow roted left-arrow"></span></a></li>
-                                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                  <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow right-arrow"></span></a></li>
-                                </ul>
+                                  <c:if test="${startPage>1 }">
+           <li><a href="../hotel/list.do?cno=${cno }&page=${startPage-1 }">&laquo; 이전</a></li>
+          </c:if>
+          <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1">
+            <c:if test="${i==curpage }">
+             <c:set var="type" value="class=current"/>
+            </c:if>
+            <c:if test="${i!=curpage }">
+             <c:set var="type" value=""/>
+            </c:if>
+            <li><a href="../hotel/list.do?cno=${cno }&page=${i }">${i }</a></li>
+          </c:forEach>
+          <c:if test="${endPage<totalpage }">
+            <li><a href="../hotel/list.do?cno=${cno }&page=${endPage+1 }">다음 &raquo;</a></li>
+          </c:if>
+          </ul>
                               </nav>
                         </div>
                     </div>
