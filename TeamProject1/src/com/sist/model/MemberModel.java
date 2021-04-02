@@ -73,8 +73,7 @@ public class MemberModel {
 	  String post=request.getParameter("post");
 	  String addr1=request.getParameter("addr1");
 	  String addr2=request.getParameter("addr2");
-	  String tel1=request.getParameter("tel1");
-	  String tel2=request.getParameter("tel2");
+	  String tel=request.getParameter("tel");
 	  String content=request.getParameter("content");
 	  String email=request.getParameter("email");
 	  
@@ -87,7 +86,7 @@ public class MemberModel {
 	  vo.setId(id);
 	  vo.setPost(post);
 	  vo.setPwd(pwd);
-	  vo.setTel(tel1+"-"+tel2);
+	  vo.setTel(tel);
 	  vo.setSex(sex);
 	  vo.setName(name);
 	  
