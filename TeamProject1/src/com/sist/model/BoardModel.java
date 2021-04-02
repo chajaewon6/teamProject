@@ -5,6 +5,6 @@ import com.sist.controller.RequestMapping;
 
 @Controller
 public class BoardModel {
-
+	
 	
 }
