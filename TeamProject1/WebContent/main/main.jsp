@@ -27,6 +27,27 @@
             <link rel="stylesheet" href="../css/style.css">
             <!-- bootstrap -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<link rel="stylesheet" href="../shadow/css/shadowbox.css">
+<script type="text/javascript">
+Shadowbox.init({
+	players:["iframe"]
+});
+$(function(){
+	$('#login').click(function(){
+		Shadowbox.open({
+			content:'../member/login.jsp',
+			player:'iframe',
+			title:'login',
+			width:400,
+			height:600
+		})
+	})
+});
+</script>
+   
+   
    </head>
 
    <body>
@@ -61,8 +82,8 @@
                         <div class="col-lg-4">
                             <div class="header-info-right f-right">
                                 <ul class="header-social">    
-                                    <li><a href="${poster }"><input type=button value="로그인"></input></a></li>
-                                    <li><a href="#"><input type=button value="회원가입"></input></a></li>
+                                    <li><a href="#" id="login">로그인</a></li>
+                                    <li><a href="#">회원가입</a></li>
                                 </ul>
                             </div>
                         </div>
