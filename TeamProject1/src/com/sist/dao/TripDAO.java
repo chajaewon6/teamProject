@@ -85,9 +85,9 @@ public class TripDAO {
 	}
 	
 	// 카테고리 DB
-	 public List<TripVO> TripCategoryData(int cno)
+	 public List<TripCategoryVO> TripCategoryinfoData(int cno)
 	   {
-		   List<TripVO> list=new ArrayList<TripVO>();
+		   List<TripCategoryVO> list=new ArrayList<TripCategoryVO>();
 		   try
 		   {
 			   getConnection();
@@ -99,7 +99,7 @@ public class TripDAO {
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {
-				   TripVO vo=new TripVO();
+				   TripCategoryVO vo=new TripCategoryVO();
 				   vo.setPoster(rs.getString(1));
 				   vo.setTitle(rs.getString(2));
 				   vo.setContent(rs.getString(3));
@@ -117,8 +117,13 @@ public class TripDAO {
 		   return list;
 	   }
 	
+	
+	
+	
+	
+	
 	// 상세보기 목록 출력 DB
-	public List<TripVO> tripListData(int page) 
+	public List<TripVO> tripListData(int cno,int page) 
 	   {
 		   List<TripVO> list=new ArrayList<TripVO>();
 		 
@@ -128,18 +133,24 @@ public class TripDAO {
 			   String sql="SELECT no,poster,title,content,num "
 					   +"FROM (SELECT no,poster,title,content,rownum as num "
 					   +"FROM (SELECT no,poster,title,content "
-					   +"FROM tripdetail ORDER BY no ASC)) "
+					   +"FROM tripdetail WHERE cno=? ORDER BY no ASC)) "
 					   +"WHERE num BETWEEN ? AND ? ";
 			   ps=conn.prepareStatement(sql);
+			   
 			   int rowSize=8;   
 			   int start=(rowSize*page)-(rowSize-1);
 			   int end=rowSize*page; 
-			   ps.setInt(1, start);
-			   ps.setInt(2, end);
+			   ps.setInt(1, cno);
+			   ps.setInt(2, start);
+			   ps.setInt(3, end);
 			   ResultSet rs=ps.executeQuery();
 			   while(rs.next())
 			   {
 				   TripVO vo=new TripVO();
+				   vo.setNo(rs.getInt(1));
+				   vo.setPoster(rs.getString(2));
+				   vo.setTitle(rs.getString(3));
+				   vo.setContent(rs.getString(4));
 				   
 				   list.add(vo);
 			   }
