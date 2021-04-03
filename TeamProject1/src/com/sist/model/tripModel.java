@@ -11,7 +11,9 @@ import com.sist.dao.*;
 import com.sist.vo.*;
 
 @Controller
-public class tripModel {
+public class tripModel {	
+	
+	
   @RequestMapping("trip/trip_list.do")
   public String trip_list(HttpServletRequest request,HttpServletResponse response)
   {
@@ -23,7 +25,7 @@ public class tripModel {
 	   int cno1=Integer.parseInt(cno);
 	   TripDAO dao=TripDAO.newInstance();
 	   List<TripVO> rList=dao.tripListData(cno1,curpage); // 그림 파일 배열로 가져올거라 rList 씀
-	   List<TripCategoryVO> cList=dao.TripCategoryinfoData(cno1);
+	   
 	   int count=dao.tripCount(cno1); //총갯수 가져옴
 	   int totalpage=(int)(Math.ceil(count/8.0)); // 12개씩 출력이니까 
 	   
