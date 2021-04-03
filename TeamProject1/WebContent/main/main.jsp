@@ -83,7 +83,7 @@ $(function(){
                             <div class="header-info-right f-right">
                                 <ul class="header-social">    
                                     <li><a href="#" id="login">로그인</a></li>
-                                    <li><a href="#">회원가입</a></li>
+                                    <li><a href="../main/main.do">회원가입</a></li>
                                 </ul>
                             </div>
                         </div>
