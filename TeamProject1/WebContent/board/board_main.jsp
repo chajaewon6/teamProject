@@ -83,7 +83,7 @@
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.user_id }</span> </span>
                                     <h3><a href="#">${vo.pb_picLoc }</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#${vo.pb_picTag }</p>
+                                    <p class="tag" style="color:#00D8FF; font-size:20px">${vo.pb_picTag }</p>
                                 </div>
                             </div>
                         </div>
@@ -102,11 +102,15 @@
                         <div class="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
                                 <ul class="pagination justify-content-start">
-                                  <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow roted left-arrow"></span></a></li>
+                                <!-- 이전 -->
+                                  <li class="page-item"><a class="page-link" href="#">이전</a></li>
+                                    
                                     <li class="page-item active"><a class="page-link" href="#">01</a></li>
                                     <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">03</a></li>
-                                  <li class="page-item"><a class="page-link" href="#"><span class="flaticon-arrow right-arrow"></span></a></li>
+                                    <li class="page-item"><a class="page-link" href="#">${totalPage }</a></li>
+                                    
+                                 <!-- 다음 -->
+                                  <li class="page-item"><a class="page-link" href="#">다음</a></li>
                                 </ul>
                               </nav>
                         </div>

@@ -21,9 +21,35 @@ public class BoardModel {
 			page="1";
 		
 		List<BoardVO> mList=dao.boardMainData(Integer.parseInt(page));
+		
+		
+		// 총페이지 
+		int totalPage=dao.boardToatalPage();
+		
+		// 페이지 나누기 
+		final int BLOCK=5;
+		
+		
+		
+		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("mList", mList);
 		request.setAttribute("main_jsp", "../board/board_main.jsp");
 		return "../main/main.jsp";
 	}
 	
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
