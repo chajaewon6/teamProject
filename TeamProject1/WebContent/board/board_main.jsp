@@ -101,17 +101,25 @@
                     <div class="col-xl-12">
                         <div class="single-wrap d-flex justify-content-center">
                             <nav aria-label="Page navigation example">
+                            
+                             
                                 <ul class="pagination justify-content-start">
                                 <!-- 이전 -->
-                                  <li class="page-item"><a class="page-link" href="#">이전</a></li>
-                                    
-                                    <li class="page-item active"><a class="page-link" href="#">01</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">02</a></li>
-                                    <li class="page-item"><a class="page-link" href="#">${totalPage }</a></li>
-                                    
+                               <c:if test="${startPage>1 }">
+                                  <li class="page-item"><a class="page-link" href="../board/board_main.do?page=${startPage-1 }">이전</a></li>
+                                </c:if>  
+                             
+                                <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1"> 
+                                    <li class="page-item active"><a class="page-link" href="../board/board_main.do?page=${i }">${i }</a></li>
+                               </c:forEach>   
+                                 
                                  <!-- 다음 -->
-                                  <li class="page-item"><a class="page-link" href="#">다음</a></li>
+                                 <c:if test="${endPage<totalPage}">
+                                  <li class="page-item"><a class="page-link" href="../board/board_main.do?page=${endPage+1 }">다음</a></li>
+                                 </c:if>
                                 </ul>
+                               
+                                
                               </nav>
                         </div>
                     </div>

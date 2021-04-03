@@ -71,7 +71,7 @@ public class BoardDAO {
 						+"FROM picBoard)) "
 						+"WHERE num BETWEEN ? AND ?";
 				ps=conn.prepareStatement(sql);
-				int rowSize=9;
+				int rowSize=3;
 				int start =(page*rowSize)-(rowSize-1);
 				int end=page*rowSize;
 				ps.setInt(1, start);
@@ -106,7 +106,7 @@ public class BoardDAO {
 			return mList;
 		}
 		// 총페이지 구하기
-		public int boardToatalPage()
+		public int boardCount()
 		{
 			int count =0;
 			try
@@ -117,7 +117,7 @@ public class BoardDAO {
 				ResultSet rs=ps.executeQuery();
 				rs.next();
 				count=rs.getInt(1);
-				count=(int) Math.ceil(count/12.0);
+				
 			}
 			catch (Exception ex)
 			{

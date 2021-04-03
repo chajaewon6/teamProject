@@ -143,7 +143,7 @@ $(function(){
                                             </li>
                                             <li><a href="#">커뮤니티</a>
                                              <ul class="submenu">
-                                                    <li><a href="../board/board_main.do?page=1">여행사진 공유</a></li>
+                                                    <li><a href="../board/board_main.do?">여행사진 공유</a></li>
                                                     <li><a href="single-blog.html">공지사항</a></li>
                                                 </ul>
                                             </li>
