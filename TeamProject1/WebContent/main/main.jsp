@@ -83,7 +83,7 @@ $(function(){
                             <div class="header-info-right f-right">
                                 <ul class="header-social">    
                                     <li><a href="#" id="login">로그인</a></li>
-                                    <li><a href="../main/main.do">회원가입</a></li>
+                                    <li><a href="../member/join.do">회원가입</a></li>
                                 </ul>
                             </div>
                         </div>
@@ -96,7 +96,7 @@ $(function(){
                             <!-- Logo -->
                             <div class="col-xl-2 col-lg-2 col-md-1">
                                 <div class="logo">
-                                  <a href="index.html"><img src="../img/logo/logo.png" alt=""></a>
+                                  <a href="../main/main.do"><img src="../img/logo/logo.png" alt=""></a>
                                 </div>
                             </div>
                             <div class="col-xl-10 col-lg-10 col-md-10">
@@ -104,7 +104,7 @@ $(function(){
                                 <div class="main-menu f-right d-none d-lg-block">
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
-                                            <li><a href="index.html">Home</a></li>
+                                            <li><a href="../main/main.do">Home</a></li>
                                             <li><a href="../trip/trip_list.do">지역별관광지</a>
                                             <ul class="submenu">
                                                     <li><a href="../trip/trip_list.do?cno=1">광화문</a></li>
