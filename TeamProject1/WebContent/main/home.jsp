@@ -95,14 +95,14 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
+                                    <!-- <span><i class="fas fa-star"></i><span></span> </span> -->
                                     <h3><a href="#">${vo.img_name}</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
+                                   	<p class="dolor"> <span>/ Per Person</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li> 
                                     </ul>
                                 </div>
                             </div>
@@ -150,7 +150,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="https://lh3.googleusercontent.com/proxy/SvMxDztkW4MEZKtEf0H3BL83PH4Y0qNS656rFyxglMv5FNQp_HeLjli5Y9ln_rh18d5alBbcuATYBYwjAVXFQlFB2IVuk7YTe30TxA" alt="">
+                                    <img src="https://pds.joins.com/news/component/htmlphoto_mmdata/201406/29/htm_2014062922222430103011.jpg" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   동대문</p>
@@ -168,7 +168,7 @@
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
                                 <div class="blog-img">
-                                    <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSb2EdOUXD-CvZlawC7APVNuzIzF4jIWsUQrQ&usqp=CAU" alt="">
+                                    <img src="https://youimg1.tripcdn.com/target/100v1f000001h1aeoCF7F_C_750_500.jpg?proc=source%2Ftrip" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   강남</p>
