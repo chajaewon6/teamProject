@@ -4,6 +4,7 @@ package com.sist.dao;
 import java.util.*;
 import javax.sql.*;
 
+
 import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelVO;
 
@@ -86,9 +87,9 @@ public class HotelDAO {
 	  */
 	// Category Data
 	
-	public List<HotelVO> HotelData(int cno)
+	public List<HotelCategoryVO> HotelData(int cno)
 	{
-		List<HotelVO> list=new ArrayList<HotelVO>();
+		List<HotelCategoryVO> list=new ArrayList<HotelCategoryVO>();
 		try
 		{
 			getConnection();
@@ -101,7 +102,7 @@ public class HotelDAO {
 			ResultSet rs=ps.executeQuery();
 			while(rs.next())
 			{
-				HotelVO vo=new HotelVO();
+				HotelCategoryVO vo=new HotelCategoryVO();
 				  vo.setNo(rs.getInt(1));
 				  vo.setPoster(rs.getString(2));
 				  vo.setTitle(rs.getString(3));
@@ -213,4 +214,69 @@ public class HotelDAO {
         }
         return count;
      }
+	public HotelVO HotelDetailData(int no)
+	 {
+		 HotelVO vo=new HotelVO();
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT no,poster,title,star,grade,addr,content,price "   
+					   +"FROM hotel_detail "
+					   +"WHERE no=?";
+			 ps=conn.prepareStatement(sql);
+			 ps.setInt(1, no);
+			 // 결과값 받기
+			 ResultSet rs=ps.executeQuery(); // row단위
+			 rs.next();
+			 vo.setNo(rs.getInt(1));
+			 vo.setPoster(rs.getString(2));
+			 vo.setTitle(rs.getString(3));
+			 vo.setStar(rs.getString(4));
+			 vo.setGrade(rs.getString(5));
+			 vo.setAddr(rs.getString(6));
+			 vo.setContent(rs.getString(7));
+			 vo.setPrice(rs.getString(8));
+			
+			 rs.close();
+			 
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 disConnection();
+		 }
+		 return vo;
+	 }
+	public HotelVO HotelCookiePrintData(int no)
+	   {
+		   HotelVO vo=new HotelVO();
+		   try
+		   {
+			   getConnection();
+			   String sql="SELECT no,poster,title,grade,price "
+					     +"FROM hotel_detail "
+					     +"WHERE no=?";
+			   ps=conn.prepareStatement(sql);
+			   ps.setInt(1, no);
+			   // 실행
+			   ResultSet rs=ps.executeQuery();
+			   rs.next();
+			   vo.setNo(rs.getInt(1));
+			   vo.setPoster(rs.getString(2));
+			   vo.setTitle(rs.getString(3));
+			   vo.setGrade(rs.getString(4));
+			   vo.setPrice(rs.getString(5));
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();
+		   }
+		   return vo;
+	   }
 }

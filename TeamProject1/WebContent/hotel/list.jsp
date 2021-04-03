@@ -73,7 +73,7 @@
                                     <span>${hvo.star }</span> 
                                     </span>
                                     </div>
-                                    <h3><a href="#">${hvo.title }</a></h3>
+                                    <h3><a href="../hotel/detail.do?no=${hvo.no }">${hvo.title }</a></h3>
                                     <p class="dolor">${hvo.grade } <span>/${hvo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
@@ -86,7 +86,7 @@
                         </div>
                         
                     </div>
-                    
+                    <div class="fab"><a href="../hotel/detail_before.do?no=${hvo.no }"></a></div>
                     	</c:forEach>
                    
                 </div>
