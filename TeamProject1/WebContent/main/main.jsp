@@ -62,6 +62,11 @@ $(function(){
 			height:450
 		})
 	})
+	$('.goMember').click(function(){
+		Shadowbox.close({
+			
+		})
+	})
 });
 </script>
    
@@ -100,7 +105,7 @@ $(function(){
                         <div class="col-lg-4">
                             <div class="header-info-right f-right">
                                 <ul class="header-social">    
-                                    <li><a href="#" id="login">로그인</a></li>
+                                    <li><a href="${login_change }" id="login">로그인</a></li>
                                     <li><a href="../member/join.do">회원가입</a></li>
                                 </ul>
                             </div>

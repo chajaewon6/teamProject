@@ -32,7 +32,8 @@
           <input type="password" class="login__input pass" placeholder="비밀번호"/>
         </div>
         <button type="button" class="login__submit">로그인</button>
-        <p class="login__signup">계정이 없으신가요? &nbsp;<a href="#">회원가입</a></p>
+        <p class="login__signup">계정이 없으신가요? &nbsp;
+        <div class="goMember"><a href="#">회원가입</a></p></div>
       </div>
     </div>
     

@@ -138,4 +138,73 @@ public class MemberDAO {
 	   // 회원수정 
 	   // 아이디 찾기
 	   // 비밀번호 찾기 
+	   
+	   //로그인
+	  public String isLogin(String id,String pwd) {
+		  String result="";
+		  try {
+			  getConnection();
+			  String sql="SELECT COUNT(*) FROM member "
+			  		+ "WHERE id=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, id);
+			  ResultSet rs=ps.executeQuery();
+			  rs.next();
+			  int count=rs.getInt(1);
+			  rs.close();
+			  
+			  //id가 존재하는 상태
+			  if(count==0) {
+				 result="아이디가 없습니다";
+			  }else { //id가 존재하는 상태
+				  sql="SELECT pwd,name FROM member "
+					  		+ "WHERE id=?";
+					  ps=conn.prepareStatement(sql);
+					  ps.setString(1, id);
+					 rs=ps.executeQuery();
+					 rs.next();
+					 String db_pwd=rs.getString(1);
+					 String name=rs.getString(2);
+					 rs.close();
+					 
+					 if(db_pwd.equals(pwd)) {
+						 result=name;
+					 }
+					 else {
+						 result="비밀번호가 없습니다";
+					 }
+			  }		  
+		  }catch(Exception ex) {
+			  ex.printStackTrace();
+			  
+		  }finally {
+			  disConnection();
+		  }
+		  return result;
+	  }
+	   
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

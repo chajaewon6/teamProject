@@ -96,6 +96,10 @@ public class MemberModel {
 	  return "redirect:../main/main.do";
 	
 	  
+	  //로그인 시 화면 변경
+	  
+	  
+	  
   }
   
 }
