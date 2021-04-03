@@ -8,39 +8,19 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
 <style type="text/css">
-.main-image
-{
-	background-image: url("../img/hero/h1_hero.jpg");
-	height: 18%;
-	width:100%;
-}
+
 #trip-text{
 	margin-bottom: 50px;
 	font-size:25px;
 }
-.profi{
-	margin: 10px auto;
-	border: 1px solid black;
-	background-color:gray;
-	height:300px;
-}
-.col-lg-3{
-	border: 1px solid black;
-	height: 100%;
-}
-.col-lg-9{
-	border: 1px solid black;
-	height: 25%;
-}
+
 .text{
 	margin-top:20px;
-	
 }
-.profile-card{
-	margin: 20px auto;
-	width: 60%;
-	border-radius: 70%
-	
+
+.profile{
+	width:100%;
+	height:130px;
 }
 
 </style>
@@ -49,9 +29,8 @@
 <main>
 	
 	<!-- 새로운 프로필 카드 -->
-	<header>
+	
 
-	<header>
 
 	<div class="container">
 
@@ -65,27 +44,27 @@
 
 			<div class="profile-user-settings">
 
-				<h1 class="profile-user-name">janedoe_</h1>
+				<h1 class="profile-user-name">MYID</h1>
 
-				<button class="btn profile-edit-btn">Edit Profile</button>
+				<button class="btn profile-edit-btn">프로필 수정</button>
 
-				<button class="btn profile-settings-btn" aria-label="profile settings"><i class="fas fa-cog" aria-hidden="true"></i></button>
+				<button class="btn profile-edit-btn">이미지 변경</button>
 
 			</div>
 
 			<div class="profile-stats">
 
 				<ul>
-					<li><span class="profile-stat-count">164</span> posts</li>
-					<li><span class="profile-stat-count">188</span> followers</li>
-					<li><span class="profile-stat-count">206</span> following</li>
+					<li><span class="profile-stat-count">164</span> 관심 목록</li>
+					<li><span class="profile-stat-count">188</span> 나의 여행 사진</li>
+					<li><span class="profile-stat-count">206</span> 예매 목록</li>
 				</ul>
 
 			</div>
 
 			<div class="profile-bio">
 
-				<p><span class="profile-real-name">Jane Doe</span> Lorem ipsum dolor sit, amet consectetur adipisicing elit 📷✈️🏕️</p>
+				<p><span class="profile-real-name">Jane Doe</span>자기소개글 출력📷✈️🏕️</p>
 
 			</div>
 
@@ -99,7 +78,7 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h4>찜목록</h4>
+                        	<h3>가고싶은 여행지</h3>
                         </div>
                     </div>
                 </div>
@@ -129,7 +108,7 @@
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h4>찜목록</h4>
+                        	<h3>내가 올린 여행 사진</h3>
                         </div>
                     </div>
                 </div>
@@ -159,7 +138,7 @@
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h4>찜목록</h4>
+                        	<h3>내가 예매한 호텔</h3>
                         </div>
                     </div>
                 </div>
@@ -214,7 +193,7 @@
         <!-- Pagination-area End -->
     </main>
         <!-- Footer End-->
-    </footer>
+   
 
 <!-- JS here -->
 	

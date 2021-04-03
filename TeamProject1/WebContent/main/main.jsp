@@ -162,7 +162,7 @@ $(function(){
                                                 </ul>
                                             </li>
                                         
-                                            <li><a href="contact.html">마이페이지</a></li>
+                                            <li><a href="../mypage/mypage_main.do">마이페이지</a></li>
                                         </ul>
                                     </nav>
                                 </div>
