@@ -44,6 +44,24 @@ $(function(){
 			height:600
 		})
 	})
+	$('#checkBtn').click(function(){
+		Shadowbox.open({
+			content:'../member/idcheck.jsp',
+			player:'iframe',
+			title:'아이디중복체크',
+			width:340,
+			height:200
+		})
+	})
+	$('#postBtn').click(function(){
+		Shadowbox.open({
+			content:'../member/postfind.jsp',
+			player:'iframe',
+			title:'우편번호검색',
+			width:540,
+			height:450
+		})
+	})
 });
 </script>
    
