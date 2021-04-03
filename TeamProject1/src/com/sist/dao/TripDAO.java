@@ -42,6 +42,11 @@ public class TripDAO {
 			// 있으면 있는거 사용
 			return dao;
 		}
+		
+		
+		
+		
+		
 	public List<TripVO> tripMainData()
 	{
 		List<TripVO> list=new ArrayList<TripVO>();
@@ -84,28 +89,63 @@ public class TripDAO {
 		return list;
 	}
 	
-	// 카테고리 DB
-	 public List<TripCategoryVO> TripCategoryinfoData(int cno)
+	
+	
+	// 카테고리 데이터
+	public List<TripCategoryVO> TripData(int cno)
+	{
+		List<TripCategoryVO> list=new ArrayList<TripCategoryVO>();
+		try
+		{
+			getConnection();
+			String sql="SELECT no,poster,title,content,addr "
+					  +"FROM tripdetail "
+					  +"WHERE cno=? "
+					  +"ORDER BY no ASC";
+			ps=conn.prepareStatement(sql);
+			ps.setInt(1, cno);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				TripCategoryVO vo=new TripCategoryVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setPoster(rs.getString(2));
+				  vo.setTitle(rs.getString(3));
+				  vo.setContent(rs.getString(4));
+				  vo.setAddr(rs.getString(5));
+				  list.add(vo);
+			}
+			rs.close();
+		}catch(Exception ex)
+		{
+			ex.printStackTrace();
+		}
+		finally
+		{
+			disConnection();
+		}
+		return list;
+	}
+	
+	
+	
+	// 카테고리 (광화문,종로 등등)
+	 public TripCategoryVO TripInfoData(int cno)
 	   {
-		   List<TripCategoryVO> list=new ArrayList<TripCategoryVO>();
+		   TripCategoryVO vo=new TripCategoryVO();
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT poster,title,content "
+			   String sql="SELECT category "
 					     +"FROM tripdetail "
 					     +"WHERE cno=?";
 			   ps=conn.prepareStatement(sql);
 			   ps.setInt(1, cno);
 			   ResultSet rs=ps.executeQuery();
-			   while(rs.next())
-			   {
-				   TripCategoryVO vo=new TripCategoryVO();
-				   vo.setPoster(rs.getString(1));
-				   vo.setTitle(rs.getString(2));
-				   vo.setContent(rs.getString(3));
-				   list.add(vo);
-			   }
-			   rs.close();
+			   rs.next();
+			   vo.setCategory(rs.getString(1));
+				
+				rs.close();
 		   }catch(Exception ex)
 		   {
 			   ex.printStackTrace();
@@ -114,7 +154,7 @@ public class TripDAO {
 		   {
 			   disConnection();
 		   }
-		   return list;
+		   return vo;
 	   }
 	
 	

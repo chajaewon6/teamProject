@@ -19,5 +19,5 @@ import lombok.Setter;
 @Setter
 public class TripCategoryVO {
   private int no,cno;
-  private String title,poster,content,link;
+  private String title,poster,content,link,addr,category;
 }
