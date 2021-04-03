@@ -1,5 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
     <head>
@@ -37,97 +39,13 @@
    </head>
 
    <body>
-    <!-- Preloader Start -->
-    <div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="../img/logo/logo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- Preloader Start -->
-    <header>
-        <!-- Header Start -->
-       <div class="header-area">
-            <div class="main-header ">
-                <div class="header-top top-bg d-none d-lg-block">
-                   <div class="container">
-                    <div class="row justify-content-between align-items-center">
-                        <div class="col-lg-8">
-                            <div class="header-info-left">
-                                <ul>                          
-                                    <li>needhelp@gotrip.com</li>
-                                    <li>666 569 025077</li>
-                                    <li>broklyn street new york</li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="col-lg-4">
-                            <div class="header-info-right f-right">
-                                <ul class="header-social">    
-                                    <li><a href="#"><i class="fab fa-twitter"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-linkedin-in"></i></a></li>
-                                    <li><a href="#"><i class="fab fa-facebook-f"></i></a></li>
-                                   <li> <a href="#"><i class="fab fa-pinterest-p"></i></a></li>
-                                </ul>
-                            </div>
-                        </div>
-                       </div>
-                   </div>
-                </div>
-               <div class="header-bottom  header-sticky">
-                    <div class="container">
-                        <div class="row align-items-center">
-                            <!-- Logo -->
-                            <div class="col-xl-2 col-lg-2 col-md-1">
-                                <div class="logo">
-                                  <a href="index.html"><img src="../img/logo/logo.png" alt=""></a>
-                                </div>
-                            </div>
-                            <div class="col-xl-10 col-lg-10 col-md-10">
-                                <!-- Main-menu -->
-                                <div class="main-menu f-right d-none d-lg-block">
-                                    <nav>               
-                                        <ul id="navigation">                                                                                                                                     
-                                            <li><a href="index.html">Home</a></li>
-                                            <li><a href="about.html">About US</a></li>
-                                            <li><a href="packages.html">Package</a></li>
-                                            <li><a href="blog.html">Blog</a>
-                                                <ul class="submenu">
-                                                    <li><a href="blog.html">Blog</a></li>
-                                                    <li><a href="single-blog.html">Blog Details</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="#">Pages</a>
-                                                <ul class="submenu">
-                                                    <li><a href="elements.html">Element</a></li>
-                                                </ul>
-                                            </li>
-                                            <li><a href="contact.html">Contact Us</a></li>
-                                        </ul>
-                                    </nav>
-                                </div>
-                            </div>
-                            <!-- Mobile Menu -->
-                            <div class="col-12">
-                                <div class="mobile_menu d-block d-lg-none"></div>
-                            </div>
-                        </div>
-                    </div>
-               </div>
-            </div>
-       </div>
-        <!-- Header End -->
-    </header>
+    
 
     <main>
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
-            <div class="single-slider slider-height2 d-flex align-items-center" data-background="./img/서울도심.jpg">
+            <div class="single-slider slider-height2 d-flex align-items-center" data-background="https://t1.daumcdn.net/thumb/R720x0/?fname=http://t1.daumcdn.net/brunch/service/user/bra/image/aJ93GlCnzd_nPtfeK8yaEaYF7hU.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
@@ -154,141 +72,23 @@
                     </div>
                 </div>
                 <div class="row">
+                    
+                <c:forEach var="vo" items="${mList }" varStatus="s">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="./img/한강공원2.jpg" alt="">
+                                <img src="${vo.pb_pic }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">한강 공원</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#치맥 #라면 #소풍</p>
+                                    <span><i class="fas fa-star"></i><span>${vo.user_id }</span> </span>
+                                    <h3><a href="#">${vo.pb_picLoc }</a></h3>
+                                    <p class="tag" style="color:#00D8FF; font-size:20px">#${vo.pb_picTag }</p>
                                 </div>
-                              
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="./img/남산타워.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">남산타워</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#자물쇠 #풍경</p>
-                                </div>
-         
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="./img/이태원.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">이태원</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#경리단길 #이국적인</p>
-                                </div>
-     
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="./img/연남동.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">연남동</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#연트럴파크 #데이트코스</p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="./img/ddp1.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">동대문</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#동대문 디자인 플라자</p>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="./img/광장시장2.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">광장시장</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">#파전 #막걸리 #육회 #마약김밥</p>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="../img/service/services7.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">서울숲</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px"></p>
-                                </div>
-                               
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="../img/service/services8.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">홍대 놀이터</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px"></p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="../img/service/services9.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>작성자</span> </span>
-                                    <h3><a href="#">올림픽공원</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px"></p>
-                                </div>
-                                
-                            </div>
-                        </div>
-                    </div>
+                </c:forEach>
                 </div>
             </div>
         </div>
@@ -316,128 +116,7 @@
         </div>
         <!-- Pagination-area End -->
     </main>
-    <footer>
-        
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding footer-bg" data-background="../img/service/footer_bg.jpg">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                       <div class="single-footer-caption mb-50">
-                         <div class="single-footer-caption mb-30">
-                              <!-- logo -->
-                             <div class="footer-logo">
-                                 <a href="index.html"><img src="../img/logo/logo2_footer.png" alt=""></a>
-                             </div>
-                             <div class="footer-tittle">
-                                 <div class="footer-pera">
-                                     <p>Lorem iaspsum doldfor sit amvset, consectetur adipisicing cvelit csed do eiusmod tempor incididucvccnt ut labovre.</p>
-                                </div>
-                             </div>
-                         </div>
-                       </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#"> Offers & Discounts</a></li>
-                                    <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>New Products</h4>
-                                <ul>
-                                    <li><a href="#">Woman Cloth</a></li>
-                                    <li><a href="#">Fashion Accessories</a></li>
-                                    <li><a href="#"> Man Accessories</a></li>
-                                    <li><a href="#"> Rubber made Toys</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                 <li><a href="#">Frequently Asked Questions</a></li>
-                                 <li><a href="#">Terms & Conditions</a></li>
-                                 <li><a href="#">Privacy Policy</a></li>
-                                 <li><a href="#">Privacy Policy</a></li>
-                                 <li><a href="#">Report a Payment Issue</a></li>
-                             </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer bottom -->
-                <div class="row pt-padding">
-                 <div class="col-xl-7 col-lg-7 col-md-7">
-                    <div class="footer-copy-right">
-                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                 </div>
-                  <div class="col-xl-5 col-lg-5 col-md-5">
-                        <!-- social -->
-                        <div class="footer-social f-right">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                        </div>
-                 </div>
-             </div>
-            </div>
-        </div>
-        <!-- Footer End-->
- 
-    </footer>
-
-	<!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
-		
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="../js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="../js/jquery.slicknav.min.js"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="../js/owl.carousel.min.js"></script>
-        <script src="../js/slick.min.js"></script>
-		<!-- One Page, Animated-HeadLin -->
-        <script src="../js/wow.min.js"></script>
-		<script src="../js/animated.headline.js"></script>
-        <script src="../js/jquery.magnific-popup.js"></script>
-
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="../js/jquery.scrollUp.min.js"></script>
-        <script src="../js/jquery.nice-select.min.js"></script>
-		<script src="../js/jquery.sticky.js"></script>
-        
-        <!-- contact js -->
-        <script src="../js/contact.js"></script>
-        <script src="../js/jquery.form.js"></script>
-        <script src="../js/jquery.validate.min.js"></script>
-        <script src="../js/mail-script.js"></script>
-        <script src="../js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="../js/plugins.js"></script>
-        <script src="../js/main.js"></script>
-        
-    </body>
+    
+</body>
 </html>
+	
