@@ -106,6 +106,29 @@ public class BoardDAO {
 			return mList;
 		}
 		// 총페이지 구하기
+		public int boardToatalPage()
+		{
+			int count =0;
+			try
+			{
+				getConnection();
+				String sql="SELECT COUNT(*) FROM picBoard ";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				count=rs.getInt(1);
+				count=(int) Math.ceil(count/12.0);
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return count;
+		}
 		// 디테일 데이터
 		
 		
