@@ -22,6 +22,6 @@ import java.util.*;
 @Setter
 public class BoardVO {
 	private int pb_no, pb_picHit, pb_picHeart, mno;
-	private String pic_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id;
+	private String pb_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id;
 	private Date pb_picDate;
 }

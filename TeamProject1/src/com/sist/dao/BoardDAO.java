@@ -51,20 +51,7 @@ public class BoardDAO {
 			try
 			{
 				getConnection();
-				/*
-				 * 	PB_NO         NOT NULL NUMBER         
-					PB_PICTITLE   NOT NULL VARCHAR2(200)  
-					PB_PICDATE             DATE           
-					PB_PICCONTENT NOT NULL VARCHAR2(1000) 
-					PB_PICLOC     NOT NULL VARCHAR2(100)  
-					PB_PICHIT              NUMBER         
-					PB_PICHEART            NUMBER         
-					PB_PICTAG              VARCHAR2(100)  
-					USER_ID       NOT NULL VARCHAR2(20)   
-					MNO           NOT NULL NUMBER         
-					PB_PIC                 VARCHAR2(4000) 
-				 * 
-				 */
+				
 				String sql="SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart,pb_picTag, user_id, mno, pb_pic, num "
 						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart, pb_picTag, user_id, mno, pb_pic, rownum as num " 
 						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart, pb_picTag, user_id, mno, pb_pic "
@@ -81,7 +68,7 @@ public class BoardDAO {
 				{
 					BoardVO vo=new BoardVO();
 					vo.setPb_no(rs.getInt(1));
-					vo.setPic_picTitle(rs.getString(2));
+					vo.setPb_picTitle(rs.getString(2));
 					vo.setPb_picDate(rs.getDate(3));
 					vo.setPb_picContent(rs.getString(4));
 					vo.setPb_picLoc(rs.getString(5));
@@ -130,6 +117,64 @@ public class BoardDAO {
 			return count;
 		}
 		// 디테일 데이터
+		public BoardVO boardDetailData(int no)
+		{
+			BoardVO vo=new BoardVO();
+			try
+			{
+				getConnection();
+				
+				// 조회수 증가
+				String sql="UPDATE picboard SET "
+						+"pb_picHit=pb_pichit+1 "
+						+"WHERE pb_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ps.executeUpdate();
+				
+				/*
+				 * 	PB_NO         NOT NULL NUMBER         
+					PB_PICTITLE   NOT NULL VARCHAR2(200)  
+					PB_PICDATE             DATE           
+					PB_PICCONTENT NOT NULL VARCHAR2(1000) 
+					PB_PICLOC     NOT NULL VARCHAR2(100)  
+					PB_PICHIT              NUMBER         
+					PB_PICHEART            NUMBER         
+					PB_PICTAG              VARCHAR2(100)  
+					USER_ID       NOT NULL VARCHAR2(20)   
+					MNO           NOT NULL NUMBER         
+					PB_PIC                 VARCHAR2(4000) 
+				 * 
+				 */
+				sql="SELECT pb_pictitle, pb_picdate, pb_piccontent, pb_picloc, pb_pichit, pb_picheart, pb_pictag, user_id, mno, pb_pic "
+						+"FROM picboard "
+						+"WHERE pb_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, no);
+				ResultSet rs=ps.executeQuery();
+				rs.next();
+				vo.setPb_picTitle(rs.getString(1));
+				vo.setPb_picDate(rs.getDate(2));
+				vo.setPb_picContent(rs.getString(3));
+				vo.setPb_picLoc(rs.getString(4));
+				vo.setPb_picHit(rs.getInt(5));
+				vo.setPb_picHeart(rs.getInt(6));
+				vo.setPb_picTag(rs.getString(7));
+				vo.setUser_id(rs.getString(8));
+				vo.setMno(rs.getInt(9));
+				vo.setPb_pic(rs.getString(10));
+				
+				
+			}
+			catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+			return vo;
+		}
 		
 		
 }

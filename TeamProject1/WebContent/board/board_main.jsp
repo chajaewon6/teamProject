@@ -77,12 +77,13 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="${vo.pb_pic }" alt="">
+                                <a href="board_detail.do?no=${vo.pb_no }"><img src="${vo.pb_pic }" alt=""></a>
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>${vo.user_id }</span> </span>
-                                    <h3><a href="#">${vo.pb_picLoc }</a></h3>
+                                    <span><span>작성자:&nbsp;${vo.user_id }</span> </span><br>
+                                    <span><span>조회수:&nbsp;${vo.pb_picHit }</span> </span>
+                                    <h3><a href="board_detail.do?no=${vo.pb_no }">${vo.pb_picLoc }</a></h3>
                                     <p class="tag" style="color:#00D8FF; font-size:20px">${vo.pb_picTag }</p>
                                 </div>
                             </div>
@@ -105,10 +106,10 @@
                              
                                 <ul class="pagination justify-content-start">
                                 <!-- 이전 -->
-                               <c:if test="${startPage>1 }">
+                               <c:if test="${startPage>1 }"> <!-- startPage 6이면 -->
                                   <li class="page-item"><a class="page-link" href="../board/board_main.do?page=${startPage-1 }">이전</a></li>
                                 </c:if>  
-                             
+                             	
                                 <c:forEach var="i" begin="${startPage }" end="${endPage }" step="1"> 
                                     <li class="page-item active"><a class="page-link" href="../board/board_main.do?page=${i }">${i }</a></li>
                                </c:forEach>   

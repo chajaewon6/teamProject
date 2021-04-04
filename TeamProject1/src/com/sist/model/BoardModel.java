@@ -29,8 +29,8 @@ public class BoardModel {
 		
 		// 페이지 나누기 
 		final int BLOCK=5;
-		int startPage=((curpage/BLOCK)*BLOCK)+1;
-		int endPage=((curpage/BLOCK)*BLOCK)+BLOCK;
+		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
+		int endPage=startPage + (BLOCK-1);;
 		if(endPage>totalPage)
 			endPage=totalPage;
 		
@@ -41,6 +41,19 @@ public class BoardModel {
 		request.setAttribute("totalPage", totalPage);
 		request.setAttribute("mList", mList);
 		request.setAttribute("main_jsp", "../board/board_main.jsp");
+		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("board/board_detail.do")
+	public String board_detail(HttpServletRequest request, HttpServletResponse response)
+	{
+		BoardDAO dao=BoardDAO.newInstance();
+		String no=request.getParameter("no");
+		
+		BoardVO vo=dao.boardDetailData(Integer.parseInt(no));
+		
+		request.setAttribute("vo", vo);
+		request.setAttribute("main_jsp", "../board/board_detail.jsp");
 		return "../main/main.jsp";
 	}
 	
