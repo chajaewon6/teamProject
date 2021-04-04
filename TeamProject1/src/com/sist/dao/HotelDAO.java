@@ -156,7 +156,7 @@ public class HotelDAO {
         List<HotelVO> list=new ArrayList<HotelVO>();
         try {
            getConnection();
-           String sql="SELECT no,poster,title,star,grade,addr,category,price,num "
+           String sql="SELECT no,poster,title,star,NVL(grade,'정보 없음'),addr,category,price,num "
                    + "FROM(SELECT no,poster,title,star,grade,addr,category,price,rownum as num "
                    + "FROM(SELECT no,poster,title,star,grade,addr,category,price "
                    + "FROM hotel_detail WHERE cno=? ORDER BY no ASC)) "
@@ -249,9 +249,9 @@ public class HotelDAO {
 		 }
 		 return vo;
 	 }
-	public HotelVO HotelCookiePrintData(int no)
+	public HotelCategoryVO HotelCookiePrintData(int no)
 	   {
-		   HotelVO vo=new HotelVO();
+		   HotelCategoryVO vo=new HotelCategoryVO();
 		   try
 		   {
 			   getConnection();

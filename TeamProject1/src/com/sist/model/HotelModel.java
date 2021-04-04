@@ -59,6 +59,7 @@ public class HotelModel {
 		request.setAttribute("main_jsp", "../hotel/list.jsp");
 		return "../main/main.jsp";
 	}
+/*
 	@RequestMapping("hotel/detail_before.do")
 	  public String detail_before(HttpServletRequest request,HttpServletResponse response)
 	  {
@@ -70,17 +71,17 @@ public class HotelModel {
 		  response.addCookie(cookie);
 		  return "redirect:../hotel/detail.do?no="+no;
 	  }
+	*/
 	@RequestMapping("hotel/detail.do")
 	  public String hotel_detail(HttpServletRequest request,HttpServletResponse response)
 	  {
-		List<HotelVO> fList=new ArrayList<HotelVO>();
+		List<HotelCategoryVO> fList=new ArrayList<HotelCategoryVO>();
 		HotelDAO dao=HotelDAO.newInstance();
-		
-		  
-			/*
-			 * String cno=request.getParameter("cno"); if(cno==null) cno="1";
-			 */
-		  //int cno1=Integer.parseInt(cno);
+		String no=request.getParameter("no");
+		  System.out.println(no);
+		  Cookie cookie=new Cookie("m"+no, no);// 문자열만 저장이 가능 
+		  cookie.setMaxAge(60*60);
+		  cookie.setPath("/");
 		  Cookie[] cookies=request.getCookies();
 		  if(cookies!=null)
 		  {
@@ -89,23 +90,22 @@ public class HotelModel {
 				  if(cookies[i].getName().startsWith("m"))
 				  {
 					  cookies[i].setPath("/");
-					  System.out.println(cookies[i].getName());
-					  String no=cookies[i].getValue();
-					  HotelVO vo=dao.HotelCookiePrintData(Integer.parseInt(no));
+					  //System.out.println(cookies[i].getName());
+					  String no1=cookies[i].getValue();
+					  HotelCategoryVO vo=dao.HotelCookiePrintData(Integer.parseInt(no1));
 					  fList.add(vo);
 				  }
 			  }
 		  }
 		  // DAO연결 
-		  String no=request.getParameter("no");
-		
-		  HotelVO vo=dao.HotelDetailData(Integer.parseInt(no));
-
-		  //List<HotelCategoryVO> hList=dao.HotelData(cno1);
 		  request.setAttribute("fList", fList);
-		  //request.setAttribute("hList", hList);
+		 // String no=request.getParameter("no");
+		  HotelVO vo=dao.HotelDetailData(Integer.parseInt(no));
+		  response.addCookie(cookie);
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../hotel/detail.jsp");
 		  return "../main/main.jsp";
 	  }
+	
+	
 }

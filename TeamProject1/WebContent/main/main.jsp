@@ -150,6 +150,7 @@ $(function(){
                                              
                                             <li><a href="../hotel/list.do">호텔예약</a>
                                             <ul class="submenu">
+                                            
                                                     <li><a href="../hotel/list.do?cno=1">강남/역삼/삼성/신사/청담</a></li>
                                                     <li><a href="../hotel/list.do?cno=2">서초/교대</a></li>
                                                     <li><a href="../hotel/list.do?cno=3">잠실/송파/왕십리/강동</a></li>
@@ -159,6 +160,7 @@ $(function(){
                                                     <li><a href="../hotel/list.do?cno=7">마포/홍대/신촌/서대문</a></li>
                                                     <li><a href="../hotel/list.do?cno=8">영등포/여의도/김포공항</a></li>
                                                     <li><a href="../hotel/list.do?cno=9">구로/금천/관악/동작</a></li>
+                                            
                                                 </ul>
                                             </li>
                                         

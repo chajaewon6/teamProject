@@ -72,71 +72,65 @@
                                         <li style="color:gray;font-size:20px"></i>주소:${vo.addr }</li>
                                     </ul>
                                      <div id="map" style="width:100%;height:500px;"></div>
-      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b5fd4dfaa14d2fbfdde362bc5e093417&libraries=services"></script>
-      <script>
-		var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
-		    mapOption = {
-		        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
-		        level: 3 // 지도의 확대 레벨
-		    };  
-		
-		// 지도를 생성합니다    
-		var map = new kakao.maps.Map(mapContainer, mapOption); 
-		
-		// 주소-좌표 변환 객체를 생성합니다
-		var geocoder = new kakao.maps.services.Geocoder();
-		
-		// 주소로 좌표를 검색합니다
-		geocoder.addressSearch("${vo.addr}", function(result, status) {
-		
-		    // 정상적으로 검색이 완료됐으면 
-		     if (status === kakao.maps.services.Status.OK) {
-		
-		        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
-		
-		        // 결과값으로 받은 위치를 마커로 표시합니다
-		        var marker = new kakao.maps.Marker({
-		            map: map,
-		            position: coords
-		        });
-		
-		        // 인포윈도우로 장소에 대한 설명을 표시합니다
-		        var infowindow = new kakao.maps.InfoWindow({
-		            content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.title}</div>'
-		        });
-		        infowindow.open(map, marker);
-		
-		        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
-		        map.setCenter(coords);
-		    } 
-		});    
-		</script>   
-                </div>
-                                
+																	      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b5fd4dfaa14d2fbfdde362bc5e093417&libraries=services"></script>
+																	      <script>
+																			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
+																			    mapOption = {
+																			        center: new kakao.maps.LatLng(33.450701, 126.570667), // 지도의 중심좌표
+																			        level: 3 // 지도의 확대 레벨
+																			    };  
+																			
+																			// 지도를 생성합니다    
+																			var map = new kakao.maps.Map(mapContainer, mapOption); 
+																			
+																			// 주소-좌표 변환 객체를 생성합니다
+																			var geocoder = new kakao.maps.services.Geocoder();
+																			
+																			// 주소로 좌표를 검색합니다
+																			geocoder.addressSearch("${vo.addr}", function(result, status) {
+																			
+																			    // 정상적으로 검색이 완료됐으면 
+																			     if (status === kakao.maps.services.Status.OK) {
+																			
+																			        var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+																			
+																			        // 결과값으로 받은 위치를 마커로 표시합니다
+																			        var marker = new kakao.maps.Marker({
+																			            map: map,
+																			            position: coords
+																			        });
+																			
+																			        // 인포윈도우로 장소에 대한 설명을 표시합니다
+																			        var infowindow = new kakao.maps.InfoWindow({
+																			            content: '<div style="width:150px;text-align:center;padding:6px 0;">${vo.title}</div>'
+																			        });
+																			        infowindow.open(map, marker);
+																			
+																			        // 지도의 중심을 결과값으로 받은 위치로 이동시킵니다
+																			        map.setCenter(coords);
+																			    } 
+																			});    
+																			</script>   
+                								</div>    
                             </div>
-                        </article>
-										
-                       
-
-                        
+                        </article>     
                     </div>
-                   
-                
+   
                  <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">최근 방문 호텔</h3>
-                            <c:forEach var="hvo" items="${fList }">
+                            <c:forEach var="fvo" items="${fList }">
                             
-                            <a href="../hotel/detail.do?no=${hvo.no }">
+                            <a href="../hotel/detail.do?no=${fvo.no }">
                             <div class="media post_item">
-                                <img src="${hvo.poster }" alt="post" style="width:140px;height:115px">
+                                <img src="${fvo.poster }" alt="post" style="width:140px;height:115px">
                                 <div class="media-body">
                                     <a href="single-blog.html">
-                                        <h3>${hvo.title }</h3>
+                                        <h3>${fvo.title }</h3>
                                     </a>
-                                    <p class="dolor" style="color:green">${hvo.grade } <span style="color:black">  ${hvo.price }</span></p>
+                                    <p class="dolor" style="color:green">${fvo.grade } <span style="color:black">  ${fvo.price }</span></p>
                                 </div>  
                             </div>
                             </a>
@@ -144,7 +138,33 @@
                             </c:forEach>
   
                         </aside>
-                        
+                        <aside class="single_sidebar_widget newsletter_widget">
+                            <h4 class="widget_title">예약정보</h4>
+
+                            <form action="#">
+                                <div class="single-element-widget mt-30">
+							<h3>성인</h3>
+							<div class="input-group-icon mt-10">
+								<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
+								<div class="form-select" id="default-select"">
+											<select>
+									<option value="1">1</option>
+									<option value="1">2</option>
+									<option value="1">3</option>
+									<option value="1">4</option>
+									<option value="1">5</option>
+									<option value="1">6</option>
+									<option value="1">7</option>
+									<option value="1">8</option>
+									<option value="1">9</option>
+									</select>
+								</div>
+							</div>
+						</div>
+                                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
+                                    type="submit">예약하기</button>
+                            </form>
+                        </aside>
                       
                 		</div>
                 </div>
@@ -153,92 +173,5 @@
         </div>
     </section>
     <!--================Blog Area =================-->
-    <footer>
-        <!-- Footer Start-->
-        <div class="footer-area footer-padding footer-bg" data-background="../img/service/footer_bg.jpg">
-            <div class="container">
-                <div class="row d-flex justify-content-between">
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-6">
-                       <div class="single-footer-caption mb-50">
-                         <div class="single-footer-caption mb-30">
-                              <!-- logo -->
-                             <div class="footer-logo">
-                                 <a href="index.html"><img src="../img/logo/logo2_footer.png" alt=""></a>
-                             </div>
-                             <div class="footer-tittle">
-                                 <div class="footer-pera">
-                                     <p>Lorem iaspsum doldfor sit amvset, consectetur adipisicing cvelit csed do eiusmod tempor incididucvccnt ut labovre.</p>
-                                </div>
-                             </div>
-                         </div>
-                       </div>
-                    </div>
-                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Quick Links</h4>
-                                <ul>
-                                    <li><a href="#">About</a></li>
-                                    <li><a href="#"> Offers & Discounts</a></li>
-                                    <li><a href="#"> Get Coupon</a></li>
-                                    <li><a href="#">  Contact Us</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>New Products</h4>
-                                <ul>
-                                    <li><a href="#">Woman Cloth</a></li>
-                                    <li><a href="#">Fashion Accessories</a></li>
-                                    <li><a href="#"> Man Accessories</a></li>
-                                    <li><a href="#"> Rubber made Toys</a></li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
-                        <div class="single-footer-caption mb-50">
-                            <div class="footer-tittle">
-                                <h4>Support</h4>
-                                <ul>
-                                 <li><a href="#">Frequently Asked Questions</a></li>
-                                 <li><a href="#">Terms & Conditions</a></li>
-                                 <li><a href="#">Privacy Policy</a></li>
-                                 <li><a href="#">Privacy Policy</a></li>
-                                 <li><a href="#">Report a Payment Issue</a></li>
-                             </ul>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- Footer bottom -->
-                <div class="row pt-padding">
-                 <div class="col-xl-7 col-lg-7 col-md-7">
-                    <div class="footer-copy-right">
-                         <p><!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. -->
-  Copyright &copy;<script>document.write(new Date().getFullYear());</script> All rights reserved | This template is made with <i class="ti-heart" aria-hidden="true"></i> by <a href="https://colorlib.com" target="_blank">Colorlib</a>
-  <!-- Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. --></p>
-                    </div>
-                 </div>
-                  <div class="col-xl-5 col-lg-5 col-md-5">
-                        <!-- social -->
-                        <div class="footer-social f-right">
-                            <a href="#"><i class="fab fa-twitter"></i></a>
-                            <a href="#"><i class="fab fa-facebook-f"></i></a>
-                            <a href="#"><i class="fab fa-behance"></i></a>
-                            <a href="#"><i class="fas fa-globe"></i></a>
-                        </div>
-                 </div>
-             </div>
-            </div>
-        </div>
-        <!-- Footer End-->
-    </footer>
-
-
-
 </body>
 </html>
