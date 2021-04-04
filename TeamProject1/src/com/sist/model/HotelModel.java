@@ -99,7 +99,6 @@ public class HotelModel {
 		  }
 		  // DAO연결 
 		  request.setAttribute("fList", fList);
-		 // String no=request.getParameter("no");
 		  HotelVO vo=dao.HotelDetailData(Integer.parseInt(no));
 		  response.addCookie(cookie);
 		  request.setAttribute("vo", vo);

@@ -143,10 +143,17 @@
 
                             <form action="#">
                                 <div class="single-element-widget mt-30">
-							<h3>성인</h3>
-							<div class="input-group-icon mt-10">
-								<div class="icon"><i class="fa fa-plane" aria-hidden="true"></i></div>
-								<div class="form-select" id="default-select"">
+          <ul>
+          <label for="checkin">체크인</label>
+          <input type=date size="20" name="checkin"></ul>
+          <ul>
+           <label for="checkout">체크아웃</label>
+          <input type=date size="20" name="checkout"></ul>
+							<ul>
+							<label for="adult">성인
+							<div class="input-group-icon mt-10" name="adult" style="background-color:white">
+								
+								<div class="form-select" id="default-select">
 											<select>
 									<option value="1">1</option>
 									<option value="1">2</option>
@@ -160,6 +167,44 @@
 									</select>
 								</div>
 							</div>
+							</label>
+							<label for="kid">어린이
+							<div class="input-group-icon mt-10" name="kid">
+								
+								<div class="form-select" id="default-select">
+											<select>
+									<option value="1">1</option>
+									<option value="1">2</option>
+									<option value="1">3</option>
+									<option value="1">4</option>
+									<option value="1">5</option>
+									<option value="1">6</option>
+									<option value="1">7</option>
+									<option value="1">8</option>
+									<option value="1">9</option>
+									</select>
+								</div>
+							</div>
+							</label>
+							</ul>
+							<label for="kid">방개수
+							<div class="input-group-icon mt-20" name="kid">
+								
+								<div class="form-select" id="default-select">
+											<select>
+									<option value="1">1</option>
+									<option value="1">2</option>
+									<option value="1">3</option>
+									<option value="1">4</option>
+									<option value="1">5</option>
+									<option value="1">6</option>
+									<option value="1">7</option>
+									<option value="1">8</option>
+									<option value="1">9</option>
+									</select>
+								</div>
+							</div>
+							</label>
 						</div>
                                 <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
                                     type="submit">예약하기</button>

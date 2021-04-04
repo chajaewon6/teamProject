@@ -89,7 +89,7 @@
                         </div>
                         
                     </div>
-                    <div class="fab"><a href="../hotel/detail_before.do?no=${hvo.no }"></a></div>
+                   <!-- <div class="fab"><a href="../hotel/detail_before.do?no=${hvo.no }"></a></div> -->
                     	</c:forEach>
                    
                 </div>
