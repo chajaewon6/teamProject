@@ -170,9 +170,9 @@ public class TripDAO {
 		   try
 		   {
 			   getConnection();
-			   String sql="SELECT no,poster,title,content,num "
-					   +"FROM (SELECT no,poster,title,content,rownum as num "
-					   +"FROM (SELECT no,poster,title,content "
+			   String sql="SELECT no,poster,title,content,addr,num "
+					   +"FROM (SELECT no,poster,title,content,addr,rownum as num "
+					   +"FROM (SELECT no,poster,title,content,addr "
 					   +"FROM tripdetail WHERE cno=? ORDER BY no ASC)) "
 					   +"WHERE num BETWEEN ? AND ? ";
 			   ps=conn.prepareStatement(sql);
@@ -190,8 +190,10 @@ public class TripDAO {
 				   vo.setNo(rs.getInt(1));
 				   vo.setPoster(rs.getString(2));
 				   vo.setTitle(rs.getString(3));
-				   vo.setContent(rs.getString(4));
-				   
+				   String s=rs.getString(4);
+				   String r=s.substring(0,25);
+				   vo.setContent(r.trim()+"...");
+				   vo.setAddr(rs.getString(5));
 				   list.add(vo);
 			   }
 			   rs.close();

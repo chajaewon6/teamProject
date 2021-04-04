@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>지역별 여행지</h2>
+                                <h2>지역별 관광지</h2>
                             </div>
                         </div>
                     </div>
@@ -40,43 +40,55 @@
         <!-- slider Area End-->
 
         <!-- Favourite Places Start -->
-        <div class="favourite-place place-padding">
+        <div class="favourite-place">
             <div class="container">
+            <br>
+            <br>
+            <br>
                 
                 <!-- Section Tittle -->
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div class="section-tittle text-center">
-                            <span>${tvo.category }</span>
-                            <h2>지역별 여행지</h2>
+                 <div class="row">
+                    <div class="col-lg-3">
+                        <div class="text-center">
+                            <h1>광화문</h1>
                         </div>
                     </div>
                 </div>
-               
+                 <br>
+                  <br>
+                   <br>
+                <div class="row">
+                    <a href="#" class="btn btn btn-sm btn-success">업데이트순</a>
+					<a href="#" class="btn btn btn-sm btn-primary">추천순</a>
+					<a href="#" class="btn btn btn-sm">가나다순</a>
+                </div>
+                <br>
 									 
                 <div class="row">
                 	<c:forEach var="tvo" items="${tList }">
        							
-                    <div class="col-xl-4 col-lg-4 col-md-6">
+                    <div class="col-xl-3 col-xl-3 col-md-6">
                     
-                        <div class="single-place mb-30">
+                        <div class="single-place sm-30">
                             <div class="place-img">
                                 <img src="${tvo.poster }" alt="">
                             </div>
-                            <div class="place-cap">
+                              <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
-                                    <span><i class="fas fa-star"></i>
-                                    <span>a</span> 
-                                    </span>
+                                
+                                 <h4><a href="#" >${tvo.title }</a></h4>
+                                
+                                     <!--<span><i class="fas fa-star"></i>
+                                    <span></span> </span>-->
                                     </div>
-                                   <h3><a href="#">${tvo.title }</a></h3>
-                                    <p class="dolor">c<span>c</span></p>
+                                 
+                                   <!--  <p class="dolor">c<span>c</span></p> -->
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
-                                        <li><i class="fas fa-map-marker-alt"></i>$</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>${tvo.content }</li>
                                     </ul>
                                 </div>
                             </div>

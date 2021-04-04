@@ -130,14 +130,14 @@ $(function(){
                                             <li><a href="../main/main.do">Home</a></li>
                                             <li><a href="../trip/trip_list.do">지역별관광지</a>
                                             <ul class="submenu">
-                                                    <li><a href="../trip/trip_list.do?cno=1">광화문</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=2">명동</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=3">동대문</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=4">홍대</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=5">여의도</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=6">이태원</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=7">강남</a></li>
-                                                    <li><a href="../trip/trip_list.do?cno=8">잠실</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=2">광화문</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=3">명동</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=4">동대문</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=5">홍대</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=6">여의도</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=7">이태원</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=8">강남</a></li>
+                                                    <li><a href="../trip/trip_list.do?cno=9">잠실</a></li>
                                               
                                                 </ul>
                                             </li>
