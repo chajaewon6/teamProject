@@ -234,6 +234,58 @@ public class TripDAO {
 		   return count;
 	   }
 		
+	   /*
+	    *   NO         NOT NULL NUMBER(6)      
+			CNO        NOT NULL NUMBER(4)      
+			CATEGORY   NOT NULL VARCHAR2(50)   
+			TITLE      NOT NULL VARCHAR2(200)  
+			REGDATE             VARCHAR2(200)  
+			POSTER     NOT NULL VARCHAR2(3000) 
+			CONTENT             CLOB           
+			ADDR                VARCHAR2(300)  
+			SUBWAYINFO          VARCHAR2(200)  
+			TAG                 VARCHAR2(500)  
+	    */
+	   
+	   // 상세보기 데이터
+	   public TripVO TripDetailData(int no)
+		 {
+		   	TripVO tvo=new TripVO();
+			 try
+			 {
+				 getConnection();
+				 String sql="SELECT no,cno,category,title,regdate,poster,content,addr,subwayinfo "   
+						   +"FROM tripdetail "
+						   +"WHERE no=?";
+				 ps=conn.prepareStatement(sql);
+				 ps.setInt(1, no);
+				 // 결과값 받기
+				 ResultSet rs=ps.executeQuery(); // row단위
+				 rs.next();
+				 tvo.setNo(rs.getInt(1));
+				 tvo.setCno(rs.getInt(2));
+				 tvo.setCategory(rs.getString(3));
+				 tvo.setTitle(rs.getString(4));
+				 tvo.setRegdate(rs.getString(5));
+				 tvo.setPoster(rs.getString(6));
+				 tvo.setContent(rs.getString(7));
+				 tvo.setAddr(rs.getString(8));
+				 tvo.setSubwayinfo(rs.getString(9));
+				
+				 rs.close();
+				 
+			 }catch(Exception ex)
+			 {
+				 ex.printStackTrace();
+			 }
+			 finally
+			 {
+				 disConnection();
+			 }
+			 return tvo;
+		 }
+	   
+	   
 
 		// 쿠키 출력
 	public TripVO tripCookieData(int no)
@@ -242,7 +294,7 @@ public class TripDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, cno, poster "
+			String sql="SELECT no, cno, poster,title "
 					+"FROM tripdetail "
 					+"WHERE no=?";
 			ps=conn.prepareStatement(sql);
@@ -252,6 +304,7 @@ public class TripDAO {
 			vo.setNo(rs.getInt(1));
 			vo.setCno(rs.getInt(2));
 			vo.setPoster(rs.getString(3));
+			vo.setTitle(rs.getString(4));
 			rs.close();
 		} 
 		catch (Exception ex) 

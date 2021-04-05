@@ -20,5 +20,5 @@ import lombok.Setter;
 @Setter
 public class TripVO {
 	private int no, cno;
-	private String poster, title, addr, category, regdate, content, subwayinfo, tag;
+	private String poster, title, addr, category, regdate, content, subwayinfo, tag, address, sub;
 }

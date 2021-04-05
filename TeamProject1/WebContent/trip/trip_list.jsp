@@ -77,7 +77,7 @@
                                 <div class="place-cap-top">
                                 <div class="#">
                                 
-                                 <h4><a href="#" >${tvo.title }</a></h4>
+                                 <h4><a href="../trip/trip_detail.do?no=${tvo.no }" >${tvo.title }</a></h4>
                                 
                                      <!--<span><i class="fas fa-star"></i>
                                     <span></span> </span>-->
