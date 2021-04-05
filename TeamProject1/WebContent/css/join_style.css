@@ -4,14 +4,7 @@
   box-sizing: border-box;
 }
 
-body {
-  font-family: 'Nunito', sans-serif;
-  color: #384047;
-  background-image: url("http://www.dgugspress.com/news/photo/201309/1110_512_1329.jpg");
-  background-repeat: no-repeat;
-  background-size: 100% 100%;
-  
-}
+
 
 form {
   max-width: 300px;
@@ -97,6 +90,18 @@ label.light {
   font-weight: 300;
   display: inline;
 }
+
+
+
+body {
+  font-family: 'Nunito', sans-serif;
+  color: #384047;
+  background-image: url("https://d3kxs6kpbh59hp.cloudfront.net/community/COMMUNITY/ae34b681cd4a4befbd9263da4c6f565d/ee173cf4bfe74bc6b4461af182b14b2f_1559705878.jpg");
+  background-repeat: no-repeat;
+  background-size: 100% 100%;
+  
+} 
+
 
 .number {
   background-color: #5fcf80;

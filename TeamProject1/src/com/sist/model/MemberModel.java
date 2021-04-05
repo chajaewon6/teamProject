@@ -103,8 +103,11 @@ public class MemberModel {
   public String member_login(HttpServletRequest request,HttpServletResponse response) {
 	  String id=request.getParameter("id");
 	  String pwd=request.getParameter("pwd");
+	  System.out.println(id);
+	  System.out.println(pwd);
 	  MemberDAO dao=MemberDAO.newInstance();
 	  String result=dao.isLogin(id, pwd);
+	  System.out.println(result);
 	  if(!(request.equals("NOID")||request.equals("NOPWD"))) {
 		  StringTokenizer st=new StringTokenizer(result,"|");
 		  String name=st.nextToken();

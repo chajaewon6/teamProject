@@ -29,6 +29,7 @@
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script><script type="text/javascript"></script>
+<script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <script type="text/javascript">
 Shadowbox.init({
@@ -40,8 +41,8 @@ $(function(){
 			content:'../member/login.jsp',
 			player:'iframe',
 			title:'login',
-			width:400,
-			height:600
+			width:340,
+			height:220
 		})
 	})
 	$('#checkBtn').click(function(){
@@ -104,7 +105,7 @@ $(function(){
                                     <li><a href="#" id="login">로그인</a></li>
                                  </c:if>
                                  <c:if test="${sessionScope.id!=null }">
-                                	 <li style="color:white">${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인중입니다</li>                          
+                                	 <li style="color:white">${sessionScope.name}<!--(${sessionScope.admin=='y'?"관리자":"일반사용자" }) -->님 환영합니다!</li>                          
                                  </c:if> 
                                  <c:if test="${sessionScope.id!=null }">   
                                     <li><a href="../member/logout.do" id="logout" >로그아웃</a></li>

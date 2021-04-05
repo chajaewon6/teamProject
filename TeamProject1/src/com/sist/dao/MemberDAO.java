@@ -152,7 +152,7 @@ public class MemberDAO {
 			  rs.next();
 			  int count=rs.getInt(1);
 			  rs.close();
-			  
+			  System.out.println(count);
 			  //id가 존재하는 상태
 			  if(count==0) {
 				 result="NOID";

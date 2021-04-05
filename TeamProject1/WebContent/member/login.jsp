@@ -22,36 +22,34 @@ $(function(){
 	$('#logBtn').click(function(){
 		let id=$('#id').val();
 		if(id.trim()=="")
-		{
+		{	
+			 $('#result').text("아이디를 입력하세요");
 			$('#id').focus();
 			return;
 		}
 		let pwd=$('#pwd').val();
 		if(pwd.trim()=="")
 		{
+			 $('#result').text("비밀번호를 입력하세요");
 			$('#pwd').focus();
 			return;
 		}
 		$.ajax({
-			type:'POST',
+			type:'post',
 			url:'../member/login.do',
 			data:{"id":id,"pwd":pwd},
 			success:function(result)
 			{
-				
 				let s=result.trim();
 				if(s=="NOID")
 				{
-					alert("아이디가 존재하지 않습니다!!");
-					$('#id').val("");
-					$('#pwd').val("");
-					$('#id').focus();
+					$('#result').html('<font color="red">아이디를 입력하세요!</font>');
+					$('#check').html('');
 				}
 				else if(s=="NOPWD")
 				{
-					alert("비밀번호가 틀립니다!!");
-					$('#pwd').val("");
-					$('#pwd').focus();
+					$('#result').html('<font color="red">비밀번호를 입력하세요!</font>');
+		               $('#check').html('');
 				}
 				else
 				{
@@ -62,6 +60,10 @@ $(function(){
 		});
 	})
 });
+function ok(){
+	parent.join_frm.id.value=$('#id').val();
+	parent.Shadowbox.close();
+}
 </script>
 </head>
 <body>
@@ -81,6 +83,9 @@ $(function(){
          <input type=password name=pwd size=15 class="input-sm" id=pwd>
        </td>
       </tr>
+      <tr>
+      	 <td colspan="2" class="text-center"><span id="result" style="color:red"></span></td>
+     </tr>
       <tr>
         <td colspan="2" class="text-center">
           <input type="button" value="로그인" class="btn btn-sm btn-success" id="logBtn">
