@@ -4,8 +4,8 @@ package com.sist.dao;
 import java.util.*;
 import javax.sql.*;
 
-
 import com.sist.vo.HotelCategoryVO;
+import com.sist.vo.HotelReplyVO;
 import com.sist.vo.HotelVO;
 
 
@@ -279,4 +279,154 @@ public class HotelDAO {
 		   }
 		   return vo;
 	   }
+	// 댓글 읽기
+    public List<HotelReplyVO> HotelReplyReadData(int cno)
+    {
+   	 List<HotelReplyVO> list=new ArrayList<HotelReplyVO>();
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT no,id,name,msg,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
+   				   +"FROM hotel_reply "
+   				   +"WHERE cno=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, cno);
+   		 ResultSet rs=ps.executeQuery();
+   		 while(rs.next())
+   		 {
+   			 HotelReplyVO vo=new HotelReplyVO();
+   			 vo.setNo(rs.getInt(1));
+   			 vo.setId(rs.getString(2));
+   			 vo.setName(rs.getString(3));
+   			 vo.setMsg(rs.getString(4));
+   			 vo.setDbday(rs.getString(5));
+   			 list.add(vo);
+   		 }
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return list;
+    }
+    // 댓글 올리기
+    public void HotelReplyInsert(HotelReplyVO vo)
+    {
+	   	 try
+	   	 {
+	   		 getConnection();
+	   		 String sql="INSERT INTO hotel_reply VALUES("
+	   				   +"pr_no_seq.nextval,?,?,?,?,SYSDATE)";
+	   		 ps=conn.prepareStatement(sql);
+	   		 ps.setInt(1, vo.getCno());
+	   		 ps.setString(2, vo.getId());
+	   		 ps.setString(3, vo.getName());
+	   		 ps.setString(4, vo.getMsg());
+	   		 // 실행
+	   		 ps.executeUpdate();
+	   	 }catch(Exception ex)
+	   	 {
+	   		 ex.printStackTrace();
+	   	 }
+	   	 finally
+	   	 {
+	   		 disConnection();
+	   	 }
+    }
+    // 댓글 수정
+    public void HotelReplyUpdate(HotelReplyVO vo)
+    {
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="UPDATE hotel_reply SET "
+   				   +"msg=? "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setString(1, vo.getMsg());
+   		 ps.setInt(2, vo.getNo());
+   		 
+   		 ps.executeUpdate();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+    }
+    // 댓글 삭제
+    public void HotelReplyDelete(int no)
+    {
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="DELETE FROM hotel_reply "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, no);
+   		 ps.executeUpdate();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+    }
+    // 찜하기
+    public void HotelJjimInsert(int no,String id)
+    {
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="INSERT INTO hotel_jjim VALUES("
+   				   +"pj_no_seq.nextval,?,?)";
+   	 ps=conn.prepareStatement(sql);
+   	 ps.setInt(2, no);
+   	 ps.setString(1, id);
+   				 
+   	 ps.executeUpdate();
+   	 }catch(Exception ex) 
+   	 {
+   		ex.printStackTrace(); 
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+    }
+    // 찜하기 체크
+    public int HotelJjimCheck(int cno,String id)
+    {
+   	 int count=0;
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT COUNT(*) FROM hotel_jjim "
+   				   +"WHERE cno=? AND id=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, cno);
+   		 ps.setString(2, id);
+   		 ResultSet rs=ps.executeQuery();
+   		 rs.next();
+   		 count=rs.getInt(1);
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return count;
+    }
+
 }

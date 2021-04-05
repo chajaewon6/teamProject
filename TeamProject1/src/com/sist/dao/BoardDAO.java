@@ -175,7 +175,50 @@ public class BoardDAO {
 			}
 			return vo;
 		}
-		
+		// 댓글 읽기
+		public List<BoardReplyVO> boardReplyReadData(int pb_no)
+		{
+			/*
+			 *  PBR_NO      NOT NULL NUMBER         
+				PBR_ID      NOT NULL VARCHAR2(20)   
+				PBR_NAME    NOT NULL VARCHAR2(30)   
+				PBR_MSG     NOT NULL VARCHAR2(1000) 
+				PBR_REGDATE          DATE           
+				PB_NO       NOT NULL NUMBER   
+			 */
+			List<BoardReplyVO> list=new ArrayList<BoardReplyVO>();
+			try
+			{
+				getConnection();
+				String sql="SELECT pbr_no, pbr_id, pbr_name, pbr_msg, TO_CHAR(pbr_regdate,'YYYY-MM-DD HH24:MI:SS') "
+						+"FROM picboardreply "
+						+"WHERE pb_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, pb_no);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					BoardReplyVO vo=new BoardReplyVO();
+					vo.setPbr_no(rs.getInt(1));
+					vo.setPbr_id(rs.getString(2));
+					vo.setPbr_name(rs.getString(3));
+					vo.setPbr_msg(rs.getString(4));
+					vo.setDbday(rs.getString(5));
+					
+					list.add(vo);
+				}
+				
+			} 
+			catch (Exception ex) 
+			{
+				
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
 		
 }
 

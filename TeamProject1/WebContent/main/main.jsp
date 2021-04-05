@@ -143,8 +143,7 @@ $(function(){
                                                     <li><a href="../trip/trip_list.do?cno=7">이태원</a></li>
                                                     <li><a href="../trip/trip_list.do?cno=8">강남</a></li>
                                                     <li><a href="../trip/trip_list.do?cno=9">잠실</a></li>
-                                              
-                                                </ul>
+      										</ul>
                                             </li>
                                             <li><a href="#">커뮤니티</a>
                                              <ul class="submenu">

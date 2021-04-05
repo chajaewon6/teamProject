@@ -6,12 +6,15 @@ import java.util.List;
 import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
 import com.sist.dao.HotelDAO;
+
 import com.sist.vo.HotelCategoryVO;
+import com.sist.vo.HotelReplyVO;
 import com.sist.vo.HotelVO;
 
 
@@ -98,12 +101,89 @@ public class HotelModel {
 			  }
 		  }
 		  // DAO연결 
+		  List<HotelReplyVO> rList=dao.HotelReplyReadData(Integer.parseInt(no));
+		  request.setAttribute("rList", rList);
 		  request.setAttribute("fList", fList);
 		  HotelVO vo=dao.HotelDetailData(Integer.parseInt(no));
 		  response.addCookie(cookie);
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../hotel/detail.jsp");
+		  
+		  /*
+		   *  HttpSession session=request.getSession();
+			  String id=(String)session.getAttribute("id");
+			  int count=dao.foodJjimCheck(Integer.parseInt(no), id);
+			  request.setAttribute("count", count);
+		   */
+		  
 		  return "../main/main.jsp";
+	  }
+	
+	@RequestMapping("hotel/hotel_reply_insert.do")
+	  public String hotel_reply_insert(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  // 댓글 데이터 받기
+		  try
+		  {
+			  request.setCharacterEncoding("UTF-8");
+		  }catch(Exception ex) {}
+		  String cno=request.getParameter("cno");
+		  String msg=request.getParameter("msg");
+		  HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  String name=(String)session.getAttribute("name");
+		  HotelReplyVO vo=new HotelReplyVO();
+		  vo.setName(name);
+		  vo.setMsg(msg);
+		  vo.setId(id);
+		  vo.setCno(Integer.parseInt(cno));
+		  // DAO연결
+		  HotelDAO dao=HotelDAO.newInstance();
+		  dao.HotelReplyInsert(vo);
+		  return "redirect:../hotel/detail.do?no="+cno;
+	  }
+	 // 댓글 삭제
+	  @RequestMapping("hotel/hotel_reply_delete.do")
+	  public String hotel_reply_delete(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  String no=request.getParameter("no");
+		  String cno=request.getParameter("cno");
+		  HotelDAO dao=HotelDAO.newInstance();
+		  // DB연동
+		  dao.HotelReplyDelete(Integer.parseInt(no));
+		  return "redirect:../hotel/detail.do?no="+cno;
+	  }
+	  // 댓글 수정
+	  @RequestMapping("hotel/hotel_reply_update.do")
+	  public String hotel_reply_update(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  try
+		  {
+			  request.setCharacterEncoding("UTF-8");
+		  }catch(Exception ex) {}
+		  String msg=request.getParameter("msg");
+		  String no=request.getParameter("no");
+		  String cno=request.getParameter("cno");
+		  HotelReplyVO vo=new HotelReplyVO();
+		  vo.setNo(Integer.parseInt(no));
+		  vo.setMsg(msg);
+		  
+		  HotelDAO dao=HotelDAO.newInstance();
+		  dao.HotelReplyUpdate(vo);
+		  return "redirect:../hotel/detail.do?no="+cno;
+	  }
+	  // 찜하기
+	  @RequestMapping("hotel/jjim.do")
+	  public String food_jjim(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  String no=request.getParameter("no");
+		  HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  
+		  HotelDAO dao=HotelDAO.newInstance();
+		  // 저장
+		  dao.HotelJjimInsert(Integer.parseInt(no), id);
+		  return "redirect:../food/food_detail.do?no="+no;
 	  }
 	
 	
