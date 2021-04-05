@@ -155,9 +155,9 @@ public class MemberDAO {
 			  
 			  //id가 존재하는 상태
 			  if(count==0) {
-				 result="아이디가 없습니다";
+				 result="NOID";
 			  }else { //id가 존재하는 상태
-				  sql="SELECT pwd,name FROM member "
+				  sql="SELECT pwd,name,admin FROM member "
 					  		+ "WHERE id=?";
 					  ps=conn.prepareStatement(sql);
 					  ps.setString(1, id);
@@ -165,13 +165,14 @@ public class MemberDAO {
 					 rs.next();
 					 String db_pwd=rs.getString(1);
 					 String name=rs.getString(2);
+					 String admin=rs.getString(3);
 					 rs.close();
 					 
 					 if(db_pwd.equals(pwd)) {
-						 result=name;
+						 result=name+"|"+admin;
 					 }
 					 else {
-						 result="비밀번호가 없습니다";
+						 result="NOPWD";
 					 }
 			  }		  
 		  }catch(Exception ex) {

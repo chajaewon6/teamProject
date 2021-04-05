@@ -28,7 +28,7 @@
             <!-- bootstrap -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript" src="../shadow/js/shadowbox.js"></script>
+<script type="text/javascript" src="../shadow/js/shadowbox.js"></script><script type="text/javascript"></script>
 <link rel="stylesheet" href="../shadow/css/shadowbox.css">
 <script type="text/javascript">
 Shadowbox.init({
@@ -54,18 +54,13 @@ $(function(){
 		})
 	})
 	$('#postBtn').click(function(){
-		Shadowbox.open({
-			content:'../member/postfind.jsp',
-			player:'iframe',
-			title:'우편번호검색',
-			width:540,
-			height:450
-		})
-	})
-	$('.goMember').click(function(){
-		Shadowbox.close({
-			
-		})
+		new daum.Postcode({
+			oncomplete:function(data)
+			{
+				$('#post').val(data.zonecode);
+				$('#addr1').val(data.address);
+			}
+		}).open();
 	})
 });
 </script>
@@ -106,11 +101,14 @@ $(function(){
                             <div class="header-info-right f-right">
                                 <ul class="header-social"> 
                                 <c:if test="${sessionScope.id==null }">   
-                                    <li><a href="${login_change }" id="login">로그인</a></li>
+                                    <li><a href="#" id="login">로그인</a></li>
                                  </c:if>
                                  <c:if test="${sessionScope.id!=null }">
-                                 <li><a href="../member/logout.do">로그아웃</a></li>
-                                 </c:if>   
+                                	 <li style="color:white">${sessionScope.name}(${sessionScope.admin=='y'?"관리자":"일반사용자" })님 로그인중입니다</li>                          
+                                 </c:if> 
+                                 <c:if test="${sessionScope.id!=null }">   
+                                    <li><a href="../member/logout.do" id="logout" >로그아웃</a></li>
+                                 </c:if>  
                                  <c:if test="${sessionScope.id==null }">       
                                     <li><a href="../member/join.do">회원가입</a></li>
                                 </c:if>
@@ -171,12 +169,12 @@ $(function(){
                                                 </ul>
                                             </li>
                                         	<c:if test="${sessionScope.id!=null }">
-                                        	<c:if test="${sessionScope.id=='n' }">
-                                            <li><a href="../mypage/mypage_main.do">마이페이지</a></li>
-                                            </c:if>
-                                            <c:if test="${sessionScope.id=='y' }">
-                                            <li><a href="#">관리자페이지</a></li>
-                                            </c:if>
+                                        		<c:if test="${sessionScope.admin=='n' }">
+                                            		<li><a href="../mypage/mypage_main.do">마이페이지</a></li>
+                                            	</c:if>
+                                            	<c:if test="${sessionScope.admin=='y' }">
+                                            		<li><a href="#">관리자페이지</a></li>
+                                            	</c:if>
                                             </c:if>
                                         </ul>
                                     </nav>
