@@ -1,13 +1,21 @@
 package com.sist.model;
 
+import java.util.ArrayList;
 import java.util.List;
+
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+
+
 import com.sist.dao.TripDAO;
+
+
+
 import com.sist.vo.TripCategoryVO;
 import com.sist.vo.TripVO;
 
@@ -57,6 +65,37 @@ public class tripModel {
 	   return "../main/main.jsp"; 
   }
   
+  @RequestMapping("trip/trip_detail.do")
+  public String trip_detail(HttpServletRequest request,HttpServletResponse response)
+  {
+	  String no=request.getParameter("no"); //no=게시물 번호
+	  // DAO연결 
+	  TripDAO dao=TripDAO.newInstance();
+	  TripVO tvo=dao.TripDetailData(Integer.parseInt(no));
+	  
+	  String s=tvo.getAddr();
+	  s=s.substring(s.indexOf(" "), s.lastIndexOf("("));
+	  tvo.setAddress(s);
+	  
+	  String sub=tvo.getSubwayinfo();
+	  sub=sub.substring(0, sub.lastIndexOf("선")+1);
+	  tvo.setSub(sub);
+	  
+	  
+	  
+	  //List<RecipeVO> list=dao.foodSameRecipeData(vo.getType());
+	  //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
+	  //request.setAttribute("rList", rList);
+	  //request.setAttribute("list", list);
+	  request.setAttribute("tvo", tvo);
+	  request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
+	  
+	  //HttpSession session=request.getSession();
+	  //String id=(String)session.getAttribute("id"); 
+	  //int count=dao.foodJjimCheck(Integer.parseInt(no), id);
+	  //request.setAttribute("count", count);
+	  return "../main/main.jsp";
+  }
   
   
   

@@ -1,9 +1,11 @@
 package com.sist.model;
 
-import java.util.List;
+import java.net.http.HttpResponse;
+import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -95,11 +97,46 @@ public class MemberModel {
 	  dao.memberJoin(vo);
 	  return "redirect:../main/main.do";
 	
+  }
+  //id,pwd확인, session저장
+  @RequestMapping("member/login.do")
+  public String member_login(HttpServletRequest request,HttpServletResponse response) {
+	  String id=request.getParameter("id");
+	  String pwd=request.getParameter("pwd");
+	  MemberDAO dao=MemberDAO.newInstance();
+	  String result=dao.isLogin(id, pwd);
+	  if(!(request.equals("NOID")||request.equals("NOPWD"))) {
+		  StringTokenizer st=new StringTokenizer(result,"|");
+		  String name=st.nextToken();
+		  String admin=st.nextToken();
+		  result="OK";
+		  HttpSession session=request.getSession();
+		  session.setAttribute("id", id);
+		  session.setAttribute("name", name);
+		  session.setAttribute("admin", admin);
+	  }
+	  request.setAttribute("result", result);
 	  
-	  //로그인 시 화면 변경
-	  
-	  
-	  
+	  return "../member/login_ok.jsp";
+  }
+ 
+  //로그아웃 (Session에 저장된 내용 해제)
+  @RequestMapping("member/logout.do")
+  public String memberLogout(HttpServletRequest request,HttpServletResponse response) {
+	  HttpSession session=request.getSession();
+	  session.invalidate();
+	  return "redirect:../main/main.do";
   }
   
+ 
+  
 }
+
+
+
+
+
+
+
+
+
