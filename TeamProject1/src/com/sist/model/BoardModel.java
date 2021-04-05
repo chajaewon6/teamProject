@@ -51,10 +51,25 @@ public class BoardModel {
 		String no=request.getParameter("no");
 		
 		BoardVO vo=dao.boardDetailData(Integer.parseInt(no));
+		List<BoardReplyVO> rList = dao.boardReplyReadData(Integer.parseInt(no));
+		
+		
 		
 		request.setAttribute("vo", vo);
+		request.setAttribute("rList", rList);
 		request.setAttribute("main_jsp", "../board/board_detail.jsp");
 		return "../main/main.jsp";
+	}
+	// 댓글쓰기
+	@RequestMapping("board/board_reply_insert.do")
+	public String board_reply_update(HttpServletRequest request, HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		} 
+		catch (Exception ex) {}
+		return "../board/board_detail.jsp";
 	}
 	
 }
