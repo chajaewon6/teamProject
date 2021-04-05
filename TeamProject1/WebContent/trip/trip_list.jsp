@@ -71,13 +71,13 @@
                     
                         <div class="single-place sm-30">
                             <div class="place-img">
-                                <img src="${tvo.poster }" alt="">
+                                <a href="../trip/trip_detail.do?no=${tvo.no }" ><img src="${tvo.poster }" style="width:100%;height:170px"></a>
                             </div>
                               <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
                                 
-                                 <h4><a href="../trip/trip_detail.do?no=${tvo.no }" >${tvo.title }</a></h4>
+                                 <h4 class="text-left" style=fontsize:5><a href="../trip/trip_detail.do?no=${tvo.no }" >${tvo.title }</a></h4>
                                 
                                      <!--<span><i class="fas fa-star"></i>
                                     <span></span> </span>-->

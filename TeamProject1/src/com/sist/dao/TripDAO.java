@@ -286,6 +286,41 @@ public class TripDAO {
 		 }
 	   
 	   
+	   // 근처 관광지 5개
+	   public List<TripVO> TripLocationData(int cno)
+	     {
+	    	 List<TripVO> list=new ArrayList<TripVO>();
+	    	 try
+	    	 {
+	    		 getConnection();
+	    		 String sql="SELECT no,cno,poster,title "
+	    				 +"FROM (SELECT no,cno,poster,title FROM tripdetail "
+	    				 + "WHERE cno=1 ORDER BY DBMS_RANDOM.VALUE) "
+	    				 + "WHERE ROWNUM<=5";
+	    		 ps=conn.prepareStatement(sql);
+	    		 ResultSet rs=ps.executeQuery();
+	    		 while(rs.next())
+	    		 {
+	    			 TripVO vo=new TripVO();
+	    			 vo.setNo(rs.getInt(1));
+	    			 vo.setPoster(rs.getString(2));
+	    			 vo.setTitle(rs.getString(3));
+	    			 list.add(vo);
+	    		 }
+	    		 rs.close();
+	    	 }catch(Exception ex)
+	    	 {
+	    		 ex.printStackTrace();
+	    	 }
+	    	 finally
+	    	 {
+	    		 disConnection();
+	    	 }
+	    	 return list;
+	     }
+	   
+	   
+	   
 
 		// 쿠키 출력
 	public TripVO tripCookieData(int no)

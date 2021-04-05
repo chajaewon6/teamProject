@@ -9,7 +9,9 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Travel HTML-5 Template </title>
+    
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+   
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -46,52 +48,52 @@
     <section class="blog_area section-padding">
       <div class="container">
         <div class="row">
-          <div class="col-lg-16 mb-0 mb-lg-0 text-center">
-            <span style="color:orange"> ${tvo.category }</span><br>
-              <h1 style="height:60px">${tvo.title }</h1>
-             	<div class="post-element" style="height:60px">
+        
+          <div class="col-lg-9 mb-0 mb-lg-0 text-center">
+            <strong style="font-size:20pt;color:orange"> ${tvo.category }</strong><br>
+            <br>
+              <strong style="font-size:30pt;height:80px">${tvo.title }</strong>
+             	<div class="post-element" style="height:80px">
+              <br>
+              <br>
                   <span>${tvo.regdate }</span>
                 </div>
                       
                     <div class="blog_left_sidebar">
                       <article class="blog_item">
+                      <br>
                         <div class="blog_item_img">
-                          <img class="card-img rounded-0 " src="${tvo.poster}" style="width:600px;height:400">
-                            <a class="blog_item_date">
-           					  <p>111</p>
-                            </a>
+                          <img class="img-rounded" src="${tvo.poster}" style="width:700px;height:500">
+                            
                         </div>
 					</div>		
                            
                     <div class="blog_details">
-                      <ul class="blog-info-link">
-                        <p class="dolor" style="color:green;font-size:20px">??? <span style="color:gray">/ ${vo.price }</span></p>
-                      </ul>
-                        <strong style="font-size:15pt">간략 소개</strong>
-                        <p style=text-align="left">${tvo.content }</p>
-                                
+                      <!--  <ul class="blog-info-link">
+                      //  <p class="dolor" style="color:green;font-size:20px">??? <span style="color:gray">/ ${vo.price }</span></p>
+                      //</ul>
+                       // <strong style="font-size:15pt">간략 소개</strong>-->
+                        <p class="text-left">${tvo.content }</p>
+                         <br>
+                         <br>
                       <ul>
                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
                         <!--<li style="color:gray;font-size:20px"></i>주소:${tvo.addr }</li>-->
                         <table class="table">
 						  
 						  <tr>
+							<th width=20% class="text-right">주소</th>
+							  <td width=80% class="text-left">${tvo.address }</td>
+						  </tr>
+						  <tr>
 							<th width=20% class="text-right">교통정보</th>
-							  <td width=80% class="text-left">${tvo.sub }</td>
-						  </tr>
-						  <tr>
-							<th width=20% class="text-right">a</th>
-							  <td width=80%></td>
-						  </tr>
-						  <tr>
-						    <th width=20% class="text-right">a</th>
-							  <td width=80%></td>
+							  <td width=80% class="text-left">${tvo.subwayinfo }</td>
 						  </tr>
 						 
                         </table>
                        </ul>
                                      
-                    <div id="map" style="width:100%;height:500px;"></div>
+                    <div id="map" style="width:100%;height:300px;margin:0px auto"></div>
 					  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f52532232d7ccc95a9e8fada5490dcb&libraries=services"></script>
 						<script>
 							var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -135,21 +137,21 @@
             </div>
                     
    
-                 <!-- <div class="col-lg-4">
+                  <div class="col-lg-3">
                     <div class="blog_right_sidebar">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">최근 방문 호텔</h3>
-                            <c:forEach var="fvo" items="${fList }">
+                            <h3 class="widget_title">근처 여행지</h3>
+                            <c:forEach var="tvo" items="${tList }">
                             
-                            <a href="../hotel/detail.do?no=${fvo.no }">
+                            <a href="../hotel/detail.do?no=${tvo.no }">
                             <div class="media post_item">
-                                <img src="${fvo.poster }" alt="post" style="width:140px;height:115px">
+                                <img src="${tvo.poster }" alt="post" style="width:140px;height:115px">
                                 <div class="media-body">
                                     <a href="single-blog.html">
-                                        <h3>${fvo.title }</h3>
+                                        <h3>${tvo.title }</h3>
                                     </a>
-                                    <p class="dolor" style="color:green">${fvo.grade } <span style="color:black">  ${fvo.price }</span></p>
+                                    <p class="dolor" style="color:green">aa <span style="color:black">  ${fvo.price }</span></p>
                                 </div>  
                             </div>
                             </a>
@@ -157,81 +159,8 @@
                             </c:forEach>
   
                         </aside>
-                        <aside class="single_sidebar_widget newsletter_widget">
-                            <h4 class="widget_title">예약정보</h4>
-
-                            <form action="#">
-                                <div class="single-element-widget mt-30">
-          <ul>
-          <label for="checkin">체크인</label>
-          <input type=date size="20" name="checkin"></ul>
-          <ul>
-           <label for="checkout">체크아웃</label>
-          <input type=date size="20" name="checkout"></ul>
-							<ul>
-							<label for="adult">성인
-							<div class="input-group-icon mt-10" name="adult" style="background-color:white">
-								
-								<div class="form-select" id="default-select">
-											<select>
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-							<label for="kid">어린이
-							<div class="input-group-icon mt-10" name="kid">
-								
-								<div class="form-select" id="default-select">
-											<select>
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-							</ul>
-							<label for="kid">방개수
-							<div class="input-group-icon mt-20" name="kid">
-								
-								<div class="form-select" id="default-select">
-											<select>
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-						</div>
-                                <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">예약하기</button>
-                            </form>
-                        </aside>
-                      
                 		</div> 
-                </div>-->
+                </div>
                 
             </div>
         </div>

@@ -76,12 +76,7 @@ public class tripModel {
 	  String s=tvo.getAddr();
 	  s=s.substring(s.indexOf(" "), s.lastIndexOf("("));
 	  tvo.setAddress(s);
-	  
-	  String sub=tvo.getSubwayinfo();
-	  sub=sub.substring(0, sub.lastIndexOf("선")+1);
-	  tvo.setSub(sub);
-	  
-	  
+	 
 	  
 	  //List<RecipeVO> list=dao.foodSameRecipeData(vo.getType());
 	  //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
