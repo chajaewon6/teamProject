@@ -76,7 +76,8 @@
                                     </span>
                                     </div>
                                     <h3>${hvo.title }</h3>
-                                    <p class="dolor">${hvo.grade } <span>/${hvo.price }</span></p>
+                                    <p class="dolor">${fn:substring(hvo.grade,0,fn:indexOf(hvo.grade,"(")) } <span>/${hvo.price }</span></p>
+                                    <!--  <h2>${fn:substring(fvo.address,0,fn:indexOf(fvo.address,"지"))}</h2> -->
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>

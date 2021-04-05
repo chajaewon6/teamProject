@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!doctype html>
 <html class="no-js" lang="zxx">
 
@@ -8,6 +9,34 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Travel HTML-5 Template </title>
+    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+let i=0;
+$(function(){
+	$('.delBtn').click(function(){
+		let no=$(this).attr("data-no");
+		let cno=$(this).attr("data-cno");
+		location.href="../hotel/food_reply_delete.do?no="+no+"&cno="+cno;
+	});
+	$('.updateBtn').click(function(){
+		$('.updateli').hide();
+		$('.updateBtn').text("수정");
+		let no=$(this).attr("data-no");
+		if(i==0)
+			{
+				$(this).text("취소");
+				$('#m'+no).show("slow");
+				i=1;
+			}
+		else
+			{
+				$(this).text("수정");
+				$('#m'+no).hide("slow");
+				i=0;
+			}
+	});
+});
+</script>
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
 
@@ -61,18 +90,23 @@
 
                             <div class="blog_details">
                                 
-                                    <h1 style="color:orange">${vo.title }</h1>
-                                    <ul class="blog-info-link">
-                                    <p class="dolor" style="color:green;font-size:20px">${vo.grade } <span style="color:gray">/ ${vo.price }</span></p>
+                                    <h1 style="color:orange">${vo.title }
+                                    
+                                    </h1>
+                                <ul class="blog-info-link">
+                                    <p class="dolor" style="color:green;font-size:20px">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span style="color:gray">/ ${vo.price }</span></P>
+                                    
                                 </ul>
                                 <strong style="font-size:15pt">간략 소개</strong>
                                 <p>${vo.content }</p>
+                               
                                 <ul>
                                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
                                         <li style="color:gray;font-size:20px"></i>주소:${vo.addr }</li>
                                     </ul>
                                      <div id="map" style="width:100%;height:500px;"></div>
 																	      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b5fd4dfaa14d2fbfdde362bc5e093417&libraries=services"></script>
+																	      <ul>
 																	      <script>
 																			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
 																			    mapOption = {
@@ -110,12 +144,158 @@
 																			        map.setCenter(coords);
 																			    } 
 																			});    
-																			</script>   
+																			</script>  
+																			</ul>
+																		 <ul colspan="2" class="text-right">
+                                 
+													       	
+													       		<c:if test="${sessionScope.id!=null }">
+													       			<c:if test="${count==0 }">
+													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-sm btn-primary" style="color:white">찜하기</a>
+													       			</c:if>
+													       			<c:if test="${count!=0 }">
+													       				<span class="btn btn-sm btn-active">찜하기</span>
+													       			</c:if>
+													       		</c:if>
+													       		<a href="../main/main.do" class="btn btn-medium btn-primary" style="color:white">목록</a>
+													       
+													      </ul> 
                 								</div>    
                             </div>
-                        </article>     
-                    </div>
-   
+                        </article> 
+                        
+   								<div class="blog_left_sidebar">
+   									<h2>댓글</h2>
+							        <ul>
+							        <c:forEach var="rvo" items="${rList }">
+							          <li>
+							            <article>
+							              <header>
+							                <figure class="avatar">
+								                <c:if test="${sessionScope.id==rvo.id }">
+									                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
+									                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
+								                </c:if>
+							                </figure>
+							                <address>
+							                By <a href="#">${rvo.name }</a>
+							                </address>
+							                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
+							              </header>
+							              <div class="comcont">
+							                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
+							              </div>
+							            </article>
+							          </li>
+							          <li style="display:none" id="m${rvo.no }" class="updateli">
+							          <form action="../hotel/hotel_reply_update.do" method="post">
+							          <table class="table">
+							          	<tr>
+							          		<td>
+							          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
+							          			<input type="hidden" name=cno value="${vo.no }">
+							          			<input type="hidden" name=no value="${rvo.no }">
+							          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
+							          		</td>
+							          	</tr>
+							          </table>
+							        </form>
+							          </li>
+							          </c:forEach>
+							        </ul>
+							        
+                        <form class="form-contact contact_form" action="../hotel/hotel_reply_insert.do" method="post" id="contactForm" novalidate="novalidate">
+                            <div class="row">
+                                <div class="col-12">
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                    		<input type="hidden" name=cno value="${vo.no }">
+							          								
+                                    
+                                    </div>
+                                </div>
+                                
+                            <div class="form-group mt-3">
+                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                            </div>
+                            </div>
+                        </form>
+                    
+                    
+							      <%--  <c:if test="${sessionScope.id!=null }">
+							        <form action="../hotel/hotel_reply_insert.do" method="post">
+							          <table class="table">
+							          	<tr>
+							          		<td>
+							          			<textarea rows="7" cols="30" name="msg"></textarea>
+							          			<input type="hidden" name=cno value="${vo.no }">
+							          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
+							          		</td>
+							          	</tr>
+							          </table>
+							        </form>
+							        </c:if>
+							      
+							      
+							      
+							      <h2>댓글</h2>
+							        <ul>
+							        <c:forEach var="rvo" items="${rList }">
+							          <li>
+							            <article>
+							              <header>
+							                <figure class="avatar">
+								                <c:if test="${sessionScope.id==rvo.id }">
+									                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
+									                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
+								                </c:if>
+							                </figure>
+							                <address>
+							                By <a href="#">${rvo.name }</a>
+							                </address>
+							                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
+							              </header>
+							              <div class="comcont">
+							                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
+							              </div>
+							            </article>
+							          </li>
+							          <li style="display:none" id="m${rvo.no }" class="updateli">
+							          <form action="../hotel/hotel_reply_update.do" method="post">
+							          <table class="table">
+							          	<tr>
+							          		<td>
+							          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
+							          			<input type="hidden" name=cno value="${vo.no }">
+							          			<input type="hidden" name=no value="${rvo.no }">
+							          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
+							          		</td>
+							          	</tr>
+							          </table>
+							        </form>
+							          </li>
+							          </c:forEach>
+							        </ul>
+							        <c:if test="${sessionScope.id!=null }">
+							        <form action="../hotel/hotel_reply_insert.do" method="post">
+							          <table class="table">
+							          	<tr>
+							          		<td>
+							          			<textarea rows="7" cols="30" name="msg"></textarea>
+							          			<input type="hidden" name=cno value="${vo.no }">
+							          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
+							          		</td>
+							          	</tr>
+							          </table>
+							        </form>
+							        </c:if>
+      							</div>
+      							--%>
+      						</div>    
+                </div>
+    <%--<div class="form-group">
+       <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                    </div> --%>
                  <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         
@@ -130,7 +310,7 @@
                                     <a href="single-blog.html">
                                         <h3>${fvo.title }</h3>
                                     </a>
-                                    <p class="dolor" style="color:green">${fvo.grade } <span style="color:black">  ${fvo.price }</span></p>
+                                    <p class="dolor" style="color:green">${fn:substring(fvo.grade,0,fn:indexOf(fvo.grade,"(")) } <ul><span style="color:black">  ${fvo.price }</span></ul></p>
                                 </div>  
                             </div>
                             </a>
@@ -192,6 +372,7 @@
 								
 								<div class="form-select" id="default-select">
 											<select>
+									<option value="1">0</option>
 									<option value="1">1</option>
 									<option value="1">2</option>
 									<option value="1">3</option>
@@ -213,6 +394,7 @@
                       
                 		</div>
                 </div>
+                
                 
             </div>
         </div>
