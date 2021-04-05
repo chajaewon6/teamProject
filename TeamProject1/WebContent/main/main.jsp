@@ -104,9 +104,16 @@ $(function(){
                         </div>
                         <div class="col-lg-4">
                             <div class="header-info-right f-right">
-                                <ul class="header-social">    
+                                <ul class="header-social"> 
+                                <c:if test="${sessionScope.id==null }">   
                                     <li><a href="${login_change }" id="login">로그인</a></li>
+                                 </c:if>
+                                 <c:if test="${sessionScope.id!=null }">
+                                 <li><a href="../member/logout.do">로그아웃</a></li>
+                                 </c:if>   
+                                 <c:if test="${sessionScope.id==null }">       
                                     <li><a href="../member/join.do">회원가입</a></li>
+                                </c:if>
                                 </ul>
                             </div>
                         </div>
@@ -163,8 +170,14 @@ $(function(){
                                             
                                                 </ul>
                                             </li>
-                                        
+                                        	<c:if test="${sessionScope.id!=null }">
+                                        	<c:if test="${sessionScope.id=='n' }">
                                             <li><a href="../mypage/mypage_main.do">마이페이지</a></li>
+                                            </c:if>
+                                            <c:if test="${sessionScope.id=='y' }">
+                                            <li><a href="#">관리자페이지</a></li>
+                                            </c:if>
+                                            </c:if>
                                         </ul>
                                     </nav>
                                 </div>
