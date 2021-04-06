@@ -426,8 +426,8 @@ public class TripDAO {
 	public void TripJjimInsert(int no,String id){
 	  try{
 		getConnection();
-		String sql="INSERT INTO trip_jjim1 VALUES( "
-			  +"tjj_no_seq.nextval,?,?)";
+		String sql="INSERT INTO trip_jjim VALUES( "
+			  +"tj_no_seq.nextval,?,?)";
 		ps=conn.prepareStatement(sql);
 		ps.setString(1,id);
 		ps.setInt(2,no);
@@ -445,7 +445,7 @@ public class TripDAO {
 	  int count=0;
 	  try{
 		getConnection();
-		String sql="SELECT COUNT(*) FROM trip_jjim1 "
+		String sql="SELECT COUNT(*) FROM trip_jjim "
 			+"WHERE cno=? AND id=?";
 		ps=conn.prepareStatement(sql);
 		ps.setInt(1,cno);
@@ -467,8 +467,8 @@ public class TripDAO {
 	  try{
 		getConnection();
 		String sql="SELECT no,cno, " 
-			+"FROM trip_jjim1 "
-			+"WHERE id=?";
+			+"FROM trip_jjim "
+			+"WHERE id=? ";
 		ps=conn.prepareStatement(sql);
 		ps.setString(1,id);
 		ResultSet rs=ps.executeQuery();

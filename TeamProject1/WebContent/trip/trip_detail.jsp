@@ -68,15 +68,18 @@
                         </div>
 					</div>
 					<!-- 찜하기  -->
-					<div class="text-left">
-						<c:if test="${sessionScope.id!=null }">
-							<c:if test="${count==0 }">
-								<a href="../trip/jjim.do?no=${vo.no }" class="btn btn=sm btn-primary">
-									찜하기
-								</a>
-							</c:if>
-						</c:if>
-					</div>		
+					<<%-- div class="text-right">
+					  <c:if test="${sessionScope.id!=null }">
+					   <c:if test="${count==0 }">
+						<a href="../jjim.do?no=${vo.no }" class="btn btn-sm btn-danger">찜하기</a>
+					   </c:if>
+					   <c:if test="${count!=0 }">
+						<span class="btn btn-sm btn-active">찜하기</span>
+					   </c:if>
+					  </c:if>
+					  
+						<a href="../main/main.do" class="btn btn-sm btn-primary">목록</a>
+					</div>		 --%>
                            
                     <div class="blog_details">
                       <!--  <ul class="blog-info-link">
@@ -142,8 +145,17 @@
 								} 
 							});    
 						</script> 
-					</div>    
-                							
+					</div>  
+					<div class="text-right">  
+						<c:if test="${sessionScope.id!=null }">
+							<c:if test="${count==0 }">
+								<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+							</c:if>
+							<c:if test="${count!=0 }">
+								<span class="btn btn-medium btn-default">찜하기</span>
+							</c:if>
+						</c:if>
+                	</div>						
             </div>
                     
    
