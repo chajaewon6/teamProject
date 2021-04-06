@@ -2,6 +2,7 @@ package com.sist.model;
 
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
@@ -55,8 +56,10 @@ public class BoardModel {
 		
 		
 		
+		
 		request.setAttribute("vo", vo);
 		request.setAttribute("rList", rList);
+		request.setAttribute("no", no);
 		request.setAttribute("main_jsp", "../board/board_detail.jsp");
 		return "../main/main.jsp";
 	}
@@ -67,10 +70,53 @@ public class BoardModel {
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
-		} 
-		catch (Exception ex) {}
-		return "../board/board_detail.jsp";
+		} catch (Exception ex) {}
+		
+		String pno=request.getParameter("pno");
+		String msg=request.getParameter("msg");
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		String name=(String)session.getAttribute("name");
+		BoardReplyVO vo=new BoardReplyVO();
+		
+		// dao 연결
+		BoardDAO dao=BoardDAO.newInstance();
+		// insert 실행
+		vo.setPb_no(Integer.parseInt(pno));
+		vo.setPbr_msg(msg);
+		vo.setPbr_id(id);
+		vo.setPbr_name(name);
+		dao.replyInsertData(vo);
+		
+		return "redirect:../board/board_detail.do?no="+pno;
 	}
+	
+	@RequestMapping("board/board_reply_delete.do")
+	public String board_reply_delete(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		String pno=request.getParameter("pno");
+		BoardDAO dao=BoardDAO.newInstance();
+		dao.replyDeleteData(Integer.parseInt(no));
+		
+		return "redirect:../board/board_detail.do?no="+pno;
+	}
+	// 댓글 수정
+	@RequestMapping("board/board_reply_update.do")
+	public String board_reply_insert(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		String pno=request.getParameter("pno");
+		String msg=request.getParameter("msg");
+		BoardDAO dao=BoardDAO.newInstance();
+		BoardReplyVO vo=new BoardReplyVO();
+		vo.setPbr_msg(msg);
+		vo.setPbr_no(Integer.parseInt(no));
+		dao.replyUpdateData(vo);
+		
+		return "redirect:../board/board_detail.do?no="+pno;
+	}
+	
 	
 }
 

@@ -44,7 +44,7 @@ $(function(){
 		}
 		
 	});
-});
+}); 
 </script>
 <body>
   <section class="blog_area section-padding">
@@ -82,43 +82,37 @@ $(function(){
          <!-- 댓글 영역 -->
          
           <div class="row">
+          <!-- 댓글 쓰기 -->
+          <c:if test="${sessionScope.id!=null }">
                     <div class="col-12">
                         <h2 class="contact-title">Get in Touch</h2>
                     </div>
                     <div class="col-lg-8">
-                        <form class="form-contact contact_form" action="contact_process.php" method="post" id="contactForm" novalidate="novalidate">
+                        <form action="../board/board_reply_insert.do" method=post>
                             <div class="row">
                                 <div class="col-12">
                                     <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="5" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                        <textarea class="form-control w-100" name="msg" cols="30" rows="5" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                                    	<input type="hidden" name=pno value="${no }">	
                                     </div>
                                 </div>
-                                <!-- <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="name" id="name" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter your name'" placeholder="Enter your name">
-                                    </div>
-                                </div>
-                                <div class="col-sm-6">
-                                    <div class="form-group">
-                                        <input class="form-control valid" name="email" id="email" type="email" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter email address'" placeholder="Email">
-                                    </div>
-                                </div> -->
-                                <!-- <div class="col-12">
-                                    <div class="form-group">
-                                        <input class="form-control" name="subject" id="subject" type="text" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Subject'" placeholder="Enter Subject">
-                                    </div>
-                                </div> -->
-                            </div>
+                  			</div>
                             <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
+                                <button type="submit" class="button button-contactForm boxed-btn">댓글 등록</button>
                             </div>
                         </form>
                     </div>
+                    </c:if>
                 </div>
+                <!-- 댓글 출력 -->
                 <c:forEach var="rvo" items="${rList }">
                 <article class="blog_item">
                    <div class="blog_details">
                     <table>
+                    <c:if test="${sessionScope.id==rvo.pbr_id }">
+	                  <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.pbr_no }">수정</span>
+	                  <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.pbr_no }" data-pno="${no }">삭제</span>
+	                 </c:if>
                      <tr>
                       <td>작성자:${rvo.pbr_name }</td>
                      </tr>
@@ -128,7 +122,23 @@ $(function(){
                      <tr>
                       <td>내용:${rvo.pbr_msg }</td>
                      </tr>
-                    </table>            
+                    </table>      
+                    <ul>
+                    	<li style="display:none" id="m${rvo.pbr_no }" class="updateli">
+			            <form action="../food/food_reply_update.do" method="post">
+				          <table class="table">
+				            <tr>
+				             <td>
+				              <textarea rows="7" cols="30" name="msg">${rvo.pbr_msg }</textarea>
+				              <input type="hidden" name=cno value="${no }">
+				              <input type="hidden" name=no value="${rvo.pbr_no }">
+				              <input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
+				             </td>
+				            </tr>
+				          </table>
+				        </form>
+			          </li>
+                    </ul>      
                    </div>
                  </article>
                   </c:forEach> 
@@ -146,11 +156,7 @@ $(function(){
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">인근 여행지 추천</h3>
                             
-                            <c:forEach var="rvo" items="${rList }">
-     							 <span>작성자:${rvo.pbr_name }</span>
-     							 <span>작성일:${rvo.dbday }</span>
-     							 <span>작성내용:${rvo.pbr_msg }</span>
-     							 </c:forEach> 
+                             
                              <%-- <c:forEach var="hvo" items="">
                             
                             <a href="../hotel/detail.do?no=${hvo.no }">

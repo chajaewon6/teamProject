@@ -219,7 +219,79 @@ public class BoardDAO {
 			}
 			return list;
 		}
-		
+		// 댓글 쓰기
+		public void replyInsertData(BoardReplyVO vo)
+		{
+			try
+			{
+				getConnection();
+				/*
+				 * 	PBR_NO      NOT NULL NUMBER         
+					PBR_ID      NOT NULL VARCHAR2(20)   
+					PBR_NAME    NOT NULL VARCHAR2(30)   
+					PBR_MSG     NOT NULL VARCHAR2(1000) 
+					PBR_REGDATE          DATE           
+					PB_NO       NOT NULL NUMBER  
+
+				 */
+				String sql="INSERT INTO picboardreply VALUES(pbr_no_seq.nextval,?,?,?,SYSDATE,?)";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getPbr_id());
+				ps.setString(2, vo.getPbr_name());
+				ps.setString(3, vo.getPbr_msg());
+				ps.setInt(4, vo.getPb_no());
+				ps.executeUpdate();
+			} 
+			catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
+		// 댓글 삭제
+		public void replyDeleteData(int pbr_no)
+		{
+			try
+			{
+				getConnection();
+				String sql="DELETE FROM picboardreply WHERE pbr_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, pbr_no);
+				ps.executeUpdate();
+			} 
+			catch (Exception e) {
+				e.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
+		// 댓글 수정
+		public void replyUpdateData (BoardReplyVO vo)
+		{
+			try
+			{
+				getConnection();
+				String sql="UPDATE picboardreply SET "
+						+"msg=? "
+						+"WHERE pbr_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getPbr_msg());
+				ps.setInt(2, vo.getPbr_no());
+				
+				ps.executeUpdate();
+			} 
+			catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
 }
 
 
