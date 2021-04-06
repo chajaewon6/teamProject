@@ -90,6 +90,42 @@ public class TripDAO {
 	}
 	
 	
+	// 쿠키땜에 일단 넣음 test
+	public List<TripCategoryVO> tripCategoryData()
+	   {
+		   List<TripCategoryVO> list=new ArrayList<TripCategoryVO>();
+		   try
+		   {
+			   // 연결
+			   getConnection();
+			   // SQL문장
+			   String sql="SELECT no,poster,title "
+					     +"FROM tripdetail "
+					     +"ORDER BY no ASC";
+			   // 전송 객체 생성
+			   ps=conn.prepareStatement(sql);
+			   // 실행 
+			   ResultSet rs=ps.executeQuery();
+			   while(rs.next())
+			   {
+				   TripCategoryVO vo=new TripCategoryVO();
+				   vo.setNo(rs.getInt(1));
+				   vo.setPoster(rs.getString(2));
+				   vo.setTitle(rs.getString(3));
+				   list.add(vo);
+			   }
+			   rs.close();
+		   }catch(Exception ex)
+		   {
+			   ex.printStackTrace();
+		   }
+		   finally
+		   {
+			   disConnection();// 반환
+		   }
+		   return list;
+	   }
+	
 	
 	// 카테고리 데이터
 	public List<TripCategoryVO> TripData(int cno)

@@ -134,8 +134,8 @@ public class tripModel {
 		  }
 	  }
 	  request.setAttribute("fList", fList);
-	  //List<FoodCategoryVO> cList=dao.foodCategoryData();
-	  //request.setAttribute("cList", cList);
+	  List<TripCategoryVO> cList=dao.tripCategoryData();
+	  request.setAttribute("cList", cList);
 	  request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
 	  return "../main/main.jsp";
   }
