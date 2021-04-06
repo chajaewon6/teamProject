@@ -157,6 +157,9 @@ position: absolute;
   color: #FE8CDF;
   background: var(--color-flower);
 }
+.comment-block{
+	width:800px;
+} 
  
  </style>
   </head>

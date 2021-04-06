@@ -13,8 +13,7 @@ import java.util.*;
 	PB_PICHIT              NUMBER         
 	PB_PICHEART            NUMBER         
 	PB_PICTAG              VARCHAR2(100)  
-	USER_ID       NOT NULL VARCHAR2(20)   
-	MNO           NOT NULL NUMBER         
+	USER_ID                VARCHAR2(20)   
 	PB_PIC                 VARCHAR2(4000) 
  * 
  */
@@ -22,6 +21,6 @@ import java.util.*;
 @Setter
 public class BoardVO {
 	private int pb_no, pb_picHit, pb_picHeart, mno;
-	private String pb_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id;
+	private String pb_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id, user_name, dbday;
 	private Date pb_picDate;
 }

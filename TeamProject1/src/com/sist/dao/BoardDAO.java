@@ -292,6 +292,109 @@ public class BoardDAO {
 				disConnection();
 			}
 		}
+		// 게시글 작성
+		public void boardInsertData(BoardVO vo)
+		{
+			/*
+			 * 	PB_NO         NOT NULL NUMBER         
+				PB_PICTITLE   NOT NULL VARCHAR2(200)  
+				PB_PICDATE             DATE           
+				PB_PICCONTENT NOT NULL VARCHAR2(1000) 
+				PB_PICLOC     NOT NULL VARCHAR2(100)  
+				PB_PICHIT              NUMBER         
+				PB_PICTAG              VARCHAR2(100)  
+				USER_ID                VARCHAR2(20)   
+				PB_PIC                 VARCHAR2(4000) 
+				USER_NAME              VARCHAR2(34)  
+			 * 
+			 */
+			try
+			{
+				getConnection();
+				String sql="INSERT INTO picboard VALUES("
+						+"pic_no_seq.nextval,?,?,SYSDATE,?,?,0,?,?,?,?)";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getPb_picTitle());
+				ps.setString(2, vo.getPb_picContent());
+				ps.setString(3, vo.getPb_picLoc());
+				ps.setString(4, vo.getPb_picTag());
+				ps.setString(5, vo.getUser_id());
+				ps.setString(6, vo.getPb_pic());
+				ps.setString(7, vo.getUser_name());
+				
+				ps.executeUpdate();
+				
+			}
+			catch (Exception ex) {
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
+		// 게시글 수정
+		public void boardUpdateData(BoardVO vo)
+		{
+			try
+			{
+				getConnection();
+				/*
+				 * 	PB_NO         NOT NULL NUMBER         
+					PB_PICTITLE   NOT NULL VARCHAR2(200)  
+					PB_PICDATE             DATE           
+					PB_PICCONTENT NOT NULL VARCHAR2(1000) 
+					PB_PICLOC     NOT NULL VARCHAR2(100)  
+					PB_PICHIT              NUMBER         
+					PB_PICTAG              VARCHAR2(100)  
+					USER_ID                VARCHAR2(20)   
+					PB_PIC                 VARCHAR2(4000) 
+					USER_NAME              VARCHAR2(34)  
+				 * 
+				 */
+				String sql="UPDATE picboard SET "
+						+"pb_pictitle=? pb_piccontent=? pb_pictag=? pb_pic=? "
+						+"WHERE no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setString(1, vo.getPb_picTitle());
+				ps.setString(2, vo.getPb_picContent());
+				ps.setString(3, vo.getPb_picTag());
+				ps.setString(4, vo.getPb_pic());
+				ps.setInt(5, vo.getPb_no());
+				
+				ps.executeUpdate();
+						
+			}
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
+		// 게시글 삭제
+		public void boardDeleteData(int pb_no)
+		{
+			try
+			{
+				getConnection();
+				String sql="DELETE FROM picboard WHERE pb_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, pb_no);
+				
+				ps.executeUpdate();
+			} 
+			catch (Exception ex)
+			{
+				ex.printStackTrace();
+			}
+			finally
+			{
+				disConnection();
+			}
+		}
 }
 
 
