@@ -56,7 +56,7 @@ $(function(){
 		// ../hotel/time.do => Model호출 => DB처리 => 해당 JSP로 전송 
 		$.ajax({
 			type:'post',
-			url:'../hotel/time.do',
+			url:'../hotel/intime.do',
 			data:{"day":day},
 			success:function(result)
 			{

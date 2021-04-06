@@ -194,7 +194,7 @@ public class HotelModel {
 		  return "../main/main.jsp";
 	  }
 	  @RequestMapping("hotel/reserve_hoteldetail.do")
-	  public String reserve_foodhouse(HttpServletRequest request,HttpServletResponse response)
+	  public String reserve_hoteldetail(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  HotelDAO dao=HotelDAO.newInstance();
 		  List<HotelVO> list=dao.HotelReserveAllData();
@@ -273,6 +273,7 @@ public class HotelModel {
 		   {
 			   // 1,2,3,7,8,10...
 			   StringTokenizer st1=new StringTokenizer(rday,",");
+			   System.out.println(st1);
 			   while(st1.hasMoreTokens())
 			   {
 				  int p=Integer.parseInt(st1.nextToken());// 31
@@ -292,8 +293,8 @@ public class HotelModel {
 		   
 		   return "../hotel/date.jsp";
 	  }
-	  @RequestMapping("hotel/time.do")
-	  public String food_time(HttpServletRequest request,HttpServletResponse response) 
+	  @RequestMapping("hotel/intime.do")
+	  public String hotel_intime(HttpServletRequest request,HttpServletResponse response) 
 	  {
 		  String day=request.getParameter("day");
 		  // 시간을 읽어 온다 => 오라클 
@@ -306,11 +307,33 @@ public class HotelModel {
 		  {
 			  String t=st.nextToken();
 			  int i=Integer.parseInt(t);
-			  String time=dao.HotelReserveGetTime(i);
+			  String time=dao.HotelReserveInTime(i);
 			  list.add(time);
 		  }
 		  
 		  request.setAttribute("list", list);
-		  return "../hotel/time.jsp";
+		  return "../hotel/intime.jsp";
 	  }
+	  @RequestMapping("hotel/outtime.do")
+	  public String hotel_outtime(HttpServletRequest request,HttpServletResponse response) 
+	  {
+		  String day=request.getParameter("day");
+		  // 시간을 읽어 온다 => 오라클 
+		  HotelDAO dao=HotelDAO.newInstance();
+		  String tno=dao.HotelReserveTimeData(Integer.parseInt(day));
+		  // 1="09:00",2,3,9,11
+		  List<String> list=new ArrayList<String>();
+		  StringTokenizer st=new StringTokenizer(tno,",");
+		  while(st.hasMoreTokens())
+		  {
+			  String t=st.nextToken();
+			  int i=Integer.parseInt(t);
+			  String time=dao.HotelReserveOutTime(i);
+			  list.add(time);
+		  }
+		  
+		  request.setAttribute("list", list);
+		  return "../hotel/outtime.jsp";
+	  }
+	 
 }

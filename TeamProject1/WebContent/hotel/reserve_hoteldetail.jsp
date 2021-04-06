@@ -30,11 +30,11 @@ $(function(){
 		
 		$.ajax({
 			type:'post',
-			url:'../food/date.do',
+			url:'../hotel/date.do',
 			data:{"no":no},
 			success:function(result)
 			{
-				$('#food_date').html(result);
+				$('#hotel_date').html(result);
 			}
 		});
 	});

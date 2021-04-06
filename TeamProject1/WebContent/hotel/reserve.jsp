@@ -8,7 +8,7 @@
 <style type="text/css">
 .mypage_row{
   margin: 0px auto;
-  width:1400px;
+  width:1500px;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -26,13 +26,14 @@ $(function(){
 	$('#rBtn').click(function(){
 		let title=$('#reserve_title').text();
 		let day=$('#reserve_day').text();
-		let time=$('#reserve_time1').text();
+		let time1=$('#reserve_time1').text();
+		let time2=$('#reserve_time2').text();
 		let inwon=$('#reserve_inwon1').text();
 		
 		$.ajax({
 			type:'post',
 			url:'../hotel/reserve_save.do',
-			data:{"title":title,"day":day,"time":time,"inwon":inwon},
+			data:{"title":title,"day":day,"time1":time1,"time2":time2,"inwon":inwon},
 			success:function(result)
 			{
 				location.href="../hotel/mypage.do";
@@ -47,7 +48,7 @@ $(function(){
   <h2 class="sectiontitle">예약하기</h2>
   <table class="table">
    <tr>
-     <td width=40%>
+     <td width=35%>
        <div style="height: 500px">
          <table class="table">
           <h4>호텔정보</h4>
@@ -63,16 +64,16 @@ $(function(){
      <td width=30%>
        <div style="height: 500px">
          <table class="table">
-          <caption>예약일정보</caption>
+          <h4>예약일정보</h4>
           <tr>
             <td id="hotel_date"></td>
           </tr>
          </table>
        </div>
      </td>
-     <td width=30% rowspan=2>
+     <td width=35% rowspan=2>
          <table class="table">
-          <caption>예약정보</caption>
+          <h4>예약정보</h4>
           <tr>
             <td colspan="2" class="text-center">
              <img id="reserve_poster" style="height:150px;width:250px">
@@ -87,8 +88,12 @@ $(function(){
             <td width="80%"><span id="reserve_day"></span></td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">시간</th>
+            <th class="text-right" width="20%">체크인</th>
             <td width="80%"><span id="reserve_time1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">체크아웃</th>
+            <td width="80%"><span id="reserve_time2"></span></td>
           </tr>
           <tr>
             <th class="text-right" width="20%">인원</th>
@@ -105,17 +110,25 @@ $(function(){
      </td>
    </tr>
    <tr>
-     <td width=30%>
+     <td width=35%>
        <div style="height: 100px">
          <table class="table">
-          <caption>시간정보</caption>
+          <h4>체크인</h4>
           <tr>
             <td id="reserve_time"></td>
           </tr>
          </table>
        </div>
+       <div style="height: 100px">
+         <table class="table">
+          <h4>체크아웃</h4>
+          <tr>
+            <td id="reserve_tim"></td>
+          </tr>
+         </table>
+       </div>
      </td>
-     <td width=40%>
+     <td width=30%>
        <div style="height: 100px">
          <table class="table">
           <caption>인원정보</caption>

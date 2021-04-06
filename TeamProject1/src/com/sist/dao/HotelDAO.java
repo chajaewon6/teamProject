@@ -540,13 +540,37 @@ public class HotelDAO {
    	 }
    	 return time;
     }
-    public String HotelReserveGetTime(int no)
+    public String HotelReserveInTime(int no)
     {
    	 String time="";
    	 try
    	 {
    		 getConnection();
-   		 String sql="SELECT time FROM rtime "
+   		 String sql="SELECT intime FROM intime "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, no);
+   		 ResultSet rs=ps.executeQuery();
+   		 rs.next();
+   		 time=rs.getString(1);
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return time;
+    }
+    public String HotelReserveOutTime(int no)
+    {
+   	 String time="";
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT outtime FROM outtime "
    				   +"WHERE no=?";
    		 ps=conn.prepareStatement(sql);
    		 ps.setInt(1, no);
