@@ -141,8 +141,8 @@
                     <div class="blog_right_sidebar">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">근처 여행지</h3>
-                            <c:forEach var="tvo" items="${tList }">
+                            <h3 class="widget_title">최근 검색 여행지</h3>
+                            <c:forEach var="tvo" items="${LList }">
                             
                             <a href="../hotel/detail.do?no=${tvo.no }">
                             <div class="media post_item">
@@ -151,7 +151,7 @@
                                     <a href="single-blog.html">
                                         <h3>${tvo.title }</h3>
                                     </a>
-                                    <p class="dolor" style="color:green">aa <span style="color:black">  ${fvo.price }</span></p>
+                                    <p class="dolor" style="color:green">aa <span style="color:black"> </span></p>
                                 </div>  
                             </div>
                             </a>

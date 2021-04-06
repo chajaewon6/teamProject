@@ -295,9 +295,10 @@ public class TripDAO {
 	    		 getConnection();
 	    		 String sql="SELECT no,cno,poster,title "
 	    				 +"FROM (SELECT no,cno,poster,title FROM tripdetail "
-	    				 + "WHERE cno=1 ORDER BY DBMS_RANDOM.VALUE) "
+	    				 + "WHERE cno=? ORDER BY DBMS_RANDOM.VALUE) "
 	    				 + "WHERE ROWNUM<=5";
 	    		 ps=conn.prepareStatement(sql);
+	    		 ps.setInt(1, cno);
 	    		 ResultSet rs=ps.executeQuery();
 	    		 while(rs.next())
 	    		 {
@@ -352,7 +353,125 @@ public class TripDAO {
 		}
 		return vo;
 	}
-
+	
+	public List<TripVO> tripLocationFind(String gu)
+    {
+   	 List<TripVO> list=new ArrayList<TripVO>();
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT no,title,poster "
+   				   +"FROM tripdetail "
+   				   +"WHERE addr LIKE '%'||?||'%'";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setString(1, gu);
+   		 ResultSet rs=ps.executeQuery();
+   		 while(rs.next())
+   		 {
+   			TripVO vo=new TripVO();
+   			 vo.setNo(rs.getInt(1));
+   			 vo.setTitle(rs.getString(2));
+   			 vo.setPoster(rs.getString(3));
+   			 list.add(vo);
+   		 }
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return list;
+    }
+	
+	
+	/*
+	// 찜하기
+	public void tripJjimInsert(int no,String id)
+	 {
+		 try
+		 {
+			 getConnection();
+			 String sql="INSERT INTO project_jjim VALUES("  // 테이블 어떻게??
+					 +"pj_no_seq.nextval,?,?)";
+			 ps=conn.prepareStatement(sql);
+			 ps.setInt(2, no);
+			 ps.setString(1, id);
+			 
+			 ps.executeUpdate();
+		 }catch(Exception ex) 
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 disConnection();
+		 }
+	 }
+	
+	
+	//찜하기 체크
+	 public int tripJjimCheck(int cno,String id)
+	 {
+		 int count=0;
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT COUNT(*) FROM project_jjim "
+					 +"WHERE cno=? AND id=?";
+			 ps=conn.prepareStatement(sql);
+			 ps.setInt(1, cno);
+			 ps.setString(2, id);
+			 ResultSet rs=ps.executeQuery();
+			 rs.next();
+			 count=rs.getInt(1);
+			 rs.close();
+			 
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }
+		 finally
+		 {
+			 disConnection();
+		 }
+		 return count;
+		 
+	 }
+	 
+	 // 찜 목록
+	 public List<FoodJjimVO> foodJjimListData(String id)
+	 {
+		 List<FoodJjimVO> list=new ArrayList<FoodJjimVO>(); //정수만 모아옴
+		 try
+		 {
+			 getConnection();
+			 String sql="SELECT no,cno "
+					 +"FROM project_jjim "
+					 +"WHERE id=?";  // id에 해당하는 cno(맛집 정보)출력
+			 ps=conn.prepareStatement(sql);
+			 ps.setString(1, id);
+			 ResultSet rs=ps.executeQuery();
+			 while(rs.next())
+			 {
+				 FoodJjimVO vo=new FoodJjimVO();
+				 vo.setNo(rs.getInt(1));
+				 vo.setCno(rs.getInt(2));
+				 list.add(vo);
+			 }
+			 rs.close();
+		 }catch(Exception ex)
+		 {
+			 ex.printStackTrace();
+		 }finally
+		 {
+			 disConnection();
+		 }
+		 return list;
+	 }
+	*/
 }
 
 

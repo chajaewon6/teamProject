@@ -134,7 +134,7 @@ $(function(){
                                     <nav>               
                                         <ul id="navigation">                                                                                                                                     
                                             <li><a href="../main/main.do">Home</a></li>
-                                            <li><a href="../trip/trip_list.do">지역별관광지</a>
+                                            <li><a href="../trip/location.do">지역별관광지</a>
                                             <ul class="submenu">
                                                     <li><a href="../trip/trip_list.do?cno=2">광화문</a></li>
                                                     <li><a href="../trip/trip_list.do?cno=3">명동</a></li>
