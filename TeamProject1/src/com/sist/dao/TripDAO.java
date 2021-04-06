@@ -354,9 +354,7 @@ public class TripDAO {
 		return vo;
 	}
 	
-<<<<<<< HEAD
 
-=======
 	public List<TripVO> tripLocationFind(String gu)
     {
    	 List<TripVO> list=new ArrayList<TripVO>();
@@ -387,7 +385,7 @@ public class TripDAO {
    		 disConnection();
    	 }
    	 return list;
-    }
+   }
 	
 	
 	/*
@@ -475,10 +473,8 @@ public class TripDAO {
 		 return list;
 	 }
 	*/
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
+
 }
-
-
 
 
 

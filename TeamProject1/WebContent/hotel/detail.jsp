@@ -552,75 +552,9 @@ $(function(){
                         <aside class="single_sidebar_widget newsletter_widget">
                             <h4 class="widget_title">예약정보</h4>
 
-                            <form action="#">
-                                <div class="single-element-widget mt-30">
-          <ul>
-          <label for="checkin">체크인</label>
-          <input type=date size="20" name="checkin"></ul>
-          <ul>
-           <label for="checkout">체크아웃</label>
-          <input type=date size="20" name="checkout"></ul>
-							<ul>
-							<label for="adult">성인
-							<div class="input-group-icon mt-10" name="adult" style="background-color:white">
-								
-								<div class="form-select" id="default-select">
-											<select>
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-							<label for="kid">어린이
-							<div class="input-group-icon mt-10" name="kid">
-								
-								<div class="form-select" id="default-select">
-											<select>
-											<option value="1">0</option>
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-							</ul>
-							<label for="kid">방개수
-							<div class="input-group-icon mt-20" name="kid">
-								
-								<div class="form-select" id="default-select">
-											<select>
-									
-									<option value="1">1</option>
-									<option value="1">2</option>
-									<option value="1">3</option>
-									<option value="1">4</option>
-									<option value="1">5</option>
-									<option value="1">6</option>
-									<option value="1">7</option>
-									<option value="1">8</option>
-									<option value="1">9</option>
-									</select>
-								</div>
-							</div>
-							</label>
-						</div>
+                            <form action="../hotel/reserve.do">
                                 <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit">예약하기</button>
+                                    type="submit"><a href="../hotel/reserve.do">예약하기</a></button>
                             </form>
                         </aside>
                       
