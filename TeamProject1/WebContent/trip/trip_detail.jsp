@@ -144,7 +144,7 @@
                             <h3 class="widget_title">최근 검색 여행지</h3>
                             <c:forEach var="tvo" items="${LList }">
                             
-                            <a href="../hotel/detail.do?no=${tvo.no }">
+                            <a href="../trip/detail.do?no=${tvo.no }">
                             <div class="media post_item">
                                 <img src="${tvo.poster }" alt="post" style="width:140px;height:115px">
                                 <div class="media-body">
