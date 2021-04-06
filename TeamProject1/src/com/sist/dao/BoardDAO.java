@@ -276,7 +276,7 @@ public class BoardDAO {
 			{
 				getConnection();
 				String sql="UPDATE picboardreply SET "
-						+"msg=? "
+						+"pbr_msg=? "
 						+"WHERE pbr_no=?";
 				ps=conn.prepareStatement(sql);
 				ps.setString(1, vo.getPbr_msg());

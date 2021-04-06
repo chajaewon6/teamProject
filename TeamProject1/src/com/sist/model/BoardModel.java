@@ -105,6 +105,10 @@ public class BoardModel {
 	@RequestMapping("board/board_reply_update.do")
 	public String board_reply_insert(HttpServletRequest request, HttpServletResponse response)
 	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception e) {}
 		String no=request.getParameter("no");
 		String pno=request.getParameter("pno");
 		String msg=request.getParameter("msg");
