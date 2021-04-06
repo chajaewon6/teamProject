@@ -13,9 +13,7 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-
 import com.sist.dao.HotelDAO;
-
 import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelReplyVO;
 import com.sist.vo.HotelVO;
@@ -195,6 +193,15 @@ public class HotelModel {
 		  request.setAttribute("main_jsp", "../hotel/reserve.jsp");
 		  return "../main/main.jsp";
 	  }
+	  @RequestMapping("hotel/reserve_hoteldetail.do")
+	  public String reserve_foodhouse(HttpServletRequest request,HttpServletResponse response)
+	  {
+		  HotelDAO dao=HotelDAO.newInstance();
+		  List<HotelVO> list=dao.HotelReserveAllData();
+		  request.setAttribute("list", list);
+		  return "../hotel/reserve_hoteldetail.jsp";
+	  }
+	  
 	  @RequestMapping("hotel/date.do")
 	  public String hotel_date(HttpServletRequest request,HttpServletResponse response)
 	  {
@@ -285,18 +292,10 @@ public class HotelModel {
 		   
 		   return "../hotel/date.jsp";
 	  }
-	  @RequestMapping("hotel/reserve_hoteldetail.do")
-	  public String reserve_hoteldetail(HttpServletRequest request,HttpServletResponse response)
-	  {
-		  HotelDAO dao=HotelDAO.newInstance();
-		  List<HotelVO> list=dao.HotelReserveAllData();
-		  request.setAttribute("list", list);
-		  return "../hotel/reserve_hoteldetail.jsp";
-	  }
 	  @RequestMapping("hotel/time.do")
-	  public String hotel_time(HttpServletRequest request,HttpServletResponse response) 
+	  public String food_time(HttpServletRequest request,HttpServletResponse response) 
 	  {
-		  String day=request.getParameter("inday");
+		  String day=request.getParameter("day");
 		  // 시간을 읽어 온다 => 오라클 
 		  HotelDAO dao=HotelDAO.newInstance();
 		  String tno=dao.HotelReserveTimeData(Integer.parseInt(day));
@@ -307,44 +306,11 @@ public class HotelModel {
 		  {
 			  String t=st.nextToken();
 			  int i=Integer.parseInt(t);
-			  String time=dao.HotelReserveGetCheckIn(i);
+			  String time=dao.HotelReserveGetTime(i);
 			  list.add(time);
 		  }
 		  
 		  request.setAttribute("list", list);
 		  return "../hotel/time.jsp";
 	  }
-	  @RequestMapping("hotel/inwon.do")
-	  public String hotel_inwon(HttpServletRequest request,HttpServletResponse response) 
-	  {
-		  return "../hotel/inwon.jsp";
-	  }
-	  
-	  @RequestMapping("hotel/reserve_save.do")
-	  public String reserve_save(HttpServletRequest request,HttpServletResponse response) 
-	  {
-		  try
-		  {
-			  request.setCharacterEncoding("UTF-8");
-		  }catch(Exception ex) {}
-		  String title=request.getParameter("title");
-		  String day=request.getParameter("inday");
-		  String time=request.getParameter("intime");
-		  String inwon=request.getParameter("inwon");
-		  HttpSession session=request.getSession();
-		  String id=(String)session.getAttribute("id");
-		  
-		  ReserveVO vo=new ReserveVO();
-		  vo.setId(id);
-		  vo.setTitle(title);
-		  vo.setInday(day);
-		  vo.setIntime(time);
-		  vo.setInwon(inwon);
-		  
-		  HotelDAO dao=HotelDAO.newInstance();
-		  dao.HotelReserveSave(vo);
-		  
-		  return "redirect:../mypage/mypage.do";
-	  }
-	
 }

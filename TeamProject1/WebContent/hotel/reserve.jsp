@@ -8,7 +8,7 @@
 <style type="text/css">
 .mypage_row{
   margin: 0px auto;
-  width:1200px;
+  width:1400px;
 }
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -35,7 +35,7 @@ $(function(){
 			data:{"title":title,"day":day,"time":time,"inwon":inwon},
 			success:function(result)
 			{
-				location.href="../mypage/mypage.do";
+				location.href="../hotel/mypage.do";
 			}
 		})
 	});
@@ -47,12 +47,15 @@ $(function(){
   <h2 class="sectiontitle">예약하기</h2>
   <table class="table">
    <tr>
-     <td width=30%>
+     <td width=40%>
        <div style="height: 500px">
          <table class="table">
-          <caption>CheckIn</caption>
+          <h4>호텔정보</h4>
           <tr>
-            <td id="hotel_checkin"></td>
+           <td>
+             <div style="height: 400px;overflow-y:auto" id="hotel_detail">
+             </div>
+           </td>
           </tr>
          </table>
        </div>
@@ -60,14 +63,14 @@ $(function(){
      <td width=30%>
        <div style="height: 500px">
          <table class="table">
-          <caption>CheckOut</caption>
+          <caption>예약일정보</caption>
           <tr>
-            <td id="hotel_checkout"></td>
+            <td id="hotel_date"></td>
           </tr>
          </table>
        </div>
      </td>
-     <td width=40% rowspan=2>
+     <td width=30% rowspan=2>
          <table class="table">
           <caption>예약정보</caption>
           <tr>
@@ -76,24 +79,16 @@ $(function(){
             </td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">호텔명</th>
+            <th class="text-right" width="20%">업체명</th>
             <td width="80%"><span id="reserve_title"></span></td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">CheckInday</th>
-            <td width="80%"><span id="reserve_inday"></span></td>
+            <th class="text-right" width="20%">예약일</th>
+            <td width="80%"><span id="reserve_day"></span></td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">CheckOutday</th>
-            <td width="80%"><span id="reserve_outday"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">CheckIntime</th>
-            <td width="80%"><span id="reserve_intime"></span></td>
-          </tr>
-           <tr>
-            <th class="text-right" width="20%">CheckOuttime</th>
-            <td width="80%"><span id="reserve_outtime"></span></td>
+            <th class="text-right" width="20%">시간</th>
+            <td width="80%"><span id="reserve_time1"></span></td>
           </tr>
           <tr>
             <th class="text-right" width="20%">인원</th>

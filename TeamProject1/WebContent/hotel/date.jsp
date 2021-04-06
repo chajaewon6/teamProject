@@ -16,11 +16,11 @@ $(function(){
 		//alert(year+"|"+month)
 		$.ajax({
 			type:'post',
-			url:'../food/date.do',
+			url:'../hotel/date.do',
 			data:{"year":year,"month":month},
 			success:function(res)
 			{
-				$('#food_date').html(res);
+				$('#hotel_date').html(res);
 			}
 		})
 	})
@@ -31,11 +31,11 @@ $(function(){
 		//alert(year+"|"+month)
 		$.ajax({
 			type:'post',
-			url:'../food/date.do',
+			url:'../hotel/date.do',
 			data:{"year":year,"month":month},
 			success:function(res)
 			{
-				$('#food_date').html(res);
+				$('#hotel_date').html(res);
 			}
 		})
 	})
@@ -53,10 +53,10 @@ $(function(){
 		//alert("년도:"+year+",월:"+month+",일:"+day)
 		let rday=year+"년도 "+month+"월 "+day+"일"
 		$('#reserve_day').text(rday)
-		// ../food/time.do => Model호출 => DB처리 => 해당 JSP로 전송 
+		// ../hotel/time.do => Model호출 => DB처리 => 해당 JSP로 전송 
 		$.ajax({
 			type:'post',
-			url:'../food/time.do',
+			url:'../hotel/time.do',
 			data:{"day":day},
 			success:function(result)
 			{

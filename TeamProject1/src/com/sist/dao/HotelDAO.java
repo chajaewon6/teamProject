@@ -8,7 +8,7 @@ import com.sist.vo.HotelCategoryVO;
 import com.sist.vo.HotelJjimVO;
 import com.sist.vo.HotelReplyVO;
 import com.sist.vo.HotelVO;
-
+import com.sist.vo.ReserveVO;
 
 import java.sql.*;
 import javax.naming.*;
@@ -455,6 +455,114 @@ public class HotelDAO {
     	}
     	
     	return list;
+    }
+ // hotel_reserve
+    
+    public List<HotelVO> HotelReserveAllData()
+    {
+   	 List<HotelVO> list=new ArrayList<HotelVO>();
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT no,title,poster,grade,price "
+   				   +"FROM hotel_detail "
+   				   +"ORDER BY no ASC";
+   		 ps=conn.prepareStatement(sql);
+   		 ResultSet rs=ps.executeQuery();
+   		 while(rs.next())
+   		 {
+   			 HotelVO vo=new HotelVO();
+   			 vo.setNo(rs.getInt(1));
+   			 vo.setTitle(rs.getString(2));
+   			 vo.setPoster(rs.getString(3));
+   			 vo.setGrade(rs.getString(4));
+   			 vo.setPrice(rs.getString(5));
+   			 list.add(vo);
+   		 }
+   		 rs.close();
+   	 }catch(Exception ex) 
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return list;
+    }
+    
+    public String HotelReserveDate(int no)
+    {
+   	 String rday="";
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT rdays FROM hotel_detail "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, no);
+   		 ResultSet rs=ps.executeQuery();
+   		 rs.next();
+   		 rday=rs.getString(1);
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return rday;
+    }
+    
+    public String HotelReserveTimeData(int day)
+    {
+   	 String time="";
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT tno FROM rday "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, day);
+   		 ResultSet rs=ps.executeQuery();
+   		 rs.next();
+   		 time=rs.getString(1);
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return time;
+    }
+    public String HotelReserveGetTime(int no)
+    {
+   	 String time="";
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT time FROM rtime "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, no);
+   		 ResultSet rs=ps.executeQuery();
+   		 rs.next();
+   		 time=rs.getString(1);
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return time;
     }
 
 }

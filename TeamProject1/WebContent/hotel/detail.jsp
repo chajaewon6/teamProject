@@ -556,7 +556,7 @@ $(function(){
 
                             <form action="../hotel/reserve.do">
                                 <button class="button rounded-0 primary-bg text-white w-100 btn_1 boxed-btn"
-                                    type="submit"><a href="../hotel/reserve.do">예약하기</a></button>
+                                    type="submit"><a href="#">예약하기</a></button>
                             </form>
                         </aside>
                       
