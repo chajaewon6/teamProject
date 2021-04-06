@@ -330,7 +330,7 @@ public class TripDAO {
 		try
 		{
 			getConnection();
-			String sql="SELECT no, cno, poster,title "
+			String sql="SELECT no,poster,title "
 					+"FROM tripdetail "
 					+"WHERE no=?";
 			ps=conn.prepareStatement(sql);
@@ -338,9 +338,8 @@ public class TripDAO {
 			ResultSet rs=ps.executeQuery();
 			rs.next();
 			vo.setNo(rs.getInt(1));
-			vo.setCno(rs.getInt(2));
-			vo.setPoster(rs.getString(3));
-			vo.setTitle(rs.getString(4));
+			vo.setPoster(rs.getString(2));
+			vo.setTitle(rs.getString(3));
 			rs.close();
 		} 
 		catch (Exception ex) 

@@ -78,6 +78,7 @@ public class tripModel {
   
   
   
+  
   @RequestMapping("trip/trip_detail.do")
   public String trip_detail(HttpServletRequest request,HttpServletResponse response)
   {
@@ -106,9 +107,10 @@ public class tripModel {
 	  return "../main/main.jsp";
   }
   
-  /*
+  
+  
   // 쿠키
-  @RequestMapping("trip/trip_detail.do")
+  @RequestMapping("main/main.do")
   public String main_home(HttpServletRequest request,HttpServletResponse response)
   {
 	  // 쿠키 
@@ -134,10 +136,10 @@ public class tripModel {
 	  request.setAttribute("fList", fList);
 	  //List<FoodCategoryVO> cList=dao.foodCategoryData();
 	  //request.setAttribute("cList", cList);
-	  request.setAttribute("main_jsp", "../main/home.jsp");
+	  request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
 	  return "../main/main.jsp";
   }
-  */
+ 
   
   @RequestMapping("trip/location.do")
   public String trip_location(HttpServletRequest request,HttpServletResponse response)
