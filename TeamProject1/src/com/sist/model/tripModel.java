@@ -3,7 +3,7 @@ package com.sist.model;
 import java.util.ArrayList;
 import java.util.List;
 
-
+import javax.servlet.http.Cookie;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -11,10 +11,7 @@ import javax.servlet.http.HttpSession;
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
 
-
 import com.sist.dao.TripDAO;
-
-
 
 import com.sist.vo.TripCategoryVO;
 import com.sist.vo.TripVO;
@@ -65,6 +62,21 @@ public class tripModel {
 	   return "../main/main.jsp"; 
   }
   
+  
+  @RequestMapping("trip/detail_before.do")
+  public String detail_before(HttpServletRequest request,HttpServletResponse response)
+  {
+     String no=request.getParameter("no");
+     System.out.println(no);
+     Cookie cookie=new Cookie("m"+no, no);// 문자열만 저장이 가능 
+     cookie.setMaxAge(60*60);
+     cookie.setPath("/");
+     response.addCookie(cookie);
+     return "redirect:../trip/trip_detail.do?no="+no;
+  }
+  
+  
+  
   @RequestMapping("trip/trip_detail.do")
   public String trip_detail(HttpServletRequest request,HttpServletResponse response)
   {
@@ -78,10 +90,11 @@ public class tripModel {
 	  tvo.setAddress(s);
 	 
 	  
-	  //List<RecipeVO> list=dao.foodSameRecipeData(vo.getType());
+	  //List<TripVO> Llist=dao.TripLocationData(vo);
 	  //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
 	  //request.setAttribute("rList", rList);
-	  //request.setAttribute("list", list);
+	  //request.setAttribute("Llist", Llist);
+	  
 	  request.setAttribute("tvo", tvo);
 	  request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
 	  
@@ -92,6 +105,60 @@ public class tripModel {
 	  return "../main/main.jsp";
   }
   
+  /*
+  // 쿠키
+  @RequestMapping("trip/trip_detail.do")
+  public String main_home(HttpServletRequest request,HttpServletResponse response)
+  {
+	  // 쿠키 
+	  List<TripVO> fList=new ArrayList<TripVO>();
+	  
+	  TripDAO dao=TripDAO.newInstance();
+	  
+	  Cookie[] cookies=request.getCookies();
+	  if(cookies!=null)
+	  {
+		  for(int i=cookies.length-1;i>=0;i--)
+		  {
+			  if(cookies[i].getName().startsWith("m"))
+			  {
+				  cookies[i].setPath("/");
+				  System.out.println(cookies[i].getName());
+				  String no=cookies[i].getValue();
+				  TripVO vo=dao.tripCookieData(Integer.parseInt(no));
+				  fList.add(vo);
+			  }
+		  }
+	  }
+	  request.setAttribute("fList", fList);
+	  //List<FoodCategoryVO> cList=dao.foodCategoryData();
+	  //request.setAttribute("cList", cList);
+	  request.setAttribute("main_jsp", "../main/home.jsp");
+	  return "../main/main.jsp";
+  }
+  */
   
+  @RequestMapping("trip/location.do")
+  public String trip_location(HttpServletRequest request,HttpServletResponse response)
+  {
+	  request.setAttribute("main_jsp", "../trip/location.jsp");
+	  return "../main/main.jsp";
+  }
   
+  @RequestMapping("trip/location_result.do")
+  public String trip_location_result(HttpServletRequest request,HttpServletResponse response)
+  {
+	  String[] guList_1 = { "전체", "강서구", "양천구", "구로구", "마포구", "영등포구", "금천구",
+			    "은평구", "서대문구", "동작구", "관악구", "종로구", "중구", "용산구", "서초구", "강북구",
+			    "성북구", "도봉구", "동대문구", "성동구", "강남구", "노원구", "중랑구", "광진구", "송파구",
+			    "강동구" };
+	  String no=request.getParameter("no");
+	  String gu=guList_1[Integer.parseInt(no)];
+	  System.out.println(gu);
+	  TripDAO dao=TripDAO.newInstance();
+	  List<TripVO> list=dao.tripLocationFind(gu);
+	
+	  request.setAttribute("list", list);
+	  return "../trip/location_result.jsp";
+  }
 }
