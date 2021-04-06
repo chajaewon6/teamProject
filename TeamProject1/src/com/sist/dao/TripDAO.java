@@ -387,92 +387,71 @@ public class TripDAO {
    	 return list;
    }
 	
-	
-	/*
-	// 찜하기
-	public void tripJjimInsert(int no,String id)
-	 {
-		 try
-		 {
-			 getConnection();
-			 String sql="INSERT INTO project_jjim VALUES("  // 테이블 어떻게??
-					 +"pj_no_seq.nextval,?,?)";
-			 ps=conn.prepareStatement(sql);
-			 ps.setInt(2, no);
-			 ps.setString(1, id);
-			 
-			 ps.executeUpdate();
-		 }catch(Exception ex) 
-		 {
-			 ex.printStackTrace();
-		 }
-		 finally
-		 {
-			 disConnection();
-		 }
-	 }
-	
-	
+	//찜하기
+	public void TripJjimInsert(int no,String id){
+	  try{
+		getConnection();
+		String sql="INSERT INTO trip_jjim1 VALUES( "
+			  +"tjj_no_seq.nextval,?,?)";
+		ps=conn.prepareStatement(sql);
+		ps.setString(1,id);
+		ps.setInt(2,no);
+		ps.executeUpdate();
+	  }catch(Exception ex){
+		ex.printStackTrace();
+	  }finally{
+		disConnection();
+	  }
+		
+	}
+
 	//찜하기 체크
-	 public int tripJjimCheck(int cno,String id)
-	 {
-		 int count=0;
-		 try
-		 {
-			 getConnection();
-			 String sql="SELECT COUNT(*) FROM project_jjim "
-					 +"WHERE cno=? AND id=?";
-			 ps=conn.prepareStatement(sql);
-			 ps.setInt(1, cno);
-			 ps.setString(2, id);
-			 ResultSet rs=ps.executeQuery();
-			 rs.next();
-			 count=rs.getInt(1);
-			 rs.close();
-			 
-		 }catch(Exception ex)
-		 {
-			 ex.printStackTrace();
-		 }
-		 finally
-		 {
-			 disConnection();
-		 }
-		 return count;
-		 
-	 }
-	 
-	 // 찜 목록
-	 public List<FoodJjimVO> foodJjimListData(String id)
-	 {
-		 List<FoodJjimVO> list=new ArrayList<FoodJjimVO>(); //정수만 모아옴
-		 try
-		 {
-			 getConnection();
-			 String sql="SELECT no,cno "
-					 +"FROM project_jjim "
-					 +"WHERE id=?";  // id에 해당하는 cno(맛집 정보)출력
-			 ps=conn.prepareStatement(sql);
-			 ps.setString(1, id);
-			 ResultSet rs=ps.executeQuery();
-			 while(rs.next())
-			 {
-				 FoodJjimVO vo=new FoodJjimVO();
-				 vo.setNo(rs.getInt(1));
-				 vo.setCno(rs.getInt(2));
-				 list.add(vo);
-			 }
-			 rs.close();
-		 }catch(Exception ex)
-		 {
-			 ex.printStackTrace();
-		 }finally
-		 {
-			 disConnection();
-		 }
-		 return list;
-	 }
-	*/
+	public int TripJjimCheck(int cno,String id){
+	  int count=0;
+	  try{
+		getConnection();
+		String sql="SELECT COUNT(*) FROM trip_jjim1 "
+			+"WHERE cno=? AND id=?";
+		ps=conn.prepareStatement(sql);
+		ps.setInt(1,cno);
+		ps.setString(2,id);
+		ResultSet rs=ps.executeQuery();
+		rs.next();
+		count=rs.getInt(1);
+		rs.close();
+	  }catch(Exception ex){
+		ex.printStackTrace();
+	  }finally{
+		disConnection();
+	  }
+	  return count;
+	}
+	//찜목록
+	public List<TripJjimVO> TripJjimListData(String id){
+	  List<TripJjimVO> list=new ArrayList<TripJjimVO>();
+	  try{
+		getConnection();
+		String sql="SELECT no,cno, " 
+			+"FROM trip_jjim1 "
+			+"WHERE id=?";
+		ps=conn.prepareStatement(sql);
+		ps.setString(1,id);
+		ResultSet rs=ps.executeQuery();
+		while(rs.next()){
+			TripJjimVO vo=new TripJjimVO();
+			vo.setNo(rs.getInt(1));
+			vo.setCno(rs.getInt(2));
+			list.add(vo);
+		}
+		rs.close();
+	  }catch(Exception ex){
+		ex.printStackTrace();
+	  }finally{
+		disConnection();
+	  }
+	  return list;
+	}
+	
 
 }
 
