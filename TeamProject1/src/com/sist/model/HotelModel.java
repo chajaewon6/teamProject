@@ -118,7 +118,7 @@ public class HotelModel {
 		  
 		  return "../main/main.jsp";
 	  }
-	
+	// 댓글쓰기
 	@RequestMapping("hotel/hotel_reply_insert.do")
 	  public String hotel_reply_insert(HttpServletRequest request,HttpServletResponse response)
 	  {

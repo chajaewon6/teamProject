@@ -27,7 +27,6 @@
             <link rel="stylesheet" href="../css/themify-icons.css">
             <link rel="stylesheet" href="../css/slick.css">
             <link rel="stylesheet" href="../css/nice-select.css">
-            <link rel="stylesheet" href="../css/style.css">
             <link rel="stylesheet" href="./css/button.css">
  <style>
 .intro{
@@ -36,7 +35,7 @@ position: absolute;
  top: 70px;
  }
  :root {
-  --color-dark:  #161616;
+  --color-dark:  #014b85;;
   --color-ocean:  #416dea;
   --color-grass: #3dd28d;
   --color-snow: #FFFFFF;
@@ -72,7 +71,7 @@ position: absolute;
   border: 0 none;
   border-radius: var(--borderRadius);
 
-  font-size: 13px;
+  font-size: 5px;
   font-weight: 500;
   line-height: 1.3;
 
