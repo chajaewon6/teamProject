@@ -1,5 +1,6 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 <!DOCTYPE html>
 <html>
 <head>
@@ -30,8 +31,6 @@
 	
 	<!-- 새로운 프로필 카드 -->
 	
-
-
 	<div class="container">
 
 		<div class="profile">
@@ -78,21 +77,22 @@
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h3>가고싶은 여행지</h3>
+                        	<h3>가고싶은 여행지✈️</h3>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
+                    <c:forEach var="vo" items="${fList }" varStatus="s">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="../img/service/services1.jpg" alt="">
+                                <img src="${vo.poster }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
+                                    <span><i class="fas fa-star"></i><span>평점</span> </span>
+                                    <h3><a href="#">${vo.title}</a></h3>
+                                    <p class="dolor">가격 <span>/ Per Person</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
@@ -102,6 +102,7 @@
                                 </div>
                             </div>
                         </div>
+                        </c:forEach>
                     </div>
                    </div>
                    

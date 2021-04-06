@@ -66,6 +66,16 @@
                           <img class="img-rounded" src="${tvo.poster}" style="width:700px;height:500">
                             
                         </div>
+					</div>
+					<!-- 찜하기  -->
+					<div class="text-left">
+						<c:if test="${sessionScope.id!=null }">
+							<c:if test="${count==0 }">
+								<a href="../trip/jjim.do?no=${vo.no }" class="btn btn=sm btn-primary">
+									찜하기
+								</a>
+							</c:if>
+						</c:if>
 					</div>		
                            
                     <div class="blog_details">
