@@ -5,6 +5,7 @@ import java.util.*;
 import javax.sql.*;
 
 import com.sist.vo.HotelCategoryVO;
+import com.sist.vo.HotelJjimVO;
 import com.sist.vo.HotelReplyVO;
 import com.sist.vo.HotelVO;
 
@@ -427,6 +428,33 @@ public class HotelDAO {
    		 disConnection();
    	 }
    	 return count;
+    }
+    
+    //찜목록
+    public List<HotelJjimVO> hotelJjimListData(String id){
+    	List<HotelJjimVO> list=new ArrayList<HotelJjimVO>();
+    	try {
+    		getConnection();
+    		String sql="SELECT no,cno "
+    				+ "FROM hotel_jjim "
+    				+ "WHERE id=? ";
+    		ps=conn.prepareStatement(sql);
+    		ps.setString(1, id);
+    		ResultSet rs=ps.executeQuery();
+    		while(rs.next()) {
+    			HotelJjimVO vo=new HotelJjimVO();
+    			vo.setNo(rs.getInt(1));
+    			vo.setCno(rs.getInt(2));
+    			list.add(vo);
+    		}
+    		rs.close();
+    	}catch(Exception ex) {
+    		ex.printStackTrace();
+    	}finally{
+    		disConnection();
+    	}
+    	
+    	return list;
     }
 
 }
