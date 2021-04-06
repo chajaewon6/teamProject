@@ -588,5 +588,41 @@ public class HotelDAO {
    	 }
    	 return time;
     }
-
+    
+    public List<ReserveVO> mypage_data(String id)
+    {
+   	 List<ReserveVO> list=new ArrayList<ReserveVO>();
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="SELECT no,title,day,time,inwon,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
+   				   +"FROM project_reserve "
+   				   +"WHERE id=? "
+   				   +"ORDER BY no DESC";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setString(1, id);
+   		 ResultSet rs=ps.executeQuery();
+   		 while(rs.next())
+   		 {
+   			 ReserveVO vo=new ReserveVO();
+   			 vo.setNo(rs.getInt(1));
+   			 vo.setTitle(rs.getString(2));
+   			 vo.setDay(rs.getString(3));
+   			 vo.setTime(rs.getString(4));
+   			 vo.setInwon(rs.getString(5));
+   			 vo.setState(rs.getInt(6));
+   			 vo.setDbday(rs.getString(7));
+   			 list.add(vo);
+   		 }
+   		 rs.close();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return list;
+    }
 }

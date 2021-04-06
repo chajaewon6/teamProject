@@ -10,9 +10,10 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-
 import com.sist.dao.TripDAO;
-
+import com.sist.dao.TripDAO;
+import com.sist.vo.TripJjimVO;
+import com.sist.vo.TripVO;
 import com.sist.vo.TripCategoryVO;
 import com.sist.vo.TripJjimVO;
 import com.sist.vo.TripVO;
@@ -177,23 +178,25 @@ public class TripModel {
   }
   
   //마이페이지 설정
-  @RequestMapping("trip/mypage.do")
+  @RequestMapping("mypage/mypage.do")
   public String trip_mypage(HttpServletRequest request,HttpServletResponse response) {
 	  HttpSession session=request.getSession();
 	  String id=(String)session.getAttribute("id");
+	  // DB연동 
 	  TripDAO dao=TripDAO.newInstance();
-	  //찜하기 목록
-	  List<TripJjimVO> jList=dao.TripJjimListData(id);
-	  List<TripVO> fList=new ArrayList<TripVO>();
-	  for(TripJjimVO vo:jList) {
+	  // 1. 찜하기 목록
+	  List<TripJjimVO> tjList=dao.TripJjimListData(id);
+	  List<TripVO> tList=new ArrayList<TripVO>();
+	  for(TripJjimVO vo:tjList)
+	  {
 		  TripVO fvo=dao.TripDetailData(vo.getCno());
 		  String poster=fvo.getPoster();
 		  poster=poster.substring(0,poster.indexOf("^"));
 		  fvo.setPoster(poster);
-		  fList.add(fvo);
+		  tList.add(fvo);
 	  }
-	  request.setAttribute("fList", fList);
-	  request.setAttribute("jList", jList);
+	  request.setAttribute("tList", tList);
+	  request.setAttribute("tjList", tjList);
 	  return "../main/main.jsp";
   }
   

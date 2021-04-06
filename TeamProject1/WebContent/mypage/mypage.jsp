@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions"%>
 <!DOCTYPE html>
 <html>
 <head>
@@ -84,32 +85,71 @@
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                     <c:forEach var="vo" items="${fList }" varStatus="s">
+                        <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="${vo.poster }" alt="">
+                                <img src="${vo.poster }">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>평점</span> </span>
-                                    <h3><a href="#">${vo.title}</a></h3>
-                                    <p class="dolor">가격 <span>/ Per Person</span></p>
+                                    <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
+                                    <h3><a href="#">${vo.title }</a></h3>
+                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                        <!-- <li><i class="far fa-clock"></i>3 Days</li> -->
+                                        <li><i class="fas fa-map-marker-alt"></i>${vo.addr }</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
+                    </div>
                         </c:forEach>
                     </div>
                    </div>
                    
+                   <div class="row">
+                    <div class="col-lg-12">
+                        <div id="trip-text">
+                        	<h3>가고 싶은 호텔🌇</h3>
+                        </div>
+                    </div>
+                </div>
+                
+                
+                
+                <div class="row mypage_row">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                        <c:forEach var="vo" items="${hList }" varStatus="s">
+                            <div class="place-img">
+                                <img src="${vo.poster }">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
+                                    <h3><a href="#">${vo.title }</a></h3>
+                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
+                                </div>
+                                <div class="place-cap-bottom">
+                                    <ul>
+                                       <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
+                                        <li><i class="fas fa-map-marker-alt"></i>${vo.addr}</li>
+                                        <li> <a href="../food/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                              </c:forEach>
+                        </div>
+                    </div>
+                   </div>
+                   
+                     
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h3>내가 올린 여행 사진</h3>
+                        	<h3>내가 올린 여행 사진📷</h3>
                         </div>
                     </div>
                 </div>
@@ -139,11 +179,12 @@
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h3>내가 예매한 호텔</h3>
+                        	<h3>내가 예매한 호텔🌃</h3>
                         </div>
                     </div>
                 </div>
                 <div class="row">
+                <c:forEach var="vo" items="${rList }">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
@@ -151,19 +192,20 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
+                                    <span><i class="fas fa-star"></i><span>${vo.no }</span> </span>
+                                    <h3><a href="#">${vo.title }</a></h3>
+                                    <p class="dolor">가격 <span>${vo.inwon }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                        <li><i class="far fa-clock"></i>${vo.day }</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>${hvo.addr }</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                    </c:forEach>
                    </div>
                     
                 </div>

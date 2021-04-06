@@ -146,16 +146,18 @@
 							});    
 						</script> 
 					</div>  
-					<div class="text-right">  
-						<c:if test="${sessionScope.id!=null }">
+					
+					 <ul class="text-right">
+						 <c:if test="${sessionScope.id!=null }">
 							<c:if test="${count==0 }">
-								<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+								<a href="../trip/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
 							</c:if>
-							<c:if test="${count!=0 }">
-								<span class="btn btn-medium btn-default">찜하기</span>
-							</c:if>
+						<c:if test="${count!=0 }">
+							<span class="btn btn-medium btn-default">찜하기</span>
 						</c:if>
-                	</div>						
+					</c:if>
+						<a href="../main/main.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
+				 </ul> 				
             </div>
                     
    
