@@ -16,7 +16,7 @@ $(function(){
 	$('.delBtn').click(function(){
 		let no=$(this).attr("data-no");
 		let cno=$(this).attr("data-cno");
-		location.href="../hotel/food_reply_delete.do?no="+no+"&cno="+cno;
+		location.href="../hotel/hotel_reply_delete.do?no="+no+"&cno="+cno;
 	});
 	$('.updateBtn').click(function(){
 		$('.updateli').hide();
@@ -151,13 +151,13 @@ $(function(){
 													       	
 													       		<c:if test="${sessionScope.id!=null }">
 													       			<c:if test="${count==0 }">
-													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-sm btn-primary" style="color:white">찜하기</a>
+													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
-													       				<span class="btn btn-sm btn-active">찜하기</span>
+													       				<span class="btn btn-medium btn-default">찜하기</span>
 													       			</c:if>
 													       		</c:if>
-													       		<a href="../main/main.do" class="btn btn-medium btn-primary" style="color:white">목록</a>
+													       		<a href="../main/main.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
 													       
 													      </ul> 
                 								</div>    
@@ -169,56 +169,71 @@ $(function(){
 							        <ul>
 							        <c:forEach var="rvo" items="${rList }">
 							          <li>
-							            <article>
+							            <article class="blog_item">
+							            <div class="blog_details">
+							            <table>
 							              <header>
-							                <figure class="avatar">
+							                
+							                <address style="font-size:30px">
+							                By <a href="#" style="color:purple">${rvo.name }</a>
+							               
+							                </address>
+							                
+							                <time datetime="2045-04-06T08:15+00:00" style="color:gray">${rvo.dbday }</time>
+							              </header>
+							              <table>
+							              <div class="comcont">
+							                <pre style="white-space:pre-wrap;border:none;background-color:white;font-size:30px;color:gray">${rvo.msg }</pre>
+							              	 <figure class="avatar text-right">
 								                <c:if test="${sessionScope.id==rvo.id }">
-									                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
-									                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
+									                <span class="btn btn-medium btn-success updateBtn" data-no="${rvo.no }">수정</span>
+									                <span class="btn btn-medium btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
 								                </c:if>
 							                </figure>
-							                <address>
-							                By <a href="#">${rvo.name }</a>
-							                </address>
-							                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
-							              </header>
-							              <div class="comcont">
-							                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
 							              </div>
+							              </table>
+							            </table>
+							            </div>
 							            </article>
 							          </li>
 							          <li style="display:none" id="m${rvo.no }" class="updateli">
-							          <form action="../hotel/hotel_reply_update.do" method="post">
+							         <%--  <form action="../hotel/hotel_reply_update.do" method="post">
 							          <table class="table">
 							          	<tr>
 							          		<td>
 							          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
 							          			<input type="hidden" name=cno value="${vo.no }">
 							          			<input type="hidden" name=no value="${rvo.no }">
-							          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
+							          			<input type="submit" value="댓글수정" class="btn btn-medium btn-danger">
 							          		</td>
 							          	</tr>
 							          </table>
-							        </form>
+							        </form> --%>
+							        <form action="../hotel/hotel_reply_update.do" method="post">
+                                
+                                    <div class="form-group">
+                                        <textarea class="form-control w-100" name="msg" cols="30" rows="9" placeholder=" Enter Message">${rvo.msg }</textarea>
+                                    		<input type="hidden" name=cno value="${vo.no }">
+                                    		<input type="hidden" name=no value="${rvo.no }">
+							          								<div class="form-group mt-3">
+                                					<input type="submit" class="button button-contactForm boxed-btn" value="댓글수정">
+                            						</div>			
+                                    </div>
+                                
+                        </form>
 							          </li>
 							          </c:forEach>
 							        </ul>
 							        
-                        <form class="form-contact contact_form" action="../hotel/hotel_reply_insert.do" method="post" id="contactForm" novalidate="novalidate">
-                            <div class="row">
-                                <div class="col-12">
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
+                        <form action="../hotel/hotel_reply_insert.do" method="post">
+                            
+                                    <div class="form-group" >
+                                        <textarea class="form-control w-100" name="msg" cols="30" rows="9" placeholder=" Enter Message"></textarea>
                                     		<input type="hidden" name=cno value="${vo.no }">
-							          								
-                                    
-                                    </div>
-                                </div>
-                                
-                            <div class="form-group mt-3">
-                                <button type="submit" class="button button-contactForm boxed-btn">Send</button>
-                            </div>
-                            </div>
+							          								<div class="form-group mt-3">
+                                					<input type="submit" class="button button-contactForm boxed-btn" value="댓글쓰기">
+                            						</div>			
+                                    </div>      
                         </form>
                     
                     
@@ -353,6 +368,7 @@ $(function(){
 								
 								<div class="form-select" id="default-select">
 											<select>
+											<option value="1">0</option>
 									<option value="1">1</option>
 									<option value="1">2</option>
 									<option value="1">3</option>
@@ -372,7 +388,7 @@ $(function(){
 								
 								<div class="form-select" id="default-select">
 											<select>
-									<option value="1">0</option>
+									
 									<option value="1">1</option>
 									<option value="1">2</option>
 									<option value="1">3</option>

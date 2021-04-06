@@ -109,12 +109,12 @@ public class HotelModel {
 		  request.setAttribute("vo", vo);
 		  request.setAttribute("main_jsp", "../hotel/detail.jsp");
 		  
-		  /*
-		   *  HttpSession session=request.getSession();
+		  
+		     HttpSession session=request.getSession();
 			  String id=(String)session.getAttribute("id");
-			  int count=dao.foodJjimCheck(Integer.parseInt(no), id);
+			  int count=dao.HotelJjimCheck(Integer.parseInt(no), id);
 			  request.setAttribute("count", count);
-		   */
+		   
 		  
 		  return "../main/main.jsp";
 	  }
@@ -174,7 +174,7 @@ public class HotelModel {
 	  }
 	  // 찜하기
 	  @RequestMapping("hotel/jjim.do")
-	  public String food_jjim(HttpServletRequest request,HttpServletResponse response)
+	  public String hotel_jjim(HttpServletRequest request,HttpServletResponse response)
 	  {
 		  String no=request.getParameter("no");
 		  HttpSession session=request.getSession();
@@ -183,7 +183,7 @@ public class HotelModel {
 		  HotelDAO dao=HotelDAO.newInstance();
 		  // 저장
 		  dao.HotelJjimInsert(Integer.parseInt(no), id);
-		  return "redirect:../food/food_detail.do?no="+no;
+		  return "redirect:../hotel/detail.do?no="+no;
 	  }
 	
 	

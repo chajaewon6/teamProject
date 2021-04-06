@@ -320,7 +320,7 @@ public class HotelDAO {
 	   	 {
 	   		 getConnection();
 	   		 String sql="INSERT INTO hotel_reply VALUES("
-	   				   +"pr_no_seq.nextval,?,?,?,?,SYSDATE)";
+	   				   +"hr_no_seq.nextval,?,?,?,?,SYSDATE)";
 	   		 ps=conn.prepareStatement(sql);
 	   		 ps.setInt(1, vo.getCno());
 	   		 ps.setString(2, vo.getId());
@@ -387,7 +387,7 @@ public class HotelDAO {
    	 {
    		 getConnection();
    		 String sql="INSERT INTO hotel_jjim VALUES("
-   				   +"pj_no_seq.nextval,?,?)";
+   				   +"hj_no_seq.nextval,?,?)";
    	 ps=conn.prepareStatement(sql);
    	 ps.setInt(2, no);
    	 ps.setString(1, id);
