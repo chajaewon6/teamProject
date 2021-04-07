@@ -131,7 +131,16 @@ public class MemberModel {
 	  return "redirect:../main/main.do";
   }
   
- 
+ // 마이페이지 수정
+  @RequestMapping("mypage/mypage_update.do")
+  public String mypage_update(HttpServletRequest request,HttpServletResponse response) {
+	  String no=request.getParameter("no");
+	  MemberDAO dao=MemberDAO.newInstance();
+	  MemberVO vo=dao.mypageUpdateData(Integer.parseInt(no));
+	  request.setAttribute("vo", vo);
+	  request.setAttribute("main_jsp", "../mypage/mypage.do");
+	  return "../main/main.jsp";
+  }
   
 }
 

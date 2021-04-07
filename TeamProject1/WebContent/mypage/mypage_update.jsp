@@ -29,26 +29,21 @@
         
         <fieldset>
           <legend><span class="number">1</span>기본사항</legend>
-          <label for="id">아이디 &nbsp; &nbsp;<input type="button" value="중복체크" class="btn btn-sm btn-primary" id="checkBtn"></label>
-          <br>
+          <label for="id">아이디</label>
          <input type=text name="id" id="id" class="input-sm" style="float:left" readonly>&nbsp;
       
           
           <label for="name">이름</label>
-          <input type=text name="name" id="name" class="input-sm">
+          <input type=text name="name" id="name" class="input-sm" readonly>
           
           <label for="password">비밀번호</label>
            <input type=password name="pwd" id="pwd" class="input-sm" style="float:left">
-      <label for="password">비밀번호&nbsp;확인</label>
-      <input type=password name="pwd" id="pwd1" class="input-sm" style="float:left" placeholder="재입력">
+      	 <label for="password">비밀번호&nbsp;확인</label>
+     	   <input type=password name="pwd" id="pwd1" class="input-sm" style="float:left" placeholder="재입력">
           
           <label for="birthday">생년월일</label>
           <input type=date size="20" name="birthday">
           
-          <label>성별</label>
-          <input type="radio" id="sex" value="여자" name="sex" checked value="여자"><label for="under_13" class="light">여자</label>&nbsp;&nbsp;
-          <input type="radio" id="sex" value="남자" name="sex"><label for="over_13" class="light">남자</label>
-          <br><br>
            <label for="mail">우편번호 &nbsp; &nbsp; <input type=button value="우편번호검색" class="btn btn-sm btn-primary" id="postBtn" ></label>
           
            <input type=text name="post" id="post" class="input-sm" size=10 readonly style="float: left">
@@ -75,8 +70,8 @@
 	          <textarea id="bio" name="user_bio"></textarea>
         </fieldset>
      
-        <button type="submit">회원가입</button>
-        <button type="submit" onclick="javascript:history.back()" class="btn btn-sm btn-warning">취소</button >
+        <button type="submit">수정&nbsp;완료</button>
+        <button type="button" onclick="javascript:history.back()" class="btn btn-sm btn-warning">취소</button >
       </form>
       
     </body>
