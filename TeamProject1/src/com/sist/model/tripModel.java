@@ -19,7 +19,7 @@ import com.sist.vo.TripJjimVO;
 import com.sist.vo.TripVO;
 
 @Controller
-public class TripModel {	
+public class tripModel {	
 	
 	
   @RequestMapping("trip/trip_list.do")
