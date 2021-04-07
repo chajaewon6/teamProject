@@ -364,7 +364,7 @@ public class HotelModel {
 		  HotelDAO dao=HotelDAO.newInstance();
 		  dao.HotelReserveSave(vo);
 		  
-		  return "redirect:../mypage/mypage.do";
+		  return "../mypage/mypage.do";
 	  }
 	 
 }

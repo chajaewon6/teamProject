@@ -38,7 +38,7 @@ $(function(){
 			data:{"title":title,"inday":inday,"outday":outday,"intime":intime,"outtime":outtime,"inwon":inwon,"room":room},
 			success:function(result)
 			{
-				location.href="../mypage/mypage_main.do";
+				location.href="../mypage/mypage.do";
 			}
 		})
 	});

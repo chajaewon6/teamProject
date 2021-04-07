@@ -390,8 +390,8 @@ public class HotelDAO {
    		 String sql="INSERT INTO hotel_jjim VALUES("
    				   +"hj_no_seq.nextval,?,?)";
    	 ps=conn.prepareStatement(sql);
-   	 ps.setInt(2, no);
    	 ps.setString(1, id);
+   	 ps.setInt(2, no);
    				 
    	 ps.executeUpdate();
    	 }catch(Exception ex) 

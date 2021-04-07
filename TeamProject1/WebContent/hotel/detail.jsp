@@ -302,7 +302,7 @@ $(function(){
 													       	
 													       		<c:if test="${sessionScope.id!=null }">
 													       			<c:if test="${count==0 }">
-													       				<a href="../mypage_hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
 													       				<span class="btn btn-medium btn-default">찜하기</span>
