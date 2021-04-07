@@ -619,7 +619,7 @@ public class HotelDAO {
    	 try
    	 {
    		 getConnection();
-   		 String sql="SELECT no,title,day,time,inwon,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
+   		 String sql="SELECT no,title,inday,intime,outday,outtime,inwon,room,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
    				   +"FROM hotel_reserve "
    				   +"WHERE id=? "
    				   +"ORDER BY no DESC";
@@ -631,11 +631,14 @@ public class HotelDAO {
    			 ReserveVO vo=new ReserveVO();
    			 vo.setNo(rs.getInt(1));
    			 vo.setTitle(rs.getString(2));
-   			 vo.setDay(rs.getString(3));
-   			 vo.setTime(rs.getString(4));
-   			 vo.setInwon(rs.getString(5));
-   			 vo.setState(rs.getInt(6));
-   			 vo.setDbday(rs.getString(7));
+   			 vo.setInday(rs.getString(3));
+   			 vo.setIntime(rs.getString(4));
+   			 vo.setOutday(rs.getString(5));
+  			 vo.setOuttime(rs.getString(6));
+   			 vo.setInwon(rs.getString(7));
+   			 vo.setRoom(rs.getString(8));
+   			 vo.setState(rs.getInt(9));
+   			 vo.setDbday(rs.getString(10));
    			 list.add(vo);
    		 }
    		 rs.close();
