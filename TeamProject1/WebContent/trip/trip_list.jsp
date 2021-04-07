@@ -30,7 +30,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>지역별 관광지</h2>
+                                <h2>지역별 여행지</h2>
                             </div>
                         </div>
                     </div>
@@ -45,28 +45,48 @@
             <br>
             <br>
             <br>
+               <ul>
+                <li><img src="home_img.JPG">&nbsp;&nbsp;&lt;&nbsp;&nbsp;지역&nbsp;&nbsp;&lt;
+                   <c:if test="${cno == 2}">
+     						 &nbsp;&nbsp;광화문</c:if>
+     			   <c:if test="${cno == 3}">
+     						 &nbsp;&nbsp;명동</c:if> 
+     			   <c:if test="${cno == 4}">
+     						 &nbsp;&nbsp;동대문</c:if> 
+     				<c:if test="${cno == 5}">
+     						 &nbsp;&nbsp;홍대</c:if> 
+     				<c:if test="${cno == 6}">
+     						 &nbsp;&nbsp;여의도</c:if> 
+     				<c:if test="${cno == 7}">
+     						 &nbsp;&nbsp;이태원</c:if> 
+     				<c:if test="${cno == 8}">
+     						 &nbsp;&nbsp;강남</c:if> 
+     				<c:if test="${cno == 9}">
+     						 &nbsp;&nbsp;잠실</c:if>
+                </li>
                 
+               </ul>
                 <!-- Section Tittle -->
-                 <div class="row">
+                 <div class="row" >
                     <div class="col-lg-3 text-center">
                         <div class="text-center">
-                         <%--  <c:if test="..trip/trip_list.do?cno=1" var=""></c:if> --%>
+                        <br>
                           <c:if test="${cno == 2}">
-     						 <h1 style="font-size:30pt">광화문</h1></c:if> 
+     						 <h1 style="font-size:35pt">광화문</h1></c:if> 
                           <c:if test="${cno == 3}">
-     						 <h1 style="font-size:30pt">명동</h1></c:if> 
+     						 <h1 style="font-size:35pt">명동</h1></c:if> 
      					  <c:if test="${cno == 4}">
-     						 <h1 style="font-size:30pt">동대문</h1></c:if> 
+     						 <h1 style="font-size:35pt">동대문</h1></c:if> 
      					  <c:if test="${cno == 5}">
-     						 <h1 style="font-size:30pt">홍대</h1></c:if> 
+     						 <h1 style="font-size:35pt">홍대</h1></c:if> 
      					  <c:if test="${cno == 6}">
-     						 <h1 style="font-size:30pt">여의도</h1></c:if> 
+     						 <h1 style="font-size:35pt">여의도</h1></c:if> 
      					  <c:if test="${cno == 7}">
-     						 <h1 style="font-size:30pt">이태원</h1></c:if> 
+     						 <h1 style="font-size:35pt">이태원</h1></c:if> 
      					  <c:if test="${cno == 8}">
-     						 <h1 style="font-size:30pt">강남</h1></c:if> 
+     						 <h1 style="font-size:35pt">강남</h1></c:if> 
      					  <c:if test="${cno == 9}">
-     						 <h1 style="font-size:30pt">잠실</h1></c:if> 	 
+     						 <h1 style="font-size:35pt">잠실</h1></c:if> 	 
      					
                         </div>
                     </div>
@@ -75,9 +95,9 @@
                   <br>
                    <br>
                 <div class="row">
-                    <a href="#" class="btn btn btn-sm btn-success">업데이트순</a>
+                   <!--  <a href="#" class="btn btn btn-sm btn-success">업데이트순</a>
                <a href="#" class="btn btn btn-sm btn-primary">추천순</a>
-               <a href="#" class="btn btn btn-sm">가나다순</a>
+               <a href="#" class="btn btn btn-sm">가나다순</a> -->
                 </div>
                 <br>
                             

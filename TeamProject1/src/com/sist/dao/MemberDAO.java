@@ -183,6 +183,33 @@ public class MemberDAO {
 		  }
 		  return result;
 	  }
+	  
+	  //마이페이지 수정
+	  public MemberVO mypageUpdateData(int no) {
+		  MemberVO vo=new MemberVO();
+		  try {
+			  getConnection();
+			  String sql="UPDATE member SET "
+			  		+ "pwd=?,birthday=?,post=?,addr1=?,addr2=?,tel=?,content=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, vo.getPwd());
+			  ps.setString(2, vo.getBirthday());
+			  ps.setString(3, vo.getPost());
+			  ps.setString(4, vo.getAddr1());
+			  ps.setString(5, vo.getAddr2());
+			  ps.setString(6, vo.getTel());
+			  ps.setString(7, vo.getContent());
+			  
+			  ps.executeUpdate();
+			  
+			  
+		  }catch(Exception ex) {
+			  ex.printStackTrace();
+		  }finally {
+			  disConnection();
+		  }
+		  return vo;
+	  }
 	   
 }
 

@@ -10,9 +10,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
-
+import com.sist.dao.MainImageDAO;
 import com.sist.dao.TripDAO;
-
+import com.sist.vo.MainImageVO;
 import com.sist.vo.TripCategoryVO;
 import com.sist.vo.TripJjimVO;
 import com.sist.vo.TripVO;
@@ -24,6 +24,8 @@ public class tripModel {
   @RequestMapping("trip/trip_list.do")
   public String trip_list(HttpServletRequest request,HttpServletResponse response)
   {
+	 
+	  
      String page=request.getParameter("page");
      if(page==null)
          page="1";

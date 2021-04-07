@@ -14,6 +14,6 @@ import lombok.Setter;
 @Setter
 
 public class MainImageVO {
-	private int no;
-	private String img_name,rink;
+	private int no,crink;
+	private String img_name,rink,content;
 }

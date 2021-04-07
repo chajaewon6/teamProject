@@ -19,22 +19,20 @@ public class MainModel {
 		MainImageDAO dao=new MainImageDAO();
 		List<MainImageVO> mList=dao.MainImageListData();
 		
-		
-		/*
-		 * // 쿠키 List<TripVO> ckList=new ArrayList<TripVO>(); Cookie[]
-		 * cookies=request.getCookies(); if(cookies!=null) { for(int i=cookies.length;
-		 * i<=0; i--) { if(cookies[i].getName().startsWith("m")) {
-		 * cookies[i].setPath("/"); String no=cookies[i].getValue(); // dao연결해야함 TripVO
-		 * vo=dao.tripCookieData(Integer.parseInt(no)); ckList.add(vo); } } }
-		 * 
-		 * request.setAttribute("ckList", ckList);
-		 */
-
-		
 		request.setAttribute("mList", mList);
 		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
 	
+	/*
+	 * @RequestMapping("trip/trip_list.do") public String
+	 * main_triplist(HttpServletRequest request, HttpServletResponse response) {
+	 * String cno=request.getParameter("cno"); MainImageDAO dao=new MainImageDAO();
+	 * List<MainImageVO> mList=dao.MainImageListData();
+	 * 
+	 * request.setAttribute("mList", mList); request.setAttribute("main_jsp",
+	 * "../trip/trip_list.jsp"); return "redirect:../trip/trip_detail.do?cno="+cno;
+	 * }
+	 */
 	
 }

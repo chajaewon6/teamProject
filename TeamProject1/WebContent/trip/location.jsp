@@ -40,6 +40,9 @@ $(function(){
 </script>
 </head>
 <body>
+<div class="wrapper row3 location_row">
+<li ><img src="home_img.JPG">&nbsp;&nbsp;&lt;&nbsp;&nbsp;지역별 여행지&nbsp;&nbsp;&lt;&nbsp;&nbsp;지도 정보</li>
+</div>
    <div class="wrapper row3 location_row">
      <div id="a">
       <img id="seoul_1" src="../map/1111.png">

@@ -81,30 +81,35 @@
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
                             <span>서울엔 어떤 장소가 있을까?</span>
-                            <h2>지역별 관광지</h2>
+                            <h2>지역별 여행지</h2>
                         </div>
                     </div>
                 </div>
                 <div class="row">
                 
-                <c:forEach var="vo" items="${mList }" varStatus="s">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="${vo.rink }" alt="">
+                <!-- <a href="../trip/trip_list.do?cno=${vo.crink }"> 
+                	  <a href="../trip/detail_before.do?no=${tvo.no }"
+                	  
+                	  ../trip/trip_list.do?cno=${vo.crink }
+                -->
+  
+                 <c:forEach var="vo" items="${mList }" varStatus="s"> 
+                    <div class="col-xl-3 col-lg-3 col-md-6 text-center">
+                        <div class="single-place mb-30" style="width:280px;height:370px">
+                            <div class="place-img" style="width:280px;height:190px">
+                                <a href="../trip/trip_list.do?cno=${vo.crink }"><img src="${vo.rink }" ></a>
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <!-- <span><i class="fas fa-star"></i><span></span> </span> -->
-                                    <h3><a href="#">${vo.img_name}</a></h3>
-                                   	<p class="dolor"> <span>/ Per Person</span></p>
+                                    <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
+                                    <h3><a href="../trip/trip_list.do?cno=${vo.crink }">${vo.img_name}</a></h3>
+                                   
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li> 
+                                        	<p class="dolor"> <span>${vo.content }</span></p>
                                     </ul>
-                                </div>
+                                </div> 
                             </div>
                         </div>      
                     </div>
