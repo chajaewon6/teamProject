@@ -94,7 +94,7 @@
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
                                     <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
+                                    <p class="dolor"><span>/ ${vo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
@@ -127,13 +127,12 @@
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
                                     <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
+                                    <p class="dolor">등급 <span>/ ${vo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                       <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
                                         <li><i class="fas fa-map-marker-alt"></i>${vo.addr}</li>
-                                        <li> <a href="../food/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
+                                        <li> <a href="../hotel/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
                                     </ul>
                                 </div>
                             </div>

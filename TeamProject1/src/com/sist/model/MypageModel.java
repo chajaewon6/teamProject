@@ -21,9 +21,12 @@ public class MypageModel {
 			return "../main/main.jsp";
 		}
 		
-		  //마이페이지
-		  @RequestMapping("mypage/mypage.do")
-		  public String mypage_mypage(HttpServletRequest request,HttpServletResponse response)
+		//마이페이지에 출력- 여행
+		
+		
+		  //마이페이지에 출력 - 호텔
+		  @RequestMapping("mypage_hotel/jjim.do")
+		  public String mypage_hotel_jjim(HttpServletRequest request,HttpServletResponse response)
 		  {
 			  HttpSession session=request.getSession();
 			  String id=(String)session.getAttribute("id");
