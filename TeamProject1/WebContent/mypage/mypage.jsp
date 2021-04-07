@@ -116,9 +116,6 @@
                         </div>
                     </div>
                 </div>
-                
-                
-                
                 <div class="row mypage_row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">

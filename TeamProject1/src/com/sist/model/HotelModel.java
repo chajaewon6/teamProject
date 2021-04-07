@@ -190,33 +190,7 @@ public class HotelModel {
 		  dao.HotelJjimInsert(Integer.parseInt(no), id);
 		  return "redirect:../hotel/detail.do?no="+no;
 	  }
-	  //마이페이지
-	  @RequestMapping("mypage/mypage.do")
-	  public String mypage_mypage(HttpServletRequest request,HttpServletResponse response)
-	  {
-		  HttpSession session=request.getSession();
-		  String id=(String)session.getAttribute("id");
-		  // DB연동 
-		  HotelDAO dao=HotelDAO.newInstance();
-		  // 1. 찜하기 목록
-		  List<HotelJjimVO> hjList=dao.hotelJjimListData(id);
-		  List<HotelVO> hList=new ArrayList<HotelVO>();
-		  for(HotelJjimVO vo:hjList)
-		  {
-			  HotelVO hvo=dao.HotelDetailData(vo.getCno());
-			  String poster=hvo.getPoster();
-			  poster=poster.substring(0,poster.indexOf("^"));
-			  hvo.setPoster(poster);
-			  hList.add(hvo);
-		  }
-		  request.setAttribute("hList", hList);
-		  request.setAttribute("hjList", hjList);
-		  // 2. 예약 목록 
-		  List<ReserveVO> rList=dao.mypage_data(id);
-		  request.setAttribute("rList", rList);
-		  request.setAttribute("main_jsp", "../mypage/mypage.jsp");
-		  return "../main/main.jsp";
-	  }
+
 	  @RequestMapping("hotel/reserve.do")
 	  public String hotel_reserve(HttpServletRequest request,HttpServletResponse response)
 	  {
