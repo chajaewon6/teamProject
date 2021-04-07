@@ -49,7 +49,7 @@ public class MainImageDAO {
 		  try
 		  {
 			  getConnection();
-			  String sql="SELECT no,img_name,rink "
+			  String sql="SELECT no,img_name,rink,crink,content "
 			  		+ "FROM main_trip_image "
 			  		+ "ORDER BY no";
 			  ps=conn.prepareStatement(sql);
@@ -60,6 +60,8 @@ public class MainImageDAO {
 				  vo.setNo(rs.getInt(1));
 				  vo.setImg_name(rs.getString(2));
 				  vo.setRink(rs.getString(3));
+				  vo.setCrink(rs.getInt(4));
+				  vo.setContent(rs.getString(5));
 				  list.add(vo);
 			  }
 			  rs.close();
