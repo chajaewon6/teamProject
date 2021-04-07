@@ -152,8 +152,12 @@ $(function(){
                                                     <li><a href="single-blog.html">공지사항</a></li>
                                                 </ul>
                                             </li>
-                                             
+                                            <c:if test="${sessionScope.id==null }">   
+                                            <li><a href="../hotel/list.do">호텔목록</a>
+                                            </c:if>
+                                            <c:if test="${sessionScope.id!=null }">   
                                             <li><a href="../hotel/reserve.do">호텔예약</a>
+                                            </c:if>
                                             <ul class="submenu">
                                             
                                                     <li><a href="../hotel/list.do?cno=1">강남/역삼/삼성/신사/청담</a></li>

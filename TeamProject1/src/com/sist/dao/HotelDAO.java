@@ -516,7 +516,7 @@ public class HotelDAO {
    	 return rday;
     }
     
-    public String HotelReserveOutTimeData(int day)
+    public String HotelReserveInTimeData(int day)
     {
    	 String time="";
    	 try
@@ -541,7 +541,7 @@ public class HotelDAO {
    	 return time;
     }
      
-    public String HotelReserveOutTime(int no)
+    public String HotelReserveInTime(int no)
     {
    	 String time="";
    	 try
@@ -571,15 +571,17 @@ public class HotelDAO {
    	 {
    		 getConnection();
    		 String sql="INSERT INTO hotel_reserve VALUES("
-   				   +"(SELECT NVL(MAX(no)+1,1) FROM hotel_reserve),?,?,?,?,?,?,"
+   				   +"(SELECT NVL(MAX(no)+1,1) FROM hotel_reserve),?,?,?,?,?,?,?,?,"
    				   +"0,SYSDATE)";
    		 ps=conn.prepareStatement(sql);
    		 ps.setString(1, vo.getId());
    		 ps.setString(2, vo.getTitle());
    		 ps.setString(3, vo.getInday());
    		 ps.setString(4, vo.getIntime());
-   		 ps.setString(5, vo.getOuttime());
-   		 ps.setString(6, vo.getInwon());
+   		 ps.setString(5, vo.getOutday());
+   		 ps.setString(6, vo.getOuttime());
+   		 ps.setString(7, vo.getInwon());
+   		 ps.setString(8, vo.getRoom());
    		 ps.executeUpdate();
    	 }catch(Exception ex)
    	 {

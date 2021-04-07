@@ -297,104 +297,14 @@ public class HotelModel {
 		   
 		   return "../hotel/date.jsp";
 	  }
-	  @RequestMapping("hotel/outdate.do")
-	  public String hotel_outdate(HttpServletRequest request,HttpServletResponse response)
-	  {
-		   String strYear=request.getParameter("year");
-		   String strMonth=request.getParameter("month");
-		   
-		   String today=new SimpleDateFormat("yyyy-M-d").format(new Date());
-		   StringTokenizer st=new StringTokenizer(today,"-");
-		   
-		   String sy=st.nextToken();
-		   String sm=st.nextToken();
-		   String sd=st.nextToken();
-		   
-		   if(strYear==null)
-			   strYear=sy;
-		   if(strMonth==null)
-			   strMonth=sm;
-		   
-		   int year=Integer.parseInt(strYear);
-		   int month=Integer.parseInt(strMonth);
-		   int day=Integer.parseInt(sd);
-		   
-		   
-		   String[] strWeek={"일","월","화","수","목","금","토"};
-		   
-		   int total=(year-1)*365
-				    +(year-1)/4
-				    -(year-1)/100
-				    +(year-1)/400;
-		   
-		   int[] lastDay={31,28,31,30,31,30,
-				          31,31,30,31,30,31};
-		   
-		   if((year%4==0 && year%100!=0)||(year%400==0))
-			   lastDay[1]=29;
-		   else
-			   lastDay[1]=28;
-			
-		   for(int i=0;i<month-1;i++)
-		   {
-			   total+=lastDay[i];
-		   }
-		   
-		   total++;
-		   
-		   int week=total%7;
-		   
-		   String no=request.getParameter("no");
-		   HotelDAO dao=HotelDAO.newInstance();
-		   String rday=dao.HotelReserveDate(Integer.parseInt(no));
-		   /*
-		    *    1,2,3,4,5,6,7,8,10
-		    *    int[] arr=new int[10];
-		    *    
-		    *    arr[0]=11
-		    *    arr[1]=21
-		    *    arr[2]=31
-		    *    --
-		    *    arr[9]=10
-		    *    
-		    *    int[] arr={1,2,3,4,5,6,7}
-		    *    int[] arr1={0,2,0,0,5,0,0}
-		    *    
-		    *    arr[i]==arr1[i] 2,5
-		    */
-		   
-		   int[] days=new int[31];
-		   if(rday!=null)
-		   {
-			   // 1,2,3,7,8,10...
-			   StringTokenizer st1=new StringTokenizer(rday,",");
-			   System.out.println(st1);
-			   while(st1.hasMoreTokens())
-			   {
-				  int p=Integer.parseInt(st1.nextToken());// 31
-				  if(p>=day)
-				  {
-				     days[p-1]=p;
-				  }
-			   }
-		   }
-		   request.setAttribute("days", days);
-		   request.setAttribute("lastday", lastDay[month-1]);
-		   request.setAttribute("week", week);
-		   request.setAttribute("year", year);
-		   request.setAttribute("month", month);
-		   request.setAttribute("day", day);
-		   request.setAttribute("strWeek", strWeek);
-		   
-		   return "../hotel/outdate.jsp";
-	  }
+	 
 	  @RequestMapping("hotel/intime.do")
 	  public String hotel_intime(HttpServletRequest request,HttpServletResponse response) 
 	  {
 		  String day=request.getParameter("day");
 		  // 시간을 읽어 온다 => 오라클 
 		  HotelDAO dao=HotelDAO.newInstance();
-		  String tno=dao.HotelReserveOutTimeData(Integer.parseInt(day));
+		  String tno=dao.HotelReserveInTimeData(Integer.parseInt(day));
 		  // 1="09:00",2,3,9,11
 		  List<String> list1=new ArrayList<String>();
 		  StringTokenizer st=new StringTokenizer(tno,",");
@@ -402,7 +312,7 @@ public class HotelModel {
 		  {
 			  String t=st.nextToken();
 			  int i=Integer.parseInt(t);
-			  String time1=dao.HotelReserveOutTime(i);
+			  String time1=dao.HotelReserveInTime(i);
 			  list1.add(time1);
 		  }
 		  
@@ -411,23 +321,7 @@ public class HotelModel {
 	  }
 	  @RequestMapping("hotel/outtime.do")
 	  public String hotel_outtime(HttpServletRequest request,HttpServletResponse response) 
-	  {/*
-		  String day=request.getParameter("day");
-		  // 시간을 읽어 온다 => 오라클 
-		  HotelDAO dao=HotelDAO.newInstance();
-		  String tno=dao.HotelReserveOutTimeData(Integer.parseInt(day));
-		  // 1="09:00",2,3,9,11
-		  List<String> list2=new ArrayList<String>();
-		  StringTokenizer st=new StringTokenizer(tno,",");
-		  while(st.hasMoreTokens())
-		  {
-			  String t=st.nextToken();
-			  int i=Integer.parseInt(t);
-			  String time2=dao.HotelReserveOutTime(i);
-			  list2.add(time2);
-		  }
-		  
-		  request.setAttribute("list2", list2);*/
+	  {
 		  return "../hotel/outtime.jsp";
 	  }
 	  @RequestMapping("hotel/inwon.do")
@@ -439,6 +333,38 @@ public class HotelModel {
 	  public String hotel_room(HttpServletRequest request,HttpServletResponse response) 
 	  {
 		  return "../hotel/room.jsp";
+	  }
+	  @RequestMapping("hotel/reserve_save.do")
+	  public String reserve_save(HttpServletRequest request,HttpServletResponse response) 
+	  {
+		  try
+		  {
+			  request.setCharacterEncoding("UTF-8");
+		  }catch(Exception ex) {}
+		  String title=request.getParameter("title");
+		  String inday=request.getParameter("inday");
+		  String outday=request.getParameter("outday");
+		  String intime=request.getParameter("intime");
+		  String outtime=request.getParameter("outtime");
+		  String inwon=request.getParameter("inwon");
+		  String room=request.getParameter("room");
+		  HttpSession session=request.getSession();
+		  String id=(String)session.getAttribute("id");
+		  
+		  ReserveVO vo=new ReserveVO();
+		  vo.setId(id);
+		  vo.setTitle(title);
+		  vo.setInday(inday);
+		  vo.setOutday(outday);
+		  vo.setIntime(intime);
+		  vo.setOuttime(outtime);
+		  vo.setInwon(inwon);
+		  vo.setRoom(room);
+		  
+		  HotelDAO dao=HotelDAO.newInstance();
+		  dao.HotelReserveSave(vo);
+		  
+		  return "redirect:../mypage/mypage.do";
 	  }
 	 
 }

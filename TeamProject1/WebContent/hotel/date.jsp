@@ -1,6 +1,7 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8"
     pageEncoding="UTF-8"%>
 <%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core"%>
+<%@ taglib prefix="fn" uri="http://java.sun.com/jsp/jstl/functions" %>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -48,11 +49,14 @@ $(function(){
 	
 	$('.rdate').click(function(){
 		let day=$(this).text();
+		
 		let year=$('#year').val();
 		let month=$('#month').val();
 		//alert("년도:"+year+",월:"+month+",일:"+day)
 		let rday=year+"년도 "+month+"월 "+day+"일"
+		let rday1=year+"년도 "+month+"월 "+(Number(day)+1)+"일"
 		$('#reserve_inday').text(rday)
+		$('#reserve_outday').text(rday1)
 		// ../hotel/time.do => Model호출 => DB처리 => 해당 JSP로 전송 
 		$.ajax({
 			type:'post',

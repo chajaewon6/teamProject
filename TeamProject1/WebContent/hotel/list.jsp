@@ -53,11 +53,11 @@
                         </div>
                     </div>
                 </div>
-                
+<!--                 
 										    <a href="#" class="btn btn btn-sm">추천순</a>
 										    <a href="#" class="btn btn btn-sm">낮은 가격순</a>
 										    <a href="#" class="btn btn btn-sm">높은 가격순</a>
-									 
+									  -->
                 <div class="row">
                 	<c:forEach var="hvo" items="${hList }">
        							

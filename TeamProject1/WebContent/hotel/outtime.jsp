@@ -11,7 +11,7 @@
 $(function(){
 	$('.intime').click(function(){
 		let time1=$(this).text();
-		$('#reserve_time2').text(time1)
+		$('#reserve_outtime1').text(time1)
 		
 		$.ajax({
 			type:'post',

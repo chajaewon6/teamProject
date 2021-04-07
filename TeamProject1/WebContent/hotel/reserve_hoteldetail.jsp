@@ -35,6 +35,7 @@ $(function(){
 			success:function(result)
 			{
 				$('#hotel_date').html(result);
+				
 			}
 		});
 	});

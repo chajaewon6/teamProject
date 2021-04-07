@@ -26,18 +26,19 @@ $(function(){
 	$('#rBtn').click(function(){
 		let title=$('#reserve_title').text();
 		let inday=$('#reserve_inday').text();
-		let time1=$('#reserve_time1').text();
+		let intime=$('#reserve_intime1').text();
 		let outday=$('#reserve_outday').text();
-		let time2=$('#reserve_time2').text();
+		let outtime=$('#reserve_outtime1').text();
 		let inwon=$('#reserve_inwon1').text();
+		let room=$('#reserve_room1').text();
 		
 		$.ajax({
 			type:'post',
 			url:'../hotel/reserve_save.do',
-			data:{"title":title,"inday":inday,"time1":time1,"time2":time2,"inwon":inwon},
+			data:{"title":title,"inday":inday,"outday":outday,"intime":intime,"outtime":outtime,"inwon":inwon,"room":room},
 			success:function(result)
 			{
-				location.href="../hotel/mypage.do";
+				location.href="../mypage/mypage_main.do";
 			}
 		})
 	});
@@ -49,7 +50,7 @@ $(function(){
   <h2 class="sectiontitle">예약하기</h2>
   <table class="table">
    <tr>
-     <td width=35%>
+     <td width=40%>
        <div style="height: 500px">
          <table class="table">
           <h4>호텔정보</h4>
@@ -72,15 +73,50 @@ $(function(){
          </table>
        </div>
      </td>
-      <td width=35%>
-       <div style="height: 500px">
-         <table class="table">
-          <h4>예약일정보</h4>
+      <td width=30% rowspan=2>
+         <table class="table" style="font-size:20px">
+          <h4>예약정보</h4>
           <tr>
-            <td id="hotel_date1"></td>
+            <td colspan="2" class="text-center">
+             <img id="reserve_poster" style="height:200px;width:300px">
+            </td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">호텔명</th>
+            <td width="80%"><span id="reserve_title"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">입실일</th>
+            <td width="80%"><span id="reserve_inday"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">입실</th>
+            <td width="80%"><span id="reserve_intime1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">퇴실일</th>
+            <td width="80%"><span id="reserve_outday"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">퇴실</th>
+            <td width="80%"><span id="reserve_outtime1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">인원</th>
+            <td width="80%"><span id="reserve_inwon1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">객실</th>
+            <td width="80%"><span id="reserve_room1"></span></td>
+          </tr>
+          <tr style="display:none" id="reserveBtn">
+            <td colspan="2" class="text-center">
+             
+              <input type="button" value="예약하기" class="btn btn-lg btn-danger" id="rBtn">
+             
+            </td>
           </tr>
          </table>
-       </div>
      </td>
      
    </tr>
@@ -88,7 +124,7 @@ $(function(){
      <td width=35%>
        <div style="height: 100px">
          <table class="table">
-          <h4>체크인</h4>
+          <h4>입실정보</h4>
           <tr>
             <td id="reserve_intime"></td>
           </tr>
@@ -96,7 +132,7 @@ $(function(){
        </div>
        <div style="height: 100px">
          <table class="table">
-          <h4>체크아웃</h4>
+          <h4>퇴실정보</h4>
           <tr>
             <td id="reserve_outtime"></td>
           </tr>
@@ -121,51 +157,7 @@ $(function(){
          </table>
        </div>
      </td> 
-     <td width=35% rowspan=2>
-         <table class="table">
-          <h4>예약정보</h4>
-          <tr>
-            <td colspan="2" class="text-center">
-             <img id="reserve_poster" style="height:150px;width:250px">
-            </td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">호텔명</th>
-            <td width="80%"><span id="reserve_title"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">체크인날짜</th>
-            <td width="80%"><span id="reserve_inday"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">체크인</th>
-            <td width="80%"><span id="reserve_time1"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">체크아웃날짜</th>
-            <td width="80%"><span id="reserve_outday"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">체크아웃</th>
-            <td width="80%"><span id="reserve_time2"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">인원</th>
-            <td width="80%"><span id="reserve_inwon1"></span></td>
-          </tr>
-          <tr>
-            <th class="text-right" width="20%">객실</th>
-            <td width="80%"><span id="reserve_room1"></span></td>
-          </tr>
-          <tr style="display:none" id="reserveBtn">
-            <td colspan="2" class="text-center">
-             
-              <input type="button" value="예약하기" class="btn btn-lg btn-danger" id="rBtn">
-             
-            </td>
-          </tr>
-         </table>
-     </td>
+     
    </tr>
    
   </table>

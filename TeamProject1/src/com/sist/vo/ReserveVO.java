@@ -20,10 +20,11 @@ public class ReserveVO {
    private String id;
    private String title;
    private String inday;
-   private String outday;
    private String intime;
+   private String outday;
    private String outtime;
    private String inwon;
+   private String room;
    private int state;
    private Date regdate;
    private String dbday;
