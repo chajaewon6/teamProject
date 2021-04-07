@@ -16,7 +16,7 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+      <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
   
    </head>
 
@@ -59,14 +59,14 @@
                    <br>
                 <div class="row">
                     <a href="#" class="btn btn btn-sm btn-success">업데이트순</a>
-					<a href="#" class="btn btn btn-sm btn-primary">추천순</a>
-					<a href="#" class="btn btn btn-sm">가나다순</a>
+               <a href="#" class="btn btn btn-sm btn-primary">추천순</a>
+               <a href="#" class="btn btn btn-sm">가나다순</a>
                 </div>
                 <br>
-									 
+                            
                 <div class="row">
-                	<c:forEach var="tvo" items="${tList }">
-       							
+                   <c:forEach var="tvo" items="${tList }">
+                            
                     <div class="col-xl-3 col-xl-3 col-md-6">
                     
                         <div class="single-place sm-30">
@@ -96,7 +96,7 @@
                         
                     </div>
                     <div class="fab"><a href="../trip/detail_before.do?no=$"></a></div>
-                    	</c:forEach>
+                       </c:forEach>
                    
                 </div>
             </div>
