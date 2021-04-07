@@ -251,6 +251,7 @@ $(function(){
 	     	enctype="multipart/form-data">
             <div class="blog_details">
            		<h2>글쓰기</h2>
+           		<%= application.getRealPath("/") %>
 		        	<table>
 		            <tr>
 		                <th width=10% class="text">제목</th>

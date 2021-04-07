@@ -302,7 +302,7 @@ $(function(){
 													       	
 													       		<c:if test="${sessionScope.id!=null }">
 													       			<c:if test="${count==0 }">
-													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+													       				<a href="../mypage_hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
 													       				<span class="btn btn-medium btn-default">찜하기</span>
@@ -342,7 +342,7 @@ $(function(){
 		 <c:forEach var="rvo" items="${rList }">
 		<div class="comment-wrap">
 				<div class="comment-block">
-						<p class="comment-text">$${rvo.msg }</p>
+						<p class="comment-text">${rvo.msg }</p>
 						<p class="comment-text" style="font-size:10px;">작성자:&nbsp;${rvo.name }</p>
 						<div class="bottom-comment">
 								<div class="comment-date">${rvo.dbday }</div>
@@ -377,159 +377,65 @@ $(function(){
 			</div>
 		
 			<!-- --------------------------댓글 영역 끝----------------------------- -->
-                        
-                        
-                        
-   								<%-- <div class="blog_left_sidebar">
-   									<h2>댓글</h2>
-							        <ul>
-							        <c:forEach var="rvo" items="${rList }">
-							          <li>
-							            <article class="blog_item">
-							            <div class="blog_details">
-							            <table>
-							              <header>
-							                
-							                <address style="font-size:30px">
-							                By <a href="#" style="color:purple">${rvo.name }</a>
-							               
-							                </address>
-							                
-							                <time datetime="2045-04-06T08:15+00:00" style="color:gray">${rvo.dbday }</time>
-							              </header>
-							              <table>
-							              <div class="comcont">
-							                <pre style="white-space:pre-wrap;border:none;background-color:white;font-size:30px;color:gray">${rvo.msg }</pre>
-							              	 <figure class="avatar text-right">
-								                <c:if test="${sessionScope.id==rvo.id }">
-									                <span class="btn btn-medium btn-success updateBtn" data-no="${rvo.no }">수정</span>
-									                <span class="btn btn-medium btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
-								                </c:if>
-							                </figure>
-							              </div>
-							              </table>
-							            </table>
-							            </div>
-							            </article>
-							          </li>
-							          <li style="display:none" id="m${rvo.no }" class="updateli">
-							          <!-- 수정할폼 -->
-							          
-							          <form action="../hotel/hotel_reply_update.do" method="post">
-							          <table class="table">
-							          	<tr>
-							          		<td>
-							          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
-							          			<input type="hidden" name=cno value="${vo.no }">
-							          			<input type="hidden" name=no value="${rvo.no }">
-							          			<input type="submit" value="댓글수정" class="btn btn-medium btn-danger">
-							          		</td>
-							          	</tr>
-							          </table>
-							        </form>
-							        <form action="../hotel/hotel_reply_update.do" method="post">
-                                
-                                    <div class="form-group">
-                                        <textarea class="form-control w-100" name="msg" cols="30" rows="9" placeholder=" Enter Message">${rvo.msg }</textarea>
-                                    		<input type="hidden" name=cno value="${vo.no }">
-                                    		<input type="hidden" name=no value="${rvo.no }">
-							          								<div class="form-group mt-3">
-                                					<input type="submit" class="button button-contactForm boxed-btn" value="댓글수정">
-                            						</div>			
-                                    </div>
-                                
-                        </form>
-							          </li>
-							          </c:forEach>
-							        </ul>
-							        
-                        <form action="../hotel/hotel_reply_insert.do" method="post">
-                            
-                                    <div class="form-group" >
-                                        <textarea class="form-control w-100" name="msg" cols="30" rows="9" placeholder=" Enter Message"></textarea>
-                                    		<input type="hidden" name=cno value="${vo.no }">
-							          								<div class="form-group mt-3">
-                                					<input type="submit" class="button button-contactForm boxed-btn" value="댓글쓰기">
-                            						</div>			
-                                    </div>      
-                        </form>
-                     --%>
-                    
-							      <%--  <c:if test="${sessionScope.id!=null }">
-							        <form action="../hotel/hotel_reply_insert.do" method="post">
-							          <table class="table">
-							          	<tr>
-							          		<td>
-							          			<textarea rows="7" cols="30" name="msg"></textarea>
-							          			<input type="hidden" name=cno value="${vo.no }">
-							          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
-							          		</td>
-							          	</tr>
-							          </table>
-							        </form>
-							        </c:if>
-							      
-							      
-							      
-							      <h2>댓글</h2>
-							        <ul>
-							        <c:forEach var="rvo" items="${rList }">
-							          <li>
-							            <article>
-							              <header>
-							                <figure class="avatar">
-								                <c:if test="${sessionScope.id==rvo.id }">
-									                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
-									                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
-								                </c:if>
-							                </figure>
-							                <address>
-							                By <a href="#">${rvo.name }</a>
-							                </address>
-							                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
-							              </header>
-							              <div class="comcont">
-							                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
-							              </div>
-							            </article>
-							          </li>
-							          <li style="display:none" id="m${rvo.no }" class="updateli">
-							          <form action="../hotel/hotel_reply_update.do" method="post">
-							          <table class="table">
-							          	<tr>
-							          		<td>
-							          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
-							          			<input type="hidden" name=cno value="${vo.no }">
-							          			<input type="hidden" name=no value="${rvo.no }">
-							          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
-							          		</td>
-							          	</tr>
-							          </table>
-							        </form>
-							          </li>
-							          </c:forEach>
-							        </ul>
-							        <c:if test="${sessionScope.id!=null }">
-							        <form action="../hotel/hotel_reply_insert.do" method="post">
-							          <table class="table">
-							          	<tr>
-							          		<td>
-							          			<textarea rows="7" cols="30" name="msg"></textarea>
-							          			<input type="hidden" name=cno value="${vo.no }">
-							          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
-							          		</td>
-							          	</tr>
-							          </table>
-							        </form>
-							        </c:if>
-      							</div>
-      							--%>
+<%-- <div id="comments">
+        <h2>댓글</h2>
+        <ul>
+        <c:forEach var="rvo" items="${rList }">
+          <li>
+            <article>
+              <header>
+                <figure class="avatar">
+	                <c:if test="${sessionScope.id==rvo.id }">
+		                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
+		                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
+	                </c:if>
+                </figure>
+                <address>
+                By <a href="#">${rvo.name }</a>
+                </address>
+                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
+              </header>
+              <div class="comcont">
+                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
+              </div>
+            </article>
+          </li>
+          <li style="display:none" id="m${rvo.no }" class="updateli">
+          <form action="../food/food_reply_update.do" method="post">
+          <table class="table">
+          	<tr>
+          		<td>
+          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
+          			<input type="hidden" name=cno value="${vo.no }">
+          			<input type="hidden" name=no value="${rvo.no }">
+          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
+          		</td>
+          	</tr>
+          </table>
+        </form>
+          </li>
+          </c:forEach>
+        </ul>
+        <c:if test="${sessionScope.id!=null }">
+        <form action="../food/food_reply_insert.do" method="post">
+          <table class="table">
+          	<tr>
+          		<td>
+          			<textarea rows="7" cols="30" name="msg"></textarea>
+          			<input type="hidden" name=cno value="${vo.no }">
+          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
+          		</td>
+          	</tr>
+          </table>
+        </form>
+        </c:if>
+      </div> --%>
       						</div>    
                 </div>
     <%--<div class="form-group">
        <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
                                     </div> --%>
-                 <div class="col-lg-4">
+                 <div class="mb">
                     <div class="blog_right_sidebar">
                         
                         <aside class="single_sidebar_widget popular_post_widget">

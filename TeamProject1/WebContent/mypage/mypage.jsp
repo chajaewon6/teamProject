@@ -41,10 +41,10 @@
 				<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
 
 			</div>
-
+		
 			<div class="profile-user-settings">
 
-				<h1 class="profile-user-name">MYID</h1>
+				<h1 class="profile-user-name">MYID${vo.id }</h1>
 
 				<button class="btn profile-edit-btn">프로필 수정</button>
 
@@ -94,7 +94,7 @@
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
                                     <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
+                                    <p class="dolor"><span>/ ${vo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
@@ -127,13 +127,12 @@
                                 <div class="place-cap-top">
                                     <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
                                     <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">${fn:substring(vo.grade,0,fn:indexOf(vo.grade,"(")) } <span>/ ${vo.price }</span></p>
+                                    <p class="dolor">등급 <span>/ ${vo.price }</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                       <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
                                         <li><i class="fas fa-map-marker-alt"></i>${vo.addr}</li>
-                                        <li> <a href="../food/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
+                                        <li> <a href="../hotel/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
                                     </ul>
                                 </div>
                             </div>
