@@ -352,7 +352,7 @@ public class BoardDAO {
 				 * 
 				 */
 				String sql="UPDATE picboard SET "
-						+"pb_pictitle=?, pb_piccontent=?, pb_pictag=?, pb_picloc=?, filename=?, filesize=? "
+						+"pb_pictitle=?, pb_piccontent=?, pb_pictag=?, pb_picloc=?, filename=?, filesize=?, pb_pic=?"
 						+"WHERE pb_no=?";
 				ps=conn.prepareStatement(sql);
 				ps.setString(1, vo.getPb_picTitle());
@@ -361,7 +361,8 @@ public class BoardDAO {
 				ps.setString(4, vo.getPb_picLoc());
 				ps.setString(5, vo.getFilename());
 				ps.setInt(6, vo.getFilesize());
-				ps.setInt(7, vo.getPb_no());
+				ps.setString(7, vo.getPb_pic());
+				ps.setInt(8, vo.getPb_no());
 				
 				ps.executeUpdate();
 						

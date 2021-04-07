@@ -85,7 +85,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <a href="board_detail.do?no=${vo.pb_no }"><img src="${vo.pb_pic }" alt=""></a>
+                                <a href="board_detail.do?no=${vo.pb_no }"><img src="../upload/${vo.pb_pic }" alt=""></a>
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">

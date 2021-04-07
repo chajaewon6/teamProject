@@ -139,7 +139,7 @@ public class BoardModel {
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
-			String path="c:\\upload\\";
+			String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
 			int size=1024*1024*100;
 			String enctype="UTF-8";
 			// 업로드
@@ -154,6 +154,7 @@ public class BoardModel {
 			HttpSession session=request.getSession();
 			String id=(String)session.getAttribute("id");
 			String name=(String)session.getAttribute("name");
+			
 			
 			
 			BoardVO vo=new BoardVO();
@@ -177,6 +178,8 @@ public class BoardModel {
 				vo.setFilesize((int)file.length());
 				
 			}
+			String pic=filename;
+			vo.setPb_pic(pic);
 			BoardDAO dao=BoardDAO.newInstance();
 			dao.boardInsertData(vo);
 			
@@ -217,7 +220,7 @@ public class BoardModel {
 		 try
 		 {
 			 request.setCharacterEncoding("UTF-8");
-				String path="c:\\upload\\";
+				String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
 				int size=1024*1024*100;
 				String enctype="UTF-8";
 				// 업로드
@@ -262,6 +265,8 @@ public class BoardModel {
 					vo.setFilesize((int)file.length());
 					
 				}
+				String pic=filename;
+				vo.setPb_pic(pic);
 				BoardDAO dao=BoardDAO.newInstance();
 				dao.boardUpdateData(vo);
 				url="redirect:../board/board_detail.do?no="+no;

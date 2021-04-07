@@ -211,7 +211,7 @@ $(function(){
                     
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="${vo.pb_pic }" alt="">
+                                <img class="card-img rounded-0" src="../upload/${vo.pb_pic }" alt="">
                               
                             </div>
 
