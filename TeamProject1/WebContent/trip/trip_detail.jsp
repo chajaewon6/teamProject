@@ -45,10 +45,18 @@
      -->
      <!-- slider Area End-->
     <!--================Blog Area =================-->
+    
     <section class="blog_area section-padding">
+               
       <div class="container">
+      		  <ul>
+                <li><img src="home_img.JPG">&nbsp;&nbsp;&lt;&nbsp;&nbsp;여행지&nbsp;&nbsp;&lt;&nbsp;&nbsp;상세보기
+                </li>
+               </ul>
+               <br>
+               
         <div class="row">
-        
+         
           <div class="col-lg-9 mb-0 mb-lg-0 text-center">
             <strong style="font-size:20pt;color:orange"> ${tvo.category }</strong><br>
             <br>
@@ -156,7 +164,7 @@
                      <span class="btn btn-medium btn-default">찜하기</span>
                   </c:if>
                </c:if>
-                  <a href="../trip/trip_list.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
+                  <a href="javascript:history.back();" class="btn btn-medium btn-danger" style="color:white">목록</a>
              </ul>             
             </div>
                     

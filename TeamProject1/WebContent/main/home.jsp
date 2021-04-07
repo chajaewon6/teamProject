@@ -81,7 +81,7 @@
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
                             <span>서울엔 어떤 장소가 있을까?</span>
-                            <h2>지역별 관광지</h2>
+                            <h2>지역별 여행지</h2>
                         </div>
                     </div>
                 </div>
@@ -95,13 +95,13 @@
   
                  <c:forEach var="vo" items="${mList }" varStatus="s"> 
                     <div class="col-xl-3 col-lg-3 col-md-6 text-center">
-                        <div class="single-place mb-30" style="width:280px;height:450px">
-                            <div class="place-img" style="width:280px;height:150px">
+                        <div class="single-place mb-30" style="width:280px;height:370px">
+                            <div class="place-img" style="width:280px;height:190px">
                                 <a href="../trip/trip_list.do?cno=${vo.crink }"><img src="${vo.rink }" ></a>
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <!-- <span><i class="fas fa-star"></i><span></span> </span> -->
+                                    <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
                                     <h3><a href="../trip/trip_list.do?cno=${vo.crink }">${vo.img_name}</a></h3>
                                    
                                 </div>
