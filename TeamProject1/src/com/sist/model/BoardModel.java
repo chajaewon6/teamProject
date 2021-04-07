@@ -90,7 +90,7 @@ public class BoardModel {
 		
 		return "redirect:../board/board_detail.do?no="+pno;
 	}
-	
+	// 댓글 삭제
 	@RequestMapping("board/board_reply_delete.do")
 	public String board_reply_delete(HttpServletRequest request, HttpServletResponse response)
 	{
@@ -120,7 +120,65 @@ public class BoardModel {
 		
 		return "redirect:../board/board_detail.do?no="+pno;
 	}
+	// 게시글 쓰기
+	@RequestMapping("board/board_insert.do")
+	public String board_insert(HttpServletRequest request, HttpServletResponse response)
+	{
+		
+		request.setAttribute("main_jsp", "../board/board_insert.jsp");
+		return "../main/main.jsp";
+	}
+	// 게시글 올리기
+	@RequestMapping("board/board_insert_ok.do")
+	public String board_insert_ok(HttpServletRequest request, HttpServletResponse response)
+	{
+		try
+		{
+			request.setCharacterEncoding("UTF-8");
+		} catch (Exception e) {}
+		String content=request.getParameter("content");
+		String title=request.getParameter("title");
+		String tag=request.getParameter("tag");
+		String loc=request.getParameter("loc");
+		String pic=request.getParameter("pic");
+		HttpSession session=request.getSession();
+		String id=(String)session.getAttribute("id");
+		String name=(String)session.getAttribute("name");
+		/*
+		 * ps.setString(1, vo.getPb_picTitle());
+				ps.setString(2, vo.getPb_picContent());
+				ps.setString(3, vo.getPb_picLoc());
+				ps.setString(4, vo.getPb_picTag());
+				ps.setString(5, vo.getUser_id());
+				ps.setString(6, vo.getPb_pic());
+				ps.setString(7, vo.getUser_name());
+		 * 
+		 */
+		BoardVO vo=new BoardVO();
+		vo.setPb_picContent(content);
+		vo.setPb_picTitle(title);
+		vo.setPb_picTag(tag);
+		vo.setUser_id(id);
+		vo.setUser_name(name);
+		vo.setPb_pic(pic);
+		vo.setPb_picLoc(loc);
+		
+		BoardDAO dao=BoardDAO.newInstance();
+		dao.boardInsertData(vo);
+		
+		return "../board/board_main.do";
+	}
 	
+	@RequestMapping("board/board_delete.do")
+	public String board_delete(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		BoardDAO dao=BoardDAO.newInstance();
+		dao.boardDeleteData(Integer.parseInt(no));
+		
+		
+		return "redirect:../board/board_main.do";
+	}
 	
 }
 

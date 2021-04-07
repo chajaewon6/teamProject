@@ -28,6 +28,7 @@
             <link rel="stylesheet" href="../css/slick.css">
             <link rel="stylesheet" href="../css/nice-select.css">
             <link rel="stylesheet" href="./css/button.css">
+             <link rel="stylesheet" href="../css/board_upload.css">
  <style>
 .intro{
 position: absolute;
@@ -160,10 +161,26 @@ position: absolute;
 .comment-block{
 	width:800px;
 } 
- 
+.border {
+	border:1px; solid gray;
+} 
+.text{
+	font-size:10px;
+}
+.can {
+	height: 50px;
+}
+.photoFrame{
+  width: 500px;
+  height: 500px;
+}
+.photoFrame:hover{
+cursor: pointer;
+ }
  </style>
   </head>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script src="https://unpkg.com/axios/dist/axios.min.js"></script>
 <script type="text/javascript">
 let i=0;
 $(function(){
@@ -172,10 +189,6 @@ $(function(){
 		let pno=$(this).attr("data-pno");
 		location.href="../board/board_reply_delete.do?no="+no+"&pno="+pno;
 	});
-	$('.boardDel').click(function(){
-		let no=$(this).attr("data-no");
-		location.href="../board/board_delete.do?no="+no;
-	})
 	
 	$('.updateBtn').click(function(){
 		$('.updateli').hide();
@@ -197,6 +210,27 @@ $(function(){
 	});
 }); 
 </script>
+ <script>
+  var fileInput = document.getElementById("fileInput");
+  //값이 변경될때 호출 되는 이벤트 리스너
+  fileInput.addEventListener('change',function(e){
+    var file = e.target.files[0]; //선택된 파일
+    var reader = new FileReader();
+    reader.readAsDataURL(file); //파일을 읽는 메서드 
+
+    reader.onload = function(){
+      var photoFrame = document.createElement("div");
+      photoFrame.style = `background : url(${reader.result}); background-size : cover`;
+      photoFrame.className = "photoFrame";
+      document.getElementById("pictures").appendChild(photoFrame);
+      e.target.value = "";
+
+      photoFrame.addEventListener("click",function(){
+        document.getElementById("pictures").removeChild(photoFrame);
+      })
+    }
+  })
+</script>
 <body>
   <section class="blog_area section-padding">
         <div class="container">
@@ -207,103 +241,71 @@ $(function(){
                     
                         <article class="blog_item">
                             <div class="blog_item_img">
-                                <img class="card-img rounded-0" src="${vo.pb_pic }" alt="">
-                              
+                             <!-- 사진 올리기 -->   
+                      <!-- <div id="mainApp"></div>
+			<div class="centerText"><a href="http://www.hartzis.me/react-image-upload/" target="_blank">blog post</a></div> -->
+							
+						    <h1> 이미지 불러오기</h1>
+						  
+						  <form action="../board/board_insert_ok.do" method="post">
+						  <input type="file" id="fileInput" name="pic"/>
+						  <div id="pictures">
+			
+			
+                           <!-- 사진 올리기 끝--> 
                             </div>
-
-                            <div class="blog_details">
+            <div class="blog_details">
+           		<h2>글쓰기</h2>
+		        	<table>
+		            <tr>
+		                <td class="text">제목</td>
+		                <td class="border" autocomplete="off"><input type="text" name="title" id="penulis"></td>
+		            </tr>
+		            <tr>
+		                <td class="text">내용</td>
+		                <td class="border" autocomplete="off"><textarea name="content" id="berita" cols="80" rows="10"></textarea></td>
+		            </tr>
+		            <tr>
+		                <td class="text">태그</td>
+		                <td class="border" autocomplete="off"><input type="text" name="tag" id="judul"></td>
+		            </tr>
+		            <tr>
+		                <td class="text">장소</td>
+		                
+		                <td><select name="loc" class="loc">
+		                 <option id="loc1">광화문</option>
+		                 <option id="loc2">명동</option>
+		                 <option id="loc3">동대문</option>
+		                 <option id="loc4">홍대</option>
+		                 <option id="loc5">여의도</option>
+		                 <option id="loc6">이태원</option>
+		                 <option id="loc7">강남</option>
+		                 <option id="loc8">잠실</option>
+		                 <option id="loc9">기타</option>
+		                </select></td>
+		            </tr>
+		            <!-- <tr>
+		                <td class="text">사진</td>
+		                <td class="border"><input type="text" name="pic" id="judul"></td>
+		            </tr> -->
+		        </table>
+		        </div> <!-- blog_details -->
+		        <div style="height:50px"></div>
+		         <input type="submit" name="submit" id="submit" value="쓰기">
+    			</form>
+    			
                                 
-                                    <h1 style="color:orange">${vo.pb_picTitle }</h1>
-                                    <ul class="blog-info-link">
-                                   
-                                </ul>
-                                <strong style="font-size:15pt">한줄 소개</strong>
-                                <p>${vo.pb_picContent }</p>
-                                <div style="color:gray;font-size:15px;float:left">조회수:&nbsp;</div> 
-                                <div style="color:pink;font-size:15px;float:left">${vo.pb_picHit }</div><br>
-                                
-                                <c:if test="${sessionScope.id==vo.user_id }">
-                                <button class="button -dark center boardUp" style="float:right" data-no="${no}">수정하기</button>
-                                <button class="button -dark center boardDel" style="float:right" data-no="${no }">삭제하기</button>
-                                </c:if>
+                              
                                 <div style="height:10px"></div>
-                                     <!-- <div id="map" style="width:100%;height:500px;"></div> -->
-                                     
-                                     
-     							 
-                					</div>
-                                 </article>
-                                 
-         <!-- 댓글 영역 -->
-         
-          <div class="row">
-          <!-- 댓글 쓰기 -->
-         <!--  <h4>댓글 달기</h4><br> -->
-          <div class="comments">
-           <c:if test="${sessionScope.id!=null }"> 
-           
-		<div class="comment-wrap">
-		<form action="../board/board_reply_insert.do" method=post>
-				<div class="comment-block">
-						<textarea name="msg" id="id" cols="100" rows="3" placeholder="Add comment..."></textarea>
-						<input type="hidden" name=pno value="${no }">
-				</div>
-				<div style="height:20px"></div>
-				 <button class="button -dark center">댓글 등록</button>
-			</form>
-			</div>
-			
-		</c:if>
-		<!-- 댓글 출력 -->
-		 <c:forEach var="rvo" items="${rList }">
-		<div class="comment-wrap">
-				<div class="comment-block">
-						<p class="comment-text">${rvo.pbr_msg }</p>
-						<p class="comment-text" style="font-size:10px;">작성자:&nbsp;${rvo.pbr_name }</p>
-						<div class="bottom-comment">
-								<div class="comment-date">${rvo.dbday }</div>
-								<!-- 수정, 삭제 -->
-								<c:if test="${sessionScope.id==rvo.pbr_id }">
-								<ul class="comment-actions">
-									<li class="complain updateBtn" data-no="${rvo.pbr_no }">수정</li>
-								    <li class="reply delBtn" data-no="${rvo.pbr_no }" data-pno="${no }">삭제</li>
-								</ul>
-								
-								
-								
-								<div class="comment-wrap updateli" style="display:none" id="m${rvo.pbr_no }">
-								<form action="../board/board_reply_update.do" method="post">
-								<div class="comment-block">
-								<textarea name="msg" id="id" cols="50" rows="3" placeholder="${rvo.pbr_msg }"></textarea>
-									<input type="hidden" name=pno value="${no }">
-									 <input type="hidden" name=no value="${rvo.pbr_no }">
-									</div>
-								<div style="height:10px"></div>
-				 				<button type="submit" class="button -dark center">댓글 수정</button>
-				 				</form>	
-										</div>
-								
-								</c:if>
-							</div>
-						</div>
-					</div>
-					</c:forEach> 	
-				</div>
-			</div>
-			</div>
-			<!-- --------------------------댓글 영역 끝----------------------------- -->
-			
-			
+          				</div>
+    				</article>
 				</div> 
-              <div class="col-lg-4">
-                    <div class="blog_right_sidebar">            
-                        <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">인근 여행지 추천</h3>
-                    </aside>
-                	</div>
-                </div> <!-- col-lg-4 end -->
+              </div>
             </div> <!-- row-end -->
         </div>
     </section>
+   
+    <script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react.min.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/react/15.4.2/react-dom.min.js'></script><script  src="../js/board_upload.js"></script>
 </body>
 </html>

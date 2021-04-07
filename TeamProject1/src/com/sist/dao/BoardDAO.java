@@ -52,9 +52,9 @@ public class BoardDAO {
 			{
 				getConnection();
 				
-				String sql="SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart,pb_picTag, user_id, mno, pb_pic, num "
-						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart, pb_picTag, user_id, mno, pb_pic, rownum as num " 
-						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picHeart, pb_picTag, user_id, mno, pb_pic "
+				String sql="SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit,pb_picTag, user_id, pb_pic, num "
+						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picTag, user_id, pb_pic, rownum as num " 
+						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picTag, user_id, pb_pic "
 						+"FROM picBoard)) "
 						+"WHERE num BETWEEN ? AND ?";
 				ps=conn.prepareStatement(sql);
@@ -73,11 +73,9 @@ public class BoardDAO {
 					vo.setPb_picContent(rs.getString(4));
 					vo.setPb_picLoc(rs.getString(5));
 					vo.setPb_picHit(rs.getInt(6));
-					vo.setPb_picHeart(rs.getInt(7));
-					vo.setPb_picTag(rs.getString(8));
-					vo.setUser_id(rs.getString(9));
-					vo.setMno(rs.getInt(10));
-					vo.setPb_pic(rs.getString(11));
+					vo.setPb_picTag(rs.getString(7));
+					vo.setUser_id(rs.getString(8));
+					vo.setPb_pic(rs.getString(9));
 					
 					mList.add(vo);
 				}
@@ -141,12 +139,11 @@ public class BoardDAO {
 					PB_PICHIT              NUMBER         
 					PB_PICHEART            NUMBER         
 					PB_PICTAG              VARCHAR2(100)  
-					USER_ID       NOT NULL VARCHAR2(20)   
-					MNO           NOT NULL NUMBER         
+					USER_ID       NOT NULL VARCHAR2(20)       
 					PB_PIC                 VARCHAR2(4000) 
 				 * 
 				 */
-				sql="SELECT pb_pictitle, pb_picdate, pb_piccontent, pb_picloc, pb_pichit, pb_picheart, pb_pictag, user_id, mno, pb_pic "
+				sql="SELECT pb_pictitle, pb_picdate, pb_piccontent, pb_picloc, pb_pichit, pb_pictag, user_id, pb_pic "
 						+"FROM picboard "
 						+"WHERE pb_no=?";
 				ps=conn.prepareStatement(sql);
@@ -158,11 +155,9 @@ public class BoardDAO {
 				vo.setPb_picContent(rs.getString(3));
 				vo.setPb_picLoc(rs.getString(4));
 				vo.setPb_picHit(rs.getInt(5));
-				vo.setPb_picHeart(rs.getInt(6));
-				vo.setPb_picTag(rs.getString(7));
-				vo.setUser_id(rs.getString(8));
-				vo.setMno(rs.getInt(9));
-				vo.setPb_pic(rs.getString(10));
+				vo.setPb_picTag(rs.getString(6));
+				vo.setUser_id(rs.getString(7));
+				vo.setPb_pic(rs.getString(8));
 				
 				
 			}
@@ -380,7 +375,14 @@ public class BoardDAO {
 			try
 			{
 				getConnection();
-				String sql="DELETE FROM picboard WHERE pb_no=?";
+				
+				String sql="DELETE FROM picboardreply WHERE pb_no=?";
+				ps=conn.prepareStatement(sql);
+				ps.setInt(1, pb_no);
+				ps.executeUpdate();
+				
+				
+				sql="DELETE FROM picboard WHERE pb_no=?";
 				ps=conn.prepareStatement(sql);
 				ps.setInt(1, pb_no);
 				

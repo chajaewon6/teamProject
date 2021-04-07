@@ -31,10 +31,13 @@
             <link rel="stylesheet" href="./css/button.css">
             <style>
         		.intro{
-            			position: absolute;
-      						  left: 400px;
-       							 top: 70px;
+            			margin: 0px auto;
+            			font-size:15px;
           			  }
+          		.share{
+          			background-color:#014b85;
+          			color:white;
+          		}
    		    </style>
    </head>
 
@@ -67,7 +70,12 @@
                     <div class="col-lg-12">
                         <div class="section-tittle text-center">
                             <h2 style="color:#00D8FF">#BEST PHOTO</h2>
-                            <span class=intro style="color:#000000">서울여행공유에서 가장 인기가 많은 사진 10장을 소개합니다.</span>
+                            <span class="intro" style="color:#000000">우리가 보고 찍은 서울의 모습</span>
+                            <div style="height:50px"></div>
+                            <c:if test="${sessionScope.id!=null }"> 
+                            <a class="share" href="board_insert.do">나도 공유하러 가기</a>
+                            </c:if>
+                             <div style="height:50px"></div>
                         </div>
                     </div>
                 </div>
@@ -90,6 +98,8 @@
                         </div>
                     </div>
                 </c:forEach>
+                
+                
                 </div>
             </div>
         </div>
