@@ -176,6 +176,10 @@ $(function(){
 		let no=$(this).attr("data-no");
 		location.href="../board/board_delete.do?no="+no;
 	})
+	$('.boardUp').click(function(){
+		let no=$(this).attr("data-no");
+		location.href="../board/board_update.do?no="+no;
+	})
 	
 	$('.updateBtn').click(function(){
 		$('.updateli').hide();

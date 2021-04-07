@@ -300,14 +300,16 @@ public class BoardDAO {
 				PB_PICTAG              VARCHAR2(100)  
 				USER_ID                VARCHAR2(20)   
 				PB_PIC                 VARCHAR2(4000) 
-				USER_NAME              VARCHAR2(34)  
+				USER_NAME              VARCHAR2(34)   
+				FILENAME               VARCHAR2(260)  
+				FILESIZE               NUMBER      
 			 * 
 			 */
 			try
 			{
 				getConnection();
 				String sql="INSERT INTO picboard VALUES("
-						+"pic_no_seq.nextval,?,?,SYSDATE,?,?,0,?,?,?,?)";
+						+"pic_no_seq.nextval,?,SYSDATE,?,?,0,?,?,?,?,?,?)";
 				ps=conn.prepareStatement(sql);
 				ps.setString(1, vo.getPb_picTitle());
 				ps.setString(2, vo.getPb_picContent());
@@ -316,6 +318,8 @@ public class BoardDAO {
 				ps.setString(5, vo.getUser_id());
 				ps.setString(6, vo.getPb_pic());
 				ps.setString(7, vo.getUser_name());
+				ps.setString(8, vo.getFilename());
+				ps.setInt(9, vo.getFilesize());
 				
 				ps.executeUpdate();
 				
@@ -348,14 +352,16 @@ public class BoardDAO {
 				 * 
 				 */
 				String sql="UPDATE picboard SET "
-						+"pb_pictitle=? pb_piccontent=? pb_pictag=? pb_pic=? "
-						+"WHERE no=?";
+						+"pb_pictitle=?, pb_piccontent=?, pb_pictag=?, pb_picloc=?, filename=?, filesize=? "
+						+"WHERE pb_no=?";
 				ps=conn.prepareStatement(sql);
 				ps.setString(1, vo.getPb_picTitle());
 				ps.setString(2, vo.getPb_picContent());
 				ps.setString(3, vo.getPb_picTag());
-				ps.setString(4, vo.getPb_pic());
-				ps.setInt(5, vo.getPb_no());
+				ps.setString(4, vo.getPb_picLoc());
+				ps.setString(5, vo.getFilename());
+				ps.setInt(6, vo.getFilesize());
+				ps.setInt(7, vo.getPb_no());
 				
 				ps.executeUpdate();
 						

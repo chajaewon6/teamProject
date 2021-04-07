@@ -245,34 +245,29 @@ $(function(){
                       <!-- <div id="mainApp"></div>
 			<div class="centerText"><a href="http://www.hartzis.me/react-image-upload/" target="_blank">blog post</a></div> -->
 							
-						    <h1> 이미지 불러오기</h1>
-						  
-						  <form action="../board/board_insert_ok.do" method="post">
-						  <input type="file" id="fileInput" name="pic"/>
-						  <div id="pictures">
-			
-			
-                           <!-- 사진 올리기 끝--> 
-                            </div>
+						    
+					
+		 <form method=post action="../board/board_insert_ok.do"
+	     	enctype="multipart/form-data">
             <div class="blog_details">
            		<h2>글쓰기</h2>
 		        	<table>
 		            <tr>
-		                <td class="text">제목</td>
-		                <td class="border" autocomplete="off"><input type="text" name="title" id="penulis"></td>
+		                <th width=10% class="text">제목</th>
+		                <td class="border"><input type=text name=title id="penulis" autocomplete="off" size=50></td>
 		            </tr>
 		            <tr>
-		                <td class="text">내용</td>
-		                <td class="border" autocomplete="off"><textarea name="content" id="berita" cols="80" rows="10"></textarea></td>
+		                <th width=10%  class="text">내용</th>
+		                <td class="border"><textarea name=content id="berita" cols="80" rows="10" autocomplete="off"></textarea></td>
 		            </tr>
 		            <tr>
-		                <td class="text">태그</td>
-		                <td class="border" autocomplete="off"><input type="text" name="tag" id="judul"></td>
+		                <th width=10%  class="text">태그</th>
+		                <td class="border"><input type=text name=tag id="judul" autocomplete="off"></td>
 		            </tr>
 		            <tr>
-		                <td class="text">장소</td>
+		                <th width=10%  class="text">장소</th>
 		                
-		                <td><select name="loc" class="loc">
+		                <td><select name=loc class="loc">
 		                 <option id="loc1">광화문</option>
 		                 <option id="loc2">명동</option>
 		                 <option id="loc3">동대문</option>
@@ -284,14 +279,23 @@ $(function(){
 		                 <option id="loc9">기타</option>
 		                </select></td>
 		            </tr>
+		            
+		            <tr>
+		             <th width=10% class="text">이미지 첨부</th>
+		             <td>
+		              <input type=file name=upload size=20>
+		              <div id="pictures"> </div>
+		             </td>
+		            </tr>
 		            <!-- <tr>
 		                <td class="text">사진</td>
 		                <td class="border"><input type="text" name="pic" id="judul"></td>
 		            </tr> -->
 		        </table>
-		        </div> <!-- blog_details -->
 		        <div style="height:50px"></div>
-		         <input type="submit" name="submit" id="submit" value="쓰기">
+		         <input type=submit value="쓰기">
+		         <input type="button" value="취소" onclick="javascript:history.back()">
+		        </div> <!-- blog_details -->      
     			</form>
     			
                                 
