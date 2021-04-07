@@ -68,7 +68,7 @@ public class tripModel {
   public String detail_before(HttpServletRequest request,HttpServletResponse response)
   {
      String no=request.getParameter("no");
-     System.out.println(no);
+     //System.out.println(no);
      Cookie cookie=new Cookie("m"+no, no);// 문자열만 저장이 가능 
      cookie.setMaxAge(60*60);
      cookie.setPath("/");
@@ -82,6 +82,7 @@ public class tripModel {
   @RequestMapping("trip/trip_detail.do")
   public String trip_detail(HttpServletRequest request,HttpServletResponse response)
   {
+	 List<TripVO> fList=new ArrayList<TripVO>();
      String no=request.getParameter("no"); //no=게시물 번호
      // DAO연결 
      TripDAO dao=TripDAO.newInstance();
@@ -91,6 +92,22 @@ public class tripModel {
      s=s.substring(s.indexOf(" "), s.lastIndexOf("("));
      tvo.setAddress(s);
     
+     Cookie[] cookies=request.getCookies();
+     if(cookies!=null)
+     {
+        for(int i=cookies.length-1;i>=0;i--)
+        {
+           if(cookies[i].getName().startsWith("m"))
+           {
+              cookies[i].setPath("/");
+              //System.out.println(cookies[i].getName());
+              String no1=cookies[i].getValue();
+              TripVO vo=dao.tripCookieData(Integer.parseInt(no1));
+              fList.add(vo);
+           }
+        }
+     } 
+     List<TripCategoryVO> cList=dao.tripCategoryData();
      
      //List<TripVO> Llist=dao.TripLocationData(vo);
      //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
@@ -98,9 +115,11 @@ public class tripModel {
      //request.setAttribute("Llist", Llist);
      
      request.setAttribute("tvo", tvo);
+     request.setAttribute("fList", fList);
+     request.setAttribute("cList", cList);
      request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
      
-     //HttpSession session=request.getSession();
+     HttpSession session=request.getSession();
      //String id=(String)session.getAttribute("id"); 
      //int count=dao.foodJjimCheck(Integer.parseInt(no), id);
      //request.setAttribute("count", count);
@@ -110,35 +129,35 @@ public class tripModel {
   
   
   // 쿠키
-  @RequestMapping("main/main.do")
-  public String main_home(HttpServletRequest request,HttpServletResponse response)
-  {
-     // 쿠키 
-     List<TripVO> fList=new ArrayList<TripVO>();
-     
-     TripDAO dao=TripDAO.newInstance();
-     
-     Cookie[] cookies=request.getCookies();
-     if(cookies!=null)
-     {
-        for(int i=cookies.length-1;i>=0;i--)
-        {
-           if(cookies[i].getName().startsWith("m"))
-           {
-              cookies[i].setPath("/");
-              System.out.println(cookies[i].getName());
-              String no=cookies[i].getValue();
-              TripVO vo=dao.tripCookieData(Integer.parseInt(no));
-              fList.add(vo);
-           }
-        }
-     }
-     request.setAttribute("fList", fList);
-     List<TripCategoryVO> cList=dao.tripCategoryData();
-     request.setAttribute("cList", cList);
-     request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
-     return "../main/main.jsp";
-  }
+//  @RequestMapping("main/main.do")
+//  public String main_home(HttpServletRequest request,HttpServletResponse response)
+//  {
+//     // 쿠키 
+//     List<TripVO> fList=new ArrayList<TripVO>();
+//     
+//     TripDAO dao=TripDAO.newInstance();
+//     
+//     Cookie[] cookies=request.getCookies();
+//     if(cookies!=null)
+//     {
+//        for(int i=cookies.length-1;i>=0;i--)
+//        {
+//           if(cookies[i].getName().startsWith("m"))
+//           {
+//              cookies[i].setPath("/");
+//              System.out.println(cookies[i].getName());
+//              String no=cookies[i].getValue();
+//              TripVO vo=dao.tripCookieData(Integer.parseInt(no));
+//              fList.add(vo);
+//           }
+//        }
+//     }
+//     request.setAttribute("fList", fList);
+//     List<TripCategoryVO> cList=dao.tripCategoryData();
+//     request.setAttribute("cList", cList);
+//     request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
+//     return "../main/main.jsp";
+//  }
  
   
   @RequestMapping("trip/location.do")

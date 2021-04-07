@@ -48,9 +48,26 @@
                 
                 <!-- Section Tittle -->
                  <div class="row">
-                    <div class="col-lg-3">
+                    <div class="col-lg-3 text-center">
                         <div class="text-center">
-                            <h1>광화문</h1>
+                         <%--  <c:if test="..trip/trip_list.do?cno=1" var=""></c:if> --%>
+                          <c:if test="${cno == 2}">
+     						 <h1 style="font-size:30pt">광화문</h1></c:if> 
+                          <c:if test="${cno == 3}">
+     						 <h1 style="font-size:30pt">명동</h1></c:if> 
+     					  <c:if test="${cno == 4}">
+     						 <h1 style="font-size:30pt">동대문</h1></c:if> 
+     					  <c:if test="${cno == 5}">
+     						 <h1 style="font-size:30pt">홍대</h1></c:if> 
+     					  <c:if test="${cno == 6}">
+     						 <h1 style="font-size:30pt">여의도</h1></c:if> 
+     					  <c:if test="${cno == 7}">
+     						 <h1 style="font-size:30pt">이태원</h1></c:if> 
+     					  <c:if test="${cno == 8}">
+     						 <h1 style="font-size:30pt">강남</h1></c:if> 
+     					  <c:if test="${cno == 9}">
+     						 <h1 style="font-size:30pt">잠실</h1></c:if> 	 
+     					
                         </div>
                     </div>
                 </div>
@@ -69,15 +86,15 @@
                             
                     <div class="col-xl-3 col-xl-3 col-md-6">
                     
-                        <div class="single-place sm-30">
+                        <div class="single-place sm-30" style="width:270px;height:380px">
                             <div class="place-img">
-                                <a href="../trip/trip_detail.do?no=${tvo.no }" ><img src="${tvo.poster }" style="width:100%;height:170px"></a>
+                                <a href="../trip/detail_before.do?no=${tvo.no }" ><img src="${tvo.poster }" style="width:100%;height:170px"></a>
                             </div>
                               <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
                                 
-                                 <h4 class="text-left" style=fontsize:5><a href="../trip/trip_detail.do?no=${tvo.no }" >${tvo.title }</a></h4>
+                                 <h4 class="text-left" ><a href="../trip/detail_before.do?no=${tvo.no }" >${tvo.title }</a></h4>
                                 
                                      <!--<span><i class="fas fa-star"></i>
                                     <span></span> </span>-->
@@ -88,7 +105,7 @@
                                 <div class="place-cap-bottom">
                                     <ul>
                                         <!--  <li><i class="far fa-clock"></i>3 Days</li> -->
-                                        <li><i class="fas fa-map-marker-alt"></i>${tvo.content }</li>
+                                        <li><!-- <i class="fas fa-map-marker-alt"></i> -->${tvo.content }</li>
                                     </ul>
                                 </div>
                             </div>
