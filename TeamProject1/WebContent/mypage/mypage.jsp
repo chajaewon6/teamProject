@@ -9,6 +9,7 @@
 <title>Insert title here</title>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
+ <link rel="stylesheet" href="../css/profile.css">
 <style type="text/css">
 
 #trip-text{
@@ -28,7 +29,7 @@
 </style>
 </head>
 <body>
-<main>
+
 	
 	<!-- 새로운 프로필 카드 -->
 	
@@ -44,7 +45,7 @@
 		
 			<div class="profile-user-settings">
 
-				<h1 class="profile-user-name">MYID${vo.id }</h1>
+				<h2 class="profile-user-name">${id }님 반갑습니다</h2>
 
 				<button class="btn profile-edit-btn">프로필 수정</button>
 
@@ -75,68 +76,67 @@
         <div class="favourite-place place-padding">
             <div class="container">
                 <!-- Section Tittle -->
+                
+                <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                <c:forEach var="hvo" items="${hList }" varStatus="s">
                 <div class="row">
+                    <div class="col-lg-12">
+                        <div id="trip-text">
+                        	<h2>가고 싶은 호텔🌇</h2>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="row">
+                    <div class="col-xl-4 col-lg-4 col-md-6">
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <img src="${hvo.poster }" alt="">
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <h3><a href="#">${hvo.title }</a></h3>
+                                    <p class="dolor">${hvo.price }/일</p>
+                                </div>
+                                <div class="place-cap-bottom">
+                                    <ul>
+                                 	<li>${hvo.addr }</li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                   </div>
+                   </c:forEach>
+                   </div>
+                   
+                   <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
                         	<h3>가고싶은 여행지✈️</h3>
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                    <c:forEach var="vo" items="${fList }" varStatus="s">
-                        <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="${vo.poster }">
+                                <img src="../img/service/services1.jpg" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
-                                    <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor"><span>/ ${vo.price }</span></p>
+                                    <span><i class="fas fa-star"></i><span>번호</span> </span>
+                                    <h3><a href="#">제목</a></h3>
+                                    <p class="dolor">가격 <span>인원</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <!-- <li><i class="far fa-clock"></i>3 Days</li> -->
-                                        <li><i class="fas fa-map-marker-alt"></i>${vo.addr }</li>
+                                        <li><i class="far fa-clock"></i>날짜</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>주소</li>
                                     </ul>
                                 </div>
                             </div>
-                        </div>
-                    </div>
-                        </c:forEach>
-                    </div>
-                   </div>
-                   
-                   <div class="row">
-                    <div class="col-lg-12">
-                        <div id="trip-text">
-                        	<h3>가고 싶은 호텔🌇</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row mypage_row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                        <c:forEach var="vo" items="${hList }" varStatus="s">
-                            <div class="place-img">
-                                <img src="${vo.poster }">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>${vo.star }</span> </span>
-                                    <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">등급 <span>/ ${vo.price }</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="fas fa-map-marker-alt"></i>${vo.addr}</li>
-                                        <li> <a href="../hotel/jjim_cancel.do?no=${hjList[s.index]}" class="btn btn-sm btn-primary">취소</a></li>
-                                    </ul>
-                                </div>
-                            </div>
-                              </c:forEach>
                         </div>
                     </div>
                    </div>
@@ -145,10 +145,11 @@
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h3>내가 올린 여행 사진📷</h3>
+                        	<h3>가고 싶은 호텔🌇</h3>
                         </div>
                     </div>
                 </div>
+                
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
@@ -157,60 +158,76 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>8.0 Superb</span> </span>
-                                    <h3><a href="#">The Dark Forest Adventure</a></h3>
-                                    <p class="dolor">$1870 <span>/ Per Person</span></p>
+                                    <span><i class="fas fa-star"></i><span>번호</span> </span>
+                                    <h3><a href="#">제목</a></h3>
+                                    <p class="dolor">가격 <span>인원</span></p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>3 Days</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>Los Angeles</li>
+                                        <li><i class="far fa-clock"></i>날짜</li>
+                                        <li><i class="fas fa-map-marker-alt"></i>주소</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
                    </div>
+                    
+                    
+                   <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                   <!-- 
+						 	private int no;
+						   private String id;
+						   private String title;
+						   private String inday;
+						   private String intime;
+						   private String outday;
+						   private String outtime;
+						   private String inwon;
+						   private String room;
+						   private int state;
+						   private Date regdate;
+						   private String dbday;
+                    -->
+                    <h2 class="sectiontitle">예약 목록</h2>
+					  <div style="height:300px;width:600px;overflow-y:auto">
+					  <table class="table">
+					    <tr>
+					     <th>예약번호</th>
+					     <th>업체명</th>
+					     <th>체크인날짜</th>
+					     <th>체크인시간</th>
+					     <th>체크아웃날짜</th>
+					     <th>체크아웃시간</th>
+					     <th>인원</th>
+					     <th>상태</th>
+					    </tr>
+					    <c:forEach var="rvo" items="${rList }" varStatus="s">
+					       <tr>
+					     <td>${rvo.no }</td>
+					     <td>${rvo.title }</td>
+					     <td>${rvo.inday }</td>
+					     <td>${rvo.intime }</td>
+					     <td>${rvo.outday }</td>
+					     <td>${rvo.outtime }</td>
+					     <td>${rvo.inwon }</td>
+					     <td>${vo.state==0?"예약대기":"예약완료"}</td>
+					    </tr>
+					    </c:forEach>
+					   </table>
+					  </div>
                    
-                    <div class="row">
-                    <div class="col-lg-12">
-                        <div id="trip-text">
-                        	<h3>내가 예매한 호텔🌃</h3>
-                        </div>
-                    </div>
-                </div>
-                <div class="row">
-                <c:forEach var="vo" items="${rList }">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="../img/service/services1.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>${vo.no }</span> </span>
-                                    <h3><a href="#">${vo.title }</a></h3>
-                                    <p class="dolor">가격 <span>${vo.inwon }</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>${vo.day }</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>${hvo.addr }</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    </c:forEach>
+                  </div> 
+                   
                    </div>
                     
                 </div>
             </div>
-        </div>
+        
         <!-- Favourite Places End -->
 
         <!-- Pagination-area Start -->
-        <div class="pagination-area pb-100 text-center">
+        <!--  <div class="pagination-area pb-100 text-center">
             <div class="container">
                 <div class="row">
                     <div class="col-xl-12">
@@ -228,48 +245,9 @@
                     </div>
                 </div>
             </div>
-        </div>
+        </div>-->
         <!-- Pagination-area End -->
-    </main>
-        <!-- Footer End-->
-   
-
-<!-- JS here -->
-	
-		<!-- All JS Custom Plugins Link Here here -->
-        <script src="../js/vendor/modernizr-3.5.0.min.js"></script>
-		
-		<!-- Jquery, Popper, Bootstrap -->
-		<script src="../js/vendor/jquery-1.12.4.min.js"></script>
-        <script src="../js/popper.min.js"></script>
-        <script src="../js/bootstrap.min.js"></script>
-	    <!-- Jquery Mobile Menu -->
-        <script src="../js/jquery.slicknav.min.js"></script>
-
-		<!-- Jquery Slick , Owl-Carousel Plugins -->
-        <script src="../js/owl.carousel.min.js"></script>
-        <script src="./../js/slick.min.js"></script>
-
-		<!-- One Page, Animated-HeadLin -->
-        <script src="../js/wow.min.js"></script>
-		<script src="../js/animated.headline.js"></script>
-		
-		<!-- Scrollup, nice-select, sticky -->
-        <script src="../js/jquery.scrollUp.min.js"></script>
-        <script src="../js/jquery.nice-select.min.js"></script>
-		<script src="../js/jquery.sticky.js"></script>
-        <script src="../js/jquery.magnific-popup.js"></script>
-
-        <!-- contact js -->
-        <script src="../js/contact.js"></script>
-        <script src="../js/jquery.form.js"></script>
-        <script src="../js/jquery.validate.min.js"></script>
-        <script src="../js/mail-script.js"></script>
-        <script src="../js/jquery.ajaxchimp.min.js"></script>
-        
-		<!-- Jquery Plugins, main Jquery -->	
-        <script src="../js/plugins.js"></script>
-        <script src="../js/main.js"></script>
-
+    
+      
 </body>
 </html>

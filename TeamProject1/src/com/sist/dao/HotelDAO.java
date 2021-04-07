@@ -431,7 +431,8 @@ public class HotelDAO {
     }
     
     //찜목록
-    public List<HotelJjimVO> hotelJjimListData(String id){
+    public List<HotelJjimVO> hotelJjimListData(String id)
+    {
     	List<HotelJjimVO> list=new ArrayList<HotelJjimVO>();
     	try {
     		getConnection();
@@ -441,7 +442,8 @@ public class HotelDAO {
     		ps=conn.prepareStatement(sql);
     		ps.setString(1, id);
     		ResultSet rs=ps.executeQuery();
-    		while(rs.next()) {
+    		while(rs.next())
+    		{
     			HotelJjimVO vo=new HotelJjimVO();
     			vo.setNo(rs.getInt(1));
     			vo.setCno(rs.getInt(2));
