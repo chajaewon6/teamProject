@@ -9,9 +9,9 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.times').click(function(){
-		let time=$(this).text();
-		$('#reserve_time2').text(time)
+	$('.intime').click(function(){
+		let time1=$(this).text();
+		$('#reserve_time2').text(time1)
 		
 		$.ajax({
 			type:'post',
@@ -19,21 +19,27 @@ $(function(){
 			success:function(result)
 			{
 				$('#reserve_inwon').html(result);
+				
 			}
-		})
+		});
 	})
 })
 </script>
 </head>
 <body>
   <table class="table">
-    <tr>
-      <td>
-        <c:forEach var="time" items="${list }">
-          <span class="btn btn-sm btn-success times">${time }</span>
-        </c:forEach>
+   <tr>
+      <td class="text-left">
+       
+         <span class="btn btn-sm btn-success intime">06:00</span>
+         <span class="btn btn-sm btn-success intime">07:00</span>
+         <span class="btn btn-sm btn-success intime">08:00</span>
+         <span class="btn btn-sm btn-success intime">09:00</span>
+         <span class="btn btn-sm btn-success intime">10:00</span>
+         <span class="btn btn-sm btn-success intime">11:00</span>
+         <span class="btn btn-sm btn-success intime">12:00</span>    
       </td>
-    </tr>
+     </tr>
   </table>
 </body>
 </html>

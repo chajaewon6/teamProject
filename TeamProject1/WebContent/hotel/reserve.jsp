@@ -25,15 +25,16 @@ $(function(){
 	
 	$('#rBtn').click(function(){
 		let title=$('#reserve_title').text();
-		let day=$('#reserve_day').text();
+		let inday=$('#reserve_inday').text();
 		let time1=$('#reserve_time1').text();
+		let outday=$('#reserve_outday').text();
 		let time2=$('#reserve_time2').text();
 		let inwon=$('#reserve_inwon1').text();
 		
 		$.ajax({
 			type:'post',
 			url:'../hotel/reserve_save.do',
-			data:{"title":title,"day":day,"time1":time1,"time2":time2,"inwon":inwon},
+			data:{"title":title,"inday":inday,"time1":time1,"time2":time2,"inwon":inwon},
 			success:function(result)
 			{
 				location.href="../hotel/mypage.do";
@@ -71,6 +72,55 @@ $(function(){
          </table>
        </div>
      </td>
+      <td width=35%>
+       <div style="height: 500px">
+         <table class="table">
+          <h4>예약일정보</h4>
+          <tr>
+            <td id="hotel_date1"></td>
+          </tr>
+         </table>
+       </div>
+     </td>
+     
+   </tr>
+   <tr>
+     <td width=35%>
+       <div style="height: 100px">
+         <table class="table">
+          <h4>체크인</h4>
+          <tr>
+            <td id="reserve_intime"></td>
+          </tr>
+         </table>
+       </div>
+       <div style="height: 100px">
+         <table class="table">
+          <h4>체크아웃</h4>
+          <tr>
+            <td id="reserve_outtime"></td>
+          </tr>
+         </table>
+       </div>
+     </td>
+     <td width=30%>
+       <div style="height: 100px">
+         <table class="table">
+          <h4>인원정보</h4>
+          <tr>
+            <td id="reserve_inwon"></td>
+          </tr>
+         </table>
+       </div>
+       <div style="height: 100px">
+         <table class="table">
+          <h4>객실정보</h4>
+          <tr>
+            <td id="reserve_room"></td>
+          </tr>
+         </table>
+       </div>
+     </td> 
      <td width=35% rowspan=2>
          <table class="table">
           <h4>예약정보</h4>
@@ -80,16 +130,20 @@ $(function(){
             </td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">업체명</th>
+            <th class="text-right" width="20%">호텔명</th>
             <td width="80%"><span id="reserve_title"></span></td>
           </tr>
           <tr>
-            <th class="text-right" width="20%">예약일</th>
-            <td width="80%"><span id="reserve_day"></span></td>
+            <th class="text-right" width="20%">체크인날짜</th>
+            <td width="80%"><span id="reserve_inday"></span></td>
           </tr>
           <tr>
             <th class="text-right" width="20%">체크인</th>
             <td width="80%"><span id="reserve_time1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">체크아웃날짜</th>
+            <td width="80%"><span id="reserve_outday"></span></td>
           </tr>
           <tr>
             <th class="text-right" width="20%">체크아웃</th>
@@ -98,6 +152,10 @@ $(function(){
           <tr>
             <th class="text-right" width="20%">인원</th>
             <td width="80%"><span id="reserve_inwon1"></span></td>
+          </tr>
+          <tr>
+            <th class="text-right" width="20%">객실</th>
+            <td width="80%"><span id="reserve_room1"></span></td>
           </tr>
           <tr style="display:none" id="reserveBtn">
             <td colspan="2" class="text-center">
@@ -108,36 +166,6 @@ $(function(){
           </tr>
          </table>
      </td>
-   </tr>
-   <tr>
-     <td width=35%>
-       <div style="height: 100px">
-         <table class="table">
-          <h4>체크인</h4>
-          <tr>
-            <td id="reserve_time"></td>
-          </tr>
-         </table>
-       </div>
-       <div style="height: 100px">
-         <table class="table">
-          <h4>체크아웃</h4>
-          <tr>
-            <td id="reserve_tim"></td>
-          </tr>
-         </table>
-       </div>
-     </td>
-     <td width=30%>
-       <div style="height: 100px">
-         <table class="table">
-          <caption>인원정보</caption>
-          <tr>
-            <td id="reserve_inwon"></td>
-          </tr>
-         </table>
-       </div>
-     </td> 
    </tr>
    
   </table>

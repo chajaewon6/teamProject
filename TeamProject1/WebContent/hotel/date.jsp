@@ -52,7 +52,7 @@ $(function(){
 		let month=$('#month').val();
 		//alert("년도:"+year+",월:"+month+",일:"+day)
 		let rday=year+"년도 "+month+"월 "+day+"일"
-		$('#reserve_day').text(rday)
+		$('#reserve_inday').text(rday)
 		// ../hotel/time.do => Model호출 => DB처리 => 해당 JSP로 전송 
 		$.ajax({
 			type:'post',
@@ -60,7 +60,7 @@ $(function(){
 			data:{"day":day},
 			success:function(result)
 			{
-				$('#reserve_time').html(result);
+				$('#reserve_intime').html(result);
 			}
 		});
 	});

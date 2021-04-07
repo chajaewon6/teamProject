@@ -516,7 +516,7 @@ public class HotelDAO {
    	 return rday;
     }
     
-    public String HotelReserveTimeData(int day)
+    public String HotelReserveOutTimeData(int day)
     {
    	 String time="";
    	 try
@@ -540,30 +540,7 @@ public class HotelDAO {
    	 }
    	 return time;
     }
-    public String HotelReserveInTime(int no)
-    {
-   	 String time="";
-   	 try
-   	 {
-   		 getConnection();
-   		 String sql="SELECT intime FROM intime "
-   				   +"WHERE no=?";
-   		 ps=conn.prepareStatement(sql);
-   		 ps.setInt(1, no);
-   		 ResultSet rs=ps.executeQuery();
-   		 rs.next();
-   		 time=rs.getString(1);
-   		 rs.close();
-   	 }catch(Exception ex)
-   	 {
-   		 ex.printStackTrace();
-   	 }
-   	 finally
-   	 {
-   		 disConnection();
-   	 }
-   	 return time;
-    }
+     
     public String HotelReserveOutTime(int no)
     {
    	 String time="";
@@ -588,6 +565,51 @@ public class HotelDAO {
    	 }
    	 return time;
     }
+    public void HotelReserveSave(ReserveVO vo)
+    {
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="INSERT INTO hotel_reserve VALUES("
+   				   +"(SELECT NVL(MAX(no)+1,1) FROM hotel_reserve),?,?,?,?,?,?,"
+   				   +"0,SYSDATE)";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setString(1, vo.getId());
+   		 ps.setString(2, vo.getTitle());
+   		 ps.setString(3, vo.getInday());
+   		 ps.setString(4, vo.getIntime());
+   		 ps.setString(5, vo.getOuttime());
+   		 ps.setString(6, vo.getInwon());
+   		 ps.executeUpdate();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+    }
+    public void reserve_ok(int no)
+    {
+   	 try
+   	 {
+   		 getConnection();
+   		 String sql="UPDATE hotel_reserve SET "
+   				   +"state=1 "
+   				   +"WHERE no=?";
+   		 ps=conn.prepareStatement(sql);
+   		 ps.setInt(1, no);
+   		 ps.executeUpdate();
+   	 }catch(Exception ex)
+   	 {
+   		 ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+    }
     
     public List<ReserveVO> mypage_data(String id)
     {
@@ -596,7 +618,7 @@ public class HotelDAO {
    	 {
    		 getConnection();
    		 String sql="SELECT no,title,day,time,inwon,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
-   				   +"FROM project_reserve "
+   				   +"FROM hotel_reserve "
    				   +"WHERE id=? "
    				   +"ORDER BY no DESC";
    		 ps=conn.prepareStatement(sql);

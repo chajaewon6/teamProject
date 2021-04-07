@@ -9,17 +9,25 @@
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
-	$('.times').click(function(){
-		let time=$(this).text();
-		$('#reserve_time1').text(time)
+	$('.outtime').click(function(){
+		let time2=$(this).text();
+		$('#reserve_time1').text(time2)
 		
+		/* $.ajax({
+			type:'post',
+			url:'../hotel/intime.do',
+			success:function(result)
+			{
+				$('#reserve_outtime').html(result);
+			}
+		}) */
 		$.ajax({
 			type:'post',
 			url:'../hotel/outtime.do',
-			data:{"day":day},
+			
 			success:function(result)
 			{
-				$('#reserve_tim').html(result);
+				$('#reserve_outtime').html(result);
 			}
 		});
 	})
@@ -30,8 +38,8 @@ $(function(){
   <table class="table">
     <tr>
       <td>
-        <c:forEach var="time" items="${list }">
-          <span class="btn btn-sm btn-success times">${time }</span>
+        <c:forEach var="time2" items="${list1 }">
+          <span class="btn btn-sm btn-success outtime">${time2 }</span>
         </c:forEach>
       </td>
     </tr>
