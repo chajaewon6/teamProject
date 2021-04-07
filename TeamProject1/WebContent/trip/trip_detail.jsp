@@ -68,7 +68,7 @@
                         </div>
                </div>
                <!-- 찜하기  -->
-               <<%-- div class="text-right">
+               <%-- div class="text-right">
                  <c:if test="${sessionScope.id!=null }">
                   <c:if test="${count==0 }">
                   <a href="../jjim.do?no=${vo.no }" class="btn btn-sm btn-danger">찜하기</a>
@@ -156,32 +156,33 @@
                      <span class="btn btn-medium btn-default">찜하기</span>
                   </c:if>
                </c:if>
-                  <a href="../main/main.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
+                  <a href="../trip/trip_list.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
              </ul>             
             </div>
                     
    
                   <div class="col-lg-3">
-                    <div class="blog_right_sidebar">
+                    <div class="blog_right_sidebar text-center">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">최근 방문 여행지</h3>
-                            <c:forEach var="fvo" items="${fList }">
-                            
-                            <a href="../tripl/trip_detail.do?no=${fvo.no }">
-                            <div class="media post_item">
-                                <img src="${fvo.poster }" alt="post" style="width:140px;height:115px">
-                                <div class="media-body">
-                                    <a href="single-blog.html">
-                                        <h3>${fvo.title }</h3>
-                                    </a>
-                            
-                                </div>  
-                            </div>
+                            <table>
+                            <c:forEach var="tvo" items="${fList }"  end="4">
+                            <tr>
+                             <a href="../trip/detail_before.do?no=${tvo.no }">
+                              <!-- div class="media post_item"> -->
+                               <img src="${tvo.poster }" alt="post" style="width:160px;height:115px">
+                               <%-- <h4>${tvo.title }</h4> --%>
+                               <p style="font-size:10pt;margin:0px auto">${tvo.title }</p>
+                               <br>
+                              <!-- <div class="media-body">
+                                <a href="single-blog.html"></a>
+                              </div> -->  
+                             </div>
                             </a>
-                            
+                            </tr>
                             </c:forEach>
-  
+  							</table>
                         </aside>
                       
                       </div>
