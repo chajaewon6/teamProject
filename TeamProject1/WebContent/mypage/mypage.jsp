@@ -31,6 +31,9 @@
 .zzz {
 	float:left
 }
+.hhh {
+	float:left
+}
 
 
 </style>
@@ -99,23 +102,23 @@
 
         <!-- Favourite Places Start -->
         <div class="favourite-place place-padding" >
-            <div class="container">
+            <div class="container" >
                 <!-- Section Tittle -->
-                <div style="height:600px;width:100%;margin:0px auto;overflow-y:auto">
+                <h2>가고 싶은 호텔🌇</h2>
+                <div style="height:600px;width:100%;margin:0px auto;overflow-y:auto;overflow-x:hidden">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h2>가고 싶은 호텔🌇</h2>
                         </div>
                     </div>
-                </div>
+                </div> 
                 
                 
                 
-                <div class="row zzz">
+                <div class="row zzz" >
                 <c:forEach var="hvo" items="${hList }" varStatus="s">
                     <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
+                        <div class="single-place mb-30" >
                             <div class="place-img">
                                 <img src="${hvo.poster }" alt="">
                             </div>
@@ -136,19 +139,29 @@
                    </div>
                    
                    </div>
-                  
-                    <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                   
+                   
+                   
+                   
+                   
+                   
+                   <br>
+                   <br>
+                   <br>
+                   <br>
+                 <h2>가고싶은 여행지✈️</h2>
+                    <div style="height:600px;width:100%;margin:0px auto;overflow-y:auto;overflow-x:hidden">
                     <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
-                        	<h3>가고싶은 여행지✈️</h3>
                         </div>
                     </div>
                 </div>
-                    <c:forEach var="tvo" items="${trList }" varStatus="s">
+                    
                    
                 
-                <div class="row">
+                <div class="row hhh">
+                <c:forEach var="tvo" items="${trList }" varStatus="s">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
@@ -168,11 +181,11 @@
                             </div>
                         </div>
                     </div>
-                   </div>
+                   
                    </c:forEach>
                    </div>
                    
-                  
+                  </div>
                    
                     
                     <h2 class="sectiontitle">호텔 예약 목록</h2>

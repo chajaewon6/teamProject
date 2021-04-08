@@ -86,7 +86,7 @@ public class tripModel {
   {
 	 List<TripVO> fList=new ArrayList<TripVO>();
      String no=request.getParameter("no"); //no=게시물 번호
-     String cno=request.getParameter("cno");
+     //String cno=request.getParameter("cno");
      
      // DAO연결 
      TripDAO dao=TripDAO.newInstance();
@@ -112,10 +112,10 @@ public class tripModel {
         }
      } 
      List<TripCategoryVO> cList=dao.tripCategoryData();
-     List<TripVO> zList=dao.TripLocationData(Integer.parseInt(cno));
+     //List<TripVO> zList=dao.TripLocationData(Integer.parseInt(cno));
      //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
      //request.setAttribute("rList", rList);
-     request.setAttribute("zList", zList);
+     //request.setAttribute("zList", zList);
      request.setAttribute("tvo", tvo);
      request.setAttribute("fList", fList);
      request.setAttribute("cList", cList);
