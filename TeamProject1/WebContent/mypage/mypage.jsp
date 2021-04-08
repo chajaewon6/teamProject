@@ -56,7 +56,7 @@
 				<a href="../mypage/mypage_update.do"><button class="btn profile-edit-btn updateBtn">프로필 수정</button></a>
 
 				<button class="btn profile-edit-btn ">프로필 사진 변경</button>
-				
+
 
 
 
