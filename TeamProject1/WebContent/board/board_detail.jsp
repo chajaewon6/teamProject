@@ -222,6 +222,7 @@ $(function(){
                                    
                                 </ul>
                                 <strong style="font-size:15pt">한줄 소개</strong>
+                                
                                 <p>${vo.pb_picContent }</p>
                                 <div style="color:gray;font-size:15px;float:left">조회수:&nbsp;</div> 
                                 <div style="color:pink;font-size:15px;float:left">${vo.pb_picHit }</div><br>
