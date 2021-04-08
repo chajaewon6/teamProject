@@ -322,7 +322,7 @@ public class TripDAO {
        }
       
       
-      // 근처 관광지 5개
+     // ================================// 근처 관광지 5개===============================================
       public List<TripVO> TripLocationData(int cno)
         {
            List<TripVO> list=new ArrayList<TripVO>();

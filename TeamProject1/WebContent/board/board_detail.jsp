@@ -30,7 +30,37 @@
             <link rel="stylesheet" href="../css/slick.css">
             <link rel="stylesheet" href="../css/nice-select.css">
             <link rel="stylesheet" href="./css/button.css">
- <style>
+ <style type="text/css">
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+.mypage_row{
+  margin: 0px auto;
+  width:1500px;
+}
 .intro{
 position: absolute;
  left: 400px;
@@ -237,8 +267,8 @@ $(function(){
                                 <div style="color:pink;font-size:15px;float:left">${vo.pb_picHit }</div><br>
                                 
                                 <c:if test="${sessionScope.id==vo.user_id }">
-                                <button class="button -dark center boardUp" style="float:right" data-no="${no}">수정하기</button>
-                                <button class="button -dark center boardDel" style="float:right" data-no="${no }">삭제하기</button>
+                                <button class="ripple boardUp" style="float:right" data-no="${no}">수정하기</button>
+                                <button class="ripple boardDel" style="float:right" data-no="${no }">삭제하기</button>
                                 </c:if>
                                 <div style="height:10px"></div>
                                      <!-- <div id="map" style="width:100%;height:500px;"></div> -->
@@ -263,7 +293,7 @@ $(function(){
 						<input type="hidden" name=pno value="${no }">
 				</div>
 				<div style="height:20px"></div>
-				 <button class="button -dark center">댓글 등록</button>
+				 <button class="ripple -dark center">댓글 등록</button>
 			</form>
 			</div>
 			
@@ -293,7 +323,7 @@ $(function(){
 									 <input type="hidden" name=no value="${rvo.pbr_no }">
 									</div>
 								<div style="height:10px"></div>
-				 				<button type="submit" class="button -dark center">댓글 수정</button>
+				 				<button type="submit" class="ripple -dark center">댓글 수정</button>
 				 				</form>	
 										</div>
 								

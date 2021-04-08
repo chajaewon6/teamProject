@@ -29,7 +29,37 @@
             <link rel="stylesheet" href="../css/nice-select.css">
             <link rel="stylesheet" href="../css/style.css">
             <link rel="stylesheet" href="./css/button.css">
-            <style>
+            <style type="text/css">
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+.mypage_row{
+  margin: 0px auto;
+  width:1500px;
+}
         		.intro{
             			margin: 0px auto;
             			font-size:15px;
@@ -204,7 +234,8 @@
                             <span class="intro" style="color:#000000">우리가 보고 찍은 서울의 모습</span>
                             <div style="height:50px"></div>
                             <c:if test="${sessionScope.id!=null }"> 
-                            <a class="button -dark center share" href="board_insert.do">나도 공유하러 가기</a>
+                            <a href="board_insert.do">
+                            <button class="ripple">나도 공유하러 가기</button></a>
                             </c:if>
                              <div style="height:50px"></div>
                         </div>
