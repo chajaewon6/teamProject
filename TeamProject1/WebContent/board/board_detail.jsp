@@ -17,6 +17,8 @@
     <link href='https://fonts.googleapis.com/css?family=PT+Sans:400,700&subset=latin,cyrillic' rel='stylesheet' type='text/css'>
 <meta name="viewport" content="width=device-width"><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/meyer-reset/2.0/reset.min.css">
 <link rel="stylesheet" href="../css/comment.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Myeongjo&display=swap" rel="stylesheet">
  <link rel="stylesheet" href="../css/bootstrap.min.css">
             <link rel="stylesheet" href="../css/owl.carousel.min.css">
             <link rel="stylesheet" href="../css/flaticon.css">
@@ -160,7 +162,14 @@ position: absolute;
 .comment-block{
 	width:800px;
 } 
- 
+.card-size{
+	width:250px;
+	height:150px;
+	
+} 
+.blog_right_sidebar{
+	font-family: 'Nanum Myeongjo', serif;
+}
  </style>
   </head>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
@@ -306,18 +315,21 @@ $(function(){
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">조회수 top5 게시글</h3>
                             <table class="table">
-                            <!-- 
-                            	private int pb_no, pb_picHit, pb_picHeart, filesize;
-	private String pb_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id, user_name, dbday, filename;
-	private Date pb_picDate;
-                             -->
+                            
                            <c:forEach var="tvo" items="${tList }">
                                <tr>
-                               	<td>${tvo.user_name }</td>
-                               	<td>${tvo.pb_picTitle }</td>
-                               	<td>${tvo.pb_pic }</td>
-                               	<td>${tvo.pb_picContent }</td>
-                               </tr>
+                               	
+                               	<td> <a href="../board/board_detail.do?no=${tvo.pb_no }"><img class="card-img rounded-0 card-size" src="../upload/${tvo.pb_pic }"></a></td>
+                               		</tr>
+                               		
+                               		<tr>
+                               		<td><strong>${tvo.pb_picTitle }</strong></td>
+                               		</tr>
+                               		<tr>
+                               		<td style="font-size:9px">조회수:${tvo.pb_picHit }회</td>
+                               		</tr>
+                               	
+                               
                             </c:forEach>
   							</table>
                         </aside>
