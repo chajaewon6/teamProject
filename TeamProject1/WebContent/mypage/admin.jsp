@@ -70,7 +70,8 @@
 				<br>
 
 
-				<button class="btn profile-edit-btn updateBtn">프로필 수정</button>
+
+				<a href="../mypage/mypage_update.do"><button class="btn profile-edit-btn updateBtn">프로필 수정</button></a>
 
 				<button class="btn profile-edit-btn ">프로필 사진 변경</button>
 				
@@ -78,13 +79,6 @@
 
 
 
-				<button class="profile-edit-btn">프로필 수정</button>
-
-
-
-			
-
-				<button class="profile-edit-btn">이미지 변경</button>
 
 
 
@@ -109,12 +103,21 @@
 		</div>
 		<!-- End of profile section -->
 
-      
+        <!-- Favourite Places Start -->
+        <div class="favourite-place place-padding">
+            <div class="container">
+                <!-- Section Tittle -->
+                
+                <div style="height:50px;width:100%;margin:0px auto;">
+                
+                   </div>
+                  
+                    
                    
                   
                    
                     
-                    <h2 class="sectiontitle">호텔 예약 승인 대기 목록</h2>
+                    <h2 class="sectiontitle">호텔 예약 목록🌇</h2>
                     
 					  <div style="height:400px;width:800px;overflow-y:auto">
 					  <table class="table">
@@ -148,7 +151,8 @@
                    </div>
                     
                 </div>
-            </div>
+            
+           
         
         <!-- Favourite Places End -->
 
