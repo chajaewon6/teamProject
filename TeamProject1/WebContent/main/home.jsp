@@ -61,10 +61,23 @@
                             <div class="col-xl-12">
                                 <!-- form -->
                                 <form action="#" class="search-box">
+<<<<<<< HEAD
+=======
+                                    <div class="input-form mb-30">
+                                        <input id="title" type="text" placeholder="어디로 떠나볼까요?">
+                                    </div>
+                                    
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                     <div class="search-form mb-30">
+<<<<<<< HEAD
                                         <a href="../main/search.do">어디로 떠나볼까요?</a>   
                                     </div> 
                                     <div style="height:100px"></div>  
+=======
+                                        <a href="../main/search.do" id="findBtn">찾기</a>
+                                        
+                                    </div>   
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                 </form>   
                             </div>
                         </div>

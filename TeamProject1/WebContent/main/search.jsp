@@ -81,7 +81,7 @@ $(function(){
                                 <!-- form -->
                                 <form action="#" class="search-box">
                                     <div class="input-form mb-30">
-                                        <input id="title" type="text" name="title" placeholder="어디로 떠나볼까요?">
+                                        <input id="title" type="text" placeholder="어디로 떠나볼까요?">
                                     </div>
                                     
                                  			
@@ -98,8 +98,13 @@ $(function(){
                 </div>
                 
             </div>
+            
+        </div>
+        <div class="container">
+            <div class="print"></div>
         </div>
         
+<<<<<<< HEAD
         <!-- Favourite Places Start -->
         <div class="favourite-place place-padding">
             <div class="container">
@@ -114,6 +119,8 @@ $(function(){
                 <div class="print"></div>
             </div>
         </div>
+=======
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
         
     </main>
 </body>
