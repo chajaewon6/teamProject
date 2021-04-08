@@ -27,7 +27,7 @@ public class SearchModel {
 		  List<SearchVO> list=dao.SearchFindData(title);
 		  request.setAttribute("list", list);
 		  
-		  return "../main/search_result.jsp";
+		  return "../main/search.jsp";
 	  }
 	@RequestMapping("main/search.do")
 	public String search(HttpServletRequest request,HttpServletResponse response)
