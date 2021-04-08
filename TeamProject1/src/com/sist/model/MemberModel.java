@@ -203,7 +203,7 @@ public class MemberModel {
   
   
   
-  //수정해서 저장한 정보 
+  //수정해서 정보저장
   @RequestMapping("member/update_save.do")
   public String reserve_save(HttpServletRequest request,HttpServletResponse response) 
   {
@@ -212,12 +212,16 @@ public class MemberModel {
 		  request.setCharacterEncoding("UTF-8");
 	  }catch(Exception ex) {}
 	  
-	  
-	  String id=request.getParameter("id");
+	  /*
+	   * "UPDATE member SET "
+			  		+ "pwd=?,post=?,addr1=?,addr2=?,tel=?,content=?"
+					  +"WHERE id=?";
+	   */
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
 	  String pwd=request.getParameter("pwd");
-	  String name=request.getParameter("name");
-	  String sex=request.getParameter("sex");
-	  String birthday=request.getParameter("birthday");
+	  
+	 
 	  String email=request.getParameter("email");
 	  String post=request.getParameter("post");
 	  String addr1=request.getParameter("addr1");
@@ -226,11 +230,9 @@ public class MemberModel {
 	  String content=request.getParameter("content");
 	  
 	  MemberVO vo=new MemberVO();
+	  
 	  vo.setId(id);
 	  vo.setPwd(pwd);
-	  vo.setName(name);
-	  vo.setSex(sex);
-	  vo.setBirthday(birthday);
 	  vo.setEmail(email);
 	  vo.setPost(post);
 	  vo.setAddr1(addr1);
@@ -240,8 +242,7 @@ public class MemberModel {
 	  
 	  MemberDAO dao=MemberDAO.newInstance();
 	  dao.mypageUpdateData(vo);
-	  
-	  return "member/join_ok.do";
+	  return "redirect:../mypage/mypage.do";
   }
   
 }

@@ -218,19 +218,20 @@ public class MemberDAO {
 	  }
 	  
 	  //마이페이지 수정
-	  public MemberVO mypageUpdateData(MemberVO vo) {
+	  public void mypageUpdateData(MemberVO vo) {
 		  try {
 			  getConnection();
 			  String sql="UPDATE member SET "
-			  		+ "pwd=?,birthday=?,post=?,addr1=?,addr2=?,tel=?,content=?";
+			  		+ "pwd=?,post=?,addr1=?,addr2=?,tel=?,content=?"
+					  +"WHERE id=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, vo.getPwd());
-			  ps.setString(2, vo.getBirthday());
-			  ps.setString(3, vo.getPost());
-			  ps.setString(4, vo.getAddr1());
-			  ps.setString(5, vo.getAddr2());
-			  ps.setString(6, vo.getTel());
-			  ps.setString(7, vo.getContent());
+			  ps.setString(2, vo.getPost());
+			  ps.setString(3, vo.getAddr1());
+			  ps.setString(4, vo.getAddr2());
+			  ps.setString(5, vo.getTel());
+			  ps.setString(6, vo.getContent());
+			  ps.setString(7, vo.getId());
 			  
 			  ps.executeUpdate();
 			  
@@ -240,7 +241,7 @@ public class MemberDAO {
 		  }finally {
 			  disConnection();
 		  }
-		  return vo;
+		  
 	  }
 	  
 	   

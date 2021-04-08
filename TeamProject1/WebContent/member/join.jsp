@@ -24,7 +24,7 @@
     <body>
 
       
-      <form method=post action="../member/join_ok.do" name="join_frm">
+      <form method=post action="../member/join_ok.do" name="#">
         <h1>회원가입</h1>
         
         <fieldset>

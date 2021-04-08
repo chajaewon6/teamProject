@@ -29,7 +29,7 @@
     <body>
 
       
-      <form method=post action="../mypage/mypage_update.do" name="join_frm">
+      <form method=post action="../member/update_save.do" name="join_frm">
         <h1>회원가입</h1>
         
         <fieldset>
@@ -61,7 +61,7 @@
            <input type=text name="addr2" id="addr2" class="input-sm" value="${addr2 }" size=45>
           
            <label for="tel">전화번호</label>
-			<input type=text name="tel" id="tel" class="input-sm" size=5 value="${vo.tel }"
+			<input type=text name="tel" id="tel" class="input-sm" size=5 value="${tel }"
       			style="float: left">
           
            <label for="email">이메일</label>
@@ -72,7 +72,7 @@
          <legend><span class="number">2</span>추가사항</legend>
      		<fieldset>
 	          <label for="bio">자기소개</label>
-	          <textarea id="bio" name="user_bio" >${content }</textarea>
+	          <textarea id="bio" name="user_bio" value="${content }" >${content }</textarea>
         </fieldset>
      
         <button type="submit" id="memberUpdateBtn">수정&nbsp;완료</button>
