@@ -197,14 +197,14 @@ button {
              </ul>             
                   
                </div>  
-             <h4>근처 추천 여행지</h4>
+             <%-- <h4>근처 추천 여행지</h4>
          	    <table>
                             <c:forEach var="tvo" items="${zList }">
                             <tr>
                              <a href="../trip/detail_before.do?no=${tvo.no }">
                               <!-- div class="media post_item"> -->
                                <img src="${tvo.poster }" alt="post" style="width:160px;height:115px">
-                               <%-- <h4>${tvo.title }</h4> --%>
+                               <h4>${tvo.title }</h4>
                                <p style="font-size:10pt;margin:0px auto">${tvo.title }</p>
                                <br>
                               <!-- <div class="media-body">
@@ -214,7 +214,7 @@ button {
                             </a>
                             </tr>
                             </c:forEach>
-  							</table>
+  							</table> --%>
                 
                 
                 
