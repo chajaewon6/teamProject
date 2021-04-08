@@ -104,7 +104,6 @@ $(function(){
             <div class="print"></div>
         </div>
         
-<<<<<<< HEAD
         <!-- Favourite Places Start -->
         <div class="favourite-place place-padding">
             <div class="container">
