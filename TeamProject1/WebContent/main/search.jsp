@@ -90,7 +90,7 @@ $(function(){
                                         <a href="#" id="findBtn">찾기</a>
                                         
                                     </div> 
-                                    </div>   
+                                     
                                 </form>   
                             </div>
                         </div>
@@ -99,11 +99,7 @@ $(function(){
                 
             </div>
             
-        </div>
-        <div class="container">
-            <div class="print"></div>
-        </div>
-        
+
         <!-- Favourite Places Start -->
         <div class="favourite-place place-padding">
             <div class="container">
