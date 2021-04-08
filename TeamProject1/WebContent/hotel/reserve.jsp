@@ -6,6 +6,32 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
 .mypage_row{
   margin: 0px auto;
   width:1500px;
@@ -113,8 +139,8 @@ $(function(){
           <tr style="display:none" id="reserveBtn">
             <td colspan="2" class="text-center">
              
-              <input type="button" value="예약하기" class="btn btn-lg btn-danger" id="rBtn">
-             
+              
+             <button class="ripple" id="rBtn">예약하기</button>
             </td>
           </tr>
          </table>
@@ -123,7 +149,7 @@ $(function(){
    </tr>
    <tr>
      <td width=35%>
-       <div style="height: 100px">
+       <div style="height: 150px">
          <table class="table">
           <h4>입실정보</h4>
           <tr>
@@ -131,7 +157,7 @@ $(function(){
           </tr>
          </table>
        </div>
-       <div style="height: 100px">
+       <div style="height: 150px">
          <table class="table">
           <h4>퇴실정보</h4>
           <tr>
@@ -141,7 +167,7 @@ $(function(){
        </div>
      </td>
      <td width=30%>
-       <div style="height: 100px">
+       <div style="height: 150px">
          <table class="table">
           <h4>인원정보</h4>
           <tr>
@@ -149,7 +175,7 @@ $(function(){
           </tr>
          </table>
        </div>
-       <div style="height: 100px">
+       <div style="height: 150px">
          <table class="table">
           <h4>객실정보</h4>
           <tr>

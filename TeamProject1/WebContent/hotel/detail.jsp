@@ -29,137 +29,34 @@
             <link rel="stylesheet" href="../css/slick.css">
             <link rel="stylesheet" href="../css/nice-select.css">
             <link rel="stylesheet" href="./css/button.css">
-<style>
-.intro{
-position: absolute;
- left: 400px;
- top: 70px;
- }
- :root {
-  --color-dark:  #014b85;;
-  --color-ocean:  #416dea;
-  --color-grass: #3dd28d;
-  --color-snow: #FFFFFF;
-  --color-salmon: #F32C52;
-  --color-sun: #feee7d;
-  --color-alge: #7999a9;
-  --color-flower: #353866;
-  --color-smoke: #e4e4e4;
-  
-  --borderRadius: 36px;
-
-  --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+<style type="text/css">
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
 }
 
-// button styles
-.button {
-  display: flex;
-  overflow: hidden;
-
-  margin: 10px;
-  padding: 12px 12px;
-
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
   cursor: pointer;
-  user-select: none;
-  transition: all 150ms linear;
-  text-align: center;
-  white-space: nowrap;
-  text-decoration: none !important;
-  text-transform: none;
-  text-transform: capitalize;
-
-  color: #fff;
-  border: 0 none;
-  border-radius: var(--borderRadius);
-
-  font-size: 5px;
-  font-weight: 500;
-  line-height: 1.3;
-
-  -webkit-appearance: none;
-  -moz-appearance:    none;
-  appearance:         none;
- 
-  justify-content: center;
-  align-items: center;
-  flex: 0 0 160px;
-  
-  box-shadow: 2px 5px 10px var(--color-smoke);
-
-  &:hover {
-    transition: all 150ms linear;
-
-    opacity: .85;
-  }
-  
-  &:active {
-    transition: all 150ms linear;
-    opacity: .75;
-  }
-  
-  &:focus {
-    outline: 1px dotted #959595;
-    outline-offset: -4px;
-  }
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
 }
-
-.button.-regular {
-  color: #202129;
-  background-color: #f2f2f2;
-  
-  &:hover {
-    color: #202129;
-    background-color: #e1e2e2;
-    opacity: 1;
-  }
-  
-  &:active {
-    background-color: #d5d6d6;
-    opacity: 1;
-  }
-}
-
-.button.-dark {
-  color: var(--color-snow);
-  background: var(--color-dark);
-  
-   &:focus {
-    outline: 1px dotted white;
-    outline-offset: -4px;
-  }
-}
-  
-.button.-green {
-  color: var(--color-snow);
-  background: var(--color-grass);
-}
-
-.button.-blue {
-  color: var(--color-snow);
-  background: var(--color-ocean);
-}
-
-.button.-salmon {
-  color: var(--color-snow);
-  background: var(--color-salmon);
-}
-
-.button.-sun {
-  color: #f15c5c;
-  background: var(--color-sun);
-}
-
-.button.-alge {
-  color: #e7ff20;
-  background: var(--color-alge);
-}
-
-.button.-flower {
-  color: #FE8CDF;
-  background: var(--color-flower);
-}
- 
- </style>
+</style>
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let i=0;
@@ -240,7 +137,7 @@ $(function(){
                                         <li style="color:gray;font-size:20px"></i>주소:${vo.addr }</li>
                                     </ul>
                                      <div id="map" style="width:100%;height:500px;"></div>
-																	      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=b5fd4dfaa14d2fbfdde362bc5e093417&libraries=services"></script>
+																	      <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=4f52532232d7ccc95a9e8fada5490dcb&libraries=services"></script>
 																	      <ul>
 																	      <script>
 																			var mapContainer = document.getElementById('map'), // 지도를 표시할 div 
@@ -289,12 +186,12 @@ $(function(){
 													       				<a href="../hotel/jjim.do?no=${vo.no }" class="button -dark center" style="color:white" data-no="10">찜하기</a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
-													       				<span class="button -white center">찜하기</span>
+													       				<button class="ripple">찜하기</button>
 													       			</c:if>
 													       		</c:if>
 													       		
           
-													       		<a href="../hotel/list.do" class="button -dark center" style="color:white">목록</a>
+													       		<a href="../hotel/list.do"><button class="ripple">목록</button></a>
 													       
 													      </ul> 
                 								</div>   
@@ -319,7 +216,7 @@ $(function(){
 						<input type="hidden" name=cno value="${vo.no }">
 				</div>
 				<div style="height:20px"></div>
-				 <button class="button -dark center">댓글 등록</button>
+				 <button class="ripple">댓글 등록</button>
 			</form>
 			</div>
 			
