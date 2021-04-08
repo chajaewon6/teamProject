@@ -57,10 +57,10 @@ public class BoardModel {
 		
 		BoardVO vo=dao.boardDetailData(Integer.parseInt(no));
 		List<BoardReplyVO> rList = dao.boardReplyReadData(Integer.parseInt(no));
+		List<BoardVO> tList=dao.boardTopListData();
 		
 		
-		
-		
+		request.setAttribute("tList", tList);
 		request.setAttribute("vo", vo);
 		request.setAttribute("rList", rList);
 		request.setAttribute("no", no);

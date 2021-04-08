@@ -404,6 +404,58 @@ public class BoardDAO {
 				disConnection();
 			}
 		}
+		// 조회수 높은 수 출력
+		public List<BoardVO> boardTopListData()
+		{
+			List<BoardVO> list=new ArrayList<BoardVO>();
+			try
+			{
+				/*
+				 * 	PB_NO         NOT NULL NUMBER         
+					PB_PICTITLE   NOT NULL VARCHAR2(200)  
+					PB_PICDATE             DATE           
+					PB_PICCONTENT NOT NULL VARCHAR2(1000) 
+					PB_PICLOC     NOT NULL VARCHAR2(100)  
+					PB_PICHIT              NUMBER         
+					PB_PICTAG              VARCHAR2(100)  
+					USER_ID                VARCHAR2(20)   
+					PB_PIC                 VARCHAR2(4000) 
+					USER_NAME              VARCHAR2(34)   
+					FILENAME               VARCHAR2(260)  
+					FILESIZE               NUMBER
+				 * 
+				 */
+				getConnection();
+				String sql="SELECT pb_no, pb_pictitle, pb_pichit, user_name, pb_pic, num "
+						+ "FROM (SELECT pb_no, pb_pictitle, pb_pichit, user_name, pb_pic, rownum as num "
+						+ "FROM (SELECT pb_no, pb_pictitle, pb_pichit, user_name, pb_pic "
+						+ "FROM picboard)) "
+						+ "WHERE num<=5 "
+						+ "ORDER BY pb_pichit DESC";
+				ps=conn.prepareStatement(sql);
+				ResultSet rs=ps.executeQuery();
+				while(rs.next())
+				{
+					BoardVO vo=new BoardVO();
+					vo.setPb_no(rs.getInt(1));
+					vo.setPb_picTitle(rs.getString(2));
+					vo.setPb_picHit(rs.getInt(3));
+					vo.setUser_name(rs.getString(4));
+					vo.setPb_pic(rs.getString(5));
+					list.add(vo);
+				}
+				rs.close();	
+			}
+			catch(Exception ex)
+			{
+				
+			}
+			finally
+			{
+				disConnection();
+			}
+			return list;
+		}
 }
 
 

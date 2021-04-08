@@ -304,23 +304,21 @@ $(function(){
                     <div class="blog_right_sidebar text-center">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">조회수 top10 게시글</h3>
-                            <table>
-                           <%--  <c:forEach var="tvo" items="${fList }"  end="4"> --%>
-                            <tr>
-                             <a href="../trip/detail_before.do?no=${tvo.no }">
-                              <!-- div class="media post_item"> -->
-                               <img src="${tvo.poster }" alt="post" style="width:160px;height:115px">
-                               <%-- <h4>${tvo.title }</h4> --%>
-                               <p style="font-size:10pt;margin:0px auto">${tvo.title }</p>
-                               <br>
-                              <!-- <div class="media-body">
-                                <a href="single-blog.html"></a>
-                              </div> -->  
-                             </div>
-                            </a>
-                            </tr>
-                            <%-- </c:forEach> --%>
+                            <h3 class="widget_title">조회수 top5 게시글</h3>
+                            <table class="table">
+                            <!-- 
+                            	private int pb_no, pb_picHit, pb_picHeart, filesize;
+	private String pb_picTitle, pb_picContent, pb_picLoc, pb_picTag, pb_pic, user_id, user_name, dbday, filename;
+	private Date pb_picDate;
+                             -->
+                           <c:forEach var="tvo" items="${tList }">
+                               <tr>
+                               	<td>${tvo.user_name }</td>
+                               	<td>${tvo.pb_picTitle }</td>
+                               	<td>${tvo.pb_pic }</td>
+                               	<td>${tvo.pb_picContent }</td>
+                               </tr>
+                            </c:forEach>
   							</table>
                         </aside>
                       
