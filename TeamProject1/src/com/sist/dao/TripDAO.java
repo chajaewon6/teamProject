@@ -329,19 +329,20 @@ public class TripDAO {
            try
            {
               getConnection();
-              String sql="SELECT no,cno,poster,title "
-                    +"FROM (SELECT no,cno,poster,title FROM tripdetail "
-                    + "WHERE cno=? ORDER BY DBMS_RANDOM.VALUE) "
-                    + "WHERE ROWNUM<=5";
+              String sql="SELECT no,cno,poster,title,rownum "
+                      +"FROM (SELECT no,cno,poster,title FROM tripdetail "
+                      + "WHERE cno=? ORDER BY DBMS_RANDOM.VALUE) "
+                      + "WHERE rownum<=5";
               ps=conn.prepareStatement(sql);
               ps.setInt(1, cno);
               ResultSet rs=ps.executeQuery();
               while(rs.next())
               {
-                 TripVO vo=new TripVO();
+            	  TripVO vo=new TripVO();
                  vo.setNo(rs.getInt(1));
-                 vo.setPoster(rs.getString(2));
-                 vo.setTitle(rs.getString(3));
+                 vo.setCno(rs.getInt(2));
+                 vo.setPoster(rs.getString(3));
+                 vo.setTitle(rs.getString(4));
                  list.add(vo);
               }
               rs.close();

@@ -67,30 +67,38 @@
                 
                </ul>
                 <!-- Section Tittle -->
-                 <div class="row" >
-                    <div class="col-lg-3 text-center">
-                        <div class="text-center">
-                        <br>
-                          <c:if test="${cno == 2}">
-     						 <h1 style="font-size:35pt">광화문</h1></c:if> 
+                
+                 <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                           <c:if test="${cno == 2}">
+                             <span>역사의 도시</span>
+     						 <h2>광화문</h2></c:if> 
                           <c:if test="${cno == 3}">
-     						 <h1 style="font-size:35pt">명동</h1></c:if> 
+                            <span>쇼핑의 메카</span>
+     						 <h2>명동</h2></c:if> 
      					  <c:if test="${cno == 4}">
-     						 <h1 style="font-size:35pt">동대문</h1></c:if> 
+     					   <span>쇼핑과 예술로 밤을 지새우는 열정의 거리</span>
+     						 <h2>동대문</h2></c:if> 
      					  <c:if test="${cno == 5}">
-     						 <h1 style="font-size:35pt">홍대</h1></c:if> 
+     					   <span>젊음의 열기가 가득한</span>
+     						 <h2>홍대</h2></c:if> 
      					  <c:if test="${cno == 6}">
-     						 <h1 style="font-size:35pt">여의도</h1></c:if> 
+     					   <span>봄바람 휘날리며~ 흩날리는 벚꽃잎이~</span>
+     						 <h2>여의도</h2></c:if> 
      					  <c:if test="${cno == 7}">
-     						 <h1 style="font-size:35pt">이태원</h1></c:if> 
+     					  <span>다양한 문화가 공존하는</span>
+     						 <h2>이태원</h2></c:if> 
      					  <c:if test="${cno == 8}">
-     						 <h1 style="font-size:35pt">강남</h1></c:if> 
+     					  <span>트렌드의 중심</span>
+     						 <h2>강남</h2></c:if> 
      					  <c:if test="${cno == 9}">
-     						 <h1 style="font-size:35pt">잠실</h1></c:if> 	 
-     					
+     					  <span>놀라움으로 가득한 서울의 녹색 쉼터</span>
+     						 <h2>잠실</h2></c:if> 	 
                         </div>
                     </div>
                 </div>
+               
                  <br>
                   <br>
                    <br>
