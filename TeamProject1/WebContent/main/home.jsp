@@ -59,11 +59,12 @@
                                 <!-- form -->
                                 <form action="#" class="search-box">
                                     <div class="input-form mb-30">
-                                        <input type="text" placeholder="어디로 떠나볼까요?">
+                                        <input id="title" type="text" placeholder="어디로 떠나볼까요?">
                                     </div>
                                     
                                     <div class="search-form mb-30">
-                                        <a href="#">찾기</a>
+                                        <a href="../main/search.do" id="findBtn">찾기</a>
+                                        
                                     </div>   
                                 </form>   
                             </div>
