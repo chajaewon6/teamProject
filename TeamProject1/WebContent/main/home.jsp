@@ -61,18 +61,11 @@
                             <div class="col-xl-12">
                                 <!-- form -->
                                 <form action="#" class="search-box">
-
-
                                     <div class="search-form mb-30">
-
                                         <a href="../main/search.do">어디로 떠나볼까요?</a>   
                                     </div> 
-                                    <div style="height:100px"></div>  
-
-                                        <a href="../main/search.do">찾기</a>
-                                        
+                                    <div style="height:100px"></div>     
                                     </div>   
-
                                 </form>   
                             </div>
                         </div>
