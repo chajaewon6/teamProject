@@ -8,6 +8,9 @@
 <meta charset="UTF-8">
 <title>Insert title here</title>
 <style type="text/css">
+.mb-30{
+		margin:0px auto;
+}
 .main-image
 {
    background-image: url("https://www.travelmap.co.kr/contents/files/board/news/2020/12/editor_3824_1608277874_1608278606.png");
@@ -58,14 +61,10 @@
                             <div class="col-xl-12">
                                 <!-- form -->
                                 <form action="#" class="search-box">
-                                    <div class="input-form mb-30">
-                                        <input type="text" placeholder="어디로 떠나볼까요?">
-                                    </div>
-                                    
                                     <div class="search-form mb-30">
-                                        <a href="../main/search.do">찾기</a>
-                                        
-                                    </div>   
+                                        <a href="../main/search.do">어디로 떠나볼까요?</a>   
+                                    </div> 
+                                    <div style="height:100px"></div>  
                                 </form>   
                             </div>
                         </div>

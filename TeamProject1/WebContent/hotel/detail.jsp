@@ -372,8 +372,8 @@ $(function(){
                         
                         <aside class="single_sidebar_widget popular_post_widget">
                             <h3 class="widget_title">최근 방문 호텔</h3>
-                            <c:forEach var="fvo" items="${fList }">
-                            
+                            <c:forEach var="fvo" items="${fList }" varStatus="s">
+                            <c:if test="${s.index<9 }">
                             <a href="../hotel/detail.do?no=${fvo.no }">
                             <div class="media post_item">
                                 <img src="${fvo.poster }" alt="post" style="width:140px;height:115px">
@@ -385,6 +385,7 @@ $(function(){
                                 </div>  
                             </div>
                             </a>
+                            </c:if>
                             
                             </c:forEach>
   
