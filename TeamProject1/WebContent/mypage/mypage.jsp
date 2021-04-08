@@ -27,6 +27,14 @@
 }
 
 </style>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+	$(function(){
+		$('.updateBtn').click(function(){
+			location.href='mypage_update.jsp';
+		})
+	})
+</script>
 </head>
 <body>
 
@@ -46,11 +54,12 @@
 			<div class="profile-user-settings">
 
 				<h2 class="profile-user-name">${id }님 반갑습니다</h2>
+				<br>
 
-				<button class="btn profile-edit-btn">프로필 수정</button>
+				<button class="btn profile-edit-btn updateBtn">프로필 수정</button>
 
 				<button class="btn profile-edit-btn">이미지 변경</button>
-
+				
 			</div>
 
 			<div class="profile-stats">

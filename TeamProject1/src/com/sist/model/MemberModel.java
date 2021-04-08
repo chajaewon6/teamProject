@@ -131,16 +131,42 @@ public class MemberModel {
 	  return "redirect:../main/main.do";
   }
   
+  //마이페이지 조회
+  @RequestMapping("mypage/list.do")
+  public String mypage_list(HttpServletRequest request,HttpServletResponse response) {
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  
+	  MemberDAO dao=MemberDAO.newInstance();
+	  MemberVO vo=dao.memberAllData();
+	  request.setAttribute("vo", vo);
+	  request.setAttribute("pwd", vo.getPwd());
+	   request.setAttribute("name", vo.getName());
+	   request.setAttribute("birthday", vo.getBirthday());
+	   request.setAttribute("email", vo.getEmail());
+	   request.setAttribute("post", vo.getPost());
+	   request.setAttribute("addr1", vo.getAddr1());
+	   request.setAttribute("addr2", vo.getAddr2());
+	   request.setAttribute("tel", vo.getTel());
+	   request.setAttribute("content", vo.getContent());
+
+	   
+	   
+	  return "../mypage/mypage.jsp";
+  }
+  
  // 마이페이지 수정
   @RequestMapping("mypage/mypage_update.do")
   public String mypage_update(HttpServletRequest request,HttpServletResponse response) {
-	  String no=request.getParameter("no");
+	  HttpSession session=request.getSession();
+	  String id=(String)session.getAttribute("id");
+	  
 	  MemberDAO dao=MemberDAO.newInstance();
-	  MemberVO vo=dao.mypageUpdateData(Integer.parseInt(no));
-	  request.setAttribute("vo", vo);
-	  request.setAttribute("main_jsp", "../mypage/mypage.do");
+	  
+	  
 	  return "../main/main.jsp";
   }
+  
   
 }
 
