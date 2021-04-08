@@ -28,8 +28,8 @@
             <c:if test="${s.index%4!=0 }">
              <li class="one_quarter" ><a href="../trip/detail_before.do?no=${vo.no }"><img src="${vo.poster }" title="${vo.title }" class="img-rounded" style="height:100px;width:200px;margin:0px auto"></a></li>
            	<c:choose>
-			        <c:when test="${fn:length(vo.title) gt 15}" style="text-center">
-			        <c:out value="${fn:substring(vo.title, 0, 14)}" style="text-center">
+			        <c:when test="${fn:length(vo.title) gt 15}" >
+			        <c:out value="${fn:substring(vo.title, 0, 14)}" >
 			        </c:out></c:when>
 			        <c:otherwise>
 			        <c:out value="${vo.title}">
