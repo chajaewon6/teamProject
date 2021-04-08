@@ -44,7 +44,6 @@ $(function(){
 			$('#title').focus();
 			return;
 		}	
-	})
 	$.ajax({
 			type:'post',
 			url:'../main/search_result.do',//post_result.do/dong/값
@@ -54,6 +53,7 @@ $(function(){
 				$('.print').html(result);
 			}
 		})
+	})
 })
 </script>
 </head>
@@ -81,12 +81,15 @@ $(function(){
                                 <!-- form -->
                                 <form action="#" class="search-box">
                                     <div class="input-form mb-30">
-                                        <input id="title" type="text" name="title" placeholder="어디로 떠나볼까요?">
+                                        <input id="title" type="text" placeholder="어디로 떠나볼까요?">
                                     </div>
                                     
-                                    <div class="search-form mb-30">
-                                        <input type=button value="검색" class="btn btn-sm btn-primary" id="findBtn">
+                                 			
+                                       <div class="search-form mb-30">
+                                       
+                                        <a href="#" id="findBtn">찾기</a>
                                         
+                                    </div> 
                                     </div>   
                                 </form>   
                             </div>
@@ -95,14 +98,29 @@ $(function(){
                 </div>
                 
             </div>
+            
+        </div>
+        <div class="container">
+            <div class="print"></div>
         </div>
         
+<<<<<<< HEAD
         <!-- Favourite Places Start -->
         <div class="favourite-place place-padding">
             <div class="container">
+            <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>내가 가고싶은 서울방방곡곡</span>
+                            <h2>검색 목록</h2>
+                        </div>
+                    </div>
+                </div>
                 <div class="print"></div>
             </div>
         </div>
+=======
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
         
     </main>
 </body>

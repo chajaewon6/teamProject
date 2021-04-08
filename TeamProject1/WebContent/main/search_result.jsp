@@ -14,7 +14,7 @@
             <div class="container">
                 <div class="row">
                 	<c:forEach var="vo" items="${list }">	
-	                    <div class="col-xl-4 col-lg-4 col-md-6">
+	                    <div class="col-xl-4 col-lg- col-md-6">
 	                        <div class="single-place mb-30">
 	                        	<a href="../trip/trip_detail.do?no=${vo.no }">
 	                            	<div class="place-img">
