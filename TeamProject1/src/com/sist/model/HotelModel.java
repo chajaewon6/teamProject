@@ -342,6 +342,7 @@ public class HotelModel {
 			  request.setCharacterEncoding("UTF-8");
 		  }catch(Exception ex) {}
 		  String title=request.getParameter("title");
+		  String poster=request.getParameter("poster");
 		  String inday=request.getParameter("inday");
 		  String outday=request.getParameter("outday");
 		  String intime=request.getParameter("intime");
@@ -353,6 +354,7 @@ public class HotelModel {
 		  
 		  ReserveVO vo=new ReserveVO();
 		  vo.setId(id);
+		  vo.setPoster(poster);
 		  vo.setTitle(title);
 		  vo.setInday(inday);
 		  vo.setOutday(outday);

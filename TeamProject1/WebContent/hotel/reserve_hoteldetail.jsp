@@ -31,7 +31,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'../hotel/date.do',
-			data:{"no":no},
+			data:{"no":no,"poster":poster},
 			success:function(result)
 			{
 				$('#hotel_date').html(result);

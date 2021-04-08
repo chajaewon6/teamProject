@@ -575,17 +575,18 @@ public class HotelDAO {
    	 {
    		 getConnection();
    		 String sql="INSERT INTO hotel_reserve VALUES("
-   				   +"(SELECT NVL(MAX(no)+1,1) FROM hotel_reserve),?,?,?,?,?,?,?,?,"
+   				   +"(SELECT NVL(MAX(no)+1,1) FROM hotel_reserve),?,?,?,?,?,?,?,?,?,"
    				   +"0,SYSDATE)";
    		 ps=conn.prepareStatement(sql);
    		 ps.setString(1, vo.getId());
-   		 ps.setString(2, vo.getTitle());
-   		 ps.setString(3, vo.getInday());
-   		 ps.setString(4, vo.getIntime());
-   		 ps.setString(5, vo.getOutday());
-   		 ps.setString(6, vo.getOuttime());
-   		 ps.setString(7, vo.getInwon());
-   		 ps.setString(8, vo.getRoom());
+   		 ps.setString(2, vo.getPoster());
+   		 ps.setString(3, vo.getTitle());
+   		 ps.setString(4, vo.getInday());
+   		 ps.setString(5, vo.getIntime());
+   		 ps.setString(6, vo.getOutday());
+   		 ps.setString(7, vo.getOuttime());
+   		 ps.setString(8, vo.getInwon());
+   		 ps.setString(9, vo.getRoom());
    		 ps.executeUpdate();
    	 }catch(Exception ex)
    	 {
@@ -623,7 +624,7 @@ public class HotelDAO {
    	 try
    	 {
    		 getConnection();
-   		 String sql="SELECT no,title,inday,intime,outday,outtime,inwon,room,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
+   		 String sql="SELECT no,poster,title,inday,intime,outday,outtime,inwon,room,state,TO_CHAR(regdate,'YYYY-MM-DD HH24:MI:SS') "
    				   +"FROM hotel_reserve "
    				   +"WHERE id=? "
    				   +"ORDER BY no DESC";
@@ -634,15 +635,16 @@ public class HotelDAO {
    		 {
    			 ReserveVO vo=new ReserveVO();
    			 vo.setNo(rs.getInt(1));
-   			 vo.setTitle(rs.getString(2));
-   			 vo.setInday(rs.getString(3));
-   			 vo.setIntime(rs.getString(4));
-   			 vo.setOutday(rs.getString(5));
-  			 vo.setOuttime(rs.getString(6));
-   			 vo.setInwon(rs.getString(7));
-   			 vo.setRoom(rs.getString(8));
-   			 vo.setState(rs.getInt(9));
-   			 vo.setDbday(rs.getString(10));
+   			 vo.setPoster(rs.getString(2));
+   			 vo.setTitle(rs.getString(3));
+   			 vo.setInday(rs.getString(4));
+   			 vo.setIntime(rs.getString(5));
+   			 vo.setOutday(rs.getString(6));
+  			 vo.setOuttime(rs.getString(7));
+   			 vo.setInwon(rs.getString(8));
+   			 vo.setRoom(rs.getString(9));
+   			 vo.setState(rs.getInt(10));
+   			 vo.setDbday(rs.getString(11));
    			 list.add(vo);
    		 }
    		 rs.close();

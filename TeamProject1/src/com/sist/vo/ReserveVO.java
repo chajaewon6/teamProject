@@ -18,6 +18,7 @@ import lombok.Setter;
 public class ReserveVO {
    private int no;
    private String id;
+   private String poster;
    private String title;
    private String inday;
    private String intime;

@@ -24,6 +24,7 @@ $(function(){
 	});
 	
 	$('#rBtn').click(function(){
+		let poster=$('#reserve_poster').attr("src");
 		let title=$('#reserve_title').text();
 		let inday=$('#reserve_inday').text();
 		let intime=$('#reserve_intime1').text();
@@ -35,7 +36,7 @@ $(function(){
 		$.ajax({
 			type:'post',
 			url:'../hotel/reserve_save.do',
-			data:{"title":title,"inday":inday,"outday":outday,"intime":intime,"outtime":outtime,"inwon":inwon,"room":room},
+			data:{"poster":poster,"title":title,"inday":inday,"outday":outday,"intime":intime,"outtime":outtime,"inwon":inwon,"room":room},
 			success:function(result)
 			{
 				location.href="../mypage/mypage.do";
