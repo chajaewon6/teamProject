@@ -9,6 +9,34 @@
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <title>Travel HTML-5 Template </title>
+    <style type="text/css">
+.ripple {
+  background-position: center;
+  transition: background 0.8s;
+}
+.ripple:hover {
+  background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
+}
+.ripple:active {
+  background-color: #6eb9f7;
+  background-size: 100%;
+  transition: background 0s;
+}
+
+/* Button style */
+button {
+  border: none;
+  border-radius: 2px;
+  padding: 12px 18px;
+  font-size: 16px;
+  text-transform: uppercase;
+  cursor: pointer;
+  color: white;
+  background-color: #2196f3;
+  box-shadow: 0 0 4px #999;
+  outline: none;
+}
+</style>
     
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
    
@@ -157,7 +185,7 @@
                   <ul class="text-right">
                    <c:if test="${sessionScope.id!=null }">
    						<c:if test="${count==0 }">
-                        <a href="../trip/jjim.do?no=${tvo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+                        <a href="../trip/jjim.do?no=${tvo.no }"><button class="ripple">찜하기</button></a>
                         </c:if>
                         <c:if test="${count!=0 }">
                         <span>찜완료</span>
@@ -165,7 +193,7 @@
                      </c:if>
                   
                
-                  	<a href="javascript:history.back();" class="btn btn-medium btn-danger" style="color:white">목록</a>
+                  	<a href="javascript:history.back();"><button class="ripple">목록</button>목록</a>
              </ul>             
                   
                </div>  
