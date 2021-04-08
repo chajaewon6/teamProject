@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
  <link rel="stylesheet" href="../css/profile.css">
+
 <style type="text/css">
 
 #trip-text{
@@ -119,10 +120,12 @@
                     
                     <h2 class="sectiontitle">호텔 예약 목록🌇</h2>
                     
-					  <div style="height:400px;width:800px;overflow-y:auto">
+					  <div style="height:400px;width:1000px;overflow-y:auto">
 					  <table class="table">
 					    <tr>
 					     <th>예약번호</th>
+					     <th>사진</th>
+					     <th>예약자 ID</th>
 					     <th>업체명</th>
 					     <th>체크인날짜</th>
 					     <th>체크인시간</th>
@@ -131,16 +134,25 @@
 					     <th>인원</th>
 					     <th>상태</th>
 					    </tr>
-					    <c:forEach var="rvo" items="${rList }" varStatus="s">
+					    <c:forEach var="rvo" items="${list }" varStatus="s">
 					       <tr>
 					     <td>${rvo.no }</td>
+					     <td><img src="${rvo.poster }" style="width:40px;height:40px;" class="img-circle"></td>
+					     <td>${rvo.id }</td>
 					     <td>${rvo.title }</td>
 					     <td>${rvo.inday }</td>
 					     <td>${rvo.intime }</td>
 					     <td>${rvo.outday }</td>
 					     <td>${rvo.outtime }</td>
 					     <td>${rvo.inwon }</td>
-					     <td>${vo.state!=0?"예약대기":"예약완료"}</td>
+					     <td class="text-center">
+     					<c:if test="${rvo.state==0 }">
+      					<a href="../hotel/reserve_ok.do?no=${rvo.no }" class="btn btn-sm btn-danger">승인대기</a>
+     					</c:if>
+     					<c:if test="${rvo.state==1 }">
+      					<span class="btn btn-sm btn-active">승인완료</span>
+     					</c:if>
+     					</td>
 					    </tr>
 					    </c:forEach>
 					   </table>

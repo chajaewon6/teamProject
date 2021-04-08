@@ -1,4 +1,5 @@
 package com.sist.model;
+import java.net.http.HttpResponse;
 import java.util.*;
 
 import javax.servlet.http.HttpServletRequest;
@@ -58,6 +59,8 @@ public class MypageModel {
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
 		return "../main/main.jsp";
 	}
+	
+	
 	
 	
 }

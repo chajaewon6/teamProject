@@ -1,5 +1,7 @@
 package com.sist.model;
 
+import java.util.List;
+
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
@@ -14,36 +16,21 @@ public class AdminModel {
 	@RequestMapping("mypage/admin.do")
 	public String admin_page(HttpServletRequest request, HttpServletResponse response)
 	{
-		 try
-		  {
-			  request.setCharacterEncoding("UTF-8");
-		  }catch(Exception ex) {}
-		  String title=request.getParameter("title");
-		  String poster=request.getParameter("poster");
-		  String inday=request.getParameter("inday");
-		  String outday=request.getParameter("outday");
-		  String intime=request.getParameter("intime");
-		  String outtime=request.getParameter("outtime");
-		  String inwon=request.getParameter("inwon");
-		  String room=request.getParameter("room");
-		  HttpSession session=request.getSession();
-		  String id=(String)session.getAttribute("id");
+		 HotelDAO dao=HotelDAO.newInstance();
+		 List<ReserveVO> list=dao.adminpage_data();
 		  
-		  ReserveVO vo=new ReserveVO();
-		  vo.setId(id);
-		  vo.setPoster(poster);
-		  vo.setTitle(title);
-		  vo.setInday(inday);
-		  vo.setOutday(outday);
-		  vo.setIntime(intime);
-		  vo.setOuttime(outtime);
-		  vo.setInwon(inwon);
-		  vo.setRoom(room);
-		  
-		  HotelDAO dao=HotelDAO.newInstance();
-		  dao.HotelReserveSave(vo);
-		  
+		 request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../mypage/admin.jsp");
 		return "../main/main.jsp";
+	}
+	
+	@RequestMapping("hotel/reserve_ok.do")
+	public String hotel_reserve_ok(HttpServletRequest request, HttpServletResponse response)
+	{
+		String no=request.getParameter("no");
+		HotelDAO dao=HotelDAO.newInstance();
+		dao.reserve_ok(Integer.parseInt(no));
+		
+		return "redirect:../mypage/admin.do";
 	}
 }

@@ -2,6 +2,8 @@
 package com.sist.dao;
 
 import java.util.*;
+import java.util.Date;
+
 import javax.sql.*;
 
 import com.sist.vo.HotelCategoryVO;
@@ -658,4 +660,66 @@ public class HotelDAO {
    	 }
    	 return list;
     }
+    
+    public List<ReserveVO> adminpage_data()
+    {
+   	 List<ReserveVO> list=new ArrayList<ReserveVO>();
+   	 try
+   	 {
+   		 
+   		 /*
+   		  * 	 private int no;
+				   private String id;
+				   private String poster;
+				   private String title;
+				   private String inday;
+				   private String intime;
+				   private String outday;
+				   private String outtime;
+				   private String inwon;
+				   private String room;
+				   private int state;
+				   private Date regdate;
+				   private String dbday;
+   		  * 
+   		  */
+			getConnection();
+			String sql="SELECT no, poster, title, inday, intime, outday, outtime, inwon, room, state, TO_CHAR(regdate, 'YYYY-MM-SS HH24:MI:SS'), id "
+					+"FROM hotel_reserve "
+					+"ORDER BY no DESC";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			while(rs.next())
+			{
+				ReserveVO vo=new ReserveVO();
+				vo.setNo(rs.getInt(1));
+				vo.setPoster(rs.getString(2));
+				vo.setTitle(rs.getString(3));
+				vo.setInday(rs.getString(4));
+				vo.setIntime(rs.getString(5));
+				vo.setOutday(rs.getString(6));
+				vo.setOuttime(rs.getString(7));
+				vo.setInwon(rs.getString(8));
+				vo.setRoom(rs.getString(9));
+				vo.setState(rs.getInt(10));
+				vo.setDbday(rs.getString(11));
+				vo.setId(rs.getString(12));
+				list.add(vo);
+			}
+			rs.close();
+   	 } catch (Exception ex) {
+			ex.printStackTrace();
+   	 }
+   	 finally
+   	 {
+   		 disConnection();
+   	 }
+   	 return list;
+    }
+    
+    
 }
+
+
+
+
