@@ -60,6 +60,7 @@
                         <div class="row">
                             <div class="col-xl-12">
                                 <!-- form -->
+
                                 <form action="#" class="search-box">
                                     <div class="search-form mb-30">
                                         <a href="../main/search.do">어디로 떠나볼까요?</a>   

@@ -218,8 +218,7 @@ public class MemberDAO {
 	  }
 	  
 	  //마이페이지 수정
-	  public MemberVO mypageUpdateData(int no) {
-		  MemberVO vo=new MemberVO();
+	  public MemberVO mypageUpdateData(MemberVO vo) {
 		  try {
 			  getConnection();
 			  String sql="UPDATE member SET "

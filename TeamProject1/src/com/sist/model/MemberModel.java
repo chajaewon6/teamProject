@@ -9,7 +9,9 @@ import javax.servlet.http.HttpSession;
 
 import com.sist.controller.Controller;
 import com.sist.controller.RequestMapping;
+import com.sist.dao.HotelDAO;
 import com.sist.dao.MemberDAO;
+import com.sist.vo.HotelReplyVO;
 import com.sist.vo.MemberVO;
 import com.sist.vo.ZipcodeVO;
 
@@ -138,7 +140,9 @@ public class MemberModel {
 	  String id=(String)session.getAttribute("id");
 	  
 	  MemberDAO dao=MemberDAO.newInstance();
+	  
 	  MemberVO vo=dao.memberAllData();
+	  
 	  request.setAttribute("vo", vo);
 	  request.setAttribute("pwd", vo.getPwd());
 	   request.setAttribute("name", vo.getName());
@@ -151,8 +155,8 @@ public class MemberModel {
 	   request.setAttribute("content", vo.getContent());
 
 	   
-	   
-	  return "../mypage/mypage.jsp";
+	   request.setAttribute("main_jsp", "../mypage/mypage.jsp");
+	  return "../main/main.jsp";
   }
   
  // 마이페이지 수정
@@ -160,9 +164,28 @@ public class MemberModel {
   public String mypage_update(HttpServletRequest request,HttpServletResponse response) {
 	  HttpSession session=request.getSession();
 	  String id=(String)session.getAttribute("id");
+	  String pwd=(String)session.getAttribute("pwd");
+	  String name=(String)session.getAttribute("name");
+	  String sex=(String)session.getAttribute("sex");
+	  String birthday=(String)session.getAttribute("birthday");
+	  String email=(String)session.getAttribute("email");
+	  String post=(String)session.getAttribute("post");
+	  String addr1=(String)session.getAttribute("addr1");
+	  String addr2=(String)session.getAttribute("addr2");
+	  String tel=(String)session.getAttribute("tel");
+	  String content=(String)session.getAttribute("content");	  
 	  
-	  MemberDAO dao=MemberDAO.newInstance();
-	  
+	  request.setAttribute("id", id);
+	  request.setAttribute("pwd", pwd);
+	  request.setAttribute("name", name);
+	  request.setAttribute("sex", sex);
+	  request.setAttribute("birthday", birthday);
+	  request.setAttribute("email", email);
+	  request.setAttribute("post", post);
+	  request.setAttribute("addr1", addr1);
+	  request.setAttribute("addr2", addr2);
+	  request.setAttribute("tel", tel);
+	  request.setAttribute("content", content);
 	  
 	  return "../main/main.jsp";
   }

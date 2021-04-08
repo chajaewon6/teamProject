@@ -361,6 +361,8 @@ public class HotelDAO {
    		 disConnection();
    	 }
     }
+    
+    
     // 댓글 삭제
     public void HotelReplyDelete(int no)
     {
