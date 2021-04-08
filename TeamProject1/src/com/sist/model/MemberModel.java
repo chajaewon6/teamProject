@@ -13,6 +13,7 @@ import com.sist.dao.HotelDAO;
 import com.sist.dao.MemberDAO;
 import com.sist.vo.HotelReplyVO;
 import com.sist.vo.MemberVO;
+import com.sist.vo.ReserveVO;
 import com.sist.vo.ZipcodeVO;
 
 @Controller
@@ -141,18 +142,13 @@ public class MemberModel {
 	  
 	  MemberDAO dao=MemberDAO.newInstance();
 	  
-	  MemberVO vo=dao.memberAllData();
+	  MemberVO vo=dao.memberAllData(id);
+	  String email=vo.getEmail();
 	  
-	  request.setAttribute("vo", vo);
-	  request.setAttribute("pwd", vo.getPwd());
-	   request.setAttribute("name", vo.getName());
-	   request.setAttribute("birthday", vo.getBirthday());
-	   request.setAttribute("email", vo.getEmail());
-	   request.setAttribute("post", vo.getPost());
-	   request.setAttribute("addr1", vo.getAddr1());
-	   request.setAttribute("addr2", vo.getAddr2());
-	   request.setAttribute("tel", vo.getTel());
-	   request.setAttribute("content", vo.getContent());
+	  request.setAttribute("id",id);
+	  
+	   request.setAttribute("email", email);
+	  
 
 	   
 	   request.setAttribute("main_jsp", "../mypage/mypage.jsp");
@@ -162,23 +158,37 @@ public class MemberModel {
  // 마이페이지 수정
   @RequestMapping("mypage/mypage_update.do")
   public String mypage_update(HttpServletRequest request,HttpServletResponse response) {
+	  
+	  //정보 가져오기
+	  //세션 정보
 	  HttpSession session=request.getSession();
 	  String id=(String)session.getAttribute("id");
-	  String pwd=(String)session.getAttribute("pwd");
 	  String name=(String)session.getAttribute("name");
-	  String sex=(String)session.getAttribute("sex");
-	  String birthday=(String)session.getAttribute("birthday");
-	  String email=(String)session.getAttribute("email");
-	  String post=(String)session.getAttribute("post");
-	  String addr1=(String)session.getAttribute("addr1");
-	  String addr2=(String)session.getAttribute("addr2");
-	  String tel=(String)session.getAttribute("tel");
-	  String content=(String)session.getAttribute("content");	  
+	
 	  
+	 //정보불러오기
 	  request.setAttribute("id", id);
-	  request.setAttribute("pwd", pwd);
 	  request.setAttribute("name", name);
-	  request.setAttribute("sex", sex);
+	
+	  
+	  //마이페이지 수정
+	  MemberDAO dao=MemberDAO.newInstance();
+	  MemberVO vo=dao.memberAllData(id);
+	 
+	  String pwd=vo.getPwd();
+	  String birthday=vo.getBirthday();
+	  String email=vo.getEmail();
+	  String post=vo.getPost();
+	  String addr1=vo.getAddr1();
+	  String addr2=vo.getAddr2();
+	  String tel=vo.getTel();
+	  String content=vo.getContent();
+	  
+	  
+	  
+	  System.out.println(email);
+	  
+	  request.setAttribute("pwd", pwd);
 	  request.setAttribute("birthday", birthday);
 	  request.setAttribute("email", email);
 	  request.setAttribute("post", post);
@@ -186,10 +196,53 @@ public class MemberModel {
 	  request.setAttribute("addr2", addr2);
 	  request.setAttribute("tel", tel);
 	  request.setAttribute("content", content);
-	  
+	  request.setAttribute("main_jsp", "../mypage/mypage_update.jsp");
 	  return "../main/main.jsp";
   }
   
+  
+  
+  
+  //수정해서 저장한 정보 
+  @RequestMapping("member/update_save.do")
+  public String reserve_save(HttpServletRequest request,HttpServletResponse response) 
+  {
+	  try
+	  {
+		  request.setCharacterEncoding("UTF-8");
+	  }catch(Exception ex) {}
+	  
+	  
+	  String id=request.getParameter("id");
+	  String pwd=request.getParameter("pwd");
+	  String name=request.getParameter("name");
+	  String sex=request.getParameter("sex");
+	  String birthday=request.getParameter("birthday");
+	  String email=request.getParameter("email");
+	  String post=request.getParameter("post");
+	  String addr1=request.getParameter("addr1");
+	  String addr2=request.getParameter("addr2");
+	  String tel=request.getParameter("tel");
+	  String content=request.getParameter("content");
+	  
+	  MemberVO vo=new MemberVO();
+	  vo.setId(id);
+	  vo.setPwd(pwd);
+	  vo.setName(name);
+	  vo.setSex(sex);
+	  vo.setBirthday(birthday);
+	  vo.setEmail(email);
+	  vo.setPost(post);
+	  vo.setAddr1(addr1);
+	  vo.setAddr2(addr2);
+	  vo.setTel(tel);
+	  vo.setContent(content);
+	  
+	  MemberDAO dao=MemberDAO.newInstance();
+	  dao.mypageUpdateData(vo);
+	  
+	  return "member/join_ok.do";
+  }
   
 }
 

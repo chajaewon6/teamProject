@@ -29,25 +29,7 @@
 	float:left
 }
 </style>
-<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
-<script type="text/javascript">
-	$(function(){
-		$('.updateBtn').click(function(){
-			location.href="mypage_update.jsp"
-		});
-		$.ajax({
-			type:'POST',
-			url:'../mypage/list.do',
-			success:function(result)
-			{
-				$('#').html(result);
-			}
-		});
-	});
-	
-	
 
-</script>
 </head>
 <body>
 
@@ -70,7 +52,8 @@
 				<br>
 
 
-				<button class="btn profile-edit-btn updateBtn">프로필 수정</button>
+
+				<a href="../mypage/mypage_update.do"><button class="btn profile-edit-btn updateBtn">프로필 수정</button></a>
 
 				<button class="btn profile-edit-btn ">프로필 사진 변경</button>
 				
