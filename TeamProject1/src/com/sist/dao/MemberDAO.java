@@ -183,6 +183,39 @@ public class MemberDAO {
 		  }
 		  return result;
 	  }
+	  //마이페이지에 전체정보 가져오기
+	  public MemberVO memberAllData() {
+		  MemberVO vo=new MemberVO();
+		  try{
+			  getConnection();
+			  String sql="SELECT pwd,name,sex,birthday,email,post,addr1,addr2,tel,content "
+			  		+ "FROM member "
+			  		+ "WHERE id=?";
+			  ps=conn.prepareStatement(sql);
+			  ps.setString(1, vo.getId());
+			  ResultSet rs=ps.executeQuery();
+			  rs.next();
+			  vo.setId(rs.getString(1));
+			  vo.setPwd(rs.getString(2));
+			  vo.setName(rs.getString(3));
+			  vo.setSex(rs.getString(4));
+			  vo.setBirthday(rs.getString(5));
+			  vo.setEmail(rs.getString(6));
+			  vo.setPost(rs.getString(7));
+			  vo.setAddr1(rs.getString(8));
+			  vo.setAddr2(rs.getString(9));
+			  vo.setTel(rs.getString(10));
+			  vo.setContent(rs.getString(11));
+			rs.close();	  
+			  
+		  }catch(Exception ex) {
+			  ex.printStackTrace();
+		  }finally {
+			  disConnection();
+		  }
+		  return vo;
+		  
+	  }
 	  
 	  //마이페이지 수정
 	  public MemberVO mypageUpdateData(int no) {
@@ -210,6 +243,7 @@ public class MemberDAO {
 		  }
 		  return vo;
 	  }
+	  
 	   
 }
 
