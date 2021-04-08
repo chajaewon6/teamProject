@@ -38,7 +38,7 @@
   background: #47a7f5 radial-gradient(circle, transparent 1%, #47a7f5 1%) center/15000%;
 }
 .ripple:active {
-  background-color: #6eb9f7;
+  background-color: #ffffff;
   background-size: 100%;
   transition: background 0s;
 }
@@ -183,7 +183,7 @@ $(function(){
 													       	
 													       		<c:if test="${sessionScope.id!=null }">
 													       			<c:if test="${count==0 }">
-													       				<a href="../hotel/jjim.do?no=${vo.no }" class="button -dark center" style="color:white" data-no="10">찜하기</a>
+													       				<a href="../hotel/jjim.do?no=${vo.no }"><button class="ripple">찜하기</button></a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
 													       				<button class="ripple">찜하기</button>
@@ -191,7 +191,7 @@ $(function(){
 													       		</c:if>
 													       		
           
-													       		<a href="../hotel/list.do"><button class="ripple">목록</button></a>
+													       		<a href="javascript:history.back();"><button class="ripple">목록</button></a>
 													       
 													      </ul> 
                 								</div>   

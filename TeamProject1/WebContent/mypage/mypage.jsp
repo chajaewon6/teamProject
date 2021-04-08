@@ -28,6 +28,11 @@
 .col-xl-4 {
 	float:left
 }
+.zzz {
+	float:left
+}
+
+
 </style>
 
 </head>
@@ -93,11 +98,10 @@
 		<!-- End of profile section -->
 
         <!-- Favourite Places Start -->
-        <div class="favourite-place place-padding">
+        <div class="favourite-place place-padding" >
             <div class="container">
                 <!-- Section Tittle -->
-                
-                <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                <div style="height:600px;width:100%;margin:0px auto;overflow-y:auto">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
@@ -105,17 +109,18 @@
                         </div>
                     </div>
                 </div>
+                
+                
+                
+                <div class="row zzz">
                 <c:forEach var="hvo" items="${hList }" varStatus="s">
-                
-                
-                <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
                                 <img src="${hvo.poster }" alt="">
                             </div>
                             <div class="place-cap">
-                                <div class="place-cap-top">
+                                <div class="place-cap-top" >
                                     <h3><a href="#">${hvo.title }</a></h3>
                                     <p class="dolor">${hvo.price }/일</p>
                                 </div>
@@ -127,8 +132,9 @@
                             </div>
                         </div>
                     </div>
+                    </c:forEach>
                    </div>
-                   </c:forEach>
+                   
                    </div>
                   
                     <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
