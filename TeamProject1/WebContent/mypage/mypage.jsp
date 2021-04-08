@@ -69,13 +69,7 @@
 
 
 
-				<button class="profile-edit-btn">프로필 수정</button>
-
-
-
-			
-
-				<button class="profile-edit-btn">이미지 변경</button>
+				
 
 
 
@@ -93,7 +87,7 @@
 
 			<div class="profile-bio">
 
-				<p><span class="profile-real-name">Jane Doe</span>자기소개글 출력📷✈️🏕️</p>
+				<p><span class="profile-real-name">${name }님</span>의 서울여행📷✈️🏕️</p>
 
 			</div>
 
@@ -190,7 +184,7 @@
                     
                     <h2 class="sectiontitle">호텔 예약 목록</h2>
                     
-					  <div style="height:400px;width:800px;overflow-y:auto">
+					  <div style="height:400px;width:1000px;overflow-y:auto">
 					  <table class="table">
 					    <tr>
 					     <th>예약번호</th>
@@ -211,7 +205,7 @@
 					     <td>${rvo.outday }</td>
 					     <td>${rvo.outtime }</td>
 					     <td>${rvo.inwon }</td>
-					     <td>${vo.state!=0?"예약대기":"예약완료"}</td>
+					     <td>${rvo.state==0?"예약대기":"예약완료"}</td>
 					    </tr>
 					    </c:forEach>
 					   </table>
