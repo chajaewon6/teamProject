@@ -31,9 +31,20 @@
 <script type="text/javascript">
 	$(function(){
 		$('.updateBtn').click(function(){
-			location.href='mypage_update.jsp';
-		})
-	})
+			location.href="mypage_update.jsp"
+		});
+		$.ajax({
+			type:'POST',
+			url:'../mypage/list.do',
+			success:function(result)
+			{
+				$('#').html(result);
+			}
+		});
+	});
+	
+	
+
 </script>
 </head>
 <body>
@@ -56,19 +67,10 @@
 				<h2 class="profile-user-name">${id }님 반갑습니다</h2>
 				<br>
 
-<<<<<<< HEAD
 				<button class="btn profile-edit-btn updateBtn">프로필 수정</button>
-=======
-				<button class="profile-edit-btn">프로필 수정</button>
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
 
-<<<<<<< HEAD
-				<button class="btn profile-edit-btn">이미지 변경</button>
+				<button class="btn profile-edit-btn ">프로필 사진 변경</button>
 				
-=======
-				<button class="profile-edit-btn">이미지 변경</button>
-
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
 			</div>
 
 			<div class="profile-stats">
