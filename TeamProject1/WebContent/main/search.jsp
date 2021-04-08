@@ -118,10 +118,7 @@ $(function(){
                 </div>
                 <div class="print"></div>
             </div>
-        </div>
-=======
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
-        
+        </div>      
     </main>
 </body>
 </html>
