@@ -38,6 +38,137 @@
           			background-color:#014b85;
           			color:white;
           		}
+          		
+          		.main_img{
+          			width:500px;
+          			height:400px;
+          		}
+          		:root {
+  --color-dark:  #014b85;;
+  --color-ocean:  #416dea;
+  --color-grass: #3dd28d;
+  --color-snow: #FFFFFF;
+  --color-salmon: #F32C52;
+  --color-sun: #feee7d;
+  --color-alge: #7999a9;
+  --color-flower: #353866;
+  --color-smoke: #e4e4e4;
+  
+  --borderRadius: 36px;
+
+  --font-face: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+}
+
+// button styles
+.button {
+  display: flex;
+  overflow: hidden;
+
+  margin: 10px;
+  padding: 12px 12px;
+
+  cursor: pointer;
+  user-select: none;
+  transition: all 150ms linear;
+  text-align: center;
+  white-space: nowrap;
+  text-decoration: none !important;
+  text-transform: none;
+  text-transform: capitalize;
+
+  color: #fff;
+  border: 0 none;
+  border-radius: var(--borderRadius);
+
+  font-size: 5px;
+  font-weight: 500;
+  line-height: 1.3;
+
+  -webkit-appearance: none;
+  -moz-appearance:    none;
+  appearance:         none;
+ 
+  justify-content: center;
+  align-items: center;
+  flex: 0 0 160px;
+  
+  box-shadow: 2px 5px 10px var(--color-smoke);
+
+  &:hover {
+    transition: all 150ms linear;
+
+    opacity: .85;
+  }
+  
+  &:active {
+    transition: all 150ms linear;
+    opacity: .75;
+  }
+  
+  &:focus {
+    outline: 1px dotted #959595;
+    outline-offset: -4px;
+  }
+}
+
+.button.-regular {
+  color: #202129;
+  background-color: #f2f2f2;
+  
+  &:hover {
+    color: #202129;
+    background-color: #e1e2e2;
+    opacity: 1;
+  }
+  
+  &:active {
+    background-color: #d5d6d6;
+    opacity: 1;
+  }
+}
+
+.button.-dark {
+  color: var(--color-snow);
+  background: var(--color-dark);
+  
+   &:focus {
+    outline: 1px dotted white;
+    outline-offset: -4px;
+  }
+}
+  
+.button.-green {
+  color: var(--color-snow);
+  background: var(--color-grass);
+}
+
+.button.-blue {
+  color: var(--color-snow);
+  background: var(--color-ocean);
+}
+
+.button.-salmon {
+  color: var(--color-snow);
+  background: var(--color-salmon);
+}
+
+.button.-sun {
+  color: #f15c5c;
+  background: var(--color-sun);
+}
+
+.button.-alge {
+  color: #e7ff20;
+  background: var(--color-alge);
+}
+
+.button.-flower {
+  color: #FE8CDF;
+  background: var(--color-flower);
+}
+.comment-block{
+	width:800px;
+} 
    		    </style>
    </head>
 
@@ -73,7 +204,7 @@
                             <span class="intro" style="color:#000000">우리가 보고 찍은 서울의 모습</span>
                             <div style="height:50px"></div>
                             <c:if test="${sessionScope.id!=null }"> 
-                            <a class="share" href="board_insert.do">나도 공유하러 가기</a>
+                            <a class="button -dark center share" href="board_insert.do">나도 공유하러 가기</a>
                             </c:if>
                              <div style="height:50px"></div>
                         </div>
@@ -85,7 +216,7 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <a href="board_detail.do?no=${vo.pb_no }"><img src="../upload/${vo.pb_pic }" alt=""></a>
+                                <a href="board_detail.do?no=${vo.pb_no }"><img src="../upload/${vo.pb_pic }" alt="" class="main_img"></a>
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">

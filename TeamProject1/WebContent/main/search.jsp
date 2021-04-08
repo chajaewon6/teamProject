@@ -81,7 +81,7 @@ $(function(){
                                 <!-- form -->
                                 <form action="#" class="search-box">
                                     <div class="input-form mb-30">
-                                        <input id="title" type="text" name="title" placeholder="어디로 떠나볼까요?">
+                                        <input id="title" type="text" placeholder="어디로 떠나볼까요?">
                                     </div>
                                     
                                     <div class="search-form mb-30">
@@ -95,14 +95,12 @@ $(function(){
                 </div>
                 
             </div>
+            
+        </div>
+        <div class="container">
+            <div class="print"></div>
         </div>
         
-        <!-- Favourite Places Start -->
-        <div class="favourite-place place-padding">
-            <div class="container">
-                <div class="print"></div>
-            </div>
-        </div>
         
     </main>
 </body>

@@ -25,7 +25,9 @@
 	width:100%;
 	height:130px;
 }
-
+.col-xl-4 {
+	float:left
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -56,19 +58,18 @@
 				<h2 class="profile-user-name">${id }님 반갑습니다</h2>
 				<br>
 
-<<<<<<< HEAD
-				<button class="btn profile-edit-btn updateBtn">프로필 수정</button>
-=======
-				<button class="profile-edit-btn">프로필 수정</button>
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
 
-<<<<<<< HEAD
-				<button class="btn profile-edit-btn">이미지 변경</button>
-				
-=======
+
+
+				<button class="profile-edit-btn">프로필 수정</button>
+
+
+
+			
+
 				<button class="profile-edit-btn">이미지 변경</button>
 
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
+
 			</div>
 
 			<div class="profile-stats">
@@ -96,7 +97,6 @@
                 <!-- Section Tittle -->
                 
                 <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
-                <c:forEach var="hvo" items="${hList }" varStatus="s">
                 <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
@@ -104,6 +104,8 @@
                         </div>
                     </div>
                 </div>
+                <c:forEach var="hvo" items="${hList }" varStatus="s">
+                
                 
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -129,14 +131,15 @@
                    </div>
                   
                     <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
-                    <c:forEach var="tvo" items="${trList }" varStatus="s">
-                   <div class="row">
+                    <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
                         	<h3>가고싶은 여행지✈️</h3>
                         </div>
                     </div>
                 </div>
+                    <c:forEach var="tvo" items="${trList }" varStatus="s">
+                   
                 
                 <div class="row">
                     <div class="col-xl-4 col-lg-4 col-md-6">
@@ -163,22 +166,11 @@
                    </div>
                    
                   
-                   <!-- 
-						 	private int no;
-						   private String id;
-						   private String title;
-						   private String inday;
-						   private String intime;
-						   private String outday;
-						   private String outtime;
-						   private String inwon;
-						   private String room;
-						   private int state;
-						   private Date regdate;
-						   private String dbday;
-                    -->
-                    <h2 class="sectiontitle">예약 목록</h2>
-					  <div style="height:300px;width:600px;overflow-y:auto">
+                   
+                    
+                    <h2 class="sectiontitle">호텔 예약 목록</h2>
+                    
+					  <div style="height:400px;width:800px;overflow-y:auto">
 					  <table class="table">
 					    <tr>
 					     <th>예약번호</th>
@@ -199,7 +191,7 @@
 					     <td>${rvo.outday }</td>
 					     <td>${rvo.outtime }</td>
 					     <td>${rvo.inwon }</td>
-					     <td>${vo.state==0?"예약대기":"예약완료"}</td>
+					     <td>${vo.state!=0?"예약대기":"예약완료"}</td>
 					    </tr>
 					    </c:forEach>
 					   </table>

@@ -139,7 +139,7 @@ public class BoardModel {
 		try
 		{
 			request.setCharacterEncoding("UTF-8");
-			String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
+			String path="C:\\Users\\SIST\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
 			int size=1024*1024*100;
 			String enctype="UTF-8";
 			// 업로드
@@ -220,7 +220,7 @@ public class BoardModel {
 		 try
 		 {
 			 request.setCharacterEncoding("UTF-8");
-				String path="C:\\webDev\\webStudy\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
+				String path="C:\\Users\\SIST\\eclipse-workspace\\.metadata\\.plugins\\org.eclipse.wst.server.core\\tmp0\\wtpwebapps\\TeamProject1\\upload\\";
 				int size=1024*1024*100;
 				String enctype="UTF-8";
 				// 업로드
