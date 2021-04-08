@@ -202,23 +202,7 @@ $(function(){
     <!-- Preloader Start-->
    
   
-     <!-- slider Area Start-->
-     <!---
-     <div class="slider-area ">
-        
-        <div class="single-slider slider-height2 d-flex align-items-center" data-background="../img/hero/about.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>호텔 상세보기</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-     -->
+     
      <!-- slider Area End-->
     <!--================Blog Area =================-->
     <section class="blog_area section-padding">
@@ -302,24 +286,26 @@ $(function(){
 													       	
 													       		<c:if test="${sessionScope.id!=null }">
 													       			<c:if test="${count==0 }">
-													       				<a href="../hotel/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+													       				<a href="../hotel/jjim.do?no=${vo.no }" class="button -dark center" style="color:white" data-no="10">찜하기</a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
-													       				<span class="btn btn-medium btn-default">찜하기</span>
+													       				<span class="button -white center">찜하기</span>
 													       			</c:if>
 													       		</c:if>
-													       		<a href="../main/main.do" class="btn btn-medium btn-danger" style="color:white">목록</a>
+													       		
+          
+													       		<a href="../hotel/list.do" class="button -dark center" style="color:white">목록</a>
 													       
 													      </ul> 
                 								</div>   
-              						</article> 
+              						</article>
                             </div>
                      
                         
                         
-                         <!-- 댓글 영역 -->
-         
-         <div class="blog_left_sidebar">
+                        
+					 	 
+          <div class="blog_left_sidebar">
           <div class="row">
           <!-- 댓글 쓰기 -->
          <!--  <h4>댓글 달기</h4><br> -->
@@ -330,7 +316,7 @@ $(function(){
 		<form action="../hotel/hotel_reply_insert.do" method=post>
 				<div class="comment-block">
 						<textarea name="msg" id="id" cols="100" rows="3" placeholder="Add comment..."></textarea>
-						<input type="hidden" name=cno value="${no }">
+						<input type="hidden" name=cno value="${vo.no }">
 				</div>
 				<div style="height:20px"></div>
 				 <button class="button -dark center">댓글 등록</button>
@@ -339,13 +325,14 @@ $(function(){
 			
 		</c:if>
 		<!-- 댓글 출력 -->
-		 <c:forEach var="rvo" items="${rList }">
+		<c:forEach var="rvo" items="${rList }">
 		<div class="comment-wrap">
 				<div class="comment-block">
 						<p class="comment-text">${rvo.msg }</p>
 						<p class="comment-text" style="font-size:10px;">작성자:&nbsp;${rvo.name }</p>
 						<div class="bottom-comment">
 								<div class="comment-date">${rvo.dbday }</div>
+		 
 								<!-- 수정, 삭제 -->
 								<c:if test="${sessionScope.id==rvo.id }">
 								<ul class="comment-actions">
@@ -377,65 +364,35 @@ $(function(){
 			</div>
 		
 			<!-- --------------------------댓글 영역 끝----------------------------- -->
-<%-- <div id="comments">
-        <h2>댓글</h2>
-        <ul>
-        <c:forEach var="rvo" items="${rList }">
-          <li>
-            <article>
-              <header>
-                <figure class="avatar">
-	                <c:if test="${sessionScope.id==rvo.id }">
-		                <span class="btn btn-xs btn-success updateBtn" data-no="${rvo.no }">수정</span>
-		                <span class="btn btn-xs btn-danger delBtn" data-no="${rvo.no }" data-cno="${vo.no }">삭제</span>
-	                </c:if>
-                </figure>
-                <address>
-                By <a href="#">${rvo.name }</a>
-                </address>
-                <time datetime="2045-04-06T08:15+00:00">${rvo.dbday }</time>
-              </header>
-              <div class="comcont">
-                <pre style="white-space:pre-wrap;border:none;background-color:white">${rvo.msg }</pre>
-              </div>
-            </article>
-          </li>
-          <li style="display:none" id="m${rvo.no }" class="updateli">
-          <form action="../food/food_reply_update.do" method="post">
-          <table class="table">
-          	<tr>
-          		<td>
-          			<textarea rows="7" cols="30" name="msg">${rvo.msg }</textarea>
-          			<input type="hidden" name=cno value="${vo.no }">
-          			<input type="hidden" name=no value="${rvo.no }">
-          			<input type="submit" value="댓글수정" class="btn btn-sm btn-danger">
-          		</td>
-          	</tr>
-          </table>
-        </form>
-          </li>
-          </c:forEach>
-        </ul>
-        <c:if test="${sessionScope.id!=null }">
-        <form action="../food/food_reply_insert.do" method="post">
-          <table class="table">
-          	<tr>
-          		<td>
-          			<textarea rows="7" cols="30" name="msg"></textarea>
-          			<input type="hidden" name=cno value="${vo.no }">
-          			<input type="submit" value="댓글쓰기" class="btn btn-sm btn-danger">
-          		</td>
-          	</tr>
-          </table>
-        </form>
-        </c:if>
-      </div> --%>
-      						</div>    
-                </div>
-    <%--<div class="form-group">
-       <textarea class="form-control w-100" name="message" id="message" cols="30" rows="9" onfocus="this.placeholder = ''" onblur="this.placeholder = 'Enter Message'" placeholder=" Enter Message"></textarea>
-                                    </div> --%>
-                 <div class="mb">
+
+      
+	      						</div>  
+	      						<div class="col-lg-4">
+                    <div class="blog_right_sidebar">
+                        
+                        <aside class="single_sidebar_widget popular_post_widget">
+                            <h3 class="widget_title">최근 방문 호텔</h3>
+                            <c:forEach var="fvo" items="${fList }">
+                            
+                            <a href="../hotel/detail.do?no=${fvo.no }">
+                            <div class="media post_item">
+                                <img src="${fvo.poster }" alt="post" style="width:140px;height:115px">
+                                <div class="media-body">
+                                    <a href="single-blog.html">
+                                        <h3>${fvo.title }</h3>
+                                    </a>
+                                    <p class="dolor" style="color:green">${fn:substring(fvo.grade,0,fn:indexOf(fvo.grade,"(")) } <ul><span style="color:black">  ${fvo.price }</span></ul></p>
+                                </div>  
+                            </div>
+                            </a>
+                            
+                            </c:forEach>
+  
+                        </aside> 
+                		</div>
+                </div>  
+	                </div>
+                 <%-- <div class="col-lg-4">
                     <div class="blog_right_sidebar">
                         
                         <aside class="single_sidebar_widget popular_post_widget">
@@ -467,7 +424,7 @@ $(function(){
                         </aside>
                       
                 		</div>
-                </div>
+                </div> --%>
                 
                 
             </div>

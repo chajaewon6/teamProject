@@ -107,7 +107,7 @@
                        <td width=80% class="text-left">${tvo.address }</td>
                     </tr>
                     <tr>
-                     <th width=20% class="text-right">교통정보</th>
+                     <th width=20% class="text-right">교통정보 </th>
                        <td width=80% class="text-left">${tvo.subwayinfo }</td>
                     </tr>
                    
@@ -153,19 +153,24 @@
                         } 
                      });    
                   </script> 
+                  
+                  <ul class="text-right">
+                   <c:if test="${sessionScope.id!=null }">
+   						<c:if test="${count==0 }">
+                        <a href="../trip/jjim.do?no=${tvo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
+                        </c:if>
+                        <c:if test="${count!=0 }">
+                        <span>찜완료</span>
+                        </c:if>
+                     </c:if>
+                  
+               
+                  	<a href="javascript:history.back();" class="btn btn-medium btn-danger" style="color:white">목록</a>
+             </ul>             
+                  
                </div>  
                
-                <ul class="text-right">
-                   <c:if test="${sessionScope.id!=null }">
-                     <c:if test="${count==0 }">
-                        <a href="../trip/jjim.do?no=${vo.no }" class="btn btn-medium btn-primary" style="color:white">찜하기</a>
-                     </c:if>
-                  <c:if test="${count!=0 }">
-                     <span class="btn btn-medium btn-default">찜하기</span>
-                  </c:if>
-               </c:if>
-                  <a href="javascript:history.back();" class="btn btn-medium btn-danger" style="color:white">목록</a>
-             </ul>             
+                
             </div>
                     
    

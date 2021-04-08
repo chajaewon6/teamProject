@@ -32,11 +32,27 @@ public class MypageModel {
 			hList.add(hvo);
 		}
 		
+		// 여행 찜목록
+		TripDAO tdao=TripDAO.newInstance();
+		
+		List<TripJjimVO> tList=tdao.TripJjimListData(id);
+		List<TripVO> trList=new ArrayList<TripVO>();
+		for(TripJjimVO vo:tList)
+		{
+			TripVO tvo=tdao.TripDetailData(vo.getCno());
+			trList.add(tvo);
+		}
+		
+		
 		// 호텔 예약 목록
 		List<ReserveVO> rList=dao.mypage_data(id);
 		request.setAttribute("rList", rList);
+		
+		
 		request.setAttribute("jList", jList);
 		request.setAttribute("hList", hList);
+		request.setAttribute("tList", tList);
+		request.setAttribute("trList", trList);
 		
 		request.setAttribute("id", id);
 		request.setAttribute("main_jsp", "../mypage/mypage.jsp");
