@@ -300,12 +300,31 @@ $(function(){
 			
 				</div> 
               <div class="col-lg-4">
-                    <div class="blog_right_sidebar">            
+                    <div class="blog_right_sidebar text-center">
+                        
                         <aside class="single_sidebar_widget popular_post_widget">
-                            <h3 class="widget_title">인근 여행지 추천</h3>
-                    </aside>
-                	</div>
-                </div> <!-- col-lg-4 end -->
+                            <h3 class="widget_title">조회수 top10 게시글</h3>
+                            <table>
+                           <%--  <c:forEach var="tvo" items="${fList }"  end="4"> --%>
+                            <tr>
+                             <a href="../trip/detail_before.do?no=${tvo.no }">
+                              <!-- div class="media post_item"> -->
+                               <img src="${tvo.poster }" alt="post" style="width:160px;height:115px">
+                               <%-- <h4>${tvo.title }</h4> --%>
+                               <p style="font-size:10pt;margin:0px auto">${tvo.title }</p>
+                               <br>
+                              <!-- <div class="media-body">
+                                <a href="single-blog.html"></a>
+                              </div> -->  
+                             </div>
+                            </a>
+                            </tr>
+                            <%-- </c:forEach> --%>
+  							</table>
+                        </aside>
+                      
+                      </div>
+                </div>
             </div> <!-- row-end -->
         </div>
     </section>
