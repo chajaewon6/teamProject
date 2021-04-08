@@ -423,29 +423,36 @@ public class TripDAO {
    }
    
    //찜하기
-   public void TripJjimInsert(int no,String id){
+   public void TripJjimInsert(String id, int no){
      try{
       getConnection();
-      String sql="INSERT INTO trip_jjim1 VALUES( "
+      String sql="INSERT INTO trip_jjim VALUES( "
            +"tjj_no_seq.nextval,?,?)";
       ps=conn.prepareStatement(sql);
       ps.setString(1,id);
       ps.setInt(2,no);
       ps.executeUpdate();
-     }catch(Exception ex){
+     }
+     catch(Exception ex)
+     {
       ex.printStackTrace();
-     }finally{
+     }
+     finally
+     {
       disConnection();
      }
       
    }
 
    //찜하기 체크
-   public int TripJjimCheck(int cno,String id){
+   public int TripJjimCheck(int cno,String id)
+   {
      int count=0;
-     try{
+     try
+     {
+    	 
       getConnection();
-      String sql="SELECT COUNT(*) FROM trip_jjim1 "
+      String sql="SELECT COUNT(*) FROM trip_jjim "
          +"WHERE cno=? AND id=?";
       ps=conn.prepareStatement(sql);
       ps.setInt(1,cno);
@@ -454,40 +461,49 @@ public class TripDAO {
       rs.next();
       count=rs.getInt(1);
       rs.close();
-     }catch(Exception ex){
+     }
+     catch(Exception ex)
+     {
       ex.printStackTrace();
-     }finally{
+     }
+     finally
+     {
       disConnection();
      }
      return count;
    }
    //찜목록
-   public List<TripJjimVO> TripJjimListData(String id){
+   public List<TripJjimVO> TripJjimListData(String id)
+   {
      List<TripJjimVO> list=new ArrayList<TripJjimVO>();
-     try{
+     try
+     {
       getConnection();
-      String sql="SELECT no,cno, " 
-         +"FROM trip_jjim1 "
+      String sql="SELECT no,cno " 
+         +"FROM trip_jjim "
          +"WHERE id=?";
       ps=conn.prepareStatement(sql);
       ps.setString(1,id);
       ResultSet rs=ps.executeQuery();
-      while(rs.next()){
+      while(rs.next())
+      {
          TripJjimVO vo=new TripJjimVO();
          vo.setNo(rs.getInt(1));
          vo.setCno(rs.getInt(2));
          list.add(vo);
       }
       rs.close();
-     }catch(Exception ex){
+     }
+     catch(Exception ex)
+     {
       ex.printStackTrace();
-     }finally{
+     }
+     finally
+     {
       disConnection();
      }
      return list;
    }
-   
-
 }
 
 

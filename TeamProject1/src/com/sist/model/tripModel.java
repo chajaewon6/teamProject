@@ -122,9 +122,9 @@ public class tripModel {
      request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
      
      HttpSession session=request.getSession();
-     //String id=(String)session.getAttribute("id"); 
-     //int count=dao.foodJjimCheck(Integer.parseInt(no), id);
-     //request.setAttribute("count", count);
+     String id=(String)session.getAttribute("id"); 
+     int count=dao.TripJjimCheck(Integer.parseInt(no),id);
+     request.setAttribute("count", count);
      return "../main/main.jsp";
   }
   
@@ -187,37 +187,16 @@ public class tripModel {
   }
   //찜하기
   @RequestMapping("trip/jjim.do")
-  public String trip_jjim(HttpServletRequest request,HttpServletResponse response) {
+  public String trip_jjim(HttpServletRequest request,HttpServletResponse response)
+  {
      String no=request.getParameter("no");
      HttpSession session=request.getSession();
      String id=(String)session.getAttribute("id");
      
      TripDAO dao=TripDAO.newInstance();
-     dao.TripJjimInsert(Integer.parseInt(no), id);
+     dao.TripJjimInsert(id, Integer.parseInt(no));
      return "redirect:../trip/trip_detail.do?no="+no;
   }
-  
-  //마이페이지 설정
-  @RequestMapping("trip/mypage.do")
-  public String trip_mypage(HttpServletRequest request,HttpServletResponse response) {
-     HttpSession session=request.getSession();
-     String id=(String)session.getAttribute("id");
-     TripDAO dao=TripDAO.newInstance();
-     //찜하기 목록
-     List<TripJjimVO> jList=dao.TripJjimListData(id);
-     List<TripVO> fList=new ArrayList<TripVO>();
-     for(TripJjimVO vo:jList) {
-        TripVO fvo=dao.TripDetailData(vo.getCno());
-        String poster=fvo.getPoster();
-        poster=poster.substring(0,poster.indexOf("^"));
-        fvo.setPoster(poster);
-        fList.add(fvo);
-     }
-     request.setAttribute("fList", fList);
-     request.setAttribute("jList", jList);
-     return "../main/main.jsp";
-  }
-  
   
 }
 

@@ -47,9 +47,9 @@
 
 				<h2 class="profile-user-name">${id }님 반갑습니다</h2>
 
-				<button class="btn profile-edit-btn">프로필 수정</button>
+				<button class="profile-edit-btn">프로필 수정</button>
 
-				<button class="btn profile-edit-btn">이미지 변경</button>
+				<button class="profile-edit-btn">이미지 변경</button>
 
 			</div>
 
@@ -109,7 +109,9 @@
                    </div>
                    </c:forEach>
                    </div>
-                   
+                  
+                    <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                    <c:forEach var="tvo" items="${trList }" varStatus="s">
                    <div class="row">
                     <div class="col-lg-12">
                         <div id="trip-text">
@@ -122,59 +124,27 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30">
                             <div class="place-img">
-                                <img src="../img/service/services1.jpg" alt="">
+                                <img src="${tvo.poster }" alt="">
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>번호</span> </span>
-                                    <h3><a href="#">제목</a></h3>
-                                    <p class="dolor">가격 <span>인원</span></p>
+                                    <h3><a href="#">${tvo.title }</a></h3>
+                                    <p class="dolor">${tvo.category }</p>
                                 </div>
                                 <div class="place-cap-bottom">
                                     <ul>
-                                        <li><i class="far fa-clock"></i>날짜</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>주소</li>
+                                       
+                                        <li>${tvo.addr }</li>
                                     </ul>
                                 </div>
                             </div>
                         </div>
                     </div>
+                   </div>
+                   </c:forEach>
                    </div>
                    
-                     
-                    <div class="row">
-                    <div class="col-lg-12">
-                        <div id="trip-text">
-                        	<h3>가고 싶은 호텔🌇</h3>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="../img/service/services1.jpg" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <span><i class="fas fa-star"></i><span>번호</span> </span>
-                                    <h3><a href="#">제목</a></h3>
-                                    <p class="dolor">가격 <span>인원</span></p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                        <li><i class="far fa-clock"></i>날짜</li>
-                                        <li><i class="fas fa-map-marker-alt"></i>주소</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   </div>
-                    
-                    
-                   <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
+                  
                    <!-- 
 						 	private int no;
 						   private String id;
