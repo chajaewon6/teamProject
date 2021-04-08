@@ -109,84 +109,12 @@
 		</div>
 		<!-- End of profile section -->
 
-        <!-- Favourite Places Start -->
-        <div class="favourite-place place-padding">
-            <div class="container">
-                <!-- Section Tittle -->
-                
-                <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
-                <div class="row">
-                    <div class="col-lg-12">
-                        <div id="trip-text">
-                        	<h2>가고 싶은 호텔🌇</h2>
-                        </div>
-                    </div>
-                </div>
-                <c:forEach var="hvo" items="${hList }" varStatus="s">
-                
-                
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="${hvo.poster }" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">${hvo.title }</a></h3>
-                                    <p class="dolor">${hvo.price }/일</p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                 	<li>${hvo.addr }</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   </div>
-                   </c:forEach>
-                   </div>
-                  
-                    <div style="height:600px;width:100%;margin:0px auto;overflow-x:auto">
-                    <div class="row">
-                    <div class="col-lg-12">
-                        <div id="trip-text">
-                        	<h3>가고싶은 여행지✈️</h3>
-                        </div>
-                    </div>
-                </div>
-                    <c:forEach var="tvo" items="${trList }" varStatus="s">
-                   
-                
-                <div class="row">
-                    <div class="col-xl-4 col-lg-4 col-md-6">
-                        <div class="single-place mb-30">
-                            <div class="place-img">
-                                <img src="${tvo.poster }" alt="">
-                            </div>
-                            <div class="place-cap">
-                                <div class="place-cap-top">
-                                    <h3><a href="#">${tvo.title }</a></h3>
-                                    <p class="dolor">${tvo.category }</p>
-                                </div>
-                                <div class="place-cap-bottom">
-                                    <ul>
-                                       
-                                        <li>${tvo.addr }</li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                   </div>
-                   </c:forEach>
-                   </div>
+      
                    
                   
                    
                     
-                    <h2 class="sectiontitle">호텔 예약 목록</h2>
+                    <h2 class="sectiontitle">호텔 예약 승인 대기 목록</h2>
                     
 					  <div style="height:400px;width:800px;overflow-y:auto">
 					  <table class="table">
