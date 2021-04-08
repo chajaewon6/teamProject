@@ -184,15 +184,15 @@ public class MemberDAO {
 		  return result;
 	  }
 	  //마이페이지에 전체정보 가져오기
-	  public MemberVO memberAllData() {
+	  public MemberVO memberAllData(String id) {
 		  MemberVO vo=new MemberVO();
 		  try{
 			  getConnection();
-			  String sql="SELECT pwd,name,sex,birthday,email,post,addr1,addr2,tel,content "
+			  String sql="SELECT id,pwd,name,sex,birthday,email,post,addr1,addr2,tel,content "
 			  		+ "FROM member "
 			  		+ "WHERE id=?";
 			  ps=conn.prepareStatement(sql);
-			  ps.setString(1, vo.getId());
+			  ps.setString(1, id);
 			  ResultSet rs=ps.executeQuery();
 			  rs.next();
 			  vo.setId(rs.getString(1));
