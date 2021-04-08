@@ -115,7 +115,7 @@ public class tripModel {
      //List<TripCategoryVO> zList=dao.TripLocationData(Integer.parseInt(cno));
      //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
      //request.setAttribute("rList", rList);
-     request.setAttribute("zList", zList);
+     //request.setAttribute("zList", zList);
      request.setAttribute("tvo", tvo);
      request.setAttribute("fList", fList);
      request.setAttribute("cList", cList);
