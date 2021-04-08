@@ -178,7 +178,7 @@ $(function(){
                                             		<li><a href="../mypage/mypage.do">마이페이지</a></li>
                                             	</c:if>
                                             	<c:if test="${sessionScope.admin=='y' }">
-                                            		<li><a href="#">관리자페이지</a></li>
+                                            		<li><a href="../mypage/admin.do">관리자페이지</a></li>
                                             	</c:if>
                                             </c:if>
                                         </ul>
