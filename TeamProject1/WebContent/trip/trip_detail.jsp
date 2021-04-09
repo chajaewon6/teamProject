@@ -41,6 +41,9 @@ button {
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 $(function(){
+	$('#jjim').click(function(){
+		$('#jjim').css('background-color', 'black')
+	})
 	$('#findBtn').click(function(){
     let cno=$(this).attr("value");
 $.ajax({
@@ -186,10 +189,10 @@ $.ajax({
                   <ul class="text-right">
                    <c:if test="${sessionScope.id!=null }">
    						<c:if test="${count==0 }">
-                        <a href="../trip/jjim.do?no=${tvo.no }"><button class="ripple">찜하기</button></a>
+                        <a href="../trip/jjim.do?no=${tvo.no }"><button class="ripple" id="jjim">찜하기</button></a>
                         </c:if>
                         <c:if test="${count!=0 }">
-                        <span>찜완료 </span>
+                        <button class="ripple" id="jjim">찜완료</button>
                         </c:if>
                      </c:if>
                   
