@@ -30,12 +30,12 @@ public class BoardModel {
 		
 		// 토탈페이지
 		int count=dao.boardCount();
-		int totalPage=(int)(Math.ceil(count/3.0));
+		int totalPage=(int)(Math.ceil(count/6.0));
 		
 		// 페이지 나누기 
 		final int BLOCK=5;
 		int startPage=((curpage-1)/BLOCK*BLOCK)+1;
-		int endPage=startPage + (BLOCK-1);;
+		int endPage=((curpage-1)/BLOCK*BLOCK)+BLOCK;
 		if(endPage>totalPage)
 			endPage=totalPage;
 		
