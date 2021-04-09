@@ -61,7 +61,7 @@
 
 			<div class="profile-image">
 
-				<img src="https://images.unsplash.com/photo-1513721032312-6a18a42c8763?w=152&h=152&fit=crop&crop=faces" alt="">
+				<img src="https://image.flaticon.com/icons/png/512/81/81591.png" alt="" style="height:150px; width:150px" class="img-rounded">
 
 			</div>
 		
@@ -74,7 +74,7 @@
 
 				<a href="../mypage/mypage_update.do"><button class="btn profile-edit-btn updateBtn">프로필 수정</button></a>
 
-				<button class="btn profile-edit-btn ">프로필 사진 변경</button>
+				<button class="btn profile-edit-btn ">프로필 사진 변경</button><br><br>
 				
 
 
@@ -86,18 +86,18 @@
 			</div>
 
 			<div class="profile-stats">
-
+		
 				<ul>
-					<li><span class="profile-stat-count">164</span> 관심 목록</li>
-					<li><span class="profile-stat-count">188</span> 나의 여행 사진</li>
-					<li><span class="profile-stat-count">206</span> 예매 목록</li>
+					<li><span class="profile-stat-count">${reserveAll }</span>개의 총 예약 목록</li><br><br>
+					<li><span class="profile-stat-count">${reserveWait }</span>개의 예약이 대기중 입니다</li>
+					<li><span class="profile-stat-count">${reserveOK }</span>개의 예약이 완료되었습니다</li>
 				</ul>
 
 			</div>
 
 			<div class="profile-bio">
 
-				<p><span class="profile-real-name">Jane Doe</span>자기소개글 출력📷✈️🏕️</p>
+				
 
 			</div>
 

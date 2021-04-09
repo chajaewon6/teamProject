@@ -769,6 +769,78 @@ public class HotelDAO {
     	}
     	return count;
     }
+    // 관리자 페이지 예약 갯수 카운트
+    public int adminReserveAllCount ()
+    {
+    	int count=0;
+    	try
+    	{
+			getConnection();
+			String sql="SELECT COUNT(*) FROM hotel_reserve ";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			
+		} catch (Exception e)
+    	{
+			e.printStackTrace();
+		}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return count;
+    }
+    // 관리자 페이지 예약 완료
+    public int adminReserveOK()
+    {
+    	int count=0;
+    	try
+    	{
+			getConnection();
+			String sql="SELECT COUNT(*) FROM hotel_reserve "
+					+"WHERE state=1";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			
+		} catch (Exception e)
+    	{
+			e.printStackTrace();
+		}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return count;
+    }
+    // 관리자 페이지 예약 대기
+    public int adminReserveWait()
+    {
+    	int count=0;
+    	try
+    	{
+			getConnection();
+			String sql="SELECT COUNT(*) FROM hotel_reserve "
+					+"WHERE state=0";
+			ps=conn.prepareStatement(sql);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			
+		} catch (Exception e)
+    	{
+			e.printStackTrace();
+		}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return count;
+    }
+    
 }
 
 

@@ -18,7 +18,14 @@ public class AdminModel {
 	{
 		 HotelDAO dao=HotelDAO.newInstance();
 		 List<ReserveVO> list=dao.adminpage_data();
-		  
+		 
+		 int reserveAll=dao.adminReserveAllCount();
+		 int reserveWait=dao.adminReserveWait();
+		 int reserveOK=dao.adminReserveOK();
+		 
+		 request.setAttribute("reserveAll", reserveAll);
+		 request.setAttribute("reserveWait", reserveWait);
+		 request.setAttribute("reserveOK", reserveOK);
 		 request.setAttribute("list", list);
 		request.setAttribute("main_jsp", "../mypage/admin.jsp");
 		return "../main/main.jsp";
