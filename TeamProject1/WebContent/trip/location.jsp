@@ -13,6 +13,11 @@
   margin: 0px auto;
   width:960px;
 }
+
+.zzz{
+	 margin: 0px auto;
+}
+
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -38,6 +43,7 @@ $(function(){
 	})
 });
 </script>
+
 </head>
 <body>
 <div class="wrapper row3 location_row">
@@ -53,9 +59,14 @@ $(function(){
          class="images" data-value="${i }"
         >
       </c:forEach>
+    
      </div>
+     
    </div>
+   
+   
    <div class="wrapper row3 location_row">
+   
      <div id="print" style="height:500px;overflow-y:auto"></div>
    </div>
 </body>
