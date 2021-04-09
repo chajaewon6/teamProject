@@ -159,6 +159,11 @@ public class MemberModel {
   @RequestMapping("mypage/mypage_update.do")
   public String mypage_update(HttpServletRequest request,HttpServletResponse response) {
 	  
+	  try
+	  {
+		  request.setCharacterEncoding("UTF-8");
+	  }catch(Exception ex) {}
+	  
 	  //정보 가져오기
 	  //세션 정보
 	  HttpSession session=request.getSession();
@@ -227,7 +232,7 @@ public class MemberModel {
 	  String addr1=request.getParameter("addr1");
 	  String addr2=request.getParameter("addr2");
 	  String tel=request.getParameter("tel");
-	  String content=request.getParameter("content");
+	  String content=request.getParameter("user_bio");
 	  
 	  MemberVO vo=new MemberVO();
 	  

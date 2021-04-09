@@ -70,7 +70,7 @@
              
              
          <legend><span class="number">2</span>추가사항</legend>
-     		<fieldset>
+     		<fieldset >
 	          <label for="bio">자기소개</label>
 	          <textarea id="bio" name="user_bio" value="${content }" >${content }</textarea>
         </fieldset>

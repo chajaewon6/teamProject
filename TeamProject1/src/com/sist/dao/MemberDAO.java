@@ -206,6 +206,7 @@ public class MemberDAO {
 			  vo.setAddr2(rs.getString(9));
 			  vo.setTel(rs.getString(10));
 			  vo.setContent(rs.getString(11));
+			  
 			rs.close();	  
 			  
 		  }catch(Exception ex) {
@@ -222,7 +223,7 @@ public class MemberDAO {
 		  try {
 			  getConnection();
 			  String sql="UPDATE member SET "
-			  		+ "pwd=?,post=?,addr1=?,addr2=?,tel=?,content=?"
+			  		+ "pwd=?,post=?,addr1=?,addr2=?,tel=?,content=? "
 					  +"WHERE id=?";
 			  ps=conn.prepareStatement(sql);
 			  ps.setString(1, vo.getPwd());
