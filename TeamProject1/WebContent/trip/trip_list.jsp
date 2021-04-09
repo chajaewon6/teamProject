@@ -12,6 +12,12 @@
         .form-row tm-search-form-row{
         margin-top: 400px;
         }
+        @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+		.jg{
+		font-family: 'Jeju Gothic', sans-serif;
+		font-size:18px;
+		font-weight:bold;
+		}
         </style>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -122,7 +128,7 @@
                                 <div class="place-cap-top">
                                 <div class="#">
                                 
-                                 <h4 class="text-left" ><a href="../trip/detail_before.do?no=${tvo.no }" >${tvo.title }</a></h4>
+                                 <h4 class="text-left jg" ><a href="../trip/detail_before.do?no=${tvo.no }" >${tvo.title }</a></h4>
                                 
                                      <!--<span><i class="fas fa-star"></i>
                                     <span></span> </span>-->

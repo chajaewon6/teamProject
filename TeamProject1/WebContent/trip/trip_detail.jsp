@@ -196,17 +196,20 @@ $.ajax({
                
                   	<a href="javascript:history.back();"><button class="ripple">목록</button></a>
                   	
-             </ul>             
+                 </ul>             
+                 
+                 
                   <ul>
                   <button class="ripple" id="findBtn" value="${tvo.cno }">주변 관광지 더보기</button>
+                  
                   </ul>
+                  
                   <div class="print"></div>
+                  
+                  
                </div>  
             
-                
-                
-                
-                
+               
             </div>
                     
    
