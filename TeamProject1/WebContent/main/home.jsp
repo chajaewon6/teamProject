@@ -128,7 +128,7 @@
                     
                     
                     
-                    <div id="hero-slides">
+                   <!--  <div id="hero-slides">
   <div id="header">
     <div id="logo"></div>
     <div id="menu">
@@ -206,10 +206,10 @@
   <div id="footer"><a href="https://dribbble.com/shots/3888265-Motion-Study" target="_blank">
       <div id="dribbble"></div></a></div>
 </div>
-<!-- partial -->
+partial
   <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script><script  src="./script.js"></script>
                     
-                    
+                     -->
                     
                     
                     
