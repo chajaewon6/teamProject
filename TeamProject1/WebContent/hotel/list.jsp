@@ -13,6 +13,10 @@
         .form-row tm-search-form-row{
         margin-top: 400px;
         }
+        #title{
+        	
+        	text-shadow: 2px 2px 2px gray;
+        }
         </style>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -28,12 +32,12 @@
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
-            <div class="single-slider slider-height2 d-flex align-items-center" data-background="../img/hero/contact_hero.jpg">
+            <div class="single-slider slider-height2 d-flex align-items-center" data-background="https://www.guestcanpost.com/wp-content/uploads/2019/09/baglioni-hotel-london.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>호텔 예약</h2>
+                                <h2 id="title">호텔 예약</h2>
                             </div>
                         </div>
                     </div>
