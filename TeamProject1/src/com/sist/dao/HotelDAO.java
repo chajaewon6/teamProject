@@ -717,8 +717,72 @@ public class HotelDAO {
    	 return list;
     }
     
+    // 찜개수 카운트
+    public int hotelJjimCount(String id)
+    {
+    	int count=0;
+    	try
+    	{
+			getConnection();
+			String sql="SELECT COUNT(*) FROM hotel_jjim "
+					+"WHERE id=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+			
+		} 
+    	catch (Exception ex)
+    	{
+			ex.printStackTrace();
+		}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return count;
+    }
     
+    // 예약 갯수 카운트
+    public int reserveCount(String id)
+    {
+    	int count=0;
+    	try 
+    	{
+			getConnection();
+			String sql="SELECT COUNT(*) FROM hotel_reserve "
+					+"WHERE id=?";
+			ps=conn.prepareStatement(sql);
+			ps.setString(1, id);
+			ResultSet rs=ps.executeQuery();
+			rs.next();
+			count=rs.getInt(1);
+		} 
+    	catch (Exception ex)
+    	{
+			
+		}
+    	finally
+    	{
+    		disConnection();
+    	}
+    	return count;
+    }
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

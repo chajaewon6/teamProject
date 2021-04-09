@@ -504,6 +504,31 @@ public class TripDAO {
      }
      return list;
    }
+   // 찜목록 몇개인지 
+   public int tripJjimCount (String id)
+   {
+	   int count =0;
+	   try
+	   {
+		   getConnection();
+		   String sql="SELECT COUNT(*) FROM trip_jjim "
+				   +"WHERE id=?";
+		   ps=conn.prepareStatement(sql);
+		   ps.setString(1, id);
+		   ResultSet rs=ps.executeQuery();
+		   rs.next();
+		   count=rs.getInt(1);
+	   } 
+	   catch (Exception ex)
+	   {
+		   ex.printStackTrace();
+	   }
+	   finally
+	   {
+		   disConnection();
+	   }
+	   return count;
+   }
 }
 
 

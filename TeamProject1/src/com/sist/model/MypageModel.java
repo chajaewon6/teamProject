@@ -32,6 +32,8 @@ public class MypageModel {
 			HotelVO hvo=dao.HotelDetailData(vo.getCno());
 			hList.add(hvo);
 		}
+		int hotelJcount=dao.hotelJjimCount(id);
+		
 		
 		// 여행 찜목록
 		TripDAO tdao=TripDAO.newInstance();
@@ -43,13 +45,17 @@ public class MypageModel {
 			TripVO tvo=tdao.TripDetailData(vo.getCno());
 			trList.add(tvo);
 		}
-		
+		int tripCount=tdao.tripJjimCount(id);
 		
 		// 호텔 예약 목록
 		List<ReserveVO> rList=dao.mypage_data(id);
+		int reserveCount=dao.reserveCount(id);
+		
+		
 		request.setAttribute("rList", rList);
-		
-		
+		request.setAttribute("reserveCount", reserveCount);
+		request.setAttribute("tripCount", tripCount);
+		request.setAttribute("hotelJcount", hotelJcount);
 		request.setAttribute("jList", jList);
 		request.setAttribute("hList", hList);
 		request.setAttribute("tList", tList);

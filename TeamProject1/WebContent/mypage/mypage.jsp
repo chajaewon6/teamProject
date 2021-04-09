@@ -78,9 +78,9 @@
 			<div class="profile-stats">
 
 				<ul>
-					<li><span class="profile-stat-count">164</span> 관심 목록</li>
-					<li><span class="profile-stat-count">188</span> 나의 여행 사진</li>
-					<li><span class="profile-stat-count">206</span> 예매 목록</li>
+					<li><span class="profile-stat-count">${hotelJcount }</span> 개의 가고 싶은 호텔</li>
+					<li><span class="profile-stat-count">${tripCount }</span> 개의 여행 관심 목록</li>
+					<li><span class="profile-stat-count">${reserveCount }</span> 개의 호텔 예약 목록</li>
 				</ul>
 
 			</div>
@@ -114,11 +114,11 @@
                     <div class="col-xl-4 col-lg-4 col-md-6">
                         <div class="single-place mb-30" >
                             <div class="place-img">
-                                <img src="${hvo.poster }" alt="">
+                               <a href="../hotel/detail.do?no=${hvo.no }"><img src="${hvo.poster }" alt=""></a> 
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top" >
-                                    <h3><a href="#">${hvo.title }</a></h3>
+                                    <h3><a href="../hotel/detail.do?no=${hvo.no }">${hvo.title }</a></h3>
                                     <p class="dolor">${hvo.price }/일</p>
                                 </div>
                                 <div class="place-cap-bottom">
@@ -163,7 +163,7 @@
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <h3><a href="#">${tvo.title }</a></h3>
+                                    <h3><a href="../trip/trip_detail.do?no=${tvo.no }">${tvo.title }</a></h3>
                                     <p class="dolor">${tvo.category }</p>
                                 </div>
                                 <div class="place-cap-bottom">
@@ -188,6 +188,7 @@
 					  <table class="table">
 					    <tr>
 					     <th>예약번호</th>
+					     <th>사진</th>
 					     <th>업체명</th>
 					     <th>체크인날짜</th>
 					     <th>체크인시간</th>
@@ -198,7 +199,8 @@
 					    </tr>
 					    <c:forEach var="rvo" items="${rList }" varStatus="s">
 					       <tr>
-					     <td>${rvo.no }</td>
+					      <td>${rvo.no }</td>
+					     <td><img src="${rvo.poster }" style="width:40px;height:40px;" class="img-circle"></td>
 					     <td>${rvo.title }</td>
 					     <td>${rvo.inday }</td>
 					     <td>${rvo.intime }</td>
