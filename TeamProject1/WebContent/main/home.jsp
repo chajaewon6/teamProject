@@ -153,7 +153,7 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
-                                    <h2>${hvo.category }</h2>
+                                    <h3 style="color:gray">${hvo.category }</h3>
                                    
                                 </div>
                                 
