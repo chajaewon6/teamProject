@@ -128,7 +128,8 @@
                     
                     
                     
-                   <!--  <div id="hero-slides">
+<!-- partial:index.partial.html -->
+<div id="hero-slides">
   <div id="header">
     <div id="logo"></div>
     <div id="menu">
@@ -143,62 +144,74 @@
     <div class="button" id="next"></div>
     <div class="button" id="prev"></div>
     <div id="slides">
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/ef5af971-fc46-4ee1-a589-980346478696_opt.png)">
+      <div class="slide" style="background-image: url(https://cdn.asiacenews.com/news/photo/201509/782_686_3331.jpg)">
         <div class="number">01</div>
         <div class="body">
-          <div class="location">Shibuya, Japan</div>
-          <div class="headline">Photo by Benjamin Hung</div><a href="https://unsplash.com/photos/EYmhcdGuYmI" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Gwanghwamun</div>
+          <div class="headline">광화문</div><a href="../trip/trip_list.do?cno=2" target="_blank">
+            <div class="link">광화문 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/522d6a86-0dcf-4554-8b22-7655d65a1f66_opt.png)">
+      <div class="slide" style="background-image: url(http://www.kbiznews.co.kr/news/photo/201808/47559_9641_4327.jpg)">
         <div class="number">02</div>
         <div class="body">
-          <div class="location">Mong Kok, Hong Kong</div>
-          <div class="headline">Photo by Ryan Tang</div><a href="https://unsplash.com/photos/ANJHXftvvJ8" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Hongdae</div>
+          <div class="headline">홍대</div><a href="../trip/trip_list.do?cno=5" target="_blank">
+            <div class="link">홍대 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/9b5f71cb-34a3-4fb4-a3a6-0ce9557c0acd_opt.png)">
+      <div class="slide" style="background-image: url(https://post-phinf.pstatic.net/MjAxOTA2MDdfMjg1/MDAxNTU5OTAxNTI4OTI1.ksgdSBsru0xoE4gwdsiJDQs6CCk0Y6hxYPPRvs03TiUg.Ma8oLtZGxXU3krxr08K_QUOY4G5V27kHrM5YTYQM9yYg.JPEG/5b2be0be1ae6621e008b46a9-960-639.jpg?type=w1200)">
         <div class="number">03</div>
         <div class="body">
-          <div class="location">Incheon, South Korea</div>
-          <div class="headline">Photo by Steve Roe</div><a href="https://unsplash.com/photos/73aocAAt7rs" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Gangnam</div>
+          <div class="headline">강남</div><a href="../trip/trip_list.do?cno=8" target="_blank">
+            <div class="link">강남 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/10cfd52d-e217-41e9-bb8b-ad43384a5e63_opt.png)">
+      <div class="slide" style="background-image: url(https://dimg.donga.com/wps/ECONOMY/IMAGE/2017/12/21/87857896.3.jpg)">
         <div class="number">04</div>
         <div class="body">
-          <div class="location">Wan Chai, Hong Kong</div>
-          <div class="headline">Photo by Sean Foley</div><a href="https://unsplash.com/photos/aPDCEoW7B78" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Jamsil</div>
+          <div class="headline">잠실</div><a href="../trip/trip_list.do?cno=9" target="_blank">
+            <div class="link">잠실 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/b9669f2a-17fc-47dc-b6b5-3f863004efa8_opt.png)">
+      <div class="slide" style="background-image: url(https://pds.joins.com/news/component/htmlphoto_mmdata/201910/27/5297f67b-6fcd-4fcd-8917-d318b81f9f99.jpg)">
         <div class="number">05</div>
         <div class="body">
-          <div class="location">Shibuya-ku, Japan</div>
-          <div class="headline">Photo by Alex Knight</div><a href="https://unsplash.com/photos/Akz00I_GGjU" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Dongdaemun</div>
+          <div class="headline">동대문</div><a href="../trip/trip_list.do?cno=4" target="_blank">
+            <div class="link">동대문 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/31979576-5060-4513-aae2-b379b87e7fe6_opt.png)">
+      <div class="slide" style="background-image: url(https://i.pinimg.com/originals/78/f1/82/78f182e6ee86865924f5a1f72ab8f1a6.jpg)">
         <div class="number">06</div>
         <div class="body">
-          <div class="location">Tokyo, Japan</div>
-          <div class="headline">Photo by Benjamin Hung</div><a href="https://unsplash.com/photos/pTn26knnKVw" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Itaewon</div>
+          <div class="headline">여의도</div><a href="../trip/trip_list.do?cno=6" target="_blank">
+            <div class="link">여의도 여행지 보기</div></a>
         </div>
       </div>
-      <div class="slide" style="background-image: url(https://alca.tv/static/u/429b83b8-1ad4-4450-b0de-0a0c1073cf1e_opt.jpg)">
+      <div class="slide" style="background-image: url(https://d1m8tzv6n1gicn.cloudfront.net/uploads/c3a94edfdeafbde34087a3cc486c913f.PNG)">
         <div class="number">07</div>
         <div class="body">
-          <div class="location">Taipei City, Taiwan</div>
-          <div class="headline">Photo by Jesus In Taiwan</div><a href="https://unsplash.com/photos/v63B_MUiFw8" target="_blank">
-            <div class="link">View on Unsplash</div></a>
+          <div class="location">Itaewon</div>
+          <div class="headline">이태원</div><a href="../trip/trip_list.do?cno=7" target="_blank">
+            <div class="link">이태원 여행지 보기</div></a>
         </div>
       </div>
+      <div class="slide" style="background-image: url(https://t1.daumcdn.net/cfile/blog/2676364B53FA6AA30D)">
+        <div class="number">08</div>
+        <div class="body">
+          <div class="location">Myeongdong</div>
+          <div class="headline">명동</div><a href="../trip/trip_list.do?cno=3" target="_blank">
+            <div class="link">명동 여행지 보기</div></a>
+        </div>
+      </div>
+      
+      
+      
+     
     </div>
     <div id="next-catch"></div>
     <div id="prev-catch"></div>
@@ -206,10 +219,9 @@
   <div id="footer"><a href="https://dribbble.com/shots/3888265-Motion-Study" target="_blank">
       <div id="dribbble"></div></a></div>
 </div>
-partial
-  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script><script  src="./script.js"></script>
-                    
-                     -->
+<!-- partial -->
+  <script src='https://cdnjs.cloudflare.com/ajax/libs/babel-polyfill/6.26.0/polyfill.min.js'></script><script  src="../js/maincardscript.js"></script>
+
                     
                     
                     
