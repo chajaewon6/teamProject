@@ -10,6 +10,8 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
  <link rel="stylesheet" href="../css/profile.css">
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 <style type="text/css">
 
 #trip-text{
@@ -35,7 +37,15 @@
 	float:left
 }
 
-
+.profile-user-name{
+font-family: 'Nanum Gothic Coding', monospace;
+}
+.profile-stat-count{
+font-family: 'Nanum Gothic Coding', monospace;
+}
+.profile-real-name{
+font-family: 'Nanum Gothic Coding', monospace;
+}
 </style>
 
 </head>
