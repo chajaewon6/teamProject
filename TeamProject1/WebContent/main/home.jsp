@@ -208,13 +208,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   동대문</p>
-<<<<<<< HEAD
-                                    <h3><a href="single-blog.html">동대문의 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
+                                    <h3><a href="../board/board_detail.do?no=27">동대문의 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
                                     <a href="../board/board_detail.do?no=27" class="more-btn">더보기 »</a>
-=======
-                                    <h3><a href="#">동대문에 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
-                                    <a href="#" class="more-btn">더보기 »</a>
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                 </div>
                             </a>
                             </div>
@@ -233,13 +228,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   강남</p>
-<<<<<<< HEAD
-                                    <h3><a href="single-blog.html">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
+                                    <h3><a href="../board/board_detail.do?no=28">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
                                     <a href="../board/board_detail.do?no=28" class="more-btn">더보기 »</a>
-=======
-                                    <h3><a href="#">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
-                                    <a href="#" class="more-btn">더보기 »</a>
->>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                 </div>
                             </a>
                             </div>
