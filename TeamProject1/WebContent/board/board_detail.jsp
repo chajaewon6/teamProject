@@ -266,9 +266,12 @@ $(function(){
                                 <div style="color:gray;font-size:15px;float:left">조회수:&nbsp;</div> 
                                 <div style="color:pink;font-size:15px;float:left">${vo.pb_picHit }</div><br>
                                 
+                                
+                                <a href="../board/board_main.do"><button class="ripple" style="float:right">목록으로</button></a>
                                 <c:if test="${sessionScope.id==vo.user_id }">
                                 <button class="ripple boardUp" style="float:right" data-no="${no}">수정하기</button>
                                 <button class="ripple boardDel" style="float:right" data-no="${no }">삭제하기</button>
+                                 
                                 </c:if>
                                 <div style="height:10px"></div>
                                      <!-- <div id="map" style="width:100%;height:500px;"></div> -->
@@ -311,6 +314,7 @@ $(function(){
 								<ul class="comment-actions">
 									<li class="complain updateBtn" data-no="${rvo.pbr_no }">수정</li>
 								    <li class="reply delBtn" data-no="${rvo.pbr_no }" data-pno="${no }">삭제</li>
+								    
 								</ul>
 								
 								
