@@ -35,44 +35,44 @@
       
           
           <label for="name">이름</label>
-          <input type=text name="name" id="name" class="input-sm">
+          <input type=text name="name" id="name" class="input-sm" autocomplete="off">
           
           <label for="password">비밀번호</label>
-           <input type=password name="pwd" id="pwd" class="input-sm" style="float:left">
+           <input type=password name="pwd" id="pwd" class="input-sm" style="float:left" autocomplete="off">
       <label for="password">비밀번호&nbsp;확인</label>
-      <input type=password name="pwd" id="pwd1" class="input-sm" style="float:left" placeholder="재입력">
+      <input type=password name="pwd" id="pwd1" class="input-sm" style="float:left" placeholder="재입력" autocomplete="off">
           
           <label for="birthday">생년월일</label>
-          <input type=date size="20" name="birthday">
+          <input type=date size="20" name="birthday" autocomplete="off">
           
           <label>성별</label>
           <input type="radio" id="sex" value="여자" name="sex" checked value="여자"><label for="under_13" class="light">여자</label>&nbsp;&nbsp;
           <input type="radio" id="sex" value="남자" name="sex"><label for="over_13" class="light">남자</label>
           <br><br>
-           <label for="mail">우편번호 &nbsp; &nbsp; <input type=button value="우편번호검색" class="btn btn-sm btn-primary" id="postBtn" ></label>
+           <label for="mail" >우편번호 &nbsp; &nbsp; <input type=button value="우편번호검색" class="btn btn-sm btn-primary" id="postBtn" ></label>
           
-           <input type=text name="post" id="post" class="input-sm" size=10 readonly style="float: left">
+           <input type=text name="post" id="post" class="input-sm" size=10 readonly style="float: left" autocomplete="off">
       
           
-           <label for="mail">주소</label>
-          <input type=text name="addr1" id="addr1" class="input-sm" size=45 readonly>
+           <label for="mail" autocomplete="off">주소</label>
+          <input type=text name="addr1" id="addr1" class="input-sm" size=45 readonly autocomplete="off">
           
-            <label for="mail">상세주소</label>
-           <input type=text name="addr2" id="addr2" class="input-sm" size=45>
+            <label for="mail" autocomplete="off">상세주소</label>
+           <input type=text name="addr2" id="addr2" class="input-sm" size=45 autocomplete="off">
           
-           <label for="mail">전화번호</label>
+           <label for="mail" autocomplete="off">전화번호</label>
 			<input type=text name="tel" id="tel" class="input-sm" size=5 placeholder="-를 제외하고 입력하시오"
-      			style="float: left">
+      			style="float: left" autocomplete="off">
           
-           <label for="mail">이메일</label>
-            <input type=text name="email" id="email" class="input-sm" size=45>
+           <label for="mail" >이메일</label>
+            <input type=text name="email" id="email" class="input-sm" size=45 autocomplete="off">
              </fieldset>
              
              
          <legend><span class="number">2</span>추가사항</legend>
      		<fieldset>
 	          <label for="bio">자기소개</label>
-	          <textarea id="bio" name="user_bio"></textarea>
+	          <textarea id="bio" name="user_bio" autocomplete="off"></textarea>
         </fieldset>
      
         <button type="submit">회원가입</button>

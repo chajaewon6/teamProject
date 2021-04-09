@@ -55,8 +55,9 @@ public class BoardDAO {
 				String sql="SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit,pb_picTag, user_id, pb_pic, num "
 						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picTag, user_id, pb_pic, rownum as num " 
 						+"FROM (SELECT pb_no, pb_pictitle, pb_picdate, pb_piccontent, pb_picLoc, pb_picHit, pb_picTag, user_id, pb_pic "
-						+"FROM picBoard)) "
-						+"WHERE num BETWEEN ? AND ?";
+						+"FROM picBoard ORDER BY pb_no DESC)) "
+						+"WHERE num BETWEEN ? AND ? ";
+						
 				ps=conn.prepareStatement(sql);
 				int rowSize=6;
 				int start =(page*rowSize)-(rowSize-1);
