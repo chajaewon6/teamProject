@@ -7,7 +7,11 @@
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
+
 <style type="text/css">
+@import url('https://fonts.googleapis.com/css2?family=Nanum+Pen+Script&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Sunflower:wght@300&display=swap');
 .mb-30{
       margin:0px auto;
 }
@@ -25,17 +29,22 @@
    width:100%;
    
 }
-/* .video-area{
-   height:18%;
-   width:50%;
-   margin:0px auto;
-   
-} */
+
 .place-img{
    width:350px;
    height:250px;
    object-fit:cover;
 } 
+
+.gotrip aaa{
+	font-family: 'Nanum Pen Script', cursive;
+}
+.adrgo{
+	font-family: 'Sunflower', sans-serif;
+}
+.pearar{
+	font-family: 'Sunflower', sans-serif;
+}
 </style>
 </head>
 <body>
@@ -46,13 +55,14 @@
             <!-- Mobile Menu -->
             <div class="slider-active">
                <div class="main-image">
-                <!-- <div class="single-slider hero-overly  slider-height d-flex align-items-center" data-background="../img/hero/h1_hero.jpg"> -->
                     <div class="container">
                         <div class="row">
                             <div class="col-xl-9 col-lg-9 col-md-9">
                                 <div class="hero__caption">
                                     <h1>Find <span>Next tour!</span> </h1>
-                                    <p>여행을 떠나봐요!</p>
+                                    <div class="gotrip">
+                                    	<p>여행을 떠나봐요!</p>
+                                    </div>
                                 </div>
                             </div>
                         </div>
@@ -61,12 +71,10 @@
                             <div class="col-xl-12">
                                 <!-- form -->
                                 <form action="#" class="search-box">
-                                    <div class="search-form mb-30">
+                                    <div class="search-form mb-30 adrgo">
                              <a href="../main/search.do">어디로 떠나볼까요?</a>   
                                     </div> 
                                     <div style="height:100px"></div>     
-                                      
-
                                 </form>   
                             </div>
                         </div>
@@ -131,9 +139,9 @@
                             <div>
                                <iframe width="500" height="300" src="https://www.youtube.com/embed/MbqfFFE8vXY" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
                             </div>
-                            <p class="pera1">어디를 갈지 막막하다면 이 영상을 봐줘!</p>
-                            <p class="pera2">당신이 서울에서 꼭 가봐야 할 </p>
-                            <p class="pera3">장소 TOP 10</p>
+                            <p class="pera1 pearar">어디를 갈지 막막하다면 이 영상을 봐줘!</p>
+                            <p class="pera2 pearar">당신이 서울에서 꼭 가봐야 할 </p>
+                            <p class="pera3 pearar">장소 TOP 10</p>
                         </div>
                     </div>
                 </div>
@@ -161,8 +169,8 @@
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   동대문</p>
-                                    <h3><a href="single-blog.html">동대문에 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
-                                    <a href="#" class="more-btn">더보기 »</a>
+                                    <h3><a href="single-blog.html">동대문의 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
+                                    <a href="../board/board_detail.do?no=27" class="more-btn">더보기 »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">
@@ -180,7 +188,7 @@
                                 <div class="blog-cap">
                                     <p> |   강남</p>
                                     <h3><a href="single-blog.html">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
-                                    <a href="#" class="more-btn">더보기 »</a>
+                                    <a href="../board/board_detail.do?no=28" class="more-btn">더보기 »</a>
                                 </div>
                             </div>
                             <div class="blog-date text-center">

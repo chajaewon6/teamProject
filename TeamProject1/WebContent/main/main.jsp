@@ -27,6 +27,8 @@
             <link rel="stylesheet" href="../css/style.css">
             <!-- bootstrap -->
          <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+      
+         
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript" src="../shadow/js/shadowbox.js"></script><script type="text/javascript"></script>
 <script type="text/javascript" src="//t1.daumcdn.net/mapjsapi/bundle/postcode/prod/postcode.v2.js"></script>
@@ -71,17 +73,6 @@ $(function(){
    </head>
 
    <body>
-    <!-- Preloader Start -->
-     <!--<div id="preloader-active">
-        <div class="preloader d-flex align-items-center justify-content-center">
-            <div class="preloader-inner position-relative">
-                <div class="preloader-circle"></div>
-                <div class="preloader-img pere-text">
-                    <img src="../img/logo/logo.png" alt="">
-                </div>
-            </div>
-        </div>
-    </div> -->
     <!-- Preloader Start -->
     <header>
         <!-- Header Start -->
