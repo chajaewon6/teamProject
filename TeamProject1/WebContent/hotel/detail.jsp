@@ -56,11 +56,17 @@ button {
   box-shadow: 0 0 4px #999;
   outline: none;
 }
+#jjim {
+	background-color:black;
+}
 </style>
     <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
 let i=0;
 $(function(){
+	$('#jjim').click(function(){
+		$('#jjim').css('background-color', 'black')
+	})
 	$('.delBtn').click(function(){
 		let no=$(this).attr("data-no");
 		let cno=$(this).attr("data-cno");
@@ -186,7 +192,7 @@ $(function(){
 													       				<a href="../hotel/jjim.do?no=${vo.no }"><button class="ripple">찜하기</button></a>
 													       			</c:if>
 													       			<c:if test="${count!=0 }">
-													       				<button class="ripple">찜하기</button>
+													       				<button class="ripple" id="jjim">찜완료</button>
 													       			</c:if>
 													       		</c:if>
 													       		

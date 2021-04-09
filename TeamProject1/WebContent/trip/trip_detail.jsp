@@ -36,6 +36,9 @@ button {
   box-shadow: 0 0 4px #999;
   outline: none;
 }
+#jjim {
+	background-color:black;
+}
 </style>
     
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
