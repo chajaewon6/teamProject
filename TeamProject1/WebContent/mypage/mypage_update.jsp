@@ -30,7 +30,7 @@
 
       
       <form method=post action="../member/update_save.do" name="join_frm">
-        <h1>회원가입</h1>
+        <h1>회원수정</h1>
         
         <fieldset>
           <legend><span class="number">1</span>기본사항</legend>
