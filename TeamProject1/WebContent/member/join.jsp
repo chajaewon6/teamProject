@@ -61,7 +61,7 @@
            <input type=text name="addr2" id="addr2" class="input-sm" size=45>
           
            <label for="mail">전화번호</label>
-			<input type=text name="tel" id="tel" class="input-sm" size=5 value="-를 제외하고 입력하시오"
+			<input type=text name="tel" id="tel" class="input-sm" size=5 placeholder="-를 제외하고 입력하시오"
       			style="float: left">
           
            <label for="mail">이메일</label>
