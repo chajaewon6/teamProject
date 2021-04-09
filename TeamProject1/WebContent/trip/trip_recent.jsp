@@ -30,7 +30,7 @@ font-size:13px;
            <tr>
              <a href="../trip/trip_detail.do?no=${mvo.no }" style="float:left;padding-right:25px">
               <!-- div class="media post_item"> -->
-                <img src="${mvo.poster }" style="width:140px;height:100px">
+                <img src="${mvo.poster }" style="width:120px;height:100px">
                
                 <li class="jg">${mvo.title }</li>
              </a>

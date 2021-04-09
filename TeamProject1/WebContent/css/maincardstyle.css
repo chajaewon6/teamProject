@@ -7,7 +7,9 @@ body {
   font-family: "Roboto Condensed", sans-serif;
   color: white;
 }
-
+.slide{
+	height:300px;
+}
 a {
   text-decoration: none;
   color: inherit;

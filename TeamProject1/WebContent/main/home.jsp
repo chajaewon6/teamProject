@@ -15,6 +15,9 @@
 .mb-30{
       margin:0px auto;
 }
+#slides{
+	height:200px;
+}
 .main-image
 {
    background-image: url("https://www.travelmap.co.kr/contents/files/board/news/2020/12/editor_3824_1608277874_1608278606.png");
@@ -44,6 +47,13 @@
 }
 .pearar{
 	font-family: 'Sunflower', sans-serif;
+}
+
+@import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
+.jg{
+margin-top:5px;
+font-family: 'Jeju Gothic', sans-serif;
+font-size:25px;
 }
 </style>
 </head>
@@ -246,20 +256,19 @@
                  <c:forEach var="hvo" items="${mList1 }"> 
                     <div class="col-xl-4 col-lg-4 col-md-6 text-center">
                     
-                        <div class="single-place mb-30">
-                            <div class="place-img">
+                        <div class="single-place mb-30" style="width:380px;height:370px">
+                            <div class="place-img" style="width:380px;height:190px">
                                 <a href="../hotel/list.do?cno=${hvo.cno }"><img src="${hvo.poster }" ></a> 
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                     <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
-                                    <h3 style="color:gray">${hvo.category }</h3>
+                                    <h3 style="color:gray" class="jg">${hvo.category }</h3>
                                    
                                 </div>
                                 
                             </div>
                         </div> 
-                            
                     </div>
                     </c:forEach>
                     </div>
