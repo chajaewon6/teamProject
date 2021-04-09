@@ -38,7 +38,22 @@ button {
 }
 </style>
     
-    <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
+<script type="text/javascript">
+$(function(){
+	$('#findBtn').click(function(){
+
+$.ajax({
+		type:'post',
+		url:'../trip/trip_recent.do',//post_result.do/dong/값
+		success:function(result)
+			{
+				$('.print').html(result);
+			}
+		})
+	})
+})
+</script>
    
     <meta name="description" content="">
     <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -55,22 +70,7 @@ button {
    
   
      <!-- slider Area Start-->
-     <!---
-     <div class="slider-area ">
-        
-        <div class="single-slider slider-height2 d-flex align-items-center" data-background="../img/hero/about.jpg">
-            <div class="container">
-                <div class="row">
-                    <div class="col-xl-12">
-                        <div class="hero-cap text-center">
-                            <h2>호텔 상세보기</h2>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
-     </div>
-     -->
+    
      <!-- slider Area End-->
     <!--================Blog Area =================-->
     
@@ -188,33 +188,20 @@ button {
                         <a href="../trip/jjim.do?no=${tvo.no }"><button class="ripple">찜하기</button></a>
                         </c:if>
                         <c:if test="${count!=0 }">
-                        <span>찜완료</span>
+                        <span>찜완료 </span>
                         </c:if>
                      </c:if>
                   
                
-                  	<a href="javascript:history.back();"><button class="ripple">목록</button>목록</a>
+                  	<a href="javascript:history.back();"><button class="ripple">목록</button></a>
+                  	
              </ul>             
-                  
+                  <ul>
+                  <button class="ripple" id="findBtn">주변 관광지 더보기</button>
+                  </ul>
+                  <div class="print"></div>
                </div>  
-             <%-- <h4>근처 추천 여행지</h4>
-         	    <table>
-                            <c:forEach var="tvo" items="${zList }">
-                            <tr>
-                             <a href="../trip/detail_before.do?no=${tvo.no }">
-                              <!-- div class="media post_item"> -->
-                               <img src="${tvo.poster }" alt="post" style="width:160px;height:115px">
-                               <h4>${tvo.title }</h4>
-                               <p style="font-size:10pt;margin:0px auto">${tvo.title }</p>
-                               <br>
-                              <!-- <div class="media-body">
-                                <a href="single-blog.html"></a>
-                              </div> -->  
-                           
-                            </a>
-                            </tr>
-                            </c:forEach>
-  							</table> --%>
+            
                 
                 
                 

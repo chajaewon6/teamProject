@@ -323,14 +323,14 @@ public class TripDAO {
       
       
      // ================================// 근처 관광지 5개===============================================
-      public List<TripVO> TripLocationData(int cno)
-        {
+      		public List<TripVO> TripLocationData(int cno)
+      		{
            List<TripVO> list=new ArrayList<TripVO>();
            try
            {
               getConnection();
-              String sql="SELECT no,cno,poster,title,rownum "
-                      +"FROM (SELECT no,cno,poster,title FROM tripdetail "
+              String sql="SELECT no,poster,title,rownum "
+                      +"FROM (SELECT no,poster,title FROM tripdetail "
                       + "WHERE cno=? ORDER BY DBMS_RANDOM.VALUE) "
                       + "WHERE rownum<=5";
               ps=conn.prepareStatement(sql);
@@ -340,9 +340,8 @@ public class TripDAO {
               {
             	  TripVO vo=new TripVO();
                  vo.setNo(rs.getInt(1));
-                 vo.setCno(rs.getInt(2));
-                 vo.setPoster(rs.getString(3));
-                 vo.setTitle(rs.getString(4));
+                 vo.setPoster(rs.getString(2));
+                 vo.setTitle(rs.getString(3));
                  list.add(vo);
               }
               rs.close();

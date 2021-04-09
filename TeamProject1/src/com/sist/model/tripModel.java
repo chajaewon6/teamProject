@@ -30,8 +30,9 @@ public class tripModel {
      if(page==null)
          page="1";
      String cno=request.getParameter("cno");
-      if(page==null)
-         page="1";
+      if(cno==null)
+         cno="1";
+      System.out.println(cno);
       int curpage=Integer.parseInt(page); //현재 페이지
       int cno1=Integer.parseInt(cno);
       TripDAO dao=TripDAO.newInstance();
@@ -54,6 +55,7 @@ public class tripModel {
       request.setAttribute("count",count);
       request.setAttribute("tList", tList);
       
+
       request.setAttribute("tvo", tvo);
       request.setAttribute("block", BLOCK); //여기서부턴 페이지관련 보내기
       request.setAttribute("startPage", startPage);
@@ -86,7 +88,7 @@ public class tripModel {
   {
 	 List<TripVO> fList=new ArrayList<TripVO>();
      String no=request.getParameter("no"); //no=게시물 번호
-     //String cno=request.getParameter("cno");
+    // String cno=request.getParameter("cno");
      
      // DAO연결 
      TripDAO dao=TripDAO.newInstance();
@@ -112,23 +114,37 @@ public class tripModel {
         }
      } 
      List<TripCategoryVO> cList=dao.tripCategoryData();
-     //List<TripVO> zList=dao.TripLocationData(Integer.parseInt(cno));
-     //List<FoodReplyVO> rList=dao.foodReplyReadData(Integer.parseInt(no));
-     //request.setAttribute("rList", rList);
-     //request.setAttribute("zList", zList);
+    // List<TripVO> zList=dao.TripLocationData(Integer.parseInt(cno));
+    // request.setAttribute("zList", zList);
      request.setAttribute("tvo", tvo);
      request.setAttribute("fList", fList);
      request.setAttribute("cList", cList);
-     request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
-     
+     //System.out.println(zList);
      HttpSession session=request.getSession();
      String id=(String)session.getAttribute("id"); 
      int count=dao.TripJjimCheck(Integer.parseInt(no),id);
      request.setAttribute("count", count);
+     
+     request.setAttribute("main_jsp", "../trip/trip_detail.jsp");
      return "../main/main.jsp";
   }
   
-  
+  @RequestMapping("trip/trip_recent.do")
+  public String trip_recent(HttpServletRequest request,HttpServletResponse response)
+  {
+	  
+	  String no=request.getParameter("no");
+	  System.out.println(no);
+	  if(no==null)
+		  no="1";
+	  TripDAO dao=TripDAO.newInstance();
+	  int t=Integer.parseInt(no);
+	  System.out.println(t);
+	  List<TripVO> zList=dao.TripLocationData(t);
+	  request.setAttribute("zList", zList);
+	 
+	  return "../trip/trip_recent.jsp";
+  }
   
   // 쿠키
 //  @RequestMapping("main/main.do")
