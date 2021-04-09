@@ -15,6 +15,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
 		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+		<script src="https://kit.fontawesome.com/72d0971596.js" crossorigin="anonymous"></script>
 
 		<!-- CSS here -->
             <link rel="stylesheet" href="../css/bootstrap.min.css">
@@ -199,6 +200,12 @@ button {
 .comment-block{
 	width:800px;
 } 
+#pencil{
+	color:gray;
+}
+#heart{
+	color:pink;
+}
    		    </style>
    </head>
 
@@ -251,10 +258,10 @@ button {
                             </div>
                             <div class="place-cap">
                                 <div class="place-cap-top">
-                                    <span><span>작성자:&nbsp;${vo.user_id }</span> </span><br>
-                                    <span><span>조회수:&nbsp;${vo.pb_picHit }</span> </span>
+                                    <span><span>작성자:&nbsp;${vo.user_id }</span>&nbsp;&nbsp;<i class="fas fa-pencil-alt" id="pencil"></i> </span><br>
+                                    <span><span><i class="fas fa-heart" id="heart"></i>:&nbsp;${vo.pb_picHit }</span> </span>
                                     <h3><a href="board_detail.do?no=${vo.pb_no }">${vo.pb_picLoc }</a></h3>
-                                    <p class="tag" style="color:#00D8FF; font-size:20px">${vo.pb_picTag }</p>
+                                    <p class="tag" style="color:#00D8FF; font-size:20px"><i class="fas fa-hashtag"></i>${vo.pb_picTag }</p>
                                 </div>
                             </div>
                         </div>
