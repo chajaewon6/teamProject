@@ -10,6 +10,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
 <link rel="stylesheet" href="../css/mypage.css">
  <link rel="stylesheet" href="../css/profile.css">
+ <link href="https://fonts.googleapis.com/css2?family=Nanum+Gothic+Coding&display=swap" rel="stylesheet">
 
 <style type="text/css">
 
@@ -29,6 +30,10 @@
 .col-xl-4 {
 	float:left
 }
+body {
+	font-family: 'Nanum Gothic Coding', monospace;
+}
+
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -120,7 +125,7 @@
                     
                     <h2 class="sectiontitle">호텔 예약 목록🌇</h2>
                     
-					  <div style="height:400px;width:1000px;overflow-y:auto">
+					  <div style="height:400px;width:1100px;overflow-y:auto">
 					  <table class="table">
 					    <tr>
 					     <th>예약번호</th>
