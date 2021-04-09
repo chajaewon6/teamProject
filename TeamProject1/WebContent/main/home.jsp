@@ -116,8 +116,46 @@
                         </div>      
                     </div>
                     </c:forEach>
+                    </div>
+                    <div class="favourite-place place-padding">
+            <div class="container">
+                    <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>서울엔 어떤 호텔이 있을까?</span>
+                            <h2>지역별 호텔</h2>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                
+                <!-- <a href="../trip/trip_list.do?cno=${vo.crink }"> 
+                     <a href="../trip/detail_before.do?no=${tvo.no }"
+                     
+                     ../trip/trip_list.do?cno=${vo.crink }
+                -->
+  
+                 <c:forEach var="hvo" items="${mList1 }"> 
+                    <div class="col-xl-4 col-lg-4 col-md-6 text-center">
                     
-                    
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <a href="../hotel/list.do?cno=${hvo.cno }"><img src="${hvo.poster }" ></a> 
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
+                                    <h2>${hvo.category }</h2>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div> 
+                            
+                    </div>
+                    </c:forEach>
+                    </div>
+                    </div>
         <!-- Favourite Places End -->
         <!-- Video Start Arera -->
         <div class="video-area video-bg pt-100 pb-100"  data-background="https://t1.daumcdn.net/cfile/tistory/252FA9345225669928">

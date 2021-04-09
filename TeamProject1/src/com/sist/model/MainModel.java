@@ -18,8 +18,10 @@ public class MainModel {
 	{
 		MainImageDAO dao=new MainImageDAO();
 		List<MainImageVO> mList=dao.MainImageListData();
+		List<HotelImageVO> mList1=dao.HotelImageListData();
 		
 		request.setAttribute("mList", mList);
+		request.setAttribute("mList1", mList1);
 		request.setAttribute("main_jsp", "../main/home.jsp");
 		return "../main/main.jsp";
 	}
