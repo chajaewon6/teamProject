@@ -308,7 +308,7 @@ $(function(){
         <script src="./../js/jquery.magnific-popup.js"></script>
 
       <!-- Scrollup, nice-select, sticky -->
-        <script src="./../js/jquery.scrollUp.min.js"></script>
+   <script src="./../js/jquery.scrollUp.min.js"></script>
         <script src="./../js/jquery.nice-select.min.js"></script>
       <script src="./../js/jquery.sticky.js"></script>
         
