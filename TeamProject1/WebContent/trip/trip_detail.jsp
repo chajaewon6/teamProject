@@ -42,10 +42,11 @@ button {
 <script type="text/javascript">
 $(function(){
 	$('#findBtn').click(function(){
-
+    let cno=$(this).attr("value");
 $.ajax({
 		type:'post',
 		url:'../trip/trip_recent.do',//post_result.do/dong/값
+		data:{"cno":cno},
 		success:function(result)
 			{
 				$('.print').html(result);
@@ -197,7 +198,7 @@ $.ajax({
                   	
              </ul>             
                   <ul>
-                  <button class="ripple" id="findBtn">주변 관광지 더보기</button>
+                  <button class="ripple" id="findBtn" value="${tvo.cno }">주변 관광지 더보기</button>
                   </ul>
                   <div class="print"></div>
                </div>  

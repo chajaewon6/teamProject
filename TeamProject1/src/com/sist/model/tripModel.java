@@ -133,12 +133,12 @@ public class tripModel {
   public String trip_recent(HttpServletRequest request,HttpServletResponse response)
   {
 	  
-	  String no=request.getParameter("no");
-	  System.out.println(no);
-	  if(no==null)
-		  no="1";
+	  String cno=request.getParameter("cno");
+	  System.out.println(cno);
+	  if(cno==null)
+		  cno="1";
 	  TripDAO dao=TripDAO.newInstance();
-	  int t=Integer.parseInt(no);
+	  int t=Integer.parseInt(cno);
 	  System.out.println(t);
 	  List<TripVO> zList=dao.TripLocationData(t);
 	  request.setAttribute("zList", zList);
