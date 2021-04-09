@@ -75,4 +75,36 @@ public class MainImageDAO {
 		  }
 		  return list;
 	  }
+	public List<HotelImageVO> HotelImageListData()
+	  {
+		  List<HotelImageVO> list=new ArrayList<HotelImageVO>();
+		  try
+		  {
+			  getConnection();
+			  String sql="SELECT no,cno,poster,title,category "
+			  		+ "FROM hotel_image "
+			  		+ "ORDER BY no ASC";
+			  ps=conn.prepareStatement(sql);
+			  ResultSet rs=ps.executeQuery();
+			  while(rs.next())
+			  {
+				  HotelImageVO vo=new HotelImageVO();
+				  vo.setNo(rs.getInt(1));
+				  vo.setCno(rs.getInt(2));
+				  vo.setPoster(rs.getString(3));
+				  vo.setTitle(rs.getString(4));
+				  vo.setCategory(rs.getString(5));
+				  list.add(vo);
+			  }
+			  rs.close();
+		  }catch(Exception ex)
+		  {
+			  ex.printStackTrace();
+		  }
+		  finally
+		  {
+			  disConnection();
+		  }
+		  return list;
+	  }
 }

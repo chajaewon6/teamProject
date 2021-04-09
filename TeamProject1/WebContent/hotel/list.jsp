@@ -13,11 +13,17 @@
         .form-row tm-search-form-row{
         margin-top: 400px;
         }
+        #title{
+        	
+        	text-shadow: 2px 2px 2px gray;
+        }
         </style>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico"> -->
+		<script src="https://kit.fontawesome.com/72d0971596.js" crossorigin="anonymous"></script>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
   
    </head>
 
@@ -26,12 +32,12 @@
         <!-- slider Area Start-->
         <div class="slider-area ">
             <!-- Mobile Menu -->
-            <div class="single-slider slider-height2 d-flex align-items-center" data-background="../img/hero/contact_hero.jpg">
+            <div class="single-slider slider-height2 d-flex align-items-center" data-background="https://www.guestcanpost.com/wp-content/uploads/2019/09/baglioni-hotel-london.jpg">
                 <div class="container">
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>호텔 예약</h2>
+                                <h2 id="title">호텔 예약</h2>
                             </div>
                         </div>
                     </div>
@@ -71,11 +77,11 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
-                                    <span><i class="fas fa-star"></i>
+                                    <span><i class="far fa-grin-stars"></i>
                                     <span>${hvo.star }</span> 
                                     </span>
                                     </div>
-                                    <h3>${hvo.title }</h3>
+                                    <h4>${hvo.title }</h4>
                                     <p class="dolor">${fn:substring(hvo.grade,0,fn:indexOf(hvo.grade,"(")) } <span>/${hvo.price }</span></p>
                                     <!--  <h2>${fn:substring(fvo.address,0,fn:indexOf(fvo.address,"지"))}</h2> -->
                                 </div>

@@ -11,6 +11,7 @@
 @import url(//fonts.googleapis.com/earlyaccess/jejugothic.css);
 .jg{
 font-family: 'Jeju Gothic', sans-serif;
+font-size:10px;
 }
 .aaa {
 	margin-top: 10px;

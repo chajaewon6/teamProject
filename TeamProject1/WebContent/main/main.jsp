@@ -141,7 +141,6 @@ $(function(){
                                             <li><a href="#">커뮤니티</a>
                                              <ul class="submenu">
                                                     <li><a href="../board/board_main.do?">여행사진 공유</a></li>
-                                                    <li><a href="single-blog.html">공지사항</a></li>
                                                 </ul>
                                             </li>
                                             <c:if test="${sessionScope.id==null }">   
@@ -216,33 +215,57 @@ $(function(){
                             <div class="footer-tittle">
                                 <h4>서울명소</h4>
                                 <ul>
-                                    <li><a href="#">광화문</a></li>
-                                    <li><a href="#">명동</a></li>
-                                    <li><a href="#">동대문</a></li>
-                                    <li><a href="#">홍대</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=2">광화문</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=3">명동</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=4">동대문</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=5">홍대</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=6">여의도</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=7">이태원</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=8">강남</a></li>
+                                    <li><a href="../trip/trip_list.do?cno=9">잠실</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-4 col-sm-7">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
-                                <h4>호텔예약</h4>
+                                <h4>호텔정보</h4>
                                 <ul>
-                                    <li><a href="#">강남/역삼/삼성</a></li>
-                                    <li><a href="#">서초/교대</a></li>
-                                    <li><a href="#">잠실/송파/왕십리</a></li>
-                                    <li><a href="#">을지로/시청/명동</a></li>
+                                    <li><a href="../hotel/list.do?cno=1">강남/역삼/삼성/신사/청담</a></li>
+                                    <li><a href="../hotel/list.do?cno=2">서초/교대</a></li>
+                                    <li><a href="../hotel/list.do?cno=3">잠실/송파/왕십리/강동</a></li>
+                                    <li><a href="../hotel/list.do?cno=4">을지로/시청/명동</a></li>
+                                    <li><a href="../hotel/list.do?cno=5">종로/인사동/동대문/강북</a></li>
+                                    <li><a href="../hotel/list.do?cno=6">서울역/이태원/용산</a></li>
+                                    <li><a href="../hotel/list.do?cno=7">마포/홍대/신촌/서대문</a></li>
+                                    <li><a href="../hotel/list.do?cno=8">영등포/여의도/김포공항</a></li>
+                                    <li><a href="../hotel/list.do?cno=9">구로/금천/관악/동작</a></li>
                                 </ul>
                             </div>
                         </div>
                     </div>
-                    <div class="col-xl-3 col-lg-3 col-md-5 col-sm-7">
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
                         <div class="single-footer-caption mb-50">
                             <div class="footer-tittle">
                                 <h4>커뮤니티</h4>
                                 <ul>
                                  <li><a href="../board/board_main.do">여행사진 공유</a></li>
+                                 
+                             </ul>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="col-xl-2 col-lg-3 col-md-3 col-sm-5">
+                        <div class="single-footer-caption mb-50">
+                            <div class="footer-tittle">
+                                <h4>마이페이지</h4>
+                                <ul>
+                                 <c:if test="${sessionScope.id!=null }">
+                                     <c:if test="${sessionScope.admin=='n' }">
+                                         <li><a href="../mypage/mypage.do">마이페이지</a></li>
+                                     </c:if>
+                                 </c:if>
                                  
                              </ul>
                             </div>

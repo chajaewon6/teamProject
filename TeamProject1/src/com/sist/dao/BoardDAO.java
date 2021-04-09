@@ -58,7 +58,7 @@ public class BoardDAO {
 						+"FROM picBoard)) "
 						+"WHERE num BETWEEN ? AND ?";
 				ps=conn.prepareStatement(sql);
-				int rowSize=3;
+				int rowSize=6;
 				int start =(page*rowSize)-(rowSize-1);
 				int end=page*rowSize;
 				ps.setInt(1, start);

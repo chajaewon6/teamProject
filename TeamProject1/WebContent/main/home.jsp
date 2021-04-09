@@ -124,8 +124,46 @@
                         </div>      
                     </div>
                     </c:forEach>
+                    </div>
+                    <div class="favourite-place place-padding">
+            <div class="container">
+                    <div class="row">
+                    <div class="col-lg-12">
+                        <div class="section-tittle text-center">
+                            <span>서울엔 어떤 호텔이 있을까?</span>
+                            <h2>지역별 호텔</h2>
+                        </div>
+                    </div>
+                </div>
+                    <div class="row">
+                
+                <!-- <a href="../trip/trip_list.do?cno=${vo.crink }"> 
+                     <a href="../trip/detail_before.do?no=${tvo.no }"
+                     
+                     ../trip/trip_list.do?cno=${vo.crink }
+                -->
+  
+                 <c:forEach var="hvo" items="${mList1 }"> 
+                    <div class="col-xl-4 col-lg-4 col-md-6 text-center">
                     
-                    
+                        <div class="single-place mb-30">
+                            <div class="place-img">
+                                <a href="../hotel/list.do?cno=${hvo.cno }"><img src="${hvo.poster }" ></a> 
+                            </div>
+                            <div class="place-cap">
+                                <div class="place-cap-top">
+                                    <!-- <span><i class="fas fa-star"></i><span></span> </span>  -->
+                                    <h2>${hvo.category }</h2>
+                                   
+                                </div>
+                                
+                            </div>
+                        </div> 
+                            
+                    </div>
+                    </c:forEach>
+                    </div>
+                    </div>
         <!-- Favourite Places End -->
         <!-- Video Start Arera -->
         <div class="video-area video-bg pt-100 pb-100"  data-background="https://t1.daumcdn.net/cfile/tistory/252FA9345225669928">
@@ -164,14 +202,21 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
+                            <a href="../board/board_main.do">
                                 <div class="blog-img">
                                     <img src="https://pds.joins.com/news/component/htmlphoto_mmdata/201406/29/htm_2014062922222430103011.jpg" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   동대문</p>
+<<<<<<< HEAD
                                     <h3><a href="single-blog.html">동대문의 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
                                     <a href="../board/board_detail.do?no=27" class="more-btn">더보기 »</a>
+=======
+                                    <h3><a href="#">동대문에 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
+                                    <a href="#" class="more-btn">더보기 »</a>
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                 </div>
+                            </a>
                             </div>
                             <div class="blog-date text-center">
                                 <span>24</span>
@@ -182,14 +227,21 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
+                            <a href="../board/board_main.do">
                                 <div class="blog-img">
                                     <img src="https://youimg1.tripcdn.com/target/100v1f000001h1aeoCF7F_C_750_500.jpg?proc=source%2Ftrip" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   강남</p>
+<<<<<<< HEAD
                                     <h3><a href="single-blog.html">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
                                     <a href="../board/board_detail.do?no=28" class="more-btn">더보기 »</a>
+=======
+                                    <h3><a href="#">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
+                                    <a href="#" class="more-btn">더보기 »</a>
+>>>>>>> branch 'master' of https://github.com/chajaewon6/teamProject.git
                                 </div>
+                            </a>
                             </div>
                             <div class="blog-date text-center">
                                 <span>24</span>
