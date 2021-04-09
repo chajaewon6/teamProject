@@ -33,6 +33,9 @@
 	height:250px;
 	object-fit:cover;
 } 
+.hihihi{
+	height:50px;
+}
 </style>
 <script type="text/javascript" src="http://code.jquery.com/jquery.js"></script>
 <script type="text/javascript">
@@ -105,7 +108,7 @@ $(function(){
             <div class="container">
             <div class="row">
                     <div class="col-lg-12">
-                        <div class="section-tittle text-center">
+                        <div class="section-tittle text-center hihihi">
                             <span>내가 가고싶은 서울방방곡곡</span>
                             <h2>검색 목록</h2>
                         </div>
