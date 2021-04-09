@@ -18,6 +18,10 @@
 		font-size:18px;
 		font-weight:bold;
 		}
+		#title{
+        	
+        	text-shadow: 2px 2px 2px gray;
+        }
         </style>
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -36,7 +40,7 @@
                     <div class="row">
                         <div class="col-xl-12">
                             <div class="hero-cap text-center">
-                                <h2>지역별 여행지</h2>
+                                <h2 id="title">지역별 여행지</h2>
                             </div>
                         </div>
                     </div>

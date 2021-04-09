@@ -73,7 +73,7 @@ public class tripModel {
   {
      String no=request.getParameter("no");
      //System.out.println(no);
-     Cookie cookie=new Cookie("m"+no, no);// 문자열만 저장이 가능 
+     Cookie cookie=new Cookie("n"+no, no);// 문자열만 저장이 가능 
      cookie.setMaxAge(60*60);
      cookie.setPath("/");
      response.addCookie(cookie);
@@ -103,7 +103,7 @@ public class tripModel {
      {
         for(int i=cookies.length-1;i>=0;i--)
         {
-           if(cookies[i].getName().startsWith("m"))
+           if(cookies[i].getName().startsWith("n"))
            {
               cookies[i].setPath("/");
               //System.out.println(cookies[i].getName());
