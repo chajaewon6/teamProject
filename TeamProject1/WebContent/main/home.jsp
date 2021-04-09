@@ -156,14 +156,16 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
+                            <a href="../board/board_main.do">
                                 <div class="blog-img">
                                     <img src="https://pds.joins.com/news/component/htmlphoto_mmdata/201406/29/htm_2014062922222430103011.jpg" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   동대문</p>
-                                    <h3><a href="single-blog.html">동대문에 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
+                                    <h3><a href="#">동대문에 FEEL을 느껴봐!( ๑˃̶ ꇴ ˂̶)♪⁺</a></h3>
                                     <a href="#" class="more-btn">더보기 »</a>
                                 </div>
+                            </a>
                             </div>
                             <div class="blog-date text-center">
                                 <span>24</span>
@@ -174,14 +176,16 @@
                     <div class="col-xl-6 col-lg-6 col-md-6">
                         <div class="home-blog-single mb-30">
                             <div class="blog-img-cap">
+                            <a href="../board/board_main.do">
                                 <div class="blog-img">
                                     <img src="https://youimg1.tripcdn.com/target/100v1f000001h1aeoCF7F_C_750_500.jpg?proc=source%2Ftrip" alt="">
                                 </div>
                                 <div class="blog-cap">
                                     <p> |   강남</p>
-                                    <h3><a href="single-blog.html">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
+                                    <h3><a href="#">이것만 보면 나도 강남 마스터 (ง •̀ω•́)ง✧</a></h3>
                                     <a href="#" class="more-btn">더보기 »</a>
                                 </div>
+                            </a>
                             </div>
                             <div class="blog-date text-center">
                                 <span>24</span>
