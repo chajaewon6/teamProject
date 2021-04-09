@@ -17,7 +17,9 @@
         <meta name="description" content="">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link rel="manifest" href="site.webmanifest">
-		<link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico">
+		<!-- <link rel="shortcut icon" type="image/x-icon" href="../img/favicon.ico"> -->
+		<script src="https://kit.fontawesome.com/72d0971596.js" crossorigin="anonymous"></script>
+		<link href="//maxcdn.bootstrapcdn.com/font-awesome/4.1.0/css/font-awesome.min.css" rel="stylesheet" />
   
    </head>
 
@@ -71,11 +73,11 @@
                             <div class="place-cap">
                                 <div class="place-cap-top">
                                 <div class="#">
-                                    <span><i class="fas fa-star"></i>
+                                    <span><i class="far fa-grin-stars"></i>
                                     <span>${hvo.star }</span> 
                                     </span>
                                     </div>
-                                    <h3>${hvo.title }</h3>
+                                    <h4>${hvo.title }</h4>
                                     <p class="dolor">${fn:substring(hvo.grade,0,fn:indexOf(hvo.grade,"(")) } <span>/${hvo.price }</span></p>
                                     <!--  <h2>${fn:substring(fvo.address,0,fn:indexOf(fvo.address,"지"))}</h2> -->
                                 </div>

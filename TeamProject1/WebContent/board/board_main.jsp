@@ -69,10 +69,10 @@ button {
           			color:white;
           		}
           		
-          		/* .main_img{
-          			width:500px;
-          			height:400px;
-          		} */
+          		.main_img{
+          			width:400px;
+          			height:300px;
+          		}
           		:root {
   --color-dark:  #014b85;;
   --color-ocean:  #416dea;
